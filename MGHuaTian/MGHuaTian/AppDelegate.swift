@@ -4,7 +4,8 @@
 //
 //  Created by ming on 16/6/10.
 //  Copyright © 2016年 ming. All rights reserved.
-//
+
+// github: https://github.com/LYM-mg/MGHuaTian
 
 import UIKit
 import CoreData
@@ -16,9 +17,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // 设置全局的UINavigationBar属性
+        setUpNavigationBarAppearance()
+        
+        
+        // 设置window
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        // 根据版本号, 判断显示哪个控制器
+//        if isNewVersion() {
+//            window?.rootViewController = NewFeatureViewController()
+//        }else{
+//            window?.rootViewController = MGTabBarController()
+//        }
+        
+        window?.rootViewController = MGTabBarController()
+        
+        // 设置相关的appkey
+//        setAppKey()
+        
+        window?.makeKeyAndVisible()
+
+        
         return true
     }
+    
+    /// 设置全局的UINavigationBar属性
+    func setUpNavigationBarAppearance() {
+        let bar = UINavigationBar.appearance()
+        bar.tintColor = UIColor.blackColor()
+        bar.titleTextAttributes = [NSFontAttributeName : UIFont.systemFontOfSize(15), NSForegroundColorAttributeName : UIColor.blackColor()]
+    }
+    
+    // MARK: - 判断版本号
+    private let MGBundleShortVersionString = "MGBundleShortVersionString"
+    
+    private func isNewVersion() -> Bool
+    {
+        // 根据版本号来确定是否进入新特性界面
+        let currentVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+        let oldVersion = NSUserDefaults.standardUserDefaults().objectForKey(MGBundleShortVersionString) ?? ""
+        
+        // 如果当前的版本号和本地保存的版本比较是降序, 则需要显示新特性
+        if (currentVersion.compare(oldVersion as! String)) == .OrderedDescending{
+            // 保存当前的版本
+            NSUserDefaults.standardUserDefaults().setObject(currentVersion, forKey: MGBundleShortVersionString)
+            return true
+        }
+        return false
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
