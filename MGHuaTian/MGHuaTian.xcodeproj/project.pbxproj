@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3A303A3B1D0A3F6D0047BE42 /* MGNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A303A3A1D0A3F6D0047BE42 /* MGNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
+		3A303A3E1D0AB3ED0047BE42 /* MGLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A303A3D1D0AB3ED0047BE42 /* MGLoginController.swift */; settings = {ASSET_TAGS = (); }; };
+		3A303A431D0AB7490047BE42 /* MGHomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A303A411D0AB7490047BE42 /* MGHomeTableController.swift */; settings = {ASSET_TAGS = (); }; };
+		3A303A451D0AB7A50047BE42 /* MGHomeArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A303A441D0AB7A50047BE42 /* MGHomeArticleCell.swift */; settings = {ASSET_TAGS = (); }; };
+		3A303A471D0AB8550047BE42 /* MGBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A303A461D0AB8550047BE42 /* MGBlurView.swift */; settings = {ASSET_TAGS = (); }; };
+		3A303A491D0AB9840047BE42 /* MGTitleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A303A481D0AB9840047BE42 /* MGTitleBtn.swift */; settings = {ASSET_TAGS = (); }; };
+		3A303A4B1D0AB9B90047BE42 /* MGToolBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A303A4A1D0AB9B90047BE42 /* MGToolBottomView.swift */; settings = {ASSET_TAGS = (); }; };
 		3AFFF9C01D0AA8D200641EA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFF9BF1D0AA8D200641EA9 /* AppDelegate.swift */; };
 		3AFFF9C51D0AA8D200641EA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AFFF9C31D0AA8D200641EA9 /* Main.storyboard */; };
 		3AFFF9C81D0AA8D200641EA9 /* MGHuaTian.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFF9C61D0AA8D200641EA9 /* MGHuaTian.xcdatamodeld */; };
@@ -23,12 +29,18 @@
 		3AFFF9EE1D0AA9FE00641EA9 /* country.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AFFF9E51D0AA9FE00641EA9 /* country.plist */; settings = {ASSET_TAGS = (); }; };
 		3AFFF9F01D0AAC2100641EA9 /* MGTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFF9EF1D0AAC2100641EA9 /* MGTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
 		3AFFF9F21D0AAD1900641EA9 /* MGMallsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFF9F11D0AAD1900641EA9 /* MGMallsTableController.swift */; settings = {ASSET_TAGS = (); }; };
-		3AFFF9F41D0AAD3600641EA9 /* MGHomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFF9F31D0AAD3600641EA9 /* MGHomeTableController.swift */; settings = {ASSET_TAGS = (); }; };
 		3AFFF9F61D0AAD8B00641EA9 /* MGColumnistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFF9F51D0AAD8B00641EA9 /* MGColumnistViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		992731A486D2BD1134958EB2 /* Pods_MGHuaTian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42510CF9EE35906AF659010 /* Pods_MGHuaTian.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A303A3A1D0A3F6D0047BE42 /* MGNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGNavigationController.swift; sourceTree = "<group>"; };
+		3A303A3D1D0AB3ED0047BE42 /* MGLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGLoginController.swift; sourceTree = "<group>"; };
+		3A303A411D0AB7490047BE42 /* MGHomeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHomeTableController.swift; sourceTree = "<group>"; };
+		3A303A441D0AB7A50047BE42 /* MGHomeArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHomeArticleCell.swift; sourceTree = "<group>"; };
+		3A303A461D0AB8550047BE42 /* MGBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGBlurView.swift; sourceTree = "<group>"; };
+		3A303A481D0AB9840047BE42 /* MGTitleBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTitleBtn.swift; sourceTree = "<group>"; };
+		3A303A4A1D0AB9B90047BE42 /* MGToolBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGToolBottomView.swift; sourceTree = "<group>"; };
 		3AFFF9BC1D0AA8D200641EA9 /* MGHuaTian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGHuaTian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFFF9BF1D0AA8D200641EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AFFF9C41D0AA8D200641EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,8 +58,10 @@
 		3AFFF9E51D0AA9FE00641EA9 /* country.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = country.plist; sourceTree = "<group>"; };
 		3AFFF9EF1D0AAC2100641EA9 /* MGTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTabBarController.swift; sourceTree = "<group>"; };
 		3AFFF9F11D0AAD1900641EA9 /* MGMallsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGMallsTableController.swift; sourceTree = "<group>"; };
-		3AFFF9F31D0AAD3600641EA9 /* MGHomeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGHomeTableController.swift; sourceTree = "<group>"; };
 		3AFFF9F51D0AAD8B00641EA9 /* MGColumnistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGColumnistViewController.swift; sourceTree = "<group>"; };
+		AD3AE956C677608D21BF7195 /* Pods-MGHuaTian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGHuaTian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGHuaTian/Pods-MGHuaTian.debug.xcconfig"; sourceTree = "<group>"; };
+		B3C3FF330BA01DD375939E16 /* Pods-MGHuaTian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGHuaTian.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGHuaTian/Pods-MGHuaTian.release.xcconfig"; sourceTree = "<group>"; };
+		D42510CF9EE35906AF659010 /* Pods_MGHuaTian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGHuaTian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,17 +69,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				992731A486D2BD1134958EB2 /* Pods_MGHuaTian.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A303A3C1D0AB3B40047BE42 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3A303A3D1D0AB3ED0047BE42 /* MGLoginController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3A303A3F1D0AB7490047BE42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A303A441D0AB7A50047BE42 /* MGHomeArticleCell.swift */,
+				3A303A461D0AB8550047BE42 /* MGBlurView.swift */,
+				3A303A481D0AB9840047BE42 /* MGTitleBtn.swift */,
+				3A303A4A1D0AB9B90047BE42 /* MGToolBottomView.swift */,
+			);
+			name = View;
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3A303A401D0AB7490047BE42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3A303A411D0AB7490047BE42 /* MGHomeTableController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A303A421D0AB7490047BE42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3AFFF9B31D0AA8D100641EA9 = {
 			isa = PBXGroup;
 			children = (
 				3AFFF9BE1D0AA8D200641EA9 /* MGHuaTian */,
 				3AFFF9BD1D0AA8D200641EA9 /* Products */,
+				8D14C8040A938AB0DC45CAA9 /* Pods */,
+				73B3F05A11C3C27FC3374C5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,7 +160,9 @@
 		3AFFF9D51D0AA9FE00641EA9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				3AFFF9F31D0AAD3600641EA9 /* MGHomeTableController.swift */,
+				3A303A3F1D0AB7490047BE42 /* View */,
+				3A303A401D0AB7490047BE42 /* Controller */,
+				3A303A421D0AB7490047BE42 /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -140,6 +194,7 @@
 		3AFFF9D91D0AA9FE00641EA9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3A303A3C1D0AB3B40047BE42 /* Login */,
 				3AFFF9F51D0AAD8B00641EA9 /* MGColumnistViewController.swift */,
 			);
 			path = Profile;
@@ -191,6 +246,23 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		73B3F05A11C3C27FC3374C5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D42510CF9EE35906AF659010 /* Pods_MGHuaTian.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D14C8040A938AB0DC45CAA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD3AE956C677608D21BF7195 /* Pods-MGHuaTian.debug.xcconfig */,
+				B3C3FF330BA01DD375939E16 /* Pods-MGHuaTian.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,9 +270,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AFFF9D11D0AA8D200641EA9 /* Build configuration list for PBXNativeTarget "MGHuaTian" */;
 			buildPhases = (
+				40D29EB7CB05F388669012CB /* Check Pods Manifest.lock */,
 				3AFFF9B81D0AA8D200641EA9 /* Sources */,
 				3AFFF9B91D0AA8D200641EA9 /* Frameworks */,
 				3AFFF9BA1D0AA8D200641EA9 /* Resources */,
+				37FD56861A94F572FD5C7568 /* Embed Pods Frameworks */,
+				F9E109FA7292EDAADE8AF6ED /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,17 +341,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37FD56861A94F572FD5C7568 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGHuaTian/Pods-MGHuaTian-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40D29EB7CB05F388669012CB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F9E109FA7292EDAADE8AF6ED /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGHuaTian/Pods-MGHuaTian-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3AFFF9B81D0AA8D200641EA9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3AFFF9F21D0AAD1900641EA9 /* MGMallsTableController.swift in Sources */,
+				3A303A471D0AB8550047BE42 /* MGBlurView.swift in Sources */,
 				3AFFF9F61D0AAD8B00641EA9 /* MGColumnistViewController.swift in Sources */,
+				3A303A491D0AB9840047BE42 /* MGTitleBtn.swift in Sources */,
 				3AFFF9C81D0AA8D200641EA9 /* MGHuaTian.xcdatamodeld in Sources */,
+				3A303A451D0AB7A50047BE42 /* MGHomeArticleCell.swift in Sources */,
+				3A303A3E1D0AB3ED0047BE42 /* MGLoginController.swift in Sources */,
+				3A303A4B1D0AB9B90047BE42 /* MGToolBottomView.swift in Sources */,
 				3AFFF9C01D0AA8D200641EA9 /* AppDelegate.swift in Sources */,
 				3AFFF9F01D0AAC2100641EA9 /* MGTabBarController.swift in Sources */,
-				3AFFF9F41D0AAD3600641EA9 /* MGHomeTableController.swift in Sources */,
+				3A303A431D0AB7490047BE42 /* MGHomeTableController.swift in Sources */,
 				3A303A3B1D0A3F6D0047BE42 /* MGNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +514,7 @@
 		};
 		3AFFF9D21D0AA8D200641EA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD3AE956C677608D21BF7195 /* Pods-MGHuaTian.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MGHuaTian/Info.plist;
@@ -397,6 +526,7 @@
 		};
 		3AFFF9D31D0AA8D200641EA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3C3FF330BA01DD375939E16 /* Pods-MGHuaTian.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MGHuaTian/Info.plist;

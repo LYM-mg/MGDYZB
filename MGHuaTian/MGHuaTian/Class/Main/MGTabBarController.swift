@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MGTabBarController: UITabBarController,UITabBarControllerDelegate {
+class MGTabBarController: UITabBarController,UITabBarControllerDelegate,MGLoginControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,45 @@ class MGTabBarController: UITabBarController,UITabBarControllerDelegate {
         childController.tabBarItem.selectedImage = UIImage(named: "tb_\(childViewControllers.count - 1)" + "_selected")
         // 设置tabBarItem的tag, 方便判断点击
         childController.tabBarItem.tag = childViewControllers.count-1
+    }
+    
+    
+    
+    
+    // MARK: - UITabBarControllerDelegate
+    // 点击profile的时候.判断是否登录. 如果没有登录, 需要跳转到登录界面, 反之则跳转到个人界面
+    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+        
+        if tabBarController.childViewControllers.indexOf(viewController) == tabBarController.childViewControllers.count-1 {
+            // 判断是否登录
+//                let isLogin = LoginHelper.sharedInstance.isLogin()
+//                if !isLogin {
+//                    login()
+//                }
+//                return isLogin
+        }
+        return true
+    }
+    
+    // MARK : - LoginControllerDelegate
+    func loginControllerDidSuccess(loginViewController: MGLoginController) {
+        selectedIndex = childViewControllers.count-1
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - private method
+    /// 跳转到登录界面
+    private func login()
+    {
+        let loginVc = MGLoginController()
+        loginVc.delegate = self
+        let nav = MGNavigationController(rootViewController: loginVc)
+        /**** 设置navigationBar的背景色为透明start ***/
+        nav.navigationBar.setBackgroundImage(UIImage(),forBarMetrics: UIBarMetrics.Default)
+        nav.navigationBar.shadowImage = UIImage()
+        nav.navigationBar.translucent = true
+        /**** 设置navigationBar的背景色为透明end ***/
+        presentViewController(nav, animated: true, completion: nil)
     }
 
 }

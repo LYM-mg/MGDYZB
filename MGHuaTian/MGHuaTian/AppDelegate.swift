@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // 设置全局的UINavigationBar属性
+        // 1.设置全局的UINavigationBar属性
         setUpNavigationBarAppearance()
         
         
-        // 设置window
+        // 2.设置window
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         // 根据版本号, 判断显示哪个控制器
