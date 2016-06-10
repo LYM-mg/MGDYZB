@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3AFFF9C01D0AA8D200641EA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFF9BF1D0AA8D200641EA9 /* AppDelegate.swift */; };
+		3AFFF9C21D0AA8D200641EA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFF9C11D0AA8D200641EA9 /* ViewController.swift */; };
+		3AFFF9C51D0AA8D200641EA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AFFF9C31D0AA8D200641EA9 /* Main.storyboard */; };
+		3AFFF9C81D0AA8D200641EA9 /* MGHuaTian.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AFFF9C61D0AA8D200641EA9 /* MGHuaTian.xcdatamodeld */; };
+		3AFFF9CA1D0AA8D200641EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AFFF9C91D0AA8D200641EA9 /* Assets.xcassets */; };
+		3AFFF9CD1D0AA8D200641EA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AFFF9CB1D0AA8D200641EA9 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3AFFF9BC1D0AA8D200641EA9 /* MGHuaTian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGHuaTian.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AFFF9BF1D0AA8D200641EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3AFFF9C11D0AA8D200641EA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3AFFF9C41D0AA8D200641EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3AFFF9C71D0AA8D200641EA9 /* MGHuaTian.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MGHuaTian.xcdatamodel; sourceTree = "<group>"; };
+		3AFFF9C91D0AA8D200641EA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AFFF9CC1D0AA8D200641EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3AFFF9CE1D0AA8D200641EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AFFF9B91D0AA8D200641EA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AFFF9B31D0AA8D100641EA9 = {
+			isa = PBXGroup;
+			children = (
+				3AFFF9BE1D0AA8D200641EA9 /* MGHuaTian */,
+				3AFFF9BD1D0AA8D200641EA9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3AFFF9BD1D0AA8D200641EA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AFFF9BC1D0AA8D200641EA9 /* MGHuaTian.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AFFF9BE1D0AA8D200641EA9 /* MGHuaTian */ = {
+			isa = PBXGroup;
+			children = (
+				3AFFF9BF1D0AA8D200641EA9 /* AppDelegate.swift */,
+				3AFFF9C11D0AA8D200641EA9 /* ViewController.swift */,
+				3AFFF9C31D0AA8D200641EA9 /* Main.storyboard */,
+				3AFFF9C91D0AA8D200641EA9 /* Assets.xcassets */,
+				3AFFF9CB1D0AA8D200641EA9 /* LaunchScreen.storyboard */,
+				3AFFF9CE1D0AA8D200641EA9 /* Info.plist */,
+				3AFFF9C61D0AA8D200641EA9 /* MGHuaTian.xcdatamodeld */,
+			);
+			path = MGHuaTian;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AFFF9BB1D0AA8D200641EA9 /* MGHuaTian */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AFFF9D11D0AA8D200641EA9 /* Build configuration list for PBXNativeTarget "MGHuaTian" */;
+			buildPhases = (
+				3AFFF9B81D0AA8D200641EA9 /* Sources */,
+				3AFFF9B91D0AA8D200641EA9 /* Frameworks */,
+				3AFFF9BA1D0AA8D200641EA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGHuaTian;
+			productName = MGHuaTian;
+			productReference = 3AFFF9BC1D0AA8D200641EA9 /* MGHuaTian.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3AFFF9B41D0AA8D200641EA9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = ming;
+				TargetAttributes = {
+					3AFFF9BB1D0AA8D200641EA9 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = H54L47S422;
+					};
+				};
+			};
+			buildConfigurationList = 3AFFF9B71D0AA8D200641EA9 /* Build configuration list for PBXProject "MGHuaTian" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3AFFF9B31D0AA8D100641EA9;
+			productRefGroup = 3AFFF9BD1D0AA8D200641EA9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AFFF9BB1D0AA8D200641EA9 /* MGHuaTian */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AFFF9BA1D0AA8D200641EA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AFFF9CD1D0AA8D200641EA9 /* LaunchScreen.storyboard in Resources */,
+				3AFFF9CA1D0AA8D200641EA9 /* Assets.xcassets in Resources */,
+				3AFFF9C51D0AA8D200641EA9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AFFF9B81D0AA8D200641EA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AFFF9C81D0AA8D200641EA9 /* MGHuaTian.xcdatamodeld in Sources */,
+				3AFFF9C21D0AA8D200641EA9 /* ViewController.swift in Sources */,
+				3AFFF9C01D0AA8D200641EA9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3AFFF9C31D0AA8D200641EA9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AFFF9C41D0AA8D200641EA9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3AFFF9CB1D0AA8D200641EA9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AFFF9CC1D0AA8D200641EA9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3AFFF9CF1D0AA8D200641EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3AFFF9D01D0AA8D200641EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3AFFF9D21D0AA8D200641EA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MGHuaTian/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGHuaTian;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3AFFF9D31D0AA8D200641EA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MGHuaTian/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGHuaTian;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3AFFF9B71D0AA8D200641EA9 /* Build configuration list for PBXProject "MGHuaTian" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AFFF9CF1D0AA8D200641EA9 /* Debug */,
+				3AFFF9D01D0AA8D200641EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AFFF9D11D0AA8D200641EA9 /* Build configuration list for PBXNativeTarget "MGHuaTian" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AFFF9D21D0AA8D200641EA9 /* Debug */,
+				3AFFF9D31D0AA8D200641EA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3AFFF9C61D0AA8D200641EA9 /* MGHuaTian.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3AFFF9C71D0AA8D200641EA9 /* MGHuaTian.xcdatamodel */,
+			);
+			currentVersion = 3AFFF9C71D0AA8D200641EA9 /* MGHuaTian.xcdatamodel */;
+			path = MGHuaTian.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3AFFF9B41D0AA8D200641EA9 /* Project object */;
+}
