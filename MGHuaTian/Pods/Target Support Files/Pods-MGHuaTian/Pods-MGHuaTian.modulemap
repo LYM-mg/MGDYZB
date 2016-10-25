@@ -1,6 +1,0 @@
-framework module Pods_MGHuaTian {
-  umbrella header "Pods-MGHuaTian-umbrella.h"
-
-  export *
-  module * { export * }
-}
