@@ -29,17 +29,32 @@ class HomeViewController: UIViewController {
     // MARK: - Navigation
     
     // MARK: - lazy
-    private lazy var titlesView: TitlesView = {
+    private lazy var homeTitlesView: HomeTitlesView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH, width: kScreenW, height: kTitlesViewH)
         let titles = ["推荐", "游戏", "娱乐", "趣玩"]
-        let tsView = TitlesView(frame: titleFrame, titles: titles)
+        let tsView = HomeTitlesView(frame: titleFrame, titles: titles)
         return tsView
+    }()
+    private lazy var homeContentView: HomeContentView = { [weak self] in
+        // 1.确定内容的frame
+        let contentH = kScreenH - kStatusBarH - kNavigationBarH - kTitlesViewH - kTabbarH
+        let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH+kTitlesViewH, width: kScreenW, height: contentH)
+        
+        // 2.确定所有的子控制器
+        var childVcs = [UIViewController]()
+        childVcs.append(RecommendViewController())
+        childVcs.append(GameViewController())
+        childVcs.append(AmuseViewController())
+        childVcs.append(FunnyViewController())
+        let contentView = HomeContentView(frame: contentFrame, childVcs: childVcs, parentViewController: self)
+        return contentView
     }()
 }
 
 // MARK: - 初始化UI
 extension HomeViewController {
     private func setUpMainView() {
-        view.addSubview(titlesView)
+        view.addSubview(homeTitlesView)
+        view.addSubview(homeContentView)
     }
 }

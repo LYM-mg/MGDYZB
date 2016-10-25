@@ -1,5 +1,5 @@
 //
-//  TitlesView.swift
+//  HomeTitlesView.swift
 //  MGDYZB
 //
 //  Created by ming on 16/10/25.
@@ -12,18 +12,18 @@ private let kScrollLineH: CGFloat = 2
 
 // MARK:- 定义协议
 //@objc
-//protocol TitlesViewDelegate: NSObjectProtocol {
-//    optional func TitlesViewDelegate(t titlesView: TitlesView, selectedIndex: Int)
+//protocol HomeTitlesViewDelegate: NSObjectProtocol {
+//    optional func HomeTitlesViewDelegate(t HomeTitlesView: HomeTitlesView, selectedIndex: Int)
 //}
 
 
-class TitlesView: UIView {
+class HomeTitlesView: UIView {
     // MARK: - 属性
     var titles: [String]
     var titleLabels: [UILabel] = [UILabel]()
     private var currentIndex : Int = 0
-//    weak var deledate: TitlesViewDelegate?
-    var TitlesViewWhenTitleSelect : ((titlesView: TitlesView, selectedIndex: Int) -> ())?
+//    weak var deledate: HomeTitlesViewDelegate?
+    var HomeTitlesViewWhenTitleSelect : ((HomeTitlesView: HomeTitlesView, selectedIndex: Int) -> ())?
     
     // MARK: - lazy属性
     private lazy var scrollView: UIScrollView = {
@@ -54,7 +54,7 @@ class TitlesView: UIView {
 }
 
 // MARK: - 初始化UI
-extension TitlesView {
+extension HomeTitlesView {
     private func setUpUI() {
         // 1.添加UIScrollView
         addSubview(scrollView)
@@ -117,7 +117,7 @@ extension TitlesView {
 }
 
 // MARK:- 监听Label的点击
-extension TitlesView {
+extension HomeTitlesView {
     @objc func titleLabelClick(tap: UITapGestureRecognizer) {
         // 0.获取当前Label
         guard let currentLabel = tap.view as? UILabel else { return }
@@ -142,10 +142,10 @@ extension TitlesView {
         }
         
         // 6.回调
-        if (self.TitlesViewWhenTitleSelect != nil) {
-            self.TitlesViewWhenTitleSelect!(titlesView: self, selectedIndex: currentIndex)
+        if (self.HomeTitlesViewWhenTitleSelect != nil) {
+            self.HomeTitlesViewWhenTitleSelect!(HomeTitlesView: self, selectedIndex: currentIndex)
         }
-//        delegate?.TitlesView(self, selectedIndex: currentIndex)
+//        delegate?.HomeTitlesView(self, selectedIndex: currentIndex)
     }
 }
 
