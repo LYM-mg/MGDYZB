@@ -39,7 +39,7 @@ class HomeContentView: UIView {
 //        collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.scrollsToTop = false
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: ContentCellID)
+        collectionView.registerClass(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: ContentCellID)
         return collectionView
     }()
 
@@ -78,22 +78,22 @@ extension HomeContentView: UICollectionViewDataSource {
         return 1
     }
     
+    @available(iOS 6.0, *)
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return childVcs.count
     }
-//    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return childVcs.count
-//    }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell {
+    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+    @available(iOS 6.0, *)
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         // 1.创建Cell
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContentCellID, forIndexPath: indexPath)
-        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContentCellID, forIndexPath: indexPath) as UICollectionViewCell
+
         // 2.给Cell设置内容
         for view in cell.contentView.subviews {
             view.removeFromSuperview()
         }
-        
+
         let childVc = childVcs[(indexPath as NSIndexPath).item]
         childVc.view.frame = cell.contentView.bounds
         childVc.view.backgroundColor = UIColor.randomColor()
@@ -101,10 +101,32 @@ extension HomeContentView: UICollectionViewDataSource {
         
         return cell
     }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-    }
+
+//    
+//    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return childVcs.count
+//    }
+//    
+//    func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell {
+//        // 1.创建Cell
+//        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContentCellID, forIndexPath: indexPath) as UICollectionViewCell
+//        
+//        // 2.给Cell设置内容
+//        for view in cell.contentView.subviews {
+//            view.removeFromSuperview()
+//        }
+//        
+//        let childVc = childVcs[(indexPath as NSIndexPath).item]
+//        childVc.view.frame = cell.contentView.bounds
+//        childVc.view.backgroundColor = UIColor.randomColor()
+//        cell.contentView.addSubview(childVc.view)
+//        
+//        return cell
+//    }
+//    
+//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        
+//    }
 }
 
 // MARK:- 遵守UICollectionViewDelegate
