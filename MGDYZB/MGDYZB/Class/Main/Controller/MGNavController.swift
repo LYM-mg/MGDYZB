@@ -12,19 +12,18 @@ class MGNavController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        /*
         // 1.获取系统的Pop手势
         guard let systemGes = interactivePopGestureRecognizer else { return }
         
         // 2.获取target/action
         // 2.1.利用运行时机制查看所有的属性名称
-        /*
         var count : UInt32 = 0
         let ivars = class_copyIvarList(UIGestureRecognizer.self, &count)!
         for i in 0..<count {
-        let ivar = ivars[Int(i)]
-        let name = ivar_getName(ivar)
-        print(String(cString: name!))
+            let ivar = ivars[Int(i)]
+            let name = ivar_getName(ivar)
+            print(String(cString: name!))
         }
         */
 

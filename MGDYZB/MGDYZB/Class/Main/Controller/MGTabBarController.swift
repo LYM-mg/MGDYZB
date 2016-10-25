@@ -10,8 +10,11 @@ import UIKit
 
 class MGTabBarController: UITabBarController {
 
+    // MARK: - 生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tabBarAppear = UITabBarItem.appearance()
+        tabBarAppear.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.orangeColor()], forState: UIControlState.Selected)
         
         setUpAllChildViewControllers()
     }
@@ -21,7 +24,7 @@ class MGTabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Navigation
+    // MARK: - setUpAllChildViewControllers
     private func setUpAllChildViewControllers () {
         let normalImages = ["btn_home_normal","btn_live_normal","btn_column_normal","btn_user_normal"]
         let selectedImages = ["btn_home_selected","btn_live_selected","btn_column_selected","btn_user_selected"]
@@ -44,9 +47,10 @@ class MGTabBarController: UITabBarController {
     
     
     private func setUpNavRootViewCOntrollers(vc vc: UIViewController, title:String, imageName: String, selImage: String) {
-        vc.navigationItem.title = title
+        vc.title = title
+        vc.view.backgroundColor = UIColor.randomColor()
         vc.tabBarItem.image = UIImage(named: imageName)
-        vc.tabBarItem.selectedImage = UIImage(named: selImage)
+        vc.tabBarItem.selectedImage = UIImage(named: selImage)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         self.addChildViewController(MGNavController(rootViewController: vc))
     }

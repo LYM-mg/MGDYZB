@@ -12,10 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    private lazy var tabBarVC:MGTabBarController = MGTabBarController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        NSThread.sleepForTimeInterval(1.0) //延迟启动程序
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window!.rootViewController = tabBarVC;
+        window!.makeKeyAndVisible()
+        
         return true
     }
 

@@ -12,6 +12,7 @@
 		3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779DC1DBF7ED100C79CE6 /* MGTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
 		3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779DE1DBF7EF100C79CE6 /* MGNavController.swift */; settings = {ASSET_TAGS = (); }; };
 		3A9779EC1DBF802E00C79CE6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779EB1DBF802E00C79CE6 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3A9779EF1DBF85D300C79CE6 /* ColorExtesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779EE1DBF85D300C79CE6 /* ColorExtesion.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3A9779DC1DBF7ED100C79CE6 /* MGTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTabBarController.swift; sourceTree = "<group>"; };
 		3A9779DE1DBF7EF100C79CE6 /* MGNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGNavController.swift; sourceTree = "<group>"; };
 		3A9779EB1DBF802E00C79CE6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3A9779EE1DBF85D300C79CE6 /* ColorExtesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtesion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 		3A9779DB1DBF7EA200C79CE6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3A9779ED1DBF857700C79CE6 /* Category */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -288,6 +291,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		3A9779ED1DBF857700C79CE6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779EE1DBF85D300C79CE6 /* ColorExtesion.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -357,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A9779BA1DBF7C3F00C79CE6 /* AppDelegate.swift in Sources */,
+				3A9779EF1DBF85D300C79CE6 /* ColorExtesion.swift in Sources */,
 				3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */,
 				3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */,
 				3A9779EC1DBF802E00C79CE6 /* HomeViewController.swift in Sources */,
@@ -451,7 +463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -464,7 +476,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
