@@ -189,3 +189,16 @@ extension HomeContentView : UICollectionViewDelegate {
     }
 }
 
+// MARK:- 对外暴露的方法
+extension HomeContentView {
+    func setCurrentIndex(currentIndex : Int) {
+        
+        // 1.记录需要进制执行代理方法
+        isForbidScrollDelegate = true
+        
+        // 2.滚动正确的位置
+        let offsetX = CGFloat(currentIndex) * collectionView.frame.width
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
+    }
+}
+

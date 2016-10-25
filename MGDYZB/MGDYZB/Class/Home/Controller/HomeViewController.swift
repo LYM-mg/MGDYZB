@@ -33,6 +33,7 @@ class HomeViewController: UIViewController {
         let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH, width: kScreenW, height: kTitlesViewH)
         let titles = ["推荐", "游戏", "娱乐", "趣玩"]
         let tsView = HomeTitlesView(frame: titleFrame, titles: titles)
+        tsView.deledate = self
         return tsView
     }()
     private lazy var homeContentView: HomeContentView = { [weak self] in
@@ -47,6 +48,7 @@ class HomeViewController: UIViewController {
         childVcs.append(AmuseViewController())
         childVcs.append(FunnyViewController())
         let contentView = HomeContentView(frame: contentFrame, childVcs: childVcs, parentViewController: self)
+        contentView.delegate = self
         return contentView
     }()
 }
@@ -58,3 +60,19 @@ extension HomeViewController {
         view.addSubview(homeContentView)
     }
 }
+
+// MARK:- 遵守PageTitleViewDelegate协议
+extension HomeViewController : HomeTitlesViewDelegate {
+    func HomeTitlesViewDidSetlected(homeTitlesView: HomeTitlesView, selectedIndex: Int) {
+        homeContentView.setCurrentIndex(selectedIndex)
+    }
+}
+
+
+// MARK:- 遵守PageContentViewDelegate协议
+extension HomeViewController : HomeContentViewDelegate {
+    func HomeContentViewDidScroll(contentView: HomeContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        homeTitlesView.setTitleWithProgress(progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    }
+}
+

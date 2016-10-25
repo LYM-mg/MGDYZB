@@ -11,10 +11,10 @@ import UIKit
 private let kScrollLineH: CGFloat = 2
 
 // MARK:- 定义协议
-//@objc
-//protocol HomeTitlesViewDelegate: NSObjectProtocol {
-//    optional func HomeTitlesViewDelegate(t HomeTitlesView: HomeTitlesView, selectedIndex: Int)
-//}
+@objc
+protocol HomeTitlesViewDelegate: NSObjectProtocol {
+    optional func HomeTitlesViewDidSetlected(homeTitlesView: HomeTitlesView, selectedIndex: Int)
+}
 
 
 class HomeTitlesView: UIView {
@@ -22,7 +22,7 @@ class HomeTitlesView: UIView {
     var titles: [String]
     var titleLabels: [UILabel] = [UILabel]()
     private var currentIndex : Int = 0
-//    weak var deledate: HomeTitlesViewDelegate?
+    weak var deledate: HomeTitlesViewDelegate?
     var HomeTitlesViewWhenTitleSelect : ((HomeTitlesView: HomeTitlesView, selectedIndex: Int) -> ())?
     
     // MARK: - lazy属性
@@ -142,10 +142,38 @@ extension HomeTitlesView {
         }
         
         // 6.回调
-        if (self.HomeTitlesViewWhenTitleSelect != nil) {
-            self.HomeTitlesViewWhenTitleSelect!(HomeTitlesView: self, selectedIndex: currentIndex)
-        }
-//        delegate?.HomeTitlesView(self, selectedIndex: currentIndex)
+//        if (self.HomeTitlesViewWhenTitleSelect != nil) {
+//            self.HomeTitlesViewWhenTitleSelect!(HomeTitlesView: self, selectedIndex: currentIndex)
+//        }
+        deledate?.HomeTitlesViewDidSetlected!(self, selectedIndex: currentIndex)
     }
 }
+
+// MARK:- 对外暴露的方法
+extension HomeTitlesView {
+    func setTitleWithProgress(progress : CGFloat, sourceIndex : Int, targetIndex : Int) {
+        // 1.取出sourceLabel/targetLabel
+        let sourceLabel = titleLabels[sourceIndex]
+        let targetLabel = titleLabels[targetIndex]
+        
+        // 2.处理滑块的逻辑
+        let moveTotalX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
+        let moveX = moveTotalX * progress
+        scrollLine.frame.origin.x = sourceLabel.frame.origin.x + moveX
+        
+        // 3.颜色的渐变(复杂)
+        // 3.1.取出变化的范围
+//        let colorDelta = (kSelectColor.0 - kNormalColor.0, kSelectColor.1 - kNormalColor.1, kSelectColor.2 - kNormalColor.2)
+//        
+//        // 3.2.变化sourceLabel
+//        sourceLabel.textColor = UIColor(r: kSelectColor.0 - colorDelta.0 * progress, g: kSelectColor.1 - colorDelta.1 * progress, b: kSelectColor.2 - colorDelta.2 * progress)
+//        
+//        // 3.2.变化targetLabel
+//        targetLabel.textColor = UIColor(r: kNormalColor.0 + colorDelta.0 * progress, g: kNormalColor.1 + colorDelta.1 * progress, b: kNormalColor.2 + colorDelta.2 * progress)
+        
+        // 4.记录最新的index
+        currentIndex = targetIndex
+    }
+}
+
 
