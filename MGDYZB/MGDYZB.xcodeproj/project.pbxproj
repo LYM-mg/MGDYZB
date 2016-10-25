@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3A9779BA1DBF7C3F00C79CE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779B91DBF7C3F00C79CE6 /* AppDelegate.swift */; };
 		3A9779C11DBF7C4000C79CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9779C01DBF7C4000C79CE6 /* Assets.xcassets */; };
+		3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779DC1DBF7ED100C79CE6 /* MGTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
+		3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779DE1DBF7EF100C79CE6 /* MGNavController.swift */; settings = {ASSET_TAGS = (); }; };
+		3A9779EC1DBF802E00C79CE6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779EB1DBF802E00C79CE6 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +19,9 @@
 		3A9779B91DBF7C3F00C79CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A9779C01DBF7C4000C79CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A9779C51DBF7C4000C79CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A9779DC1DBF7ED100C79CE6 /* MGTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTabBarController.swift; sourceTree = "<group>"; };
+		3A9779DE1DBF7EF100C79CE6 /* MGNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGNavController.swift; sourceTree = "<group>"; };
+		3A9779EB1DBF802E00C79CE6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,10 +55,237 @@
 			isa = PBXGroup;
 			children = (
 				3A9779B91DBF7C3F00C79CE6 /* AppDelegate.swift */,
+				3A9779CB1DBF7EA200C79CE6 /* Class */,
 				3A9779C01DBF7C4000C79CE6 /* Assets.xcassets */,
 				3A9779C51DBF7C4000C79CE6 /* Info.plist */,
 			);
 			path = MGDYZB;
+			sourceTree = "<group>";
+		};
+		3A9779CB1DBF7EA200C79CE6 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779D11DBF7EA200C79CE6 /* Main */,
+				3A9779D61DBF7EA200C79CE6 /* Room */,
+				3A9779CC1DBF7EA200C79CE6 /* Home */,
+				3A9779E01DBF7FC300C79CE6 /* Follow */,
+				3A9779E51DBF7FC300C79CE6 /* Live */,
+				3A9779EA1DBF7FC300C79CE6 /* Profile */,
+				3A9779DB1DBF7EA200C79CE6 /* Tools */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		3A9779CC1DBF7EA200C79CE6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779CD1DBF7EA200C79CE6 /* Controller */,
+				3A9779CE1DBF7EA200C79CE6 /* Model */,
+				3A9779CF1DBF7EA200C79CE6 /* View */,
+				3A9779D01DBF7EA200C79CE6 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3A9779CD1DBF7EA200C79CE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779EB1DBF802E00C79CE6 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A9779CE1DBF7EA200C79CE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A9779CF1DBF7EA200C79CE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A9779D01DBF7EA200C79CE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3A9779D11DBF7EA200C79CE6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779D21DBF7EA200C79CE6 /* Controller */,
+				3A9779D31DBF7EA200C79CE6 /* Model */,
+				3A9779D41DBF7EA200C79CE6 /* View */,
+				3A9779D51DBF7EA200C79CE6 /* ViewModel */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3A9779D21DBF7EA200C79CE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779DC1DBF7ED100C79CE6 /* MGTabBarController.swift */,
+				3A9779DE1DBF7EF100C79CE6 /* MGNavController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A9779D31DBF7EA200C79CE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A9779D41DBF7EA200C79CE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A9779D51DBF7EA200C79CE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3A9779D61DBF7EA200C79CE6 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779D71DBF7EA200C79CE6 /* Controller */,
+				3A9779D81DBF7EA200C79CE6 /* Model */,
+				3A9779D91DBF7EA200C79CE6 /* View */,
+				3A9779DA1DBF7EA200C79CE6 /* ViewModel */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		3A9779D71DBF7EA200C79CE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A9779D81DBF7EA200C79CE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A9779D91DBF7EA200C79CE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A9779DA1DBF7EA200C79CE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3A9779DB1DBF7EA200C79CE6 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		3A9779E01DBF7FC300C79CE6 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779E11DBF7FC300C79CE6 /* Controller */,
+				3A9779E21DBF7FC300C79CE6 /* Model */,
+				3A9779E31DBF7FC300C79CE6 /* View */,
+				3A9779E41DBF7FC300C79CE6 /* ViewModel */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		3A9779E11DBF7FC300C79CE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A9779E21DBF7FC300C79CE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A9779E31DBF7FC300C79CE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A9779E41DBF7FC300C79CE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3A9779E51DBF7FC300C79CE6 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779E61DBF7FC300C79CE6 /* Controller */,
+				3A9779E71DBF7FC300C79CE6 /* Model */,
+				3A9779E81DBF7FC300C79CE6 /* View */,
+				3A9779E91DBF7FC300C79CE6 /* ViewModel */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		3A9779E61DBF7FC300C79CE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A9779E71DBF7FC300C79CE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A9779E81DBF7FC300C79CE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A9779E91DBF7FC300C79CE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3A9779EA1DBF7FC300C79CE6 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +357,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A9779BA1DBF7C3F00C79CE6 /* AppDelegate.swift in Sources */,
+				3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */,
+				3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */,
+				3A9779EC1DBF802E00C79CE6 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
