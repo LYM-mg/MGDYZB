@@ -34,6 +34,28 @@ extension UIColor {
         let b = CGFloat(randomInt(0, 255)) / 255.0
         return UIColor(red: r, green: g, blue: b, alpha: 1)
     }
+    
+    static func RGBColor(red red:CGFloat,green:CGFloat,blue:CGFloat) -> UIColor {
+        let r = (red) / 255.0
+        let g = (green) / 255.0
+        let b = (blue) / 255.0
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
+    
+    static func KNormalColorForPageTitle() -> UIColor {
+        let r = CGFloat(85) / 255.0
+        let g = CGFloat(85) / 255.0
+        let b = CGFloat(85) / 255.0
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
+    
+    static func KSelectedColorForPageTitle() -> UIColor {
+        let r = CGFloat(255) / 255.0
+        let g = CGFloat(128) / 255.0
+        let b = CGFloat(0) / 255.0
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
+
 }
 
 

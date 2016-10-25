@@ -13,6 +13,8 @@
 		3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779DE1DBF7EF100C79CE6 /* MGNavController.swift */; settings = {ASSET_TAGS = (); }; };
 		3A9779EC1DBF802E00C79CE6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779EB1DBF802E00C79CE6 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3A9779EF1DBF85D300C79CE6 /* ColorExtesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779EE1DBF85D300C79CE6 /* ColorExtesion.swift */; settings = {ASSET_TAGS = (); }; };
+		3A9779F51DBF904B00C79CE6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779F41DBF904B00C79CE6 /* Common.swift */; settings = {ASSET_TAGS = (); }; };
+		3A9779F71DBF9F2E00C79CE6 /* TitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779F61DBF9F2E00C79CE6 /* TitlesView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3A9779DE1DBF7EF100C79CE6 /* MGNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGNavController.swift; sourceTree = "<group>"; };
 		3A9779EB1DBF802E00C79CE6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3A9779EE1DBF85D300C79CE6 /* ColorExtesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtesion.swift; sourceTree = "<group>"; };
+		3A9779F41DBF904B00C79CE6 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = Tools/Common.swift; sourceTree = "<group>"; };
+		3A9779F61DBF9F2E00C79CE6 /* TitlesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitlesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 				3A9779E51DBF7FC300C79CE6 /* Live */,
 				3A9779EA1DBF7FC300C79CE6 /* Profile */,
 				3A9779DB1DBF7EA200C79CE6 /* Tools */,
+				3A9779F41DBF904B00C79CE6 /* Common.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 		3A9779CF1DBF7EA200C79CE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A9779F61DBF9F2E00C79CE6 /* TitlesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -367,6 +373,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A9779F51DBF904B00C79CE6 /* Common.swift in Sources */,
+				3A9779F71DBF9F2E00C79CE6 /* TitlesView.swift in Sources */,
 				3A9779BA1DBF7C3F00C79CE6 /* AppDelegate.swift in Sources */,
 				3A9779EF1DBF85D300C79CE6 /* ColorExtesion.swift in Sources */,
 				3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */,

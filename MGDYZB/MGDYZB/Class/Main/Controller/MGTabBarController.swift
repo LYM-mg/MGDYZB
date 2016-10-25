@@ -48,7 +48,7 @@ class MGTabBarController: UITabBarController {
     
     private func setUpNavRootViewCOntrollers(vc vc: UIViewController, title:String, imageName: String, selImage: String) {
         vc.title = title
-        vc.view.backgroundColor = UIColor.randomColor()
+//        vc.view.backgroundColor = UIColor.randomColor()
         vc.tabBarItem.image = UIImage(named: imageName)
         vc.tabBarItem.selectedImage = UIImage(named: selImage)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
