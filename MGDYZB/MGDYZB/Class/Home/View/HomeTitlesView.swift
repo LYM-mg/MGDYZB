@@ -9,6 +9,8 @@
 import UIKit
 
 private let kScrollLineH: CGFloat = 2
+private let kNormalColor : (CGFloat, CGFloat, CGFloat) = (85, 85, 85)
+private let kSelectColor : (CGFloat, CGFloat, CGFloat) = (255, 128, 0)
 
 // MARK:- 定义协议
 @objc
@@ -149,7 +151,7 @@ extension HomeTitlesView {
     }
 }
 
-// MARK:- 对外暴露的方法
+// MARK:- 对外暴露的接口方法
 extension HomeTitlesView {
     func setTitleWithProgress(progress : CGFloat, sourceIndex : Int, targetIndex : Int) {
         // 1.取出sourceLabel/targetLabel
@@ -163,13 +165,13 @@ extension HomeTitlesView {
         
         // 3.颜色的渐变(复杂)
         // 3.1.取出变化的范围
-//        let colorDelta = (kSelectColor.0 - kNormalColor.0, kSelectColor.1 - kNormalColor.1, kSelectColor.2 - kNormalColor.2)
-//        
-//        // 3.2.变化sourceLabel
-//        sourceLabel.textColor = UIColor(r: kSelectColor.0 - colorDelta.0 * progress, g: kSelectColor.1 - colorDelta.1 * progress, b: kSelectColor.2 - colorDelta.2 * progress)
-//        
-//        // 3.2.变化targetLabel
-//        targetLabel.textColor = UIColor(r: kNormalColor.0 + colorDelta.0 * progress, g: kNormalColor.1 + colorDelta.1 * progress, b: kNormalColor.2 + colorDelta.2 * progress)
+        let colorDelta = (kSelectColor.0 - kNormalColor.0, kSelectColor.1 - kNormalColor.1, kSelectColor.2 - kNormalColor.2)
+        
+        // 3.2.变化sourceLabel
+        sourceLabel.textColor = UIColor(r: CGFloat(kSelectColor.0 - colorDelta.0 * progress), g: CGFloat(kSelectColor.1 - colorDelta.1 * progress), b: CGFloat(kSelectColor.2 - colorDelta.2 * progress))
+        
+        // 3.2.变化targetLabel
+        targetLabel.textColor = UIColor(r: kNormalColor.0 + colorDelta.0 * progress, g: kNormalColor.1 + colorDelta.1 * progress, b: kNormalColor.2 + colorDelta.2 * progress)
         
         // 4.记录最新的index
         currentIndex = targetIndex
