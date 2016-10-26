@@ -26,7 +26,9 @@ class MGNavController: UINavigationController {
             print(String(cString: name!))
         }
         */
-
+        // 0.设置导航栏的颜色
+        setUpNavAppearance ()
+        
         // 1.创建Pan手势
         let target = navigationController?.interactivePopGestureRecognizer?.delegate
         let pan = UIPanGestureRecognizer(target: target, action: "handleNavigationTransition:")
@@ -78,3 +80,19 @@ extension MGNavController : UIGestureRecognizerDelegate{
         return true
     }
 }
+
+
+extension MGNavController  {
+    private func setUpNavAppearance () {
+        let navBar = UINavigationBar.appearance()
+        if(Double(UIDevice.currentDevice().systemVersion)) > 8.0 {
+            navBar.translucent = true
+        } else {
+            self.navigationBar.translucent  = true
+        }
+        navBar.barTintColor = UIColor.orangeColor()
+        navBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
+        navBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(),NSFontAttributeName:UIFont.boldSystemFontOfSize(18)]
+    }
+}
+

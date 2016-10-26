@@ -15,7 +15,6 @@ class BaseViewModel {
 extension BaseViewModel {
     func loadAnchorData(isGroup isGroupData : Bool, urlString : String, parameters : [String : AnyObject]? = nil, finishedCallback: () -> ()) {
         NetworkTools.requestData(.get, urlString: urlString, parameters: parameters) { (result) -> () in
-            print("dada + \(result)")
             // 1.对界面进行处理
             guard let resultDict = result as? [String : AnyObject] else { return }
             guard let dataArray = resultDict["data"] as? [[String : AnyObject]] else { return }

@@ -8,7 +8,8 @@
 
 import UIKit
 
-
+private let kCycleViewH = kScreenW * 3 / 8          /** 轮播器的高度 */
+private let kGameViewH : CGFloat = 90               /** 游戏View的高度 */
 private let kItemMargin : CGFloat = 10              /** item之间的间距 */
 private let kHeaderViewH : CGFloat = 50             /** item之间的间距 */
 let kNormalItemW = (kScreenW - 3 * kItemMargin) / 2 /** item的宽度 */
@@ -21,10 +22,21 @@ private let kHeaderViewID = "kHeaderViewID"                 /** 每一组头部�
 
 class RecommendViewController: UIViewController {
 
-    
+    // MARK:- ViewModel
     private lazy var recommendVM : RecommendViewModel = RecommendViewModel()
     
     // MARK:- 懒加载属性
+    private lazy var cycleView : RecommendCycleView = {
+        let cycleView = RecommendCycleView(frame: CGRectMake(0, -(kCycleViewH + kGameViewH), kScreenW, kCycleViewH))
+        return cycleView
+    }()
+    private lazy var gameView : RecommendGameView = {
+        let gameView = RecommendGameView()
+        gameView.frame = CGRect(x: 0, y: -kGameViewH, width: kScreenW, height: kGameViewH)
+        gameView.backgroundColor = UIColor.redColor()
+        return gameView
+    }()
+
     private lazy var collectionView : UICollectionView = {[weak self] in
         // 1.创建layout
         let layout = UICollectionViewFlowLayout()
@@ -51,7 +63,9 @@ class RecommendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
         setUpUI()
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +77,9 @@ class RecommendViewController: UIViewController {
 extension RecommendViewController {
     private func setUpUI()  {
         view.addSubview(collectionView)
-        loadData()
+        collectionView.addSubview(cycleView)
+        collectionView.addSubview(gameView)
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -81,6 +97,23 @@ extension RecommendViewController {
             // 2.1.移除前两组数据
             groups.removeFirst()
             groups.removeFirst()
+            
+            // 2.2.添加更多组
+            let moreGroup = AnchorGroup()
+            moreGroup.icon_url = "home_more_btn"
+            moreGroup.tag_name = "更多"
+            groups.append(moreGroup)
+            
+            self.gameView.groups = groups
+            
+            // 3.数据请求完成
+//            self.loadDataFinished()
+
+        }
+        
+        // 2.请求轮播数据
+        recommendVM.requestCycleData {
+            self.cycleView.cycleModels = self.recommendVM.cycleModels
         }
     }
 }
@@ -117,7 +150,6 @@ extension RecommendViewController: UICollectionViewDataSource {
     }
 }
 
-
 // MARK: - UICollectionViewDelegate
 extension RecommendViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -129,13 +161,16 @@ extension RecommendViewController: UICollectionViewDelegate {
         
         return headerView
     }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        var itemSize = CGSizeZero
+        if indexPath.section == 1 {
+            itemSize = CGSizeMake(kNormalItemW, kPrettyItemH)
+        } else  {
+            itemSize = CGSizeMake(kNormalItemW, kNormalItemH)
+        }
+        return itemSize
+    }
 }
 
-func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: NSIndexPath) -> CGSize {
-    if indexPath.section == 1 {
-        return CGSize(width: kNormalItemW, height: kPrettyItemH)
-    }
-    
-    return CGSize(width: kNormalItemW, height: kNormalItemH)
-}
 

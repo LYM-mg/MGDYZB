@@ -46,5 +46,7 @@ class CollectionPrettyCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        iconImageView.layer.cornerRadius = 5
+        iconImageView.clipsToBounds = true
     }
 }
