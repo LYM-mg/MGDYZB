@@ -21,6 +21,7 @@
 		3A0367A61DC0793D00F02FBA /* CollectionPrettyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0367A41DC0793D00F02FBA /* CollectionPrettyCell.xib */; settings = {ASSET_TAGS = (); }; };
 		3A0BAADB1DC057D000FF1C53 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BAAD91DC057D000FF1C53 /* CollectionHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
 		3A0BAADC1DC057D000FF1C53 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0BAADA1DC057D000FF1C53 /* CollectionHeaderView.xib */; settings = {ASSET_TAGS = (); }; };
+		3A122BC71DC0B90F00285A40 /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A122BC61DC0B90F00285A40 /* UIBarButtonItem-Extension.swift */; settings = {ASSET_TAGS = (); }; };
 		3A294EFB1DC0986E000EE406 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A294EF81DC0986E000EE406 /* placeholder.png */; settings = {ASSET_TAGS = (); }; };
 		3A294EFC1DC0986E000EE406 /* XRCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A294EFA1DC0986E000EE406 /* XRCarouselView.m */; settings = {ASSET_TAGS = (); }; };
 		3A294EFE1DC09964000EE406 /* RecommendCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A294EFD1DC09964000EE406 /* RecommendCycleView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -58,6 +59,7 @@
 		3A0367A41DC0793D00F02FBA /* CollectionPrettyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionPrettyCell.xib; sourceTree = "<group>"; };
 		3A0BAAD91DC057D000FF1C53 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		3A0BAADA1DC057D000FF1C53 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
+		3A122BC61DC0B90F00285A40 /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		3A294EF51DC097A4000EE406 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		3A294EF81DC0986E000EE406 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		3A294EF91DC0986E000EE406 /* XRCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRCarouselView.h; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				3A9779EE1DBF85D300C79CE6 /* ColorExtesion.swift */,
+				3A122BC61DC0B90F00285A40 /* UIBarButtonItem-Extension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				3A294F151DC0A08F000EE406 /* CycleModel.swift in Sources */,
 				3A9779F51DBF904B00C79CE6 /* Common.swift in Sources */,
 				3A9779F71DBF9F2E00C79CE6 /* HomeTitlesView.swift in Sources */,
+				3A122BC71DC0B90F00285A40 /* UIBarButtonItem-Extension.swift in Sources */,
 				3A0367A51DC0793D00F02FBA /* CollectionPrettyCell.swift in Sources */,
 				3A294EFC1DC0986E000EE406 /* XRCarouselView.m in Sources */,
 				3A9779FB1DBFA45200C79CE6 /* RecommendViewController.swift in Sources */,

@@ -4,13 +4,19 @@
 //
 //  Created by ming on 16/10/25.
 //  Copyright © 2016年 ming. All rights reserved.
+
+//  简书：http://www.jianshu.com/users/57b58a39b70e/latest_articles
+//  github:  https://github.com/LYM-mg
 //
+
 
 import UIKit
 
 private let kTitlesViewH : CGFloat = 40
 
 class HomeViewController: UIViewController {
+    
+    var isFirst: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +30,55 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // 第一次启动
+        if (isFirst == false) {
+             self.navigationController!.navigationBar.hidden = true
+            let window = UIApplication.sharedApplication().keyWindow
+            // 添加启动页的图片
+            let welcomeImage = UIImageView(frame: window!.bounds)
+            welcomeImage.image = getWelcomeImage()
+            window!.addSubview(welcomeImage)
+            window!.bringSubviewToFront(welcomeImage) // 把背景图放在最上层
+            welcomeImage.alpha = 0.99 //这里alpha的值和下面alpha的值不能设置为相同的，否则动画相当于瞬间执行完，启动页之后动画瞬间消失。这里alpha设为0.99，动画就不会有一闪而过的效果，而是一种类似于静态背景的效果。设为0，动画就相当于是淡入的效果了。
+            
+            // UIViewAnimationOptionCurveEaseOut
+            UIView.animateKeyframesWithDuration(2.5, delay: 0 , options: .CalculationModeCubic, animations: { () -> Void in
+                welcomeImage.layer.transform = CATransform3DMakeScale(1.5, 1.5, 1.5)
+                //        welcomeImage.transform = CGAffineTransformMakeScale(1.3, 1.3)
+                welcomeImage.alpha = 0.01
+            }, completion: { (finished) -> Void in
+                UIView.animateWithDuration(1.0, animations: { () -> Void in
+                    self.navigationController!.navigationBar.hidden = false
+                    welcomeImage.removeFromSuperview()
+                })
+            })
+            isFirst = true
+        }
+    }
 
+    /**
+    *  获取启动页的图片
+    */
+    func getWelcomeImage() -> UIImage {
+        let viewSize = UIApplication.sharedApplication().keyWindow!.bounds.size
+        // 竖屏 UIInterfaceOrientationPortrait
+        let viewOrientation = "Portrait"
+        var launchImageName = ""
+        
+//        print(NSBundle.mainBundle().infoDictionary)
+        let info = NSBundle.mainBundle().infoDictionary
+        let imagesDict = info!["UILaunchImages"] as! [[String: AnyObject]]
+        for dict in imagesDict {
+            let imageSize = CGSizeFromString(dict["UILaunchImageSize"] as! String)
+            if CGSizeEqualToSize(imageSize, viewSize) && viewOrientation == dict["UILaunchImageOrientation"] as! String {
+                launchImageName = dict["UILaunchImageName"] as! String
+            }
+        }
+        return UIImage(named: launchImageName)!
+    }
     
     // MARK: - lazy
     private lazy var homeTitlesView: HomeTitlesView = { [weak self] in
@@ -54,8 +108,20 @@ class HomeViewController: UIViewController {
 // MARK: - 初始化UI
 extension HomeViewController {
     private func setUpMainView() {
+        setUpNavgationBar()
         view.addSubview(homeTitlesView)
         view.addSubview(homeContentView)
+    }
+    private func setUpNavgationBar() {
+        // 1.设置左侧的Item
+        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "logo")
+        
+        // 2.设置右侧的Item
+        let size = CGSize(width: 40, height: 40)
+        let historyItem = UIBarButtonItem(imageName: "image_my_history", highImageName: "Image_my_history_click", size: size)
+        let searchItem = UIBarButtonItem(imageName: "btn_search", highImageName: "btn_search_clicked", size: size)
+        let qrcodeItem = UIBarButtonItem(imageName: "Image_scan", highImageName: "Image_scan_click", size: size)
+        navigationItem.rightBarButtonItems = [historyItem, searchItem, qrcodeItem]
     }
 }
 
