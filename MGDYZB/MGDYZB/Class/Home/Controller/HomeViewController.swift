@@ -23,10 +23,8 @@ class HomeViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Navigation
     
     // MARK: - lazy
     private lazy var homeTitlesView: HomeTitlesView = { [weak self] in

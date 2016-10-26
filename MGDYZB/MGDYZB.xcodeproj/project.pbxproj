@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0BAADB1DC057D000FF1C53 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BAAD91DC057D000FF1C53 /* CollectionHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
+		3A0BAADC1DC057D000FF1C53 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0BAADA1DC057D000FF1C53 /* CollectionHeaderView.xib */; settings = {ASSET_TAGS = (); }; };
 		3A9779BA1DBF7C3F00C79CE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779B91DBF7C3F00C79CE6 /* AppDelegate.swift */; };
 		3A9779C11DBF7C4000C79CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9779C01DBF7C4000C79CE6 /* Assets.xcassets */; };
 		3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9779DC1DBF7ED100C79CE6 /* MGTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0BAAD91DC057D000FF1C53 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
+		3A0BAADA1DC057D000FF1C53 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
 		3A9779B61DBF7C3F00C79CE6 /* MGDYZB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDYZB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9779B91DBF7C3F00C79CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A9779C01DBF7C4000C79CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 			children = (
 				3A9779F61DBF9F2E00C79CE6 /* HomeTitlesView.swift */,
 				3A9779F81DBFA35B00C79CE6 /* HomeContentView.swift */,
+				3A0BAAD91DC057D000FF1C53 /* CollectionHeaderView.swift */,
+				3A0BAADA1DC057D000FF1C53 /* CollectionHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A9779C11DBF7C4000C79CE6 /* Assets.xcassets in Resources */,
+				3A0BAADC1DC057D000FF1C53 /* CollectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +402,7 @@
 				3A9779BA1DBF7C3F00C79CE6 /* AppDelegate.swift in Sources */,
 				3A9779EF1DBF85D300C79CE6 /* ColorExtesion.swift in Sources */,
 				3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */,
+				3A0BAADB1DC057D000FF1C53 /* CollectionHeaderView.swift in Sources */,
 				3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */,
 				3A9779EC1DBF802E00C79CE6 /* HomeViewController.swift in Sources */,
 				3A9779FF1DBFA47300C79CE6 /* AmuseViewController.swift in Sources */,
@@ -532,6 +540,7 @@
 				3A9779CA1DBF7C4000C79CE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

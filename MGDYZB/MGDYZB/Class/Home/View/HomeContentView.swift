@@ -36,9 +36,9 @@ class HomeContentView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.pagingEnabled = true
         collectionView.bounces = false
-//        collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.scrollsToTop = false
+        collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.registerClass(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: ContentCellID)
         return collectionView
     }()
