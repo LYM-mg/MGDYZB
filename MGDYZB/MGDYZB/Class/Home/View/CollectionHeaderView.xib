@@ -17,6 +17,12 @@
                         <constraint firstAttribute="width" constant="18" id="1e2-uN-aau"/>
                         <constraint firstAttribute="height" constant="18" id="NdY-vX-6X9"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="1e2-uN-aau"/>
+                            <exclude reference="NdY-vX-6X9"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yby-ZE-fDN">
                     <rect key="frame" x="268" y="10" width="44" height="30"/>

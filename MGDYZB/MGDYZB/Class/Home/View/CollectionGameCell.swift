@@ -13,6 +13,7 @@ class CollectionGameCell: UICollectionViewCell {
     // MARK: 控件属性
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var lineView: UIView!
     
     
     // MARK: 定义模型属性
@@ -37,6 +38,7 @@ class CollectionGameCell: UICollectionViewCell {
         iconImageView.layer.cornerRadius = self.iconImageView.frame.size.height*0.5
         iconImageView.clipsToBounds = true
         frame = CGRectMake(0, 0, 80, 90)
+        lineView.hidden = true
 //        backgroundColor = UIColor.orangeColor()
     }
 

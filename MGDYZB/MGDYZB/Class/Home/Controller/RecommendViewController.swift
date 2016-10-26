@@ -9,18 +9,18 @@
 import UIKit
 
 private let kCycleViewH = kScreenW * 3 / 8          /** 轮播器的高度 */
-private let kGameViewH : CGFloat = 90               /** 游戏View的高度 */
-private let kItemMargin : CGFloat = 10              /** item之间的间距 */
-private let kHeaderViewH : CGFloat = 50             /** item之间的间距 */
+let kGameViewH : CGFloat = 90               /** 游戏View的高度 */
+let kItemMargin : CGFloat = 10              /** item之间的间距 */
+let kHeaderViewH : CGFloat = 50             /** item之间的间距 */
 let kNormalItemW = (kScreenW - 3 * kItemMargin) / 2 /** item的宽度 */
 let kNormalItemH = kNormalItemW * 3 / 4             /** 普通item的高度 */
 let kPrettyItemH = kNormalItemW * 4 / 3             /** 颜值的item的高度 */
 
-private let kNormalCellID = "kNormalCellID"         /** 普通item的循环利用标识符 */
+let kNormalCellID = "kNormalCellID"         /** 普通item的循环利用标识符 */
 let kPrettyCellID = "kPrettyCellID"         /** 颜值的item的循环利用标识符 */
-private let kHeaderViewID = "kHeaderViewID"                 /** 每一组头部（section）的循环利用标识符 */
+let kHeaderViewID = "kHeaderViewID"                 /** 每一组头部（section）的循环利用标识符 */
 
-class RecommendViewController: UIViewController {
+class RecommendViewController: BaseViewController {
 
     // MARK:- ViewModel
     private lazy var recommendVM : RecommendViewModel = RecommendViewModel()
@@ -75,11 +75,16 @@ class RecommendViewController: UIViewController {
 
 // MARK: - 初始化UI
 extension RecommendViewController {
-    private func setUpUI()  {
+     override func setUpUI()  {
+        // 0.给ContentView进行赋值
+        contentView = collectionView
+        
         view.addSubview(collectionView)
         collectionView.addSubview(cycleView)
         collectionView.addSubview(gameView)
         collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
+        
+        super.setUpUI()
     }
 }
 
@@ -107,8 +112,7 @@ extension RecommendViewController {
             self.gameView.groups = groups
             
             // 3.数据请求完成
-//            self.loadDataFinished()
-
+            self.loadDataFinished()
         }
         
         // 2.请求轮播数据

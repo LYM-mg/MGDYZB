@@ -58,7 +58,6 @@ class HomeViewController: UIViewController {
             isFirst = true
         }
     }
-
     /**
     *  获取启动页的图片
     */
@@ -125,7 +124,7 @@ extension HomeViewController {
     }
 }
 
-// MARK:- 遵守PageTitleViewDelegate协议
+// MARK:- 遵守 HomeTitlesViewDelegate 协议
 extension HomeViewController : HomeTitlesViewDelegate {
     func HomeTitlesViewDidSetlected(homeTitlesView: HomeTitlesView, selectedIndex: Int) {
         homeContentView.setCurrentIndex(selectedIndex)
@@ -133,7 +132,7 @@ extension HomeViewController : HomeTitlesViewDelegate {
 }
 
 
-// MARK:- 遵守PageContentViewDelegate协议
+// MARK:- 遵守 HomeContentViewDelegate 协议
 extension HomeViewController : HomeContentViewDelegate {
     func HomeContentViewDidScroll(contentView: HomeContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
         homeTitlesView.setTitleWithProgress(progress, sourceIndex: sourceIndex, targetIndex: targetIndex)

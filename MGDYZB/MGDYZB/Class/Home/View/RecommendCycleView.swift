@@ -14,7 +14,7 @@ class RecommendCycleView: UIView {
     private lazy var carouselView: XRCarouselView = { [weak self] in
         let carouselView = XRCarouselView()
         carouselView.time = 2.0
-        carouselView.pagePosition = PositionBottomRight
+        carouselView.pagePosition = PositionBottomCenter
         carouselView.setPageImage(UIImage(named: "other"), andCurrentImage: UIImage(named: "current"))
         carouselView.delegate = self
         return carouselView
