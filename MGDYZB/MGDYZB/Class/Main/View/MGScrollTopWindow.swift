@@ -29,7 +29,7 @@ class MGScrollTopWindow: NSObject{
     
     override init() {
         super.init()
-        statusBarView().addSubview(MGScrollTopWindow.scrollToWindow)
+        statusBarView().insertSubview(MGScrollTopWindow.scrollToWindow, atIndex: 1)
         MGScrollTopWindow.scrollToWindow.addTarget(self, action: Selector("scrollTopWindowclick:"), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
@@ -47,7 +47,11 @@ extension MGScrollTopWindow {
     func statusBarView() -> UIView {
         var statusBar: UIView?
 //        let data = NSData(bytes: [0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x42, 0x61, 0x72], length: 9)
-//        let key = NSString(data: data, encoding: NSASCIIStringEncoding) as! String
+//        let key2 = NSString(data: data, encoding: NSASCIIStringEncoding) as! String
+//        kCFStringEncodingGB_18030_2000
+//        let enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingASCII)
+//        let key3 = NSString(data: data, encoding: enc) as! String
+//        let key4 = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
         let key = "statusBar"
         let object = UIApplication.sharedApplication()
         
