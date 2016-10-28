@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import pop
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private lazy var bgView: UIView = {
+        let bgView = UIView(frame: UIScreen.mainScreen().bounds)
+        bgView.backgroundColor = UIColor.blackColor()
+        return bgView
+    }()
+    private lazy var scrollView: GuardScrollView = {
+        let scrollView = GuardScrollView(frame: UIScreen.mainScreen().bounds)
+        scrollView.backgroundColor = UIColor.whiteColor()
+        return scrollView
+    }()
     private lazy var tabBarVC:MGTabBarController = MGTabBarController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -21,6 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = tabBarVC;
         window!.makeKeyAndVisible()
         
+        
+        let isfirst = SaveTools.KGetLocalData("isFirstOpen") as? String
+        
+        if (isfirst?.isEmpty == nil) {
+            UIApplication.sharedApplication().statusBarHidden = true
+            showAppGurdView()
+        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("EnterHomeView:"), name: KEnterHomeViewNotification, object: nil)
+        // 点击状态栏滚动到顶部
         dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
             MGScrollTopWindow.shareInstance.show()
         }
@@ -48,7 +68,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+extension AppDelegate {
+    private func showAppGurdView() {
+        self.window!.addSubview(bgView)
+        bgView.addSubview(scrollView)
+    }
+    
+    func EnterHomeView(noti: NSNotification) {
+        
+        let dict = noti.userInfo as! [String : AnyObject]
+        let btn = dict["sender"]
+        SaveTools.kSaveLocal("false", key: "isFirstOpen")
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(UInt64(3.5) * NSEC_PER_SEC)), dispatch_get_main_queue(), { () -> Void in
+            let showMenuAnimation = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
+            showMenuAnimation.toValue = (0.0)
+            showMenuAnimation.springBounciness = 10.0
+            btn!.pop_addAnimation(showMenuAnimation,forKey:"hideBtn")
+            UIView.animateWithDuration(1.5, animations: { () -> Void in
+                self.bgView.layer.transform = CATransform3DMakeScale(2, 2, 2)
+                self.bgView.alpha = 0
+            },completion: { (completion) -> Void in
+                UIApplication.sharedApplication().statusBarHidden = false
+                self.bgView.removeFromSuperview()
+                    
+            })
+        })
+    }
+    
 }
 

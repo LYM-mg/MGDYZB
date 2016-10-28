@@ -15,3 +15,7 @@ let kTabbarH : CGFloat = 44
 let kScreenSize = UIScreen.mainScreen().bounds.size
 let kScreenW = UIScreen.mainScreen().bounds.width
 let kScreenH = UIScreen.mainScreen().bounds.height
+
+let KScrollTopWindowNotification = "KScrollTopWindowNotification"
+let KEnterHomeViewNotification = "KEnterHomeViewNotification"
+

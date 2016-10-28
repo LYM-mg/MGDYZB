@@ -92,12 +92,13 @@ extension MGScrollTopWindow {
         guard view.isKindOfClass(UIScrollView.classForCoder()) else {
             return
         }
-        print("The class is: \(view.classForCoder)")
+        
         let scrollView = view as! UIScrollView
         let isShowInWindow = scrollView.intersectsOtherView(nil) && scrollView.window == UIApplication.sharedApplication().keyWindow 
         if isShowInWindow {
             // 是ScrollView滚动到最前面（包括内边距）
-            scrollView.scrollRectToVisible(CGRectMake(scrollView.frame.origin.x, 0, 1, 1), animated:true)
+            NSNotificationCenter.defaultCenter().postNotificationName(KScrollTopWindowNotification, object: nil, userInfo: nil)
+            scrollView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated:true)
         }
         
         /*

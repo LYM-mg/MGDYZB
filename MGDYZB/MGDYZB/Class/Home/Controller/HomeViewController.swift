@@ -25,6 +25,15 @@ class HomeViewController: UIViewController {
 
         // 1.创建UI
         setUpMainView()
+        
+        
+        // 2.监听点击状态栏回到顶部通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: ("scrollToTop"), name: KScrollTopWindowNotification, object: nil)
+    }
+    
+    @objc func scrollToTop() {
+//        HomeContentViewDidScroll(self.homeContentView, progress: 0, sourceIndex: 2, targetIndex: 0)
+//        HomeTitlesViewDidSetlected(self.homeTitlesView, selectedIndex: 0)
     }
 
     override func didReceiveMemoryWarning() {

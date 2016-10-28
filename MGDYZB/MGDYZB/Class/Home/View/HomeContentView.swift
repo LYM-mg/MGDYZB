@@ -68,7 +68,6 @@ extension HomeContentView {
         // 2.添加UICollectionView,用于在Cell中存放控制器的View
         addSubview(collectionView)
         collectionView.frame = bounds
-        collectionView.dataSource = self
     }
 }
 
@@ -101,32 +100,6 @@ extension HomeContentView: UICollectionViewDataSource {
         
         return cell
     }
-
-//    
-//    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return childVcs.count
-//    }
-//    
-//    func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell {
-//        // 1.创建Cell
-//        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContentCellID, forIndexPath: indexPath) as UICollectionViewCell
-//        
-//        // 2.给Cell设置内容
-//        for view in cell.contentView.subviews {
-//            view.removeFromSuperview()
-//        }
-//        
-//        let childVc = childVcs[(indexPath as NSIndexPath).item]
-//        childVc.view.frame = cell.contentView.bounds
-//        childVc.view.backgroundColor = UIColor.randomColor()
-//        cell.contentView.addSubview(childVc.view)
-//        
-//        return cell
-//    }
-//    
-//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        
-//    }
 }
 
 // MARK:- 遵守UICollectionViewDelegate
