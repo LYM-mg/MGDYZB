@@ -86,8 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MGDYZB/Alamofire.framework"
   install_framework "Pods-MGDYZB/Kingfisher.framework"
+  install_framework "Pods-MGDYZB/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MGDYZB/Alamofire.framework"
   install_framework "Pods-MGDYZB/Kingfisher.framework"
+  install_framework "Pods-MGDYZB/pop.framework"
 fi

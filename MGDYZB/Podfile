@@ -5,8 +5,8 @@ use_frameworks!
 
 target 'MGDYZB' do
 
-	pod 'Alamofire', '~> 2.0.0'
+	pod 'Alamofire', '~> 2.0.2'
    	pod 'Kingfisher', '~> 1.9.0'
-#    pod 'pop', '~> 1.0.9'
+    pod 'pop', '~> 1.0.9'
 
 end

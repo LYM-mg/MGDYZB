@@ -8,6 +8,8 @@
 
 import UIKit
 import pop
+import Pods_MGDYZB
+import pop
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
