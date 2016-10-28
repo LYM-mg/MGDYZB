@@ -29,7 +29,7 @@ class FunnyViewController: BaseViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        collectionView.contentInset = UIEdgeInsets(top: kTopMargin, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: kTopMargin, left: kItemMargin, bottom: kItemMargin, right: kItemMargin)
         
         // 3.注册
         collectionView.registerNib(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)

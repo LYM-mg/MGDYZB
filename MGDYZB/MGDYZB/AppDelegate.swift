@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = tabBarVC;
         window!.makeKeyAndVisible()
         
+        dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
+            MGScrollTopWindow.shareInstance.show()
+        }
         return true
     }
 

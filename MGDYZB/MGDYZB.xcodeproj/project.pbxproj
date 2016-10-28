@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		135A8CD267E89AA418B8C6F3 /* Pods_MGDYZB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0757F38DC503B365D02D7F /* Pods_MGDYZB.framework */; };
+		3A01C1BA1DC31948000C05DD /* UIView+LYMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A01C1B81DC31948000C05DD /* UIView+LYMExtension.m */; settings = {ASSET_TAGS = (); }; };
 		3A0367921DC066FC00F02FBA /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0367911DC066FC00F02FBA /* NetworkTools.swift */; settings = {ASSET_TAGS = (); }; };
 		3A0367941DC06D8B00F02FBA /* AnchorGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0367931DC06D8B00F02FBA /* AnchorGroup.swift */; settings = {ASSET_TAGS = (); }; };
 		3A0367961DC06DC100F02FBA /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0367951DC06DC100F02FBA /* AnchorModel.swift */; settings = {ASSET_TAGS = (); }; };
@@ -27,6 +28,7 @@
 		3A122BCD1DC0EF8A00285A40 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A122BCC1DC0EF8A00285A40 /* BaseViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3A122BCF1DC0F71F00285A40 /* FunnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A122BCE1DC0F71F00285A40 /* FunnyViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		3A122BD11DC0FA8A00285A40 /* AmuseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A122BD01DC0FA8A00285A40 /* AmuseViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		3A28E4691DC21224002B7C42 /* MGScrollTopWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28E4681DC21224002B7C42 /* MGScrollTopWindow.swift */; settings = {ASSET_TAGS = (); }; };
 		3A294EFB1DC0986E000EE406 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A294EF81DC0986E000EE406 /* placeholder.png */; settings = {ASSET_TAGS = (); }; };
 		3A294EFC1DC0986E000EE406 /* XRCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A294EFA1DC0986E000EE406 /* XRCarouselView.m */; settings = {ASSET_TAGS = (); }; };
 		3A294EFE1DC09964000EE406 /* RecommendCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A294EFD1DC09964000EE406 /* RecommendCycleView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		33AABCF1C5958A4B82B9FAEE /* Pods-MGDYZB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGDYZB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGDYZB/Pods-MGDYZB.debug.xcconfig"; sourceTree = "<group>"; };
+		3A01C1B71DC31948000C05DD /* UIView+LYMExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LYMExtension.h"; sourceTree = "<group>"; };
+		3A01C1B81DC31948000C05DD /* UIView+LYMExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYMExtension.m"; sourceTree = "<group>"; };
 		3A0367911DC066FC00F02FBA /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		3A0367931DC06D8B00F02FBA /* AnchorGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorGroup.swift; sourceTree = "<group>"; };
 		3A0367951DC06DC100F02FBA /* AnchorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 		3A122BCC1DC0EF8A00285A40 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3A122BCE1DC0F71F00285A40 /* FunnyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnyViewModel.swift; sourceTree = "<group>"; };
 		3A122BD01DC0FA8A00285A40 /* AmuseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmuseViewModel.swift; sourceTree = "<group>"; };
+		3A28E4681DC21224002B7C42 /* MGScrollTopWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGScrollTopWindow.swift; sourceTree = "<group>"; };
 		3A294EF51DC097A4000EE406 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		3A294EF81DC0986E000EE406 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		3A294EF91DC0986E000EE406 /* XRCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRCarouselView.h; sourceTree = "<group>"; };
@@ -110,9 +115,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A01C1B41DC31948000C05DD /* ScrollToTop */ = {
+			isa = PBXGroup;
+			children = (
+				3A01C1B71DC31948000C05DD /* UIView+LYMExtension.h */,
+				3A01C1B81DC31948000C05DD /* UIView+LYMExtension.m */,
+			);
+			path = ScrollToTop;
+			sourceTree = "<group>";
+		};
 		3A294EF61DC0986E000EE406 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				3A01C1B41DC31948000C05DD /* ScrollToTop */,
 				3A294EF71DC0986E000EE406 /* XRCarouselView */,
 			);
 			path = Other;
@@ -271,6 +286,7 @@
 		3A9779D41DBF7EA200C79CE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A28E4681DC21224002B7C42 /* MGScrollTopWindow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -476,6 +492,7 @@
 				TargetAttributes = {
 					3A9779B51DBF7C3F00C79CE6 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = H54L47S422;
 					};
 				};
 			};
@@ -566,10 +583,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A28E4691DC21224002B7C42 /* MGScrollTopWindow.swift in Sources */,
 				3A0367921DC066FC00F02FBA /* NetworkTools.swift in Sources */,
 				3A0367A11DC0792400F02FBA /* CollectionNormalCell.swift in Sources */,
 				3A9779FD1DBFA46300C79CE6 /* GameViewController.swift in Sources */,
 				3A122BC91DC0EAA100285A40 /* GameViewModel.swift in Sources */,
+				3A01C1BA1DC31948000C05DD /* UIView+LYMExtension.m in Sources */,
 				3A122BCD1DC0EF8A00285A40 /* BaseViewController.swift in Sources */,
 				3A294F151DC0A08F000EE406 /* CycleModel.swift in Sources */,
 				3A122BCB1DC0EB0400285A40 /* GameModel.swift in Sources */,
@@ -692,11 +711,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;
 			};
 			name = Debug;
@@ -707,11 +729,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;
 			};
 			name = Release;

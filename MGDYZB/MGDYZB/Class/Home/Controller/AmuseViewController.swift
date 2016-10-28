@@ -20,7 +20,7 @@ class AmuseViewController: BaseViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = kItemMargin
         layout.headerReferenceSize = CGSizeMake(kScreenW, kHeaderViewH)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: kItemMargin, bottom: 0, right: kItemMargin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: kItemMargin, bottom: kItemMargin, right: kItemMargin)
         
         // 2.创建UICollectionView
         let collectionView = UICollectionView(frame: self!.view.bounds, collectionViewLayout: layout)

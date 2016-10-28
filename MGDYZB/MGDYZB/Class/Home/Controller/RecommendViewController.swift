@@ -91,7 +91,12 @@ extension RecommendViewController {
 // MARK: - 发送网络请求 loadData
 extension RecommendViewController {
     private func loadData() {
-        // 1.请求推荐数据
+        // 1.请求轮播数据
+        recommendVM.requestCycleData {
+            self.cycleView.cycleModels = self.recommendVM.cycleModels
+        }
+        
+        // 2.请求推荐数据
         recommendVM.requestData { () -> () in
             // 1.展示推荐数据
             self.collectionView.reloadData()
@@ -113,11 +118,6 @@ extension RecommendViewController {
             
             // 3.数据请求完成
             self.loadDataFinished()
-        }
-        
-        // 2.请求轮播数据
-        recommendVM.requestCycleData {
-            self.cycleView.cycleModels = self.recommendVM.cycleModels
         }
     }
 }
