@@ -25,6 +25,9 @@
 		3A0367A61DC0793D00F02FBA /* CollectionPrettyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0367A41DC0793D00F02FBA /* CollectionPrettyCell.xib */; settings = {ASSET_TAGS = (); }; };
 		3A0BAADB1DC057D000FF1C53 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BAAD91DC057D000FF1C53 /* CollectionHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
 		3A0BAADC1DC057D000FF1C53 /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0BAADA1DC057D000FF1C53 /* CollectionHeaderView.xib */; settings = {ASSET_TAGS = (); }; };
+		3A10C3AB1DC619B300880E66 /* AllListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10C3AA1DC619B300880E66 /* AllListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		3A10C3AD1DC61A5600880E66 /* AllListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10C3AC1DC61A5600880E66 /* AllListViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		3A10C3B11DC6203A00880E66 /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10C3B01DC6203A00880E66 /* RoomModel.swift */; settings = {ASSET_TAGS = (); }; };
 		3A122BC71DC0B90F00285A40 /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A122BC61DC0B90F00285A40 /* UIBarButtonItem-Extension.swift */; settings = {ASSET_TAGS = (); }; };
 		3A122BC91DC0EAA100285A40 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A122BC81DC0EAA000285A40 /* GameViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		3A122BCB1DC0EB0400285A40 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A122BCA1DC0EB0400285A40 /* GameModel.swift */; settings = {ASSET_TAGS = (); }; };
@@ -87,6 +90,9 @@
 		3A0367A41DC0793D00F02FBA /* CollectionPrettyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionPrettyCell.xib; sourceTree = "<group>"; };
 		3A0BAAD91DC057D000FF1C53 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		3A0BAADA1DC057D000FF1C53 /* CollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
+		3A10C3AA1DC619B300880E66 /* AllListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllListViewController.swift; sourceTree = "<group>"; };
+		3A10C3AC1DC61A5600880E66 /* AllListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllListViewModel.swift; sourceTree = "<group>"; };
+		3A10C3B01DC6203A00880E66 /* RoomModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
 		3A122BC61DC0B90F00285A40 /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		3A122BC81DC0EAA000285A40 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		3A122BCA1DC0EB0400285A40 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
@@ -507,6 +513,7 @@
 		3A9779E61DBF7FC300C79CE6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3A10C3AA1DC619B300880E66 /* AllListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -514,6 +521,7 @@
 		3A9779E71DBF7FC300C79CE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3A10C3B01DC6203A00880E66 /* RoomModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -528,6 +536,7 @@
 		3A9779E91DBF7FC300C79CE6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3A10C3AC1DC61A5600880E66 /* AllListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -722,6 +731,7 @@
 				3A0367A11DC0792400F02FBA /* CollectionNormalCell.swift in Sources */,
 				3A9779FD1DBFA46300C79CE6 /* GameViewController.swift in Sources */,
 				3A3619291DC5CFDE000BE00A /* SettingViewController.swift in Sources */,
+				3A10C3AB1DC619B300880E66 /* AllListViewController.swift in Sources */,
 				3A122BC91DC0EAA100285A40 /* GameViewModel.swift in Sources */,
 				3A01C1BA1DC31948000C05DD /* UIView+LYMExtension.m in Sources */,
 				3A122BCD1DC0EF8A00285A40 /* BaseViewController.swift in Sources */,
@@ -735,6 +745,7 @@
 				3A36195B1DC5D72D000BE00A /* SwitchItem.swift in Sources */,
 				3AE6283D1DC5F7F300835B36 /* NSObject+FileManager.swift in Sources */,
 				3A9779F71DBF9F2E00C79CE6 /* HomeTitlesView.swift in Sources */,
+				3A10C3B11DC6203A00880E66 /* RoomModel.swift in Sources */,
 				3A978A631DC5BF3B00E5C64A /* ProfileModel.swift in Sources */,
 				3A122BC71DC0B90F00285A40 /* UIBarButtonItem-Extension.swift in Sources */,
 				3A0367A51DC0793D00F02FBA /* CollectionPrettyCell.swift in Sources */,
@@ -757,6 +768,7 @@
 				3A0367961DC06DC100F02FBA /* AnchorModel.swift in Sources */,
 				3A0BAADB1DC057D000FF1C53 /* CollectionHeaderView.swift in Sources */,
 				3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */,
+				3A10C3AD1DC61A5600880E66 /* AllListViewModel.swift in Sources */,
 				3AA37C7F1DC341AA00F6DCAF /* MMMaterialDesignSpinner.m in Sources */,
 				3A294F171DC0A580000EE406 /* RecommendGameView.swift in Sources */,
 				3A3619591DC5D704000BE00A /* ArrowItem.swift in Sources */,

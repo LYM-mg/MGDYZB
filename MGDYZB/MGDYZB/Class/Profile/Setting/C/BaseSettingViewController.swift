@@ -102,17 +102,17 @@ class BaseSettingViewController: UITableViewController {
             // 箭头类型,才需要跳转
             let arrowItem = item as! ArrowItem
             
-            if (arrowItem.descVcClass == nil) {return}
+            if (arrowItem.descVcClass == nil)  { return }
             
-            if arrowItem.descVcClass!.isSubclassOfClass(UILabel.classForCoder()) {
+            if arrowItem.descVcClass!.isSubclassOfClass(UIWebView.classForCoder()) {
                 // 创建跳转控制器
 //                HomeWebVC *vc = [[HomeWebVC alloc] initWithNavigationTitle:"联系客服" withUrlStr:"http://cs.9158.com/client_phone.aspx?type=button&uid=all&all&siteid=117&style=default&cid=&name=&sex=0&Random=1"];
-//                vc.view.backgroundColor = MGRandomRGBColor;
-//                [self.navigationController pushViewController:vc animated:YES];
-            }else {  //  guard let vc = NSClassFromString(arrowItem.descVcClass)() as? UIViewController else { return }
+//                vc.view.backgroundColor = UIColor.randomColor()
+//                self.navigationController?.pushViewController(vc, animated: true)
+            }else {
                 // 创建跳转控制器
                 let vc = (arrowItem.descVcClass as! UIViewController.Type).init()
-                vc.view.backgroundColor = UIColor.randomColor();
+                vc.view.backgroundColor = UIColor.randomColor()
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

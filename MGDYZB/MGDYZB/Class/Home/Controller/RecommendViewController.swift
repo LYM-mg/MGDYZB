@@ -64,7 +64,7 @@ class RecommendViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
-        setUpUI()
+//        setUpUI()
         loadData()
     }
 
