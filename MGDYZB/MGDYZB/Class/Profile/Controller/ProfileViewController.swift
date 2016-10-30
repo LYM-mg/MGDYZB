@@ -23,11 +23,11 @@ class ProfileViewController: BaseViewController {
         let tbView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Grouped)
         tbView.dataSource = self
         tbView.delegate = self
-        tbView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: KProfileViewCellID)
+//        tbView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: KProfileViewCellID)
         return tbView
     }()
     
-    private lazy var dataArr = [ProfileModel]()
+    private lazy var dataArr = [ProfileModel]()   // 数据源
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,18 +96,22 @@ extension ProfileViewController: UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(KProfileViewCellID)!
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        var cell = tableView.dequeueReusableCellWithIdentifier(KProfileViewCellID)
+        if cell == nil {
+             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: KProfileViewCellID)
+             cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        }
+        
         let model = dataArr[indexPath.row]
-        cell.textLabel?.text = model.title
-        cell.imageView?.image = UIImage(named: model.icon)
+        cell!.textLabel?.text = model.title
+        cell!.imageView?.image = UIImage(named: model.icon)
         if model.detailTitle == "" {
             
         }else {
-            cell.detailTextLabel?.text = model.detailTitle
+            cell!.detailTextLabel?.text = model.detailTitle
         }
         
-        return cell
+        return cell!
     }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
@@ -126,20 +130,21 @@ extension ProfileViewController: UITableViewDelegate {
 // MARK: - UITableViewDelegate
 extension ProfileViewController: ProfileHeaderViewDelegate {
     func ProfileHeaderViewSettingBtnClicked() {
-        
+        let settingVC = SettingViewController(style: UITableViewStyle.Grouped)
+        self.showViewController(settingVC, sender: nil)
     }
     
     func ProfileHeaderViewLetterBtnClicked() {
-        
+        self.showViewController(UIViewController(), sender: nil)
     }
     
     func ProfileHeaderViewLoginBtnClicked() {
-        
+        self.showViewController(UIViewController(), sender: nil)
     
     }
     
     func ProfileHeaderViewRegistBtnClicked() {
-        
+        self.showViewController(UIViewController(), sender: nil)
     }
     
     func ProfileHeaderViewMenuDidClicked(view: UIView) {

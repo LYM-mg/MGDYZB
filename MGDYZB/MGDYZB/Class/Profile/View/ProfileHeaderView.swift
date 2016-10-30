@@ -28,6 +28,14 @@ class ProfileHeaderView: UIView {
     class func profileHeaderView() -> ProfileHeaderView {
         return NSBundle.mainBundle().loadNibNamed("ProfileHeaderView", owner: nil, options: nil).first as! ProfileHeaderView
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        loginBtn.layer.borderWidth = 1
+        loginBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        registBtn.layer.borderWidth = 1
+        registBtn.layer.borderColor = UIColor.whiteColor().CGColor
+    }
 }
 
 // MARK: - action
