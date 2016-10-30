@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (2.0.2)
+  - JHPullToRefreshKit (1.0.1)
   - Kingfisher (1.9.3)
   - pop (1.0.9)
 
 DEPENDENCIES:
   - Alamofire (~> 2.0.2)
+  - JHPullToRefreshKit (~> 1.0.1)
   - Kingfisher (~> 1.9.0)
   - pop (~> 1.0.9)
 
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  JHPullToRefreshKit: ec51e32764eacf468eddf3d05a9f1b3b6d9a7d76
   Kingfisher: 9e37d2a78a082dc123bfe8a16de65de85518daae
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 

@@ -7,6 +7,7 @@
 // 
 
 import UIKit
+import JHPullToRefreshKit
 
 class AllListViewController: BaseViewController {
     
@@ -19,7 +20,7 @@ class AllListViewController: BaseViewController {
         layout.itemSize = CGSizeMake(kNormalItemW, kNormalItemH)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = kItemMargin
-        layout.headerReferenceSize = CGSizeMake(kScreenW, kHeaderViewH)
+//        layout.headerReferenceSize = CGSizeMake(kScreenW, kHeaderViewH)
         layout.sectionInset = UIEdgeInsets(top: 0, left: kItemMargin, bottom: 0, right: kItemMargin)
         
         // 2.创建UICollectionView
@@ -39,6 +40,7 @@ class AllListViewController: BaseViewController {
         super.viewDidLoad()
         setUpUI()
         loadData()
+        setUpRefresh()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +57,6 @@ extension AllListViewController {
         contentView = collectionView
         
         view.addSubview(collectionView)
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         super.setUpUI()
     }
@@ -68,6 +69,26 @@ extension AllListViewController{
             
             self.loadDataFinished()
         }
+    }
+    
+    
+    private func setUpRefresh() {
+        // MARK: - 下拉
+        self.collectionView.header = MJRefreshGifHeader(refreshingBlock: { [weak self]() -> Void in
+            self!.allListVM.currentPage = 0
+            self?.loadData()
+            self!.collectionView.header.endRefreshing()
+            self?.collectionView.footer.endRefreshing()
+        })
+        // MARK: - 上拉
+        self.collectionView.footer = MJRefreshAutoGifFooter(refreshingBlock: {[weak self] () -> Void in
+            self!.allListVM.currentPage += 1
+            self?.loadData()
+            self!.collectionView.header.endRefreshing()
+            self?.collectionView.footer.endRefreshing()
+        })
+        self.collectionView.footer.autoChangeAlpha = true
+        self.collectionView.footer.noticeNoMoreData()
     }
 }
 

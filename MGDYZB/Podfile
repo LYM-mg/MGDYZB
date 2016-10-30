@@ -8,5 +8,5 @@ target 'MGDYZB' do
 	pod 'Alamofire', '~> 2.0.2'
    	pod 'Kingfisher', '~> 1.9.0'
     pod 'pop', '~> 1.0.9'
-    pod 'PullToRefreshKit'  #  刷新框架 https://cocoapods.org/pods/PullToRefreshKit
+    pod 'JHPullToRefreshKit', '~> 1.0.1'  #  刷新框架 https://cocoapods.org/pods/PullToRefreshKit
 end

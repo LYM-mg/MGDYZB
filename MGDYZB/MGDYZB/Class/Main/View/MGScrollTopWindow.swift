@@ -29,7 +29,7 @@ class MGScrollTopWindow: NSObject{
     
     override init() {
         super.init()
-        statusBarView().insertSubview(MGScrollTopWindow.scrollToWindow, atIndex: 1)
+        statusBarView().insertSubview(MGScrollTopWindow.scrollToWindow, atIndex: 0)
         MGScrollTopWindow.scrollToWindow.addTarget(self, action: Selector("scrollTopWindowclick:"), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
