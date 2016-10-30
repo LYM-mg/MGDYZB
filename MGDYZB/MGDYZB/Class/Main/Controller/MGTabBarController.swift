@@ -41,8 +41,8 @@ class MGTabBarController: UITabBarController {
         let garageVC = UIViewController()
         setUpNavRootViewCOntrollers(vc: garageVC, title: "关注", imageName: normalImages[2], selImage: selectedImages[2])
         
-        let accessVC = UIViewController()
-        setUpNavRootViewCOntrollers(vc: accessVC, title: "我的", imageName: normalImages[3], selImage: selectedImages[3])
+        let profileVC = ProfileViewController()
+        setUpNavRootViewCOntrollers(vc: profileVC, title: "我的", imageName: normalImages[3], selImage: selectedImages[3])
     }
     
     

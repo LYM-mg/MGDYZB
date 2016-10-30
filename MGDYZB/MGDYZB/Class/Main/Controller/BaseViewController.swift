@@ -22,7 +22,7 @@ class BaseViewController: UIViewController {
         imageView.animationRepeatCount = LONG_MAX
         imageView.autoresizingMask = [.FlexibleTopMargin, .FlexibleBottomMargin]
         return imageView
-        }()
+    }()
     
     // MARK: 系统回调
     override func viewDidLoad() {
@@ -32,6 +32,7 @@ class BaseViewController: UIViewController {
     }
 }
 
+// MARK: - 设置UI
 extension BaseViewController {
     func setUpUI() {
         // 1.隐藏内容的View

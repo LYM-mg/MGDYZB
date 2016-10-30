@@ -15,6 +15,7 @@ import pop
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    // MARK: - 自定义属性
     private lazy var bgView: UIView = {
         let bgView = UIView(frame: UIScreen.mainScreen().bounds)
         bgView.backgroundColor = UIColor.blackColor()
@@ -36,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let isfirst = SaveTools.KGetLocalData("isFirstOpen") as? String
-        
         if (isfirst?.isEmpty == nil) {
             UIApplication.sharedApplication().statusBarHidden = true
             showAppGurdView()
@@ -47,6 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MGScrollTopWindow.shareInstance.show()
         }
         return true
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -72,6 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+// MARK: - 引导页
 extension AppDelegate {
     private func showAppGurdView() {
         self.window!.addSubview(bgView)
@@ -79,25 +85,26 @@ extension AppDelegate {
     }
     
     func EnterHomeView(noti: NSNotification) {
-        
+        // 获取通知传过来的按钮
         let dict = noti.userInfo as! [String : AnyObject]
         let btn = dict["sender"]
+        
         SaveTools.kSaveLocal("false", key: "isFirstOpen")
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(UInt64(3.5) * NSEC_PER_SEC)), dispatch_get_main_queue(), { () -> Void in
-            let showMenuAnimation = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
-            showMenuAnimation.toValue = (0.0)
-            showMenuAnimation.springBounciness = 10.0
-            btn!.pop_addAnimation(showMenuAnimation,forKey:"hideBtn")
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(UInt64(2.5) * NSEC_PER_SEC)), dispatch_get_main_queue(), { () -> Void in
+                let showMenuAnimation = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
+                showMenuAnimation.toValue = (0.0)
+                showMenuAnimation.springBounciness = 10.0
+                btn! .pop_addAnimation(showMenuAnimation,forKey:"hideBtn")
             UIView.animateWithDuration(1.5, animations: { () -> Void in
                 self.bgView.layer.transform = CATransform3DMakeScale(2, 2, 2)
                 self.bgView.alpha = 0
             },completion: { (completion) -> Void in
                 UIApplication.sharedApplication().statusBarHidden = false
                 self.bgView.removeFromSuperview()
-                    
             })
         })
     }
     
+   
 }
 

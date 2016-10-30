@@ -14,7 +14,7 @@ class GuardScrollView: UIScrollView {
         super.init(frame: frame)
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
-
+        self.bounces = false
         self.pagingEnabled = true
         self.contentSize = CGSizeMake(kScreenW*3, kScreenH)
         

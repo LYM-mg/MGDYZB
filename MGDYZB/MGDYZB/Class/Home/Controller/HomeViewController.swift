@@ -35,6 +35,10 @@ class HomeViewController: UIViewController {
 //        HomeContentViewDidScroll(self.homeContentView, progress: 0, sourceIndex: 2, targetIndex: 0)
 //        HomeTitlesViewDidSetlected(self.homeTitlesView, selectedIndex: 0)
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
