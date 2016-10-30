@@ -30,7 +30,6 @@ extension AllListViewModel {
             
             // 2.字典转模型
             for dict in dataArray {
-                print(dict)
                 self.rooms.append(RoomModel(dict: dict))
             }
             

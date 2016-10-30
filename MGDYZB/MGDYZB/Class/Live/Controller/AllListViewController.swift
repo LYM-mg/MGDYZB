@@ -21,7 +21,7 @@ class AllListViewController: BaseViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = kItemMargin
 //        layout.headerReferenceSize = CGSizeMake(kScreenW, kHeaderViewH)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: kItemMargin, bottom: 0, right: kItemMargin)
+        layout.sectionInset = UIEdgeInsets(top: kItemMargin, left: kItemMargin, bottom: 0, right: kItemMargin)
         
         // 2.创建UICollectionView
         let collectionView = UICollectionView(frame: self!.view.bounds, collectionViewLayout: layout)
@@ -39,7 +39,7 @@ class AllListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        loadData()
+//        loadData()
         setUpRefresh()
     }
 
@@ -87,7 +87,8 @@ extension AllListViewController{
             self!.collectionView.header.endRefreshing()
             self?.collectionView.footer.endRefreshing()
         })
-        self.collectionView.footer.autoChangeAlpha = true
+//        self.collectionView.header.autoChangeAlpha = true
+        self.collectionView.header.beginRefreshing()
         self.collectionView.footer.noticeNoMoreData()
     }
 }

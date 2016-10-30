@@ -30,11 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        NSThread.sleepForTimeInterval(1.0) //延迟启动程序
+//        NSThread.sleepForTimeInterval(1.0) //延迟启动程序
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.rootViewController = tabBarVC;
         window!.makeKeyAndVisible()
         
+        // 点击状态栏滚动到顶部
+        dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
+            MGScrollTopWindow.shareInstance.show()
+        }
         
         let isfirst = SaveTools.KGetLocalData("isFirstOpen") as? String
         if (isfirst?.isEmpty == nil) {
@@ -42,14 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             showAppGurdView()
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("EnterHomeView:"), name: KEnterHomeViewNotification, object: nil)
-        // 点击状态栏滚动到顶部
-        dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
-            MGScrollTopWindow.shareInstance.show()
-        }
         return true
     }
     
     deinit {
+        print("AppDelegate--deinit")
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 

@@ -9,8 +9,13 @@
 import UIKit
 
 class MGScrollTopWindow: NSObject{
-    static var shareInstance: MGScrollTopWindow = MGScrollTopWindow()
-    static var scrollToWindow: UIButton = UIButton()
+    static let shareInstance: MGScrollTopWindow = MGScrollTopWindow()
+    static let scrollToWindow: UIButton = {
+        let btn = UIButton(frame: UIApplication.sharedApplication().statusBarFrame)
+        btn.backgroundColor = UIColor.clearColor()
+        btn.hidden = true
+        return btn
+    }()
 //    private lazy var btn: UIButton = { [weak self] in
 //           let btn = UIButton(frame: UIApplication.sharedApplication().statusBarFrame)
 //        btn.addTarget(self, action: Selector("scrollTopWindowclick"), forControlEvents: UIControlEvents.TouchUpInside)
@@ -20,17 +25,21 @@ class MGScrollTopWindow: NSObject{
 //        return btn
 //    }()
     
-    override class func initialize() {
-        let btn = UIButton(frame: UIApplication.sharedApplication().statusBarFrame)
-        btn.backgroundColor = UIColor.clearColor()
-        btn.hidden = true
-        MGScrollTopWindow.scrollToWindow = btn
-    }
+//    override class func initialize() {
+//        let btn = UIButton(frame: UIApplication.sharedApplication().statusBarFrame)
+//        btn.backgroundColor = UIColor.redColor()
+//        btn.hidden = true
+//        MGScrollTopWindow.scrollToWindow = btn
+//    }
     
     override init() {
         super.init()
-        statusBarView().insertSubview(MGScrollTopWindow.scrollToWindow, atIndex: 0)
+        statusBarView().insertSubview(MGScrollTopWindow.scrollToWindow, atIndex: 200)
         MGScrollTopWindow.scrollToWindow.addTarget(self, action: Selector("scrollTopWindowclick:"), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    deinit {
+        print("MGScrollTopWindow--deinit")
     }
     
     @objc func scrollTopWindowclick(btn: UIButton) {
@@ -75,12 +84,12 @@ extension MGScrollTopWindow {
 
 // MARK: - 点击
 extension MGScrollTopWindow {
-//    @objc func scrollTopWindowclick() {
+    @objc func scrollTopWindowclick() {
 //        NSLog("点击了最顶部...");
-//        if let window = UIApplication.sharedApplication().keyWindow {
-//            self.seekAllScrollViewInView(window)
-//        }
-//    }
+        if let window = UIApplication.sharedApplication().keyWindow {
+            self.seekAllScrollViewInView(window)
+        }
+    }
 }
 
 // MARK: - 寻找
