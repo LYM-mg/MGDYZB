@@ -25,13 +25,13 @@ class SettingCell: UITableViewCell {
     
     lazy var swithView: UISwitch = {
         let swithView = UISwitch()
-        swithView.tintColor = UIColor.greenColor()
+        swithView.tintColor = UIColor.green
         return swithView
     }()
     
     
-    class func cellWithTbaleView(tableView: UITableView , style: UITableViewCellStyle) -> SettingCell{
-        var cell = tableView.dequeueReusableCellWithIdentifier(KSettingCellID) as? SettingCell
+    class func cellWithTbaleView(_ tableView: UITableView , style: UITableViewCellStyle) -> SettingCell{
+        var cell = tableView.dequeueReusableCell(withIdentifier: KSettingCellID) as? SettingCell
         if (cell == nil) {
             cell = SettingCell(style: style, reuseIdentifier: KSettingCellID)
         }
@@ -43,7 +43,7 @@ class SettingCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
@@ -51,20 +51,20 @@ class SettingCell: UITableViewCell {
 }
 
 extension SettingCell {
-    private func setUpData() {
+    fileprivate func setUpData() {
         self.textLabel!.text = item!.title
         self.imageView!.image = UIImage(named: item!.icon)
         self.detailTextLabel!.text = item!.subTitle
     }
     
-    private func setUpAccessoryView() {
-        if item!.isKindOfClass(ArrowItem.classForCoder()) { // 箭头
-            self.accessoryType = .DisclosureIndicator
-        }else if item!.isKindOfClass(SwitchItem.classForCoder()){ // 开头
+    fileprivate func setUpAccessoryView() {
+        if item!.isKind(of: ArrowItem.classForCoder()) { // 箭头
+            self.accessoryType = .disclosureIndicator
+        }else if item!.isKind(of: SwitchItem.classForCoder()){ // 开头
             self.accessoryView = self.swithView
         }else{
             self.accessoryView = nil
-            self.accessoryType = .None
+            self.accessoryType = .none
         }
     }
 

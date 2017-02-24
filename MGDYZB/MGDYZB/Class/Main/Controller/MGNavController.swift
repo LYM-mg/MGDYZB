@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class MGNavController: UINavigationController {
 
@@ -31,12 +51,12 @@ class MGNavController: UINavigationController {
         
         // 1.创建Pan手势
         let target = navigationController?.interactivePopGestureRecognizer?.delegate
-        let pan = UIPanGestureRecognizer(target: target, action: "handleNavigationTransition:")
+        let pan = UIPanGestureRecognizer(target: target, action: Selector("handleNavigationTransition:"))
         pan.delegate = self
         self.view.addGestureRecognizer(pan)
         
         // 2.禁止系统的局部返回手势
-        navigationController?.interactivePopGestureRecognizer?.enabled = false
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +66,7 @@ class MGNavController: UINavigationController {
     
 
     // MARK: - 拦截Push操作
-    override func pushViewController(viewController: UIViewController, animated: Bool) {
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         // 这里判断是否进入push视图
         if (self.childViewControllers.count > 0) {
             //            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -71,7 +91,7 @@ class MGNavController: UINavigationController {
 
 
 extension MGNavController : UIGestureRecognizerDelegate{
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         ///判断是否是根控制器
         if self.childViewControllers.count == 1
         {
@@ -83,16 +103,16 @@ extension MGNavController : UIGestureRecognizerDelegate{
 
 
 extension MGNavController  {
-    private func setUpNavAppearance () {
+    fileprivate func setUpNavAppearance () {
         let navBar = UINavigationBar.appearance()
-        if(Double(UIDevice.currentDevice().systemVersion)) > 8.0 {
-            navBar.translucent = true
+        if(Double(UIDevice.current.systemVersion)) > 8.0 {
+            navBar.isTranslucent = true
         } else {
-            self.navigationBar.translucent  = true
+            self.navigationBar.isTranslucent  = true
         }
-        navBar.barTintColor = UIColor.orangeColor()
+        navBar.barTintColor = UIColor.orange
         navBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
-        navBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(),NSFontAttributeName:UIFont.boldSystemFontOfSize(18)]
+        navBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,NSFontAttributeName:UIFont.boldSystemFont(ofSize: 18)]
     }
 }
 

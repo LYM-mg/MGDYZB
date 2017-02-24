@@ -12,12 +12,12 @@ import JHPullToRefreshKit
 class AllListViewController: BaseViewController {
     
     // MARK:- ViewModel
-    private lazy var allListVM : AllListViewModel = AllListViewModel()
+    fileprivate lazy var allListVM : AllListViewModel = AllListViewModel()
 
-    private lazy var collectionView : UICollectionView = {[weak self] in
+    fileprivate lazy var collectionView : UICollectionView = {[weak self] in
         // 1.创建layout
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSizeMake(kNormalItemW, kNormalItemH)
+        layout.itemSize = CGSize(width: kNormalItemW, height: kNormalItemH)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = kItemMargin
 //        layout.headerReferenceSize = CGSizeMake(kScreenW, kHeaderViewH)
@@ -25,14 +25,14 @@ class AllListViewController: BaseViewController {
         
         // 2.创建UICollectionView
         let collectionView = UICollectionView(frame: self!.view.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.backgroundColor = UIColor.white
         collectionView.scrollsToTop = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // 3.注册
-        collectionView.registerNib(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
+        collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
         return collectionView
     }()
 
@@ -63,7 +63,7 @@ extension AllListViewController {
 }
 
 extension AllListViewController{
-    private func loadData() {
+    fileprivate func loadData() {
         allListVM.loadAllListData { [unowned self]() -> () in
             self.collectionView.reloadData()
             
@@ -72,7 +72,7 @@ extension AllListViewController{
     }
     
     
-    private func setUpRefresh() {
+    fileprivate func setUpRefresh() {
         // MARK: - 下拉
         self.collectionView.header = MJRefreshGifHeader(refreshingBlock: { [weak self]() -> Void in
             self!.allListVM.currentPage = 0
@@ -95,21 +95,21 @@ extension AllListViewController{
 
 // MARK: - UICollectionViewDataSource
 extension AllListViewController: UICollectionViewDataSource {
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allListVM.rooms.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         // 1.取出Cell
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kNormalCellID, forIndexPath: indexPath) as! CollectionNormalCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
         
         // 2.给cell设置数据
-        cell.anchor = allListVM.rooms[indexPath.item]
+        cell.anchor = allListVM.rooms[(indexPath as NSIndexPath).item]
         
         return cell
     }
@@ -117,6 +117,6 @@ extension AllListViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension AllListViewController: UICollectionViewDelegate {
-
+    
 }
 

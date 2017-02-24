@@ -1,1 +1,0 @@
-../../../JHPullToRefreshKit/JHPullToRefreshKit/JHLayerAnimationRefreshControl.h

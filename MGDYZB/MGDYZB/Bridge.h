@@ -1,6 +1,6 @@
 //
 //  Bridge.h
-//  MGWeibo
+//  MGDYZB
 //
 //  Created by ming on 16/3/24.
 //  Copyright © 2016年 ming. All rights reserved.

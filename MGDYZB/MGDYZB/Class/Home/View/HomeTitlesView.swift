@@ -15,7 +15,7 @@ private let kSelectColor : (CGFloat, CGFloat, CGFloat) = (255, 128, 0)
 // MARK:- 定义协议
 @objc
 protocol HomeTitlesViewDelegate: NSObjectProtocol {
-    optional func HomeTitlesViewDidSetlected(homeTitlesView: HomeTitlesView, selectedIndex: Int)
+    @objc optional func HomeTitlesViewDidSetlected(_ homeTitlesView: HomeTitlesView, selectedIndex: Int)
 }
 
 
@@ -23,33 +23,34 @@ class HomeTitlesView: UIView {
     // MARK: - 属性
     var titles: [String]
     var titleLabels: [UILabel] = [UILabel]()
-    private var currentIndex : Int = 0
+    fileprivate var currentIndex : Int = 0
     weak var deledate: HomeTitlesViewDelegate?
-    var HomeTitlesViewWhenTitleSelect : ((HomeTitlesView: HomeTitlesView, selectedIndex: Int) -> ())?
+    var HomeTitlesViewWhenTitleSelect : ((_ homeTitlesView: HomeTitlesView, _ selectedIndex: Int) -> ())?
     
     // MARK: - lazy属性
-    private lazy var scrollView: UIScrollView = {
+    fileprivate lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bounces = false
         return scrollView
         }()
-    private lazy var scrollLine : UIView = {
+    fileprivate lazy var scrollLine : UIView = {
         let scrollLine = UIView()
-        scrollLine.backgroundColor = UIColor.orangeColor()
+        scrollLine.backgroundColor = UIColor.orange
         return scrollLine
         }()
     
     
     // MARK:- 自定义构造函数
+    // MARK:- 自定义构造函数
     init(frame: CGRect, titles: [String]) {
         self.titles = titles
         super.init(frame: frame)
-        
+        self.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        //        self.backgroundColor = UIColor(r: 166, g: 166, b: 166, a: 0.2)
         setUpUI()
     }
 
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -57,7 +58,7 @@ class HomeTitlesView: UIView {
 
 // MARK: - 初始化UI
 extension HomeTitlesView {
-    private func setUpUI() {
+    fileprivate func setUpUI() {
         // 1.添加UIScrollView
         addSubview(scrollView)
         scrollView.frame = bounds
@@ -69,39 +70,39 @@ extension HomeTitlesView {
         setupBottomLineAndScrollLine()
     }
     
-    private func setupTitleLabels() {
+    fileprivate func setupTitleLabels() {
         // 0.确定label的一些frame的值
         let labelW: CGFloat = kScreenW/CGFloat(self.titles.count)
         let labelH: CGFloat = frame.height - kScrollLineH
         let labelY: CGFloat = 0
         
-        for (index, title) in self.titles.enumerate() {
+        for (index, title) in self.titles.enumerated() {
             // 1.创建UILabel
             let labelX : CGFloat = labelW * CGFloat(index)
-            let label = UILabel(frame: CGRectMake(labelX, labelY, labelW, labelH))
+            let label = UILabel(frame: CGRect(x: labelX, y: labelY, width: labelW, height: labelH))
             
             // 2.设置Label属性
-            label.textAlignment = .Center
+            label.textAlignment = .center
             label.text = title
             label.tag = index
             label.textColor = UIColor.RGBColor(red: 85, green: 85, blue: 85)
-            label.font = UIFont.systemFontOfSize(16.0)
+            label.font = UIFont.systemFont(ofSize: 16.0)
             
             // 3.将label添加到scrollView中
             scrollView.addSubview(label)
             titleLabels.append(label)
             
             // 4.给Label添加手势
-            label.userInteractionEnabled = true
-            let tapGes = UITapGestureRecognizer(target: self, action: Selector("titleLabelClick:"))
+            label.isUserInteractionEnabled = true
+            let tapGes = UITapGestureRecognizer(target: self, action: #selector(HomeTitlesView.titleLabelClick(_:)))
             label.addGestureRecognizer(tapGes)
         }
     }
     
-    private func setupBottomLineAndScrollLine() {
+    fileprivate func setupBottomLineAndScrollLine() {
         // 1.添加底线
         let bottomLine = UIView()
-        bottomLine.backgroundColor = UIColor.lightGrayColor()
+        bottomLine.backgroundColor = UIColor.lightGray
         let lineH : CGFloat = 0.5
         bottomLine.frame = CGRect(x: 0, y: frame.height - lineH, width: frame.width, height: lineH)
         addSubview(bottomLine)
@@ -120,7 +121,7 @@ extension HomeTitlesView {
 
 // MARK:- 监听Label的点击
 extension HomeTitlesView {
-    @objc func titleLabelClick(tap: UITapGestureRecognizer) {
+    @objc func titleLabelClick(_ tap: UITapGestureRecognizer) {
         // 0.获取当前Label
         guard let currentLabel = tap.view as? UILabel else { return }
         
@@ -139,9 +140,9 @@ extension HomeTitlesView {
         
         // 5.滚动条位置发生改变
         let scrollLineX = CGFloat(currentIndex) * scrollLine.frame.width
-        UIView.animateWithDuration(0.15) { () -> Void in
+        UIView.animate(withDuration: 0.15, animations: { () -> Void in
             self.scrollLine.frame.origin.x = scrollLineX
-        }
+        }) 
         
         // 6.回调
 //        if (self.HomeTitlesViewWhenTitleSelect != nil) {
@@ -153,7 +154,7 @@ extension HomeTitlesView {
 
 // MARK:- 对外暴露的接口方法
 extension HomeTitlesView {
-    func setTitleWithProgress(progress : CGFloat, sourceIndex : Int, targetIndex : Int) {
+    func setTitleWithProgress(_ progress : CGFloat, sourceIndex : Int, targetIndex : Int) {
         // 1.取出sourceLabel/targetLabel
         let sourceLabel = titleLabels[sourceIndex]
         let targetLabel = titleLabels[targetIndex]

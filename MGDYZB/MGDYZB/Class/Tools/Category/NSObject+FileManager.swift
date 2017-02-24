@@ -10,47 +10,47 @@ import UIKit
 
 
 extension NSObject {
-    class func getFileSizeWithFileName(path: String,completionBlock:(totalSize: UInt64) -> () ) {
+    class func getFileSizeWithFileName(_ path: String,completionBlock:@escaping (_ totalSize: UInt64) -> () ) {
         // 在子线程中计算文件大小
-        dispatch_async(dispatch_get_global_queue(0, 0)) { () -> Void in
+        DispatchQueue.global().async {
             // 1.文件总大小
             var totalSize: UInt64 = 0;
             
             // 2.创建文件管理者
-            let fileManager = NSFileManager.defaultManager()
+            let fileManager = FileManager.default
             
             // 3.判断文件存不存在以及是否是文件夹
             var isDirectory: ObjCBool = ObjCBool(false)
-            let isFileExist = fileManager.fileExistsAtPath(path , isDirectory: &isDirectory)
+            let isFileExist = fileManager.fileExists(atPath: path , isDirectory: &isDirectory)
             
             if (!isFileExist) {return} // 文件不存在
             
-            if (isDirectory) { // 是文件夹
-                guard let subPaths = fileManager.subpathsAtPath(path)  else { return }
+            if (isDirectory).boolValue { // 是文件夹
+                guard let subPaths = fileManager.subpaths(atPath: path)  else { return }
                 for subPath in subPaths {
-                    let filePath = path.stringByAppendingFormat("/%@", subPath)
+                    let filePath = path.appendingFormat("/%@", subPath)
                     var isDirectory: ObjCBool = ObjCBool(false)
-                    let isExistFile = fileManager.fileExistsAtPath(filePath, isDirectory: &isDirectory)
-                    if (!isDirectory && isExistFile && !filePath.containsString("DS")) {
-                        if let attr: NSDictionary = try? fileManager.attributesOfItemAtPath(path) {
+                    let isExistFile = fileManager.fileExists(atPath: filePath, isDirectory: &isDirectory)
+                    if (!isDirectory.boolValue && isExistFile && !filePath.contains("DS")) {
+                        if let attr: NSDictionary = try! fileManager.attributesOfItem(atPath: path) as NSDictionary? {
                             totalSize += attr.fileSize()
                         }
                     }
                 }
             }else{ // 不是文件夹
-                if let attr: NSDictionary = try? fileManager.attributesOfItemAtPath(path) {
+                if let attr: NSDictionary = try! fileManager.attributesOfItem(atPath: path) as NSDictionary? {
                     totalSize += attr.fileSize()
                 }
             }
             
             // 回到主线程
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                    completionBlock(totalSize: totalSize)
+            DispatchQueue.main.async { () -> Void in
+                    completionBlock(totalSize)
             }
         }
     }
     
-    func getFileSizeWithFileName(path: String, completionBlock:(totalSize: UInt64) -> ()) {
+    func getFileSizeWithFileName(_ path: String, completionBlock:@escaping (_ totalSize: UInt64) -> ()) {
         NSObject.getFileSizeWithFileName(path, completionBlock:completionBlock)
     }
 }
@@ -59,7 +59,7 @@ extension NSObject {
 extension NSObject {
     /** 获取路径 */
     class func cachesPath() -> String {
-         return NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).last!
+         return NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last!
     }
     func cachesPath() -> String {
          return NSObject.cachesPath()
@@ -69,35 +69,35 @@ extension NSObject {
 
 extension NSObject {
     /** 获取路径 */
-    class func removeCachesWithCompletion(completionBlock: ()->())  {
-        NSOperationQueue().addOperationWithBlock { () -> Void in
+    class func removeCachesWithCompletion(_ completionBlock: @escaping ()->())  {
+        OperationQueue().addOperation { () -> Void in
             // 创建文件管理者
-            let fileManager = NSFileManager.defaultManager()
+            let fileManager = FileManager.default
             
             // 删除文件
             let path = self.cachesPath() as String
             
             var isDirectory: ObjCBool = ObjCBool(false)
-            let isFileExist = fileManager.fileExistsAtPath(path , isDirectory: &isDirectory)
+            let isFileExist = fileManager.fileExists(atPath: path , isDirectory: &isDirectory)
             
             if (!isFileExist) {return} // 文件不存在
             
-            if (isDirectory) {
-                guard let enumerator = fileManager.enumeratorAtPath(path) else { return }
+            if (isDirectory).boolValue {
+                guard let enumerator = fileManager.enumerator(atPath: path) else { return }
                 for subPath in enumerator {
                     let subPath = subPath as? String
-                    let filePath = path.stringByAppendingFormat("/%@", subPath!)
+                    let filePath = path.appendingFormat("/%@", subPath!)
                     // 移除文件Or文件夹
-                    try! fileManager.removeItemAtPath(filePath)
+                    try! fileManager.removeItem(atPath: filePath)
                 }
             }
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+            OperationQueue.main.addOperation({ () -> Void in
                     completionBlock()
             })
         }
     }
     
-    func removeCachesWithCompletion(completionBlock: ()->()) {
+    func removeCachesWithCompletion(_ completionBlock: @escaping ()->()) {
         NSObject.removeCachesWithCompletion(completionBlock)
     }
 }

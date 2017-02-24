@@ -16,7 +16,7 @@ class BaseSettingViewController: UITableViewController {
     var total: UInt64 = 0
 
     override init(style: UITableViewStyle) {
-        super.init(style: UITableViewStyle.Grouped)
+        super.init(style: UITableViewStyle.grouped)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,31 +38,31 @@ class BaseSettingViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return self.groups.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 获取当前的组模型
         let group = self.groups[section];
         
         return group.items!.count;
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 1.创建cell
-       let cell = SettingCell.cellWithTbaleView(tableView, style: UITableViewCellStyle.Value1)
+       let cell = SettingCell.cellWithTbaleView(tableView, style: UITableViewCellStyle.value1)
         
         // 获取对应的组模型
-        let group = self.groups[indexPath.section];
+        let group = self.groups[(indexPath as NSIndexPath).section];
         
         // 获取对应的行模型
-        let item = group.items![indexPath.row]
+        let item = group.items![(indexPath as NSIndexPath).row]
         
         // 2.给cell传递模型
         cell.item = item
         
-        if (indexPath.section == 2) {
+        if ((indexPath as NSIndexPath).section == 2) {
             let str = getSize()
             cell.detailTextLabel!.text = str
         }
@@ -70,41 +70,41 @@ class BaseSettingViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // 获取组模型
         let group = self.groups[section];
         
         return group.headerTitle
     }
     
-    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         // 获取组模型
         let group = self.groups[section];
         
         return group.footerTitle
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 取出对应的组模型
-        let group = self.groups[indexPath.section];
+        let group = self.groups[(indexPath as NSIndexPath).section];
         
         // 取出对应的行模型
-        let item = group.items![indexPath.row];
+        let item = group.items![(indexPath as NSIndexPath).row];
         
         if ((item.operationBlock) != nil) {
-            item.operationBlock!(indexPath: indexPath);
+            item.operationBlock!(indexPath);
             return
         }
         
         // 判断下是否需要跳转
-        if item.isKindOfClass(ArrowItem.classForCoder()) {
+        if item.isKind(of: ArrowItem.classForCoder()) {
             
             // 箭头类型,才需要跳转
             let arrowItem = item as! ArrowItem
             
             if (arrowItem.descVcClass == nil)  { return }
             
-            if arrowItem.descVcClass!.isSubclassOfClass(UIWebView.classForCoder()) {
+            if arrowItem.descVcClass!.isSubclass(of: UIWebView.classForCoder()) {
                 // 创建跳转控制器
 //                HomeWebVC *vc = [[HomeWebVC alloc] initWithNavigationTitle:"联系客服" withUrlStr:"http://cs.9158.com/client_phone.aspx?type=button&uid=all&all&siteid=117&style=default&cid=&name=&sex=0&Random=1"];
 //                vc.view.backgroundColor = UIColor.randomColor()
@@ -123,7 +123,7 @@ class BaseSettingViewController: UITableViewController {
 extension BaseSettingViewController {
     
     // 计算size
-    private func getSize() -> String {
+    fileprivate func getSize() -> String {
         let unit = 1000.0
         let text = "缓存大小";
         var str: String = "";

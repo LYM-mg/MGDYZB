@@ -15,8 +15,8 @@ class GuardScrollView: UIScrollView {
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         self.bounces = false
-        self.pagingEnabled = true
-        self.contentSize = CGSizeMake(kScreenW*3, kScreenH)
+        self.isPagingEnabled = true
+        self.contentSize = CGSize(width: kScreenW*3, height: kScreenH)
         
         setUpUI()
     }
@@ -27,9 +27,9 @@ class GuardScrollView: UIScrollView {
 }
 
 extension GuardScrollView {
-    private func setUpUI() {
-        for var i = 0; i<=3; i++ {
-            let imageV = UIImageView(frame: CGRectMake(kScreenW*CGFloat(i), 0, kScreenW, kScreenH))
+    fileprivate func setUpUI() {
+        for i in stride(from: 0, to: 3, by: 1) {
+            let imageV = UIImageView(frame: CGRect(x: kScreenW*CGFloat(i), y: 0, width: kScreenW, height: kScreenH))
             var device = 0
             if kScreenH*2 == 960 {
                device = 100
@@ -45,21 +45,21 @@ extension GuardScrollView {
             self.addSubview(imageV)
             
             if(i == 2) {
-                let deformationBtn  = DeformationButton(frame: CGRectMake(kScreenW/2-187/4+kScreenW*2, kScreenH/2+100, 187/2, 187/2))
-                deformationBtn.contentColor  =  UIColor.clearColor()
+                let deformationBtn  = DeformationButton(frame: CGRect(x: kScreenW/2-44+kScreenW*2, y: kScreenH/2+100, width: 187/2, height: 187/2))
+                deformationBtn.contentColor  =  UIColor.clear
                 deformationBtn.progressColor  = UIColor(r: 126, g: 235, b: 251)
-                deformationBtn.forDisplayButton.setImage(UIImage(named: "按前"), forState: .Normal)
+                deformationBtn.forDisplayButton.setImage(UIImage(named: "按前"), for: UIControlState())
                 let bgImage  = UIImage(named: "按前")
-                deformationBtn.forDisplayButton.setBackgroundImage(bgImage, forState: .Normal)
-                deformationBtn.addTarget(self, action: Selector("EnterApp:"), forControlEvents: .TouchUpInside)
+                deformationBtn.forDisplayButton.setBackgroundImage(bgImage, for: UIControlState())
+                deformationBtn.addTarget(self, action: #selector(GuardScrollView.EnterApp(_:)), for: .touchUpInside)
                 self.addSubview(deformationBtn)
             }
         }
     }
     
     // 先进入App引导界面，通过点击按钮进入主界面
-    @objc func EnterApp(sender: UIButton) {
-        sender.userInteractionEnabled = false
-        NSNotificationCenter.defaultCenter().postNotificationName(KEnterHomeViewNotification, object: nil, userInfo: ["sender": sender])
+    @objc func EnterApp(_ sender: UIButton) {
+        sender.isUserInteractionEnabled = false
+        NotificationCenter.default.post(name: Notification.Name(rawValue: KEnterHomeViewNotification), object: nil, userInfo: ["sender": sender])
     }
 }

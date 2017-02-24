@@ -12,29 +12,29 @@ private let kTopMargin : CGFloat = 8
 class FunnyViewController: BaseViewController {
 
     // MARK: 懒加载ViewModel对象
-    private lazy var funnyVM : FunnyViewModel = FunnyViewModel()
+    fileprivate lazy var funnyVM : FunnyViewModel = FunnyViewModel()
 
-    private lazy var collectionView : UICollectionView = {[weak self] in
+    fileprivate lazy var collectionView : UICollectionView = {[weak self] in
         // 1.创建layout
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSizeMake(kNormalItemW, kNormalItemH)
+        layout.itemSize = CGSize(width: kNormalItemW, height: kNormalItemH)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = kItemMargin
         layout.headerReferenceSize = CGSize.zero
         
         // 2.创建UICollectionView
         let collectionView = UICollectionView(frame: self!.view.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.backgroundColor = UIColor.white
         collectionView.scrollsToTop = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.contentInset = UIEdgeInsets(top: kTopMargin, left: kItemMargin, bottom: kItemMargin, right: kItemMargin)
         
         // 3.注册
-        collectionView.registerNib(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
-        collectionView.registerNib(UINib(nibName: "CollectionPrettyCell", bundle: nil), forCellWithReuseIdentifier: kPrettyCellID)
-        collectionView.registerNib(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
+        collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
+        collectionView.register(UINib(nibName: "CollectionPrettyCell", bundle: nil), forCellWithReuseIdentifier: kPrettyCellID)
+        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
         return collectionView
     }()
 
@@ -72,21 +72,21 @@ extension FunnyViewController {
 
 // MARK: - UICollectionViewDataSource
 extension FunnyViewController: UICollectionViewDataSource {
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return funnyVM.anchorGroups.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return funnyVM.anchorGroups[section].anchors.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         /// 其他组数据
         // 1.取出Cell
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kNormalCellID, forIndexPath: indexPath) as! CollectionNormalCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
         
         // 2.给cell设置数据
-        cell.anchor = funnyVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+        cell.anchor = funnyVM.anchorGroups[(indexPath as NSIndexPath).section].anchors[(indexPath as NSIndexPath).item]
         
         return cell
     }
@@ -94,12 +94,12 @@ extension FunnyViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension FunnyViewController: UICollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    @objc(collectionView:viewForSupplementaryElementOfKind:atIndexPath:) func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         // 1.取出HeaderView
-        let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: kHeaderViewID, forIndexPath: indexPath) as! CollectionHeaderView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath) as! CollectionHeaderView
         
         // 2.给HeaderView设置数据
-        headerView.group = funnyVM.anchorGroups[indexPath.section]
+        headerView.group = funnyVM.anchorGroups[(indexPath as NSIndexPath).section]
         
         return headerView
     }

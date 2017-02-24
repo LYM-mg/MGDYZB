@@ -13,7 +13,7 @@ class FunnyViewModel : BaseViewModel {
 }
 
 extension FunnyViewModel {
-    func loadFunnyData(finishedCallback: () -> ()) {
+    func loadFunnyData(_ finishedCallback: @escaping () -> ()) {
         loadAnchorData(isGroup: false, urlString: "http://capi.douyucdn.cn/api/v1/getColumnRoom/3", parameters: ["limit" : 30, "offset" : 0], finishedCallback: finishedCallback)
     }
 }

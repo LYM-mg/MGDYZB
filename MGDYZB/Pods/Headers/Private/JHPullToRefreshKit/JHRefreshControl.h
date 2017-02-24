@@ -1,1 +1,0 @@
-../../../JHPullToRefreshKit/JHPullToRefreshKit/JHRefreshControl.h

@@ -14,13 +14,13 @@ class BaseViewController: UIViewController {
     var contentView : UIView?
     
     // MARK: 懒加载属性
-    private lazy var animImageView : UIImageView = { [unowned self] in
+    fileprivate lazy var animImageView : UIImageView = { [unowned self] in
         let imageView = UIImageView(image: UIImage(named: "img_loading_1"))
         imageView.center = self.view.center
         imageView.animationImages = [UIImage(named : "img_loading_1")!, UIImage(named : "img_loading_2")!]
         imageView.animationDuration = 0.5
         imageView.animationRepeatCount = LONG_MAX
-        imageView.autoresizingMask = [.FlexibleTopMargin, .FlexibleBottomMargin]
+        imageView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin]
         return imageView
     }()
     
@@ -36,7 +36,7 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     func setUpUI() {
         // 1.隐藏内容的View
-        contentView?.hidden = true
+        contentView?.isHidden = true
         
         // 2.添加执行动画的UIImageView
         view.addSubview(animImageView)
@@ -53,9 +53,9 @@ extension BaseViewController {
         animImageView.stopAnimating()
         
         // 2.隐藏animImageView
-        animImageView.hidden = true
+        animImageView.isHidden = true
         
         // 3.显示内容的View
-        contentView?.hidden = false
+        contentView?.isHidden = false
     }
 }

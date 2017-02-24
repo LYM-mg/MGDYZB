@@ -9,37 +9,37 @@
 import UIKit
 
 protocol HomeContentViewDelegate : class {
-    func HomeContentViewDidScroll(contentView : HomeContentView, progress : CGFloat, sourceIndex : Int, targetIndex : Int)
+    func HomeContentViewDidScroll(_ contentView : HomeContentView, progress : CGFloat, sourceIndex : Int, targetIndex : Int)
 }
 
 private let ContentCellID = "ContentCellID"
 
 class HomeContentView: UIView {
     // MARK:- 定义属性
-    private var childVcs : [UIViewController]
+    fileprivate var childVcs : [UIViewController]
     weak var parentViewController : UIViewController? /** 当前显示的父控制器 */
-    private var startOffsetX : CGFloat = 0
-    private var isForbidScrollDelegate : Bool = false
+    fileprivate var startOffsetX : CGFloat = 0
+    fileprivate var isForbidScrollDelegate : Bool = false
     weak var delegate : HomeContentViewDelegate?
     
     // MARK:- 懒加载属性
-    private lazy var collectionView : UICollectionView = {[weak self] in
+    fileprivate lazy var collectionView : UICollectionView = {[weak self] in
         // 1.创建layout
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = (self?.bounds.size)!
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .Horizontal
+        layout.scrollDirection = .horizontal
         
         // 2.创建UICollectionView
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.pagingEnabled = true
+        collectionView.isPagingEnabled = true
         collectionView.bounces = false
         collectionView.scrollsToTop = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.registerClass(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: ContentCellID)
+        collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: ContentCellID)
         return collectionView
     }()
 
@@ -59,7 +59,7 @@ class HomeContentView: UIView {
 
 // MARK:- 初始化UI
 extension HomeContentView {
-    private func setUpUI() {
+    fileprivate func setUpUI() {
         // 1.将所有的子控制器添加父控制器中
         for childVc in childVcs {
             parentViewController?.addChildViewController(childVc)
@@ -73,20 +73,20 @@ extension HomeContentView {
 
 // MARK:- UICollectionViewDataSource
 extension HomeContentView: UICollectionViewDataSource {
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     @available(iOS 6.0, *)
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return childVcs.count
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     @available(iOS 6.0, *)
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // 1.创建Cell
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContentCellID, forIndexPath: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentCellID, for: indexPath) as UICollectionViewCell
 
         // 2.给Cell设置内容
         for view in cell.contentView.subviews {
@@ -105,14 +105,14 @@ extension HomeContentView: UICollectionViewDataSource {
 // MARK:- 遵守UICollectionViewDelegate
 extension HomeContentView : UICollectionViewDelegate {
     
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
         isForbidScrollDelegate = false
         
         startOffsetX = scrollView.contentOffset.x
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         // 0.判断是否是点击事件
         if isForbidScrollDelegate { return }
@@ -164,7 +164,7 @@ extension HomeContentView : UICollectionViewDelegate {
 
 // MARK:- 对外暴露的方法
 extension HomeContentView {
-    func setCurrentIndex(currentIndex : Int) {
+    func setCurrentIndex(_ currentIndex : Int) {
         
         // 1.记录需要进制执行代理方法
         isForbidScrollDelegate = true

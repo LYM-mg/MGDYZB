@@ -24,22 +24,22 @@ class CollectionPrettyCell: UICollectionViewCell {
             
             // 1.取出在线人数显示的文字
             var onlineStr : String = ""
-            if anchor.online >= 10000 {
-                onlineStr = "\(anchor.online/10000)万人在线"
+            if Int(anchor.online) >= 10000 {
+                onlineStr = "\(Int(anchor.online)/10000)万人在线"
             } else {
                 onlineStr = "\(anchor.online)人在线"
             }
-            onlineBtn.setTitle(onlineStr, forState: .Normal)
+            onlineBtn.setTitle(onlineStr, for: UIControlState())
             
             // 2.昵称的显示
-            nickNameBtn.setTitle(anchor.nickname, forState: .Normal)
+            nickNameBtn.setTitle(anchor.nickname, for: UIControlState())
             
             // 3.设置封面图片
-            guard let iconURL = NSURL(string: anchor.vertical_src) else { return }
-            iconImageView.kf_setImageWithURL(iconURL)
+            guard let iconURL = URL(string: anchor.vertical_src) else { return }
+            iconImageView.kf.setImage(with: iconURL)
             
             // 4.设置位置(所在的城市)
-            cityBtn.setTitle(anchor.anchor_city, forState: .Normal)
+            cityBtn.setTitle(anchor.anchor_city, for: UIControlState())
         }
     }
 

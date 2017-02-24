@@ -11,9 +11,9 @@ import UIKit
 class MGScrollTopWindow: NSObject{
     static let shareInstance: MGScrollTopWindow = MGScrollTopWindow()
     static let scrollToWindow: UIButton = {
-        let btn = UIButton(frame: UIApplication.sharedApplication().statusBarFrame)
-        btn.backgroundColor = UIColor.clearColor()
-        btn.hidden = true
+        let btn = UIButton(frame: UIApplication.shared.statusBarFrame)
+        btn.backgroundColor = UIColor.clear
+        btn.isHidden = true
         return btn
     }()
 //    private lazy var btn: UIButton = { [weak self] in
@@ -34,17 +34,17 @@ class MGScrollTopWindow: NSObject{
     
     override init() {
         super.init()
-        statusBarView().insertSubview(MGScrollTopWindow.scrollToWindow, atIndex: 200)
-        MGScrollTopWindow.scrollToWindow.addTarget(self, action: Selector("scrollTopWindowclick:"), forControlEvents: UIControlEvents.TouchUpInside)
+        statusBarView().insertSubview(MGScrollTopWindow.scrollToWindow, at: 200)
+        MGScrollTopWindow.scrollToWindow.addTarget(self, action: #selector(MGScrollTopWindow.scrollTopWindowclick(_:)), for: UIControlEvents.touchUpInside)
     }
     
     deinit {
         print("MGScrollTopWindow--deinit")
     }
     
-    @objc func scrollTopWindowclick(btn: UIButton) {
+    @objc func scrollTopWindowclick(_ btn: UIButton) {
         NSLog("点击了最顶部...");
-        if let window = UIApplication.sharedApplication().keyWindow {
+        if let window = UIApplication.shared.keyWindow {
             self.seekAllScrollViewInView(window)
         }
     }
@@ -62,10 +62,10 @@ extension MGScrollTopWindow {
 //        let key3 = NSString(data: data, encoding: enc) as! String
 //        let key4 = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
         let key = "statusBar"
-        let object = UIApplication.sharedApplication()
+        let object = UIApplication.shared
         
-        if object.respondsToSelector(NSSelectorFromString(key)) {
-            statusBar = object.valueForKey(key) as? UIView
+        if object.responds(to: NSSelectorFromString(key)) {
+            statusBar = object.value(forKey: key) as? UIView
         }
         return statusBar!
     }
@@ -74,11 +74,11 @@ extension MGScrollTopWindow {
 // MARK: - show AND hidden
 extension MGScrollTopWindow {
     func show() {
-       MGScrollTopWindow.scrollToWindow.hidden = false
+       MGScrollTopWindow.scrollToWindow.isHidden = false
     }
     
     func hide() {
-        MGScrollTopWindow.scrollToWindow.hidden = true
+        MGScrollTopWindow.scrollToWindow.isHidden = true
     }
 }
 
@@ -86,7 +86,7 @@ extension MGScrollTopWindow {
 extension MGScrollTopWindow {
     @objc func scrollTopWindowclick() {
 //        NSLog("点击了最顶部...");
-        if let window = UIApplication.sharedApplication().keyWindow {
+        if let window = UIApplication.shared.keyWindow {
             self.seekAllScrollViewInView(window)
         }
     }
@@ -94,7 +94,7 @@ extension MGScrollTopWindow {
 
 // MARK: - 寻找
 extension MGScrollTopWindow {
-    func seekAllScrollViewInView(view: UIView) {
+    func seekAllScrollViewInView(_ view: UIView) {
         // 递归 这样就可以获得所有的View
         for subView in view.subviews {
             self.seekAllScrollViewInView(subView)
@@ -102,16 +102,16 @@ extension MGScrollTopWindow {
         
         // 是否是ScrollView    不是，直接返回
 //        print("The class is: \(view.classForCoder)") // NSClassFromString("UIScrollView")!
-        guard view.isKindOfClass(UIScrollView.classForCoder()) else {
+        guard view.isKind(of: UIScrollView.classForCoder()) else {
             return
         }
         
         let scrollView = view as! UIScrollView
-        let isShowInWindow = scrollView.intersectsOtherView(nil) && scrollView.window == UIApplication.sharedApplication().keyWindow 
+        let isShowInWindow = scrollView.intersectsOtherView(nil) && scrollView.window == UIApplication.shared.keyWindow 
         if isShowInWindow {
             // 是ScrollView滚动到最前面（包括内边距）
-            NSNotificationCenter.defaultCenter().postNotificationName(KScrollTopWindowNotification, object: nil, userInfo: nil)
-            scrollView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated:true)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: KScrollTopWindowNotification), object: nil, userInfo: nil)
+            scrollView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated:true)
         }
         
         /*

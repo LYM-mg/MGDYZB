@@ -14,7 +14,7 @@ class MGTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let tabBarAppear = UITabBarItem.appearance()
-        tabBarAppear.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.orangeColor()], forState: UIControlState.Selected)
+        tabBarAppear.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.orange], for: UIControlState.selected)
         
         setUpAllChildViewControllers()
     }
@@ -25,7 +25,7 @@ class MGTabBarController: UITabBarController {
     }
     
     // MARK: - setUpAllChildViewControllers
-    private func setUpAllChildViewControllers () {
+    fileprivate func setUpAllChildViewControllers () {
         let normalImages = ["btn_home_normal","btn_live_normal","btn_column_normal","btn_user_normal"]
         let selectedImages = ["btn_home_selected","btn_live_selected","btn_column_selected","btn_user_selected"]
         //        self.tabBar.barTintColor = UIColor(red: 39/255.0, green: 39/255.0, blue: 40/255.0, alpha: 1)
@@ -46,11 +46,11 @@ class MGTabBarController: UITabBarController {
     }
     
     
-    private func setUpNavRootViewCOntrollers(vc vc: UIViewController, title:String, imageName: String, selImage: String) {
+    fileprivate func setUpNavRootViewCOntrollers(vc: UIViewController, title:String, imageName: String, selImage: String) {
         vc.title = title
 //        vc.view.backgroundColor = UIColor.randomColor()
         vc.tabBarItem.image = UIImage(named: imageName)
-        vc.tabBarItem.selectedImage = UIImage(named: selImage)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        vc.tabBarItem.selectedImage = UIImage(named: selImage)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         
         self.addChildViewController(MGNavController(rootViewController: vc))
     }

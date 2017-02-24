@@ -11,7 +11,7 @@ import UIKit
 class RecommendCycleView: UIView {
     
     // MARK: - lazy属性
-    private lazy var carouselView: XRCarouselView = { [weak self] in
+    fileprivate lazy var carouselView: XRCarouselView = { [weak self] in
         let carouselView = XRCarouselView()
         carouselView.time = 2.0
         carouselView.pagePosition = PositionBottomCenter
@@ -56,7 +56,7 @@ class RecommendCycleView: UIView {
 
 // MARK: - 初始化UI
 extension RecommendCycleView {
-    private func setUpUI() {
+    fileprivate func setUpUI() {
         addSubview(carouselView)
     }
 }
@@ -64,7 +64,7 @@ extension RecommendCycleView {
 
 // MARK: - XRCarouselViewDelegate
 extension RecommendCycleView: XRCarouselViewDelegate {
-    func carouselView(carouselView: XRCarouselView!, didClickImage index: Int) {
+    func carouselView(_ carouselView: XRCarouselView!, didClickImage index: Int) {
         
     }
 }

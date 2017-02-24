@@ -14,7 +14,7 @@ class SettingItem: NSObject {
     var icon:String = ""
     
     // 保存每一行cell做的事情
-    var operationBlock: ((indexPath: NSIndexPath) -> ())?
+    var operationBlock: ((_ indexPath: IndexPath) -> ())?
     
     init(title: String, subTitle: String = "", icon: String = "") {
         self.icon = icon
@@ -25,8 +25,8 @@ class SettingItem: NSObject {
     init(dict: [String : AnyObject]) {
         super.init()
         
-        setValuesForKeysWithDictionary(dict)
+        setValuesForKeys(dict)
     }
     
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) { }
+    override func setValue(_ value: Any?, forUndefinedKey key: String) { }
 }

@@ -20,51 +20,43 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         automaticallyAdjustsScrollViewInsets = false
 
         // 1.创建UI
         setUpMainView()
         
-        
-        // 2.监听点击状态栏回到顶部通知
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: ("scrollToTop"), name: KScrollTopWindowNotification, object: nil)
-    }
-    
-    @objc func scrollToTop() {
-//        HomeContentViewDidScroll(self.homeContentView, progress: 0, sourceIndex: 2, targetIndex: 0)
-//        HomeTitlesViewDidSetlected(self.homeTitlesView, selectedIndex: 0)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // 第一次启动
         if (isFirst == false) {
-             self.navigationController!.navigationBar.hidden = true
-            let window = UIApplication.sharedApplication().keyWindow
+             self.navigationController!.navigationBar.isHidden = true
+            let window = UIApplication.shared.keyWindow
             // 添加启动页的图片
             let welcomeImage = UIImageView(frame: window!.bounds)
             welcomeImage.image = getWelcomeImage()
             window!.addSubview(welcomeImage)
-            window!.bringSubviewToFront(welcomeImage) // 把背景图放在最上层
+            window!.bringSubview(toFront: welcomeImage) // 把背景图放在最上层
             welcomeImage.alpha = 0.99 //这里alpha的值和下面alpha的值不能设置为相同的，否则动画相当于瞬间执行完，启动页之后动画瞬间消失。这里alpha设为0.99，动画就不会有一闪而过的效果，而是一种类似于静态背景的效果。设为0，动画就相当于是淡入的效果了。
             
             // UIViewAnimationOptionCurveEaseOut
-            UIView.animateKeyframesWithDuration(2.5, delay: 0 , options: .CalculationModeCubic, animations: { () -> Void in
+            UIView.animateKeyframes(withDuration: 2.5, delay: 0 , options: .calculationModeCubic, animations: { () -> Void in
                 welcomeImage.layer.transform = CATransform3DMakeScale(1.5, 1.5, 1.5)
                 //        welcomeImage.transform = CGAffineTransformMakeScale(1.3, 1.3)
                 welcomeImage.alpha = 0.01
             }, completion: { (finished) -> Void in
-                UIView.animateWithDuration(1.0, animations: { () -> Void in
-                    self.navigationController!.navigationBar.hidden = false
+                UIView.animate(withDuration: 1.0, animations: { () -> Void in
+                    self.navigationController!.navigationBar.isHidden = false
                     welcomeImage.removeFromSuperview()
                 })
             })
@@ -75,17 +67,17 @@ class HomeViewController: UIViewController {
     *  获取启动页的图片
     */
     func getWelcomeImage() -> UIImage {
-        let viewSize = UIApplication.sharedApplication().keyWindow!.bounds.size
+        let viewSize = UIApplication.shared.keyWindow!.bounds.size
         // 竖屏 UIInterfaceOrientationPortrait
         let viewOrientation = "Portrait"
         var launchImageName = ""
         
 //        print(NSBundle.mainBundle().infoDictionary)
-        let info = NSBundle.mainBundle().infoDictionary
+        let info = Bundle.main.infoDictionary
         let imagesDict = info!["UILaunchImages"] as! [[String: AnyObject]]
         for dict in imagesDict {
             let imageSize = CGSizeFromString(dict["UILaunchImageSize"] as! String)
-            if CGSizeEqualToSize(imageSize, viewSize) && viewOrientation == dict["UILaunchImageOrientation"] as! String {
+            if imageSize.equalTo(viewSize) && viewOrientation == dict["UILaunchImageOrientation"] as! String {
                 launchImageName = dict["UILaunchImageName"] as! String
             }
         }
@@ -93,14 +85,14 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - lazy
-    private lazy var homeTitlesView: HomeTitlesView = { [weak self] in
+    fileprivate lazy var homeTitlesView: HomeTitlesView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH, width: kScreenW, height: kTitlesViewH)
         let titles = ["推荐", "游戏", "娱乐", "趣玩"]
         let tsView = HomeTitlesView(frame: titleFrame, titles: titles)
         tsView.deledate = self
         return tsView
     }()
-    private lazy var homeContentView: HomeContentView = { [weak self] in
+    fileprivate lazy var homeContentView: HomeContentView = { [weak self] in
         // 1.确定内容的frame
         let contentH = kScreenH - kStatusBarH - kNavigationBarH - kTitlesViewH - kTabbarH
         let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH+kTitlesViewH, width: kScreenW, height: contentH)
@@ -119,12 +111,12 @@ class HomeViewController: UIViewController {
 
 // MARK: - 初始化UI
 extension HomeViewController {
-    private func setUpMainView() {
+    fileprivate func setUpMainView() {
         setUpNavgationBar()
         view.addSubview(homeTitlesView)
         view.addSubview(homeContentView)
     }
-    private func setUpNavgationBar() {
+    fileprivate func setUpNavgationBar() {
         // 1.设置左侧的Item
         navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "logo")
         
@@ -139,7 +131,7 @@ extension HomeViewController {
 
 // MARK:- 遵守 HomeTitlesViewDelegate 协议
 extension HomeViewController : HomeTitlesViewDelegate {
-    func HomeTitlesViewDidSetlected(homeTitlesView: HomeTitlesView, selectedIndex: Int) {
+    func HomeTitlesViewDidSetlected(_ homeTitlesView: HomeTitlesView, selectedIndex: Int) {
         homeContentView.setCurrentIndex(selectedIndex)
     }
 }
@@ -147,7 +139,7 @@ extension HomeViewController : HomeTitlesViewDelegate {
 
 // MARK:- 遵守 HomeContentViewDelegate 协议
 extension HomeViewController : HomeContentViewDelegate {
-    func HomeContentViewDidScroll(contentView: HomeContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+    func HomeContentViewDidScroll(_ contentView: HomeContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
         homeTitlesView.setTitleWithProgress(progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }

@@ -12,7 +12,7 @@ class SettingViewController: BaseSettingViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = "设置"
         // 配置tableView的模型
         // tableView分组样式
@@ -32,7 +32,7 @@ class SettingViewController: BaseSettingViewController {
 }
 
 extension SettingViewController{
-    private func loadData() {
+    fileprivate func loadData() {
         // 添加第0组模型
         setUpGroup0()
         // 添加第1组模型
@@ -44,7 +44,7 @@ extension SettingViewController{
     }
     
     // 第0组
-    private func setUpGroup0() {
+    fileprivate func setUpGroup0() {
         // 创建组模型
         let group = GroupItem()
         group.footerTitle = "开启后，你关注的主播开播时你会收到通知"
@@ -64,7 +64,7 @@ extension SettingViewController{
     }
     
     // 添加第1组
-   private func setUpGroup1() {
+   fileprivate func setUpGroup1() {
         // 创建行模型
         let item1 = SwitchItem(title: "公聊消息过滤", icon: "MorePush")
         
@@ -77,7 +77,7 @@ extension SettingViewController{
     }
     
     // 添加第2组
-    private func setUpGroup2() {
+    fileprivate func setUpGroup2() {
        let item1 = ArrowItem(title: "清理缓存", icon: "MoreUpdate")
         
         item1.operationBlock = { [unowned self] (indexPath)-> () in
@@ -97,13 +97,13 @@ extension SettingViewController{
     }
     
     // 添加第3组
-    private func setUpGroup3() {
+    fileprivate func setUpGroup3() {
     
         // 创建行模型
         let item = ArrowItem(title: "赏个好评", icon: "MoreUpdate")
         // 保存跳转控制器类名字符串
         item.operationBlock = { (indexPath)-> () in
-            UIApplication.sharedApplication().openURL(NSURL(string: "https://github.com/LYM-/LoveFreshBeen")!)
+            UIApplication.shared.openURL(URL(string: "https://github.com/LYM-/LoveFreshBeen")!)
         }
         
         let item1 = ArrowItem(title: "检查新版本", icon: "MoreUpdate")
@@ -130,10 +130,10 @@ extension SettingViewController{
 }
 
 extension SettingViewController {
-    private func takePhone() {
+    fileprivate func takePhone() {
         
-       let alertVC = UIAlertController(title: "确定要拨打电话", message: "1292043630", preferredStyle: UIAlertControllerStyle.ActionSheet)
-       let phoneAction = UIAlertAction(title: "拨打", style: UIAlertActionStyle.Destructive) { (action) -> Void in
+       let alertVC = UIAlertController(title: "确定要拨打电话", message: "1292043630", preferredStyle: UIAlertControllerStyle.actionSheet)
+       let phoneAction = UIAlertAction(title: "拨打", style: UIAlertActionStyle.destructive) { (action) -> Void in
             /// 1.第一种打电话(拨打完电话回不到原来的应用，会停留在通讯录里，而且是直接拨打，不弹出提示)
 //            UIApplication.sharedApplication().openURL(NSURL(string: String("tel:13750525922"))!)
 
@@ -145,27 +145,27 @@ extension SettingViewController {
         
             /// 3.第三种打电话(这种方法也会回去到原来的程序里（注意这里的telprompt），也会弹出提示)
             let str = "telprompt://13750525922"
-            UIApplication.sharedApplication().openURL(NSURL(string: str)!)
+            UIApplication.shared.openURL(URL(string: str)!)
         }
 
-        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Default, handler: nil)
+        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.default, handler: nil)
         alertVC.addAction(phoneAction)
         alertVC.addAction(cancelAction)
-        self.navigationController?.presentViewController(alertVC, animated: true, completion: nil)
+        self.navigationController?.present(alertVC, animated: true, completion: nil)
     }
     
-    private func clearCaches() {
-        NSOperationQueue().addOperationWithBlock { () -> Void in
-            let documentFolderPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first
-            let files = try! NSFileManager.defaultManager().subpathsOfDirectoryAtPath(documentFolderPath!)
+    fileprivate func clearCaches() {
+        OperationQueue().addOperation { () -> Void in
+            let documentFolderPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+            let files = try! FileManager.default.subpathsOfDirectory(atPath: documentFolderPath!)
             for file in files {
-                guard let Path = documentFolderPath?.stringByAppendingFormat("/%@", file) else {return}
-                if NSFileManager.defaultManager().fileExistsAtPath(Path) {
-                     try! NSFileManager.defaultManager().removeItemAtPath(Path)
+                guard let Path = documentFolderPath?.appendingFormat("/%@", file) else {return}
+                if FileManager.default.fileExists(atPath: Path) {
+                     try! FileManager.default.removeItem(atPath: Path)
                 }
             }
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(UInt64(2.5) * NSEC_PER_SEC)), dispatch_get_main_queue(), { () -> Void in
+            OperationQueue.main.addOperation({ () -> Void in
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(UInt64(2.5) * NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: { () -> Void in
                     print("缓存已清除")
                 })
             })
