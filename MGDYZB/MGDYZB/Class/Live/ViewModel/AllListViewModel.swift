@@ -13,10 +13,6 @@ class AllListViewModel: NSObject {
     var currentPage = 0
     var rooms: [RoomModel] = []
     fileprivate let tagID: String = "0"
-//    init(tagID: String) {
-//        _tagID = tagID
-//        super.init()
-//    }
 }
 
 extension AllListViewModel {
@@ -28,7 +24,7 @@ extension AllListViewModel {
             guard let resultDict = result as? [String : AnyObject] else { return }
             guard let dataArray = resultDict["data"] as? [[String : AnyObject]] else { return }
             
-            debugPrint(dataArray)
+//            debugPrint(dataArray)
             // 2.字典转模型
             for dict in dataArray {
                 self.rooms.append(RoomModel(dict: dict))
