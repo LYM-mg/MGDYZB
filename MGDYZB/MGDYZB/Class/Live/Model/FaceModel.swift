@@ -32,6 +32,5 @@ class FaceModel: AnchorModel {
     var specificCatalog : String!
     var specificStatus : String!
     var url : String!
-    var verticalSrc : String!
     var vodQuality : String!
 }

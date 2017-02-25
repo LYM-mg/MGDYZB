@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnchorModel: NSObject {
+class AnchorModel: NSObject {    
     /// 直播网址
     var jumpUrl: String!
 
@@ -19,18 +19,19 @@ class AnchorModel: NSObject {
         }
     }
     /// 房间图片对应的URLString
-    var vertical_src : String = ""
+    var vertical_src: String = ""
+    
     /// 判断是手机直播还是电脑直播
     // 0 : 电脑直播(普通房间) 1 : 手机直播(秀场房间)
     var isVertical : NSNumber = 0
     /// 房间名称
-    var roomName : String = ""
+    var room_name : String = ""
     /// 主播昵称
     var nickname : String = ""
     /// 观看人数
     var online : NSNumber = 0
     /// 所在城市
-    var anchorCity : String = ""
+    var anchor_city : String!
     
     init(dict : [String : Any]) {
         super.init()

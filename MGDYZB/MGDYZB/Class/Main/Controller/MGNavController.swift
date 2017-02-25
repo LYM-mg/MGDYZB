@@ -120,7 +120,7 @@ extension MGNavController  {
 extension MGNavController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is LiveViewController {
-            navigationController.navigationBar.barTintColor = UIColor.brown
+            navigationController.navigationBar.barTintColor = UIColor.yellow
         }else {
             navigationController.navigationBar.barTintColor = UIColor.orange
         }

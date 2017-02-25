@@ -34,19 +34,20 @@ class CollectionPrettyCell: UICollectionViewCell {
             // 2.昵称的显示
             nickNameBtn.setTitle(anchor.nickname, for: UIControlState())
             
-            // 3.设置封面图片
+            // 3.设置位置(所在的城市)
+            cityBtn.setTitle(anchor.anchor_city, for: UIControlState())
+
+            // 4.设置封面图片
             guard let iconURL = URL(string: anchor.vertical_src) else { return }
             iconImageView.kf.setImage(with: iconURL)
             
-            // 4.设置位置(所在的城市)
-            cityBtn.setTitle(anchor.anchorCity, for: UIControlState())
         }
     }
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        iconImageView.layer.cornerRadius = 5
+        iconImageView.layer.cornerRadius = 10
         iconImageView.clipsToBounds = true
     }
 }

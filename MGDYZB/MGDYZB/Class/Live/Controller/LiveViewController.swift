@@ -57,7 +57,7 @@ class LiveViewController: UIViewController {
         var childVcs = [UIViewController]()
         childVcs.append(AllListViewController())
         childVcs.append(FaceScoreViewController())
-        childVcs.append(AllListViewController())
+        childVcs.append(SportViewController())
         childVcs.append(AllListViewController())
         childVcs.append(AllListViewController())
         let contentView = HomeContentView(frame: contentFrame, childVcs: childVcs, parentViewController: self)

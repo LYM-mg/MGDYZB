@@ -172,7 +172,7 @@ extension RecommendViewController: UICollectionViewDelegate {
             // 2.以Modal方式弹出
             present(safariVC, animated: true, completion: nil)
         } else {
-            let webVC = WebViewController(navigationTitle: anchor.roomName, urlStr: anchor.jumpUrl)
+            let webVC = WebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
             // 2.以Modal方式弹出
             present(webVC, animated: true, completion: nil)
         }
@@ -180,7 +180,7 @@ extension RecommendViewController: UICollectionViewDelegate {
     
     fileprivate func pushNormalRoomVc(anchor: AnchorModel) {
         // 1.创建WebViewController
-        let webVC = WebViewController(navigationTitle: anchor.roomName, urlStr: anchor.jumpUrl)
+        let webVC = WebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
         webVC.navigationController?.setNavigationBarHidden(true, animated: true)
         
         // 2.以Push方式弹出

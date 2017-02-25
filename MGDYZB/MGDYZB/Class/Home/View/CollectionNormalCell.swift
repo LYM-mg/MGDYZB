@@ -34,19 +34,19 @@ class CollectionNormalCell: UICollectionViewCell {
             // 2.昵称的显示
             nickNameBtn.setTitle(anchor.nickname, for: UIControlState())
             
-            // 3.设置封面图片
+            // 3.设置房间名称
+            roomNameLabel.text = anchor.room_name
+            
+            // 4.设置封面图片
             guard let iconURL = URL(string: anchor.vertical_src) else { return }
             iconImageView.kf.setImage(with: iconURL)
             
-            // 4.设置房间名称
-            roomNameLabel.text = anchor.roomName
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        iconImageView.layer.cornerRadius = 5
+        iconImageView.layer.cornerRadius = 10
         iconImageView.clipsToBounds = true
     }
-
 }

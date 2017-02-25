@@ -94,6 +94,9 @@
 		C04DE81F1E612DE7005FE676 /* FaceScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE81E1E612DE7005FE676 /* FaceScoreViewController.swift */; };
 		C04DE8271E615477005FE676 /* FaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8261E615477005FE676 /* FaceViewModel.swift */; };
 		C04DE8291E6156A7005FE676 /* FaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8281E6156A7005FE676 /* FaceModel.swift */; };
+		C04DE82B1E615E73005FE676 /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE82A1E615E73005FE676 /* SportViewController.swift */; };
+		C04DE82D1E615E84005FE676 /* SportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE82C1E615E84005FE676 /* SportViewModel.swift */; };
+		C04DE82F1E615F40005FE676 /* SportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE82E1E615F40005FE676 /* SportModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +215,9 @@
 		C04DE81E1E612DE7005FE676 /* FaceScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceScoreViewController.swift; sourceTree = "<group>"; };
 		C04DE8261E615477005FE676 /* FaceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceViewModel.swift; sourceTree = "<group>"; };
 		C04DE8281E6156A7005FE676 /* FaceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceModel.swift; sourceTree = "<group>"; };
+		C04DE82A1E615E73005FE676 /* SportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
+		C04DE82C1E615E84005FE676 /* SportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportViewModel.swift; sourceTree = "<group>"; };
+		C04DE82E1E615F40005FE676 /* SportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -700,6 +706,7 @@
 				C04DE81A1E611E7F005FE676 /* LiveViewController.swift */,
 				3A10C3AA1DC619B300880E66 /* AllListViewController.swift */,
 				C04DE81E1E612DE7005FE676 /* FaceScoreViewController.swift */,
+				C04DE82A1E615E73005FE676 /* SportViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -709,6 +716,7 @@
 			children = (
 				3A10C3B01DC6203A00880E66 /* RoomModel.swift */,
 				C04DE8281E6156A7005FE676 /* FaceModel.swift */,
+				C04DE82E1E615F40005FE676 /* SportModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -725,6 +733,7 @@
 			children = (
 				3A10C3AC1DC61A5600880E66 /* AllListViewModel.swift */,
 				C04DE8261E615477005FE676 /* FaceViewModel.swift */,
+				C04DE82C1E615E84005FE676 /* SportViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -800,7 +809,7 @@
 		3A9779AE1DBF7C3F00C79CE6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = ming;
 				TargetAttributes = {
 					3A9779B51DBF7C3F00C79CE6 = {
@@ -950,6 +959,8 @@
 				3A10C3EA1DC6282D00880E66 /* MJRefreshGifHeader.m in Sources */,
 				3A10C3E31DC6282D00880E66 /* MJRefreshHeader.m in Sources */,
 				3A36195D1DC5D89A000BE00A /* BaseSettingViewController.swift in Sources */,
+				C04DE82F1E615F40005FE676 /* SportModel.swift in Sources */,
+				C04DE82D1E615E84005FE676 /* SportViewModel.swift in Sources */,
 				3A9779BA1DBF7C3F00C79CE6 /* AppDelegate.swift in Sources */,
 				3A03679A1DC072A100F02FBA /* RecommendViewModel.swift in Sources */,
 				3A9779EF1DBF85D300C79CE6 /* ColorExtesion.swift in Sources */,
@@ -971,6 +982,7 @@
 				3A10C3E41DC6282D00880E66 /* MJRefreshAutoGifFooter.m in Sources */,
 				3A03679C1DC0739800F02FBA /* BaseViewModel.swift in Sources */,
 				3A9779FF1DBFA47300C79CE6 /* AmuseViewController.swift in Sources */,
+				C04DE82B1E615E73005FE676 /* SportViewController.swift in Sources */,
 				3A0367941DC06D8B00F02FBA /* AnchorGroup.swift in Sources */,
 				3A10C3E91DC6282D00880E66 /* MJRefreshBackStateFooter.m in Sources */,
 				3A9779F91DBFA35B00C79CE6 /* HomeContentView.swift in Sources */,
@@ -996,8 +1008,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1040,8 +1054,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1060,6 +1076,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
