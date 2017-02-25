@@ -88,6 +88,7 @@
 		3AE6283D1DC5F7F300835B36 /* NSObject+FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6283C1DC5F7F300835B36 /* NSObject+FileManager.swift */; };
 		A41C97F07F6F3F08AC8A925B /* Pods_MGDYZB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37397A9E37E1EE57D03DA306 /* Pods_MGDYZB.framework */; };
 		C04DE8171E60737E005FE676 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8161E60737E005FE676 /* WebViewController.swift */; };
+		C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8181E610B79005FE676 /* WKWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +201,7 @@
 		3AE6283C1DC5F7F300835B36 /* NSObject+FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+FileManager.swift"; sourceTree = "<group>"; };
 		5F7DD91B59FDC1562FEFFA2F /* Pods-MGDYZB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGDYZB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGDYZB/Pods-MGDYZB.debug.xcconfig"; sourceTree = "<group>"; };
 		C04DE8161E60737E005FE676 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		C04DE8181E610B79005FE676 /* WKWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,6 +552,7 @@
 		3A9779D21DBF7EA200C79CE6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C04DE8181E610B79005FE676 /* WKWebViewController.swift */,
 				C04DE8161E60737E005FE676 /* WebViewController.swift */,
 				3A9779DC1DBF7ED100C79CE6 /* MGTabBarController.swift */,
 				3A9779DE1DBF7EF100C79CE6 /* MGNavController.swift */,
@@ -922,6 +925,7 @@
 				3A9779FB1DBFA45200C79CE6 /* RecommendViewController.swift in Sources */,
 				3A294EFE1DC09964000EE406 /* RecommendCycleView.swift in Sources */,
 				3A0367981DC06E8E00F02FBA /* BaseGameModel.swift in Sources */,
+				C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */,
 				3A10C3E21DC6282D00880E66 /* MJRefreshFooter.m in Sources */,
 				3A10C3E11DC6282D00880E66 /* MJRefreshComponent.m in Sources */,
 				3A38EFA21DC5A1BA0009782C /* ProfileViewController.swift in Sources */,
