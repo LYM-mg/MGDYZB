@@ -136,7 +136,7 @@ extension NetWorkTools {
             "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
             //            "Accept": "text/html",
             //            "application/x-www-form-urlencoded": "charset=utf-8",
-            //            "Content-Type": "application/json",
+            "Content-Type": "application/json",
             //            "Content-Length": "12130"
         ]
         

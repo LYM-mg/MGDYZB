@@ -38,7 +38,7 @@ class HomeTitlesView: UIView {
         let scrollLine = UIView()
         scrollLine.backgroundColor = UIColor.orange
         return scrollLine
-        }()
+    }()
     
     
     // MARK:- 自定义构造函数
@@ -46,8 +46,7 @@ class HomeTitlesView: UIView {
     init(frame: CGRect, titles: [String]) {
         self.titles = titles
         super.init(frame: frame)
-        self.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-        //        self.backgroundColor = UIColor(r: 166, g: 166, b: 166, a: 0.2)
+        self.backgroundColor = UIColor(r: 166, g: 166, b: 166, a: 0.2)
         setUpUI()
     }
 

@@ -4,7 +4,6 @@
 //
 //  Created by ming on 16/10/30.
 //  Copyright © 2016年 ming. All rights reserved.
-//
 
 import UIKit
 
@@ -34,6 +33,23 @@ extension AllListViewModel {
         }) { (err) in
             finishedCallback()    
         }
+        
+        NetWorkTools.requestData(type: .get, urlString: "http://www.douyu.com/api/v1/live/directory",parameters: nil, succeed: { (result, err) in
+            // 1.获取到数据
+            guard let resultDict = result as? [String : AnyObject] else { return }
+            guard let dataArray = resultDict["data"] as? [[String : AnyObject]] else { return }
+            
+            debugPrint(dataArray)
+            // 2.字典转模型
+            for dict in dataArray {
+                self.rooms.append(RoomModel(dict: dict))
+            }
+            // 3.完成回调
+            finishedCallback()
+        }) { (err) in
+            finishedCallback()
+        }
+        
     }
 
 }

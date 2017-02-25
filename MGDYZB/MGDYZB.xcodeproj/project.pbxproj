@@ -89,6 +89,7 @@
 		A41C97F07F6F3F08AC8A925B /* Pods_MGDYZB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37397A9E37E1EE57D03DA306 /* Pods_MGDYZB.framework */; };
 		C04DE8171E60737E005FE676 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8161E60737E005FE676 /* WebViewController.swift */; };
 		C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8181E610B79005FE676 /* WKWebViewController.swift */; };
+		C04DE81B1E611E7F005FE676 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE81A1E611E7F005FE676 /* LiveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +203,7 @@
 		5F7DD91B59FDC1562FEFFA2F /* Pods-MGDYZB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGDYZB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGDYZB/Pods-MGDYZB.debug.xcconfig"; sourceTree = "<group>"; };
 		C04DE8161E60737E005FE676 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		C04DE8181E610B79005FE676 /* WKWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
+		C04DE81A1E611E7F005FE676 /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -687,6 +689,7 @@
 		3A9779E61DBF7FC300C79CE6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C04DE81A1E611E7F005FE676 /* LiveViewController.swift */,
 				3A10C3AA1DC619B300880E66 /* AllListViewController.swift */,
 			);
 			path = Controller;
@@ -956,6 +959,7 @@
 				3A10C3E91DC6282D00880E66 /* MJRefreshBackStateFooter.m in Sources */,
 				3A9779F91DBFA35B00C79CE6 /* HomeContentView.swift in Sources */,
 				3A10C3DF1DC6282D00880E66 /* MJRefreshAutoFooter.m in Sources */,
+				C04DE81B1E611E7F005FE676 /* LiveViewController.swift in Sources */,
 				3A977A011DBFA48300C79CE6 /* FunnyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
