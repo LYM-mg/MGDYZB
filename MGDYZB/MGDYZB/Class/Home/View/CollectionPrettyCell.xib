@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -35,9 +36,6 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POY-La-HOS">
-                        <constraints>
-                            <constraint firstAttribute="width" constant="43" id="BRP-Ui-0tr"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <state key="normal" title="梅州市" image="ico_location">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,6 +53,7 @@
                 <constraint firstAttribute="trailing" secondItem="opb-7J-2Rx" secondAttribute="trailing" id="ATc-pF-Fy7"/>
                 <constraint firstItem="opb-7J-2Rx" firstAttribute="top" secondItem="ukX-jk-9PH" secondAttribute="top" id="BNO-eM-qJR"/>
                 <constraint firstItem="opb-7J-2Rx" firstAttribute="leading" secondItem="ukX-jk-9PH" secondAttribute="leading" id="BjY-pb-abG"/>
+                <constraint firstItem="POY-La-HOS" firstAttribute="width" secondItem="DnC-zG-boO" secondAttribute="width" multiplier="0.4" id="Lyr-AW-t3H"/>
                 <constraint firstItem="POY-La-HOS" firstAttribute="leading" secondItem="DnC-zG-boO" secondAttribute="trailing" constant="3" id="T49-eX-bm8"/>
                 <constraint firstAttribute="bottom" secondItem="POY-La-HOS" secondAttribute="bottom" id="XC0-Mp-vas"/>
                 <constraint firstAttribute="trailing" secondItem="POY-La-HOS" secondAttribute="trailing" constant="3" id="Yiv-Vm-yjt"/>

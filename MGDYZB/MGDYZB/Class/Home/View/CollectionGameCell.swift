@@ -25,7 +25,7 @@ class CollectionGameCell: UICollectionViewCell {
                 if baseGame?.tag_name == "更多" {
                     iconImageView.image = UIImage(named: "home_more_btn")
                 }else {
-                    iconImageView.kf.setImage(with: iconURL)
+                    iconImageView.kf.setImage(with: (with: iconURL), placeholder: #imageLiteral(resourceName: "placehoderImage"))
                 }
             } else {
                 iconImageView.image = UIImage(named: "home_more_btn")

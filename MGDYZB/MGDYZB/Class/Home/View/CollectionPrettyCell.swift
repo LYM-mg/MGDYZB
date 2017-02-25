@@ -30,6 +30,7 @@ class CollectionPrettyCell: UICollectionViewCell {
                 onlineStr = "\(anchor.online)人在线"
             }
             onlineBtn.setTitle(onlineStr, for: UIControlState())
+            onlineBtn.sizeToFit()
             
             // 2.昵称的显示
             nickNameBtn.setTitle(anchor.nickname, for: UIControlState())
@@ -39,7 +40,7 @@ class CollectionPrettyCell: UICollectionViewCell {
 
             // 4.设置封面图片
             guard let iconURL = URL(string: anchor.vertical_src) else { return }
-            iconImageView.kf.setImage(with: iconURL)
+            iconImageView.kf.setImage(with: (with: iconURL), placeholder: #imageLiteral(resourceName: "placehoderImage"))
             
         }
     }

@@ -30,6 +30,7 @@ class CollectionNormalCell: UICollectionViewCell {
                 onlineStr = "\(anchor.online)人在线"
             }
             onlineBtn.setTitle(onlineStr, for: UIControlState())
+            onlineBtn.sizeToFit()
             
             // 2.昵称的显示
             nickNameBtn.setTitle(anchor.nickname, for: UIControlState())
