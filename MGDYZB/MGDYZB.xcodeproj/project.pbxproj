@@ -97,6 +97,9 @@
 		C04DE82B1E615E73005FE676 /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE82A1E615E73005FE676 /* SportViewController.swift */; };
 		C04DE82D1E615E84005FE676 /* SportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE82C1E615E84005FE676 /* SportViewModel.swift */; };
 		C04DE82F1E615F40005FE676 /* SportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE82E1E615F40005FE676 /* SportModel.swift */; };
+		C04DE8311E616C1A005FE676 /* HotGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8301E616C1A005FE676 /* HotGameViewController.swift */; };
+		C04DE8331E616CC0005FE676 /* HotGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8321E616CC0005FE676 /* HotGameViewModel.swift */; };
+		C04DE8351E616CDD005FE676 /* HotGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8341E616CDD005FE676 /* HotGameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,6 +221,9 @@
 		C04DE82A1E615E73005FE676 /* SportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
 		C04DE82C1E615E84005FE676 /* SportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportViewModel.swift; sourceTree = "<group>"; };
 		C04DE82E1E615F40005FE676 /* SportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportModel.swift; sourceTree = "<group>"; };
+		C04DE8301E616C1A005FE676 /* HotGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotGameViewController.swift; sourceTree = "<group>"; };
+		C04DE8321E616CC0005FE676 /* HotGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotGameViewModel.swift; sourceTree = "<group>"; };
+		C04DE8341E616CDD005FE676 /* HotGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotGameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -707,6 +713,7 @@
 				3A10C3AA1DC619B300880E66 /* AllListViewController.swift */,
 				C04DE81E1E612DE7005FE676 /* FaceScoreViewController.swift */,
 				C04DE82A1E615E73005FE676 /* SportViewController.swift */,
+				C04DE8301E616C1A005FE676 /* HotGameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -717,6 +724,7 @@
 				3A10C3B01DC6203A00880E66 /* RoomModel.swift */,
 				C04DE8281E6156A7005FE676 /* FaceModel.swift */,
 				C04DE82E1E615F40005FE676 /* SportModel.swift */,
+				C04DE8341E616CDD005FE676 /* HotGameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -734,6 +742,7 @@
 				3A10C3AC1DC61A5600880E66 /* AllListViewModel.swift */,
 				C04DE8261E615477005FE676 /* FaceViewModel.swift */,
 				C04DE82C1E615E84005FE676 /* SportViewModel.swift */,
+				C04DE8321E616CC0005FE676 /* HotGameViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -917,9 +926,11 @@
 				3A0367A11DC0792400F02FBA /* CollectionNormalCell.swift in Sources */,
 				3A9779FD1DBFA46300C79CE6 /* GameViewController.swift in Sources */,
 				3A10C3E61DC6282D00880E66 /* MJRefreshAutoStateFooter.m in Sources */,
+				C04DE8331E616CC0005FE676 /* HotGameViewModel.swift in Sources */,
 				3A3619291DC5CFDE000BE00A /* SettingViewController.swift in Sources */,
 				3A10C3F11DC6282D00880E66 /* UIView+MJExtension.m in Sources */,
 				3A10C3AB1DC619B300880E66 /* AllListViewController.swift in Sources */,
+				C04DE8311E616C1A005FE676 /* HotGameViewController.swift in Sources */,
 				3A10C3E71DC6282D00880E66 /* MJRefreshBackGifFooter.m in Sources */,
 				3A122BC91DC0EAA100285A40 /* GameViewModel.swift in Sources */,
 				3A01C1BA1DC31948000C05DD /* UIView+LYMExtension.m in Sources */,
@@ -985,6 +996,7 @@
 				C04DE82B1E615E73005FE676 /* SportViewController.swift in Sources */,
 				3A0367941DC06D8B00F02FBA /* AnchorGroup.swift in Sources */,
 				3A10C3E91DC6282D00880E66 /* MJRefreshBackStateFooter.m in Sources */,
+				C04DE8351E616CDD005FE676 /* HotGameModel.swift in Sources */,
 				3A9779F91DBFA35B00C79CE6 /* HomeContentView.swift in Sources */,
 				3A10C3DF1DC6282D00880E66 /* MJRefreshAutoFooter.m in Sources */,
 				C04DE81B1E611E7F005FE676 /* LiveViewController.swift in Sources */,
