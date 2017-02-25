@@ -59,7 +59,7 @@ class LiveViewController: UIViewController {
         childVcs.append(FaceScoreViewController())
         childVcs.append(SportViewController())
         childVcs.append(HotGameViewController())
-        childVcs.append(AllListViewController())
+        childVcs.append(ScienceViewController())
         let contentView = HomeContentView(frame: contentFrame, childVcs: childVcs, parentViewController: self)
         contentView.delegate = self
         return contentView

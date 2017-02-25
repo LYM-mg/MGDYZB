@@ -100,6 +100,9 @@
 		C04DE8311E616C1A005FE676 /* HotGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8301E616C1A005FE676 /* HotGameViewController.swift */; };
 		C04DE8331E616CC0005FE676 /* HotGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8321E616CC0005FE676 /* HotGameViewModel.swift */; };
 		C04DE8351E616CDD005FE676 /* HotGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8341E616CDD005FE676 /* HotGameModel.swift */; };
+		C04DE8371E617251005FE676 /* ScienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8361E617251005FE676 /* ScienceViewController.swift */; };
+		C04DE8391E6172BF005FE676 /* ScienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */; };
+		C04DE83B1E6172CD005FE676 /* ScienceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE83A1E6172CD005FE676 /* ScienceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -224,6 +227,9 @@
 		C04DE8301E616C1A005FE676 /* HotGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotGameViewController.swift; sourceTree = "<group>"; };
 		C04DE8321E616CC0005FE676 /* HotGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotGameViewModel.swift; sourceTree = "<group>"; };
 		C04DE8341E616CDD005FE676 /* HotGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotGameModel.swift; sourceTree = "<group>"; };
+		C04DE8361E617251005FE676 /* ScienceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceViewController.swift; sourceTree = "<group>"; };
+		C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceViewModel.swift; sourceTree = "<group>"; };
+		C04DE83A1E6172CD005FE676 /* ScienceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -714,6 +720,7 @@
 				C04DE81E1E612DE7005FE676 /* FaceScoreViewController.swift */,
 				C04DE82A1E615E73005FE676 /* SportViewController.swift */,
 				C04DE8301E616C1A005FE676 /* HotGameViewController.swift */,
+				C04DE8361E617251005FE676 /* ScienceViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -725,6 +732,7 @@
 				C04DE8281E6156A7005FE676 /* FaceModel.swift */,
 				C04DE82E1E615F40005FE676 /* SportModel.swift */,
 				C04DE8341E616CDD005FE676 /* HotGameModel.swift */,
+				C04DE83A1E6172CD005FE676 /* ScienceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -743,6 +751,7 @@
 				C04DE8261E615477005FE676 /* FaceViewModel.swift */,
 				C04DE82C1E615E84005FE676 /* SportViewModel.swift */,
 				C04DE8321E616CC0005FE676 /* HotGameViewModel.swift */,
+				C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -922,6 +931,7 @@
 				3AA37C7E1DC341AA00F6DCAF /* DeformationButton.m in Sources */,
 				3A10C3E01DC6282D00880E66 /* MJRefreshBackFooter.m in Sources */,
 				C04DE8271E615477005FE676 /* FaceViewModel.swift in Sources */,
+				C04DE83B1E6172CD005FE676 /* ScienceModel.swift in Sources */,
 				3A10C3EE1DC6282D00880E66 /* MJRefreshConst.m in Sources */,
 				3A0367A11DC0792400F02FBA /* CollectionNormalCell.swift in Sources */,
 				3A9779FD1DBFA46300C79CE6 /* GameViewController.swift in Sources */,
@@ -943,6 +953,7 @@
 				3A10C3F01DC6282D00880E66 /* UIScrollView+MJRefresh.m in Sources */,
 				3A38EFA41DC5A2770009782C /* ProfileHeaderView.swift in Sources */,
 				3A10C3EB1DC6282D00880E66 /* MJRefreshNormalHeader.m in Sources */,
+				C04DE8371E617251005FE676 /* ScienceViewController.swift in Sources */,
 				3A122BCB1DC0EB0400285A40 /* GameModel.swift in Sources */,
 				3A9779F51DBF904B00C79CE6 /* Common.swift in Sources */,
 				3A10C3EC1DC6282D00880E66 /* MJRefreshStateHeader.m in Sources */,
@@ -987,6 +998,7 @@
 				3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */,
 				3A10C3AD1DC61A5600880E66 /* AllListViewModel.swift in Sources */,
 				3AA37C7F1DC341AA00F6DCAF /* MMMaterialDesignSpinner.m in Sources */,
+				C04DE8391E6172BF005FE676 /* ScienceViewModel.swift in Sources */,
 				3A294F171DC0A580000EE406 /* RecommendGameView.swift in Sources */,
 				3A3619591DC5D704000BE00A /* ArrowItem.swift in Sources */,
 				3A9779EC1DBF802E00C79CE6 /* HomeViewController.swift in Sources */,
