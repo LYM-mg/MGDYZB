@@ -20,8 +20,8 @@ extension AllListViewModel {
         let url = "http://capi.douyucdn.cn/api/v1/live/" + "\(tagID)?"
         NetWorkTools.requestData(type: .get, urlString: url,parameters: parameters, succeed: { (result, err) in
             // 1.获取到数据
-            guard let resultDict = result as? [String : AnyObject] else { return }
-            guard let dataArray = resultDict["data"] as? [[String : AnyObject]] else { return }
+            guard let resultDict = result as? [String: Any] else { return }
+            guard let dataArray = resultDict["data"] as? [[String: Any]] else { return }
             
 //            debugPrint(dataArray)
             // 2.字典转模型
@@ -36,8 +36,8 @@ extension AllListViewModel {
         
         NetWorkTools.requestData(type: .get, urlString: "http://www.douyu.com/api/v1/live/directory",parameters: nil, succeed: { (result, err) in
             // 1.获取到数据
-            guard let resultDict = result as? [String : AnyObject] else { return }
-            guard let dataArray = resultDict["data"] as? [[String : AnyObject]] else { return }
+            guard let resultDict = result as? [String: Any] else { return }
+            guard let dataArray = resultDict["data"] as? [[String: Any]] else { return }
             
             debugPrint(dataArray)
             // 2.字典转模型

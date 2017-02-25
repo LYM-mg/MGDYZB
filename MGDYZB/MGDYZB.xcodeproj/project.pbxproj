@@ -90,6 +90,10 @@
 		C04DE8171E60737E005FE676 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8161E60737E005FE676 /* WebViewController.swift */; };
 		C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8181E610B79005FE676 /* WKWebViewController.swift */; };
 		C04DE81B1E611E7F005FE676 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE81A1E611E7F005FE676 /* LiveViewController.swift */; };
+		C04DE81D1E6128E8005FE676 /* UIBUtton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE81C1E6128E8005FE676 /* UIBUtton+Extension.swift */; };
+		C04DE81F1E612DE7005FE676 /* FaceScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE81E1E612DE7005FE676 /* FaceScoreViewController.swift */; };
+		C04DE8271E615477005FE676 /* FaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8261E615477005FE676 /* FaceViewModel.swift */; };
+		C04DE8291E6156A7005FE676 /* FaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8281E6156A7005FE676 /* FaceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,6 +208,10 @@
 		C04DE8161E60737E005FE676 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		C04DE8181E610B79005FE676 /* WKWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		C04DE81A1E611E7F005FE676 /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		C04DE81C1E6128E8005FE676 /* UIBUtton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBUtton+Extension.swift"; sourceTree = "<group>"; };
+		C04DE81E1E612DE7005FE676 /* FaceScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceScoreViewController.swift; sourceTree = "<group>"; };
+		C04DE8261E615477005FE676 /* FaceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceViewModel.swift; sourceTree = "<group>"; };
+		C04DE8281E6156A7005FE676 /* FaceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -514,11 +522,11 @@
 				3A9779F61DBF9F2E00C79CE6 /* HomeTitlesView.swift */,
 				3A9779F81DBFA35B00C79CE6 /* HomeContentView.swift */,
 				3A0BAAD91DC057D000FF1C53 /* CollectionHeaderView.swift */,
+				3A0BAADA1DC057D000FF1C53 /* CollectionHeaderView.xib */,
 				3A294EFD1DC09964000EE406 /* RecommendCycleView.swift */,
 				3A294F161DC0A580000EE406 /* RecommendGameView.swift */,
 				3A294F181DC0A751000EE406 /* CollectionGameCell.swift */,
 				3A294F191DC0A751000EE406 /* CollectionGameCell.xib */,
-				3A0BAADA1DC057D000FF1C53 /* CollectionHeaderView.xib */,
 				3A03679D1DC078E100F02FBA /* CollectionBaseCell.swift */,
 				3A03679F1DC0792400F02FBA /* CollectionNormalCell.swift */,
 				3A0367A01DC0792400F02FBA /* CollectionNormalCell.xib */,
@@ -691,6 +699,7 @@
 			children = (
 				C04DE81A1E611E7F005FE676 /* LiveViewController.swift */,
 				3A10C3AA1DC619B300880E66 /* AllListViewController.swift */,
+				C04DE81E1E612DE7005FE676 /* FaceScoreViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -699,6 +708,7 @@
 			isa = PBXGroup;
 			children = (
 				3A10C3B01DC6203A00880E66 /* RoomModel.swift */,
+				C04DE8281E6156A7005FE676 /* FaceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -714,6 +724,7 @@
 			isa = PBXGroup;
 			children = (
 				3A10C3AC1DC61A5600880E66 /* AllListViewModel.swift */,
+				C04DE8261E615477005FE676 /* FaceViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -733,6 +744,7 @@
 		3A9779ED1DBF857700C79CE6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C04DE81C1E6128E8005FE676 /* UIBUtton+Extension.swift */,
 				3A9779EE1DBF85D300C79CE6 /* ColorExtesion.swift */,
 				3A122BC61DC0B90F00285A40 /* UIBarButtonItem-Extension.swift */,
 				3AE6283C1DC5F7F300835B36 /* NSObject+FileManager.swift */,
@@ -891,6 +903,7 @@
 				3A0367921DC066FC00F02FBA /* NetworkTools.swift in Sources */,
 				3AA37C7E1DC341AA00F6DCAF /* DeformationButton.m in Sources */,
 				3A10C3E01DC6282D00880E66 /* MJRefreshBackFooter.m in Sources */,
+				C04DE8271E615477005FE676 /* FaceViewModel.swift in Sources */,
 				3A10C3EE1DC6282D00880E66 /* MJRefreshConst.m in Sources */,
 				3A0367A11DC0792400F02FBA /* CollectionNormalCell.swift in Sources */,
 				3A9779FD1DBFA46300C79CE6 /* GameViewController.swift in Sources */,
@@ -906,6 +919,7 @@
 				3A3619571DC5D674000BE00A /* GroupItem.swift in Sources */,
 				3A10C3E81DC6282D00880E66 /* MJRefreshBackNormalFooter.m in Sources */,
 				3A01C1BE1DC33CE8000C05DD /* GuardScrollView.swift in Sources */,
+				C04DE8291E6156A7005FE676 /* FaceModel.swift in Sources */,
 				3A10C3F01DC6282D00880E66 /* UIScrollView+MJRefresh.m in Sources */,
 				3A38EFA41DC5A2770009782C /* ProfileHeaderView.swift in Sources */,
 				3A10C3EB1DC6282D00880E66 /* MJRefreshNormalHeader.m in Sources */,
@@ -928,6 +942,7 @@
 				3A9779FB1DBFA45200C79CE6 /* RecommendViewController.swift in Sources */,
 				3A294EFE1DC09964000EE406 /* RecommendCycleView.swift in Sources */,
 				3A0367981DC06E8E00F02FBA /* BaseGameModel.swift in Sources */,
+				C04DE81D1E6128E8005FE676 /* UIBUtton+Extension.swift in Sources */,
 				C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */,
 				3A10C3E21DC6282D00880E66 /* MJRefreshFooter.m in Sources */,
 				3A10C3E11DC6282D00880E66 /* MJRefreshComponent.m in Sources */,
@@ -940,6 +955,7 @@
 				3A9779EF1DBF85D300C79CE6 /* ColorExtesion.swift in Sources */,
 				3A294F1A1DC0A751000EE406 /* CollectionGameCell.swift in Sources */,
 				3A10C3E51DC6282D00880E66 /* MJRefreshAutoNormalFooter.m in Sources */,
+				C04DE81F1E612DE7005FE676 /* FaceScoreViewController.swift in Sources */,
 				3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */,
 				3A02094F1DC5DB040002DA90 /* SettingCell.swift in Sources */,
 				3A03679E1DC078E100F02FBA /* CollectionBaseCell.swift in Sources */,

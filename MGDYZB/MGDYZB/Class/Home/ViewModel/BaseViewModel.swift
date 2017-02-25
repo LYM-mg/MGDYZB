@@ -16,8 +16,8 @@ extension BaseViewModel {
     func loadAnchorData(isGroup isGroupData : Bool, urlString : String, parameters : [String : Any]? = nil, finishedCallback: @escaping () -> ()) {
         NetWorkTools.requestData1(.get, urlString: urlString, parameters: parameters) { (result) in
             // 1.对界面进行处理
-            guard let resultDict = result as? [String : AnyObject] else { return }
-            guard let dataArray = resultDict["data"] as? [[String : AnyObject]] else { return }
+            guard let resultDict = result as? [String: Any] else { return }
+            guard let dataArray = resultDict["data"] as? [[String: Any]] else { return }
             
             // 2.判断是否分组数据
             if isGroupData {

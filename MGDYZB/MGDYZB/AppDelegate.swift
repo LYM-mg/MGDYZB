@@ -86,7 +86,7 @@ extension AppDelegate {
     
     func EnterHomeView(_ noti: Notification) {
         // 获取通知传过来的按钮
-        let dict = (noti as NSNotification).userInfo as! [String : AnyObject]
+        let dict = (noti as NSNotification).userInfo as! [String: AnyObject]
         let btn = dict["sender"]
         
         SaveTools.mg_SaveToLocal(value: "false", key:  "isFirstOpen")

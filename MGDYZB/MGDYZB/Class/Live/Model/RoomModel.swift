@@ -32,7 +32,7 @@ class RoomModel: AnchorModel {
     var show_details: String = ""
     var data: [RoomModel] = []
     
-//    init(dict : [String : AnyObject]) {
+//    init(dict : [String: Any]) {
 //        super.init()
 //        setValuesForKeys(dict)
 //    }

@@ -22,7 +22,7 @@ class SettingItem: NSObject {
         self.subTitle = subTitle
     }
     
-    init(dict: [String : AnyObject]) {
+    init(dict: [String: Any]) {
         super.init()
         
         setValuesForKeys(dict)

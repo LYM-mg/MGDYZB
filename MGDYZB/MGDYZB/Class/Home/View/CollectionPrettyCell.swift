@@ -39,7 +39,7 @@ class CollectionPrettyCell: UICollectionViewCell {
             iconImageView.kf.setImage(with: iconURL)
             
             // 4.设置位置(所在的城市)
-            cityBtn.setTitle(anchor.anchor_city, for: UIControlState())
+            cityBtn.setTitle(anchor.anchorCity, for: UIControlState())
         }
     }
 

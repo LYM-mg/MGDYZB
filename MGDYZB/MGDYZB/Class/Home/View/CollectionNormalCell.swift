@@ -39,7 +39,7 @@ class CollectionNormalCell: UICollectionViewCell {
             iconImageView.kf.setImage(with: iconURL)
             
             // 4.设置房间名称
-            roomNameLabel.text = anchor.room_name
+            roomNameLabel.text = anchor.roomName
         }
     }
     

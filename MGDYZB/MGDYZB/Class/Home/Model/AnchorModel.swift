@@ -13,9 +13,9 @@ class AnchorModel: NSObject {
     var jumpUrl: String!
 
     /// 房间ID
-    var room_id: NSNumber = 0 {
+    var roomId: NSNumber = 0 {
         didSet {
-            jumpUrl = "http://www.douyu.com/\(room_id)"
+            jumpUrl = "http://www.douyu.com/\(roomId)"
         }
     }
     /// 房间图片对应的URLString
@@ -24,18 +24,18 @@ class AnchorModel: NSObject {
     // 0 : 电脑直播(普通房间) 1 : 手机直播(秀场房间)
     var isVertical : NSNumber = 0
     /// 房间名称
-    var room_name : String = ""
+    var roomName : String = ""
     /// 主播昵称
     var nickname : String = ""
     /// 观看人数
     var online : NSNumber = 0
     /// 所在城市
-    var anchor_city : String = ""
+    var anchorCity : String = ""
     
-    init(dict : [String : AnyObject]) {
+    init(dict : [String : Any]) {
         super.init()
         setValuesForKeys(dict)
-        jumpUrl = "http://www.douyu.com/\(room_id)"
+        jumpUrl = "http://www.douyu.com/\(roomId)"
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) { }

@@ -132,14 +132,14 @@ extension AllListViewController: UICollectionViewDelegate {
             // 2.以Modal方式弹出
             present(safariVC, animated: true, completion: nil)
         } else {
-            let webVC = WKWebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
+            let webVC = WKWebViewController(navigationTitle: anchor.roomName, urlStr: anchor.jumpUrl)
             present(webVC, animated: true, completion: nil)
         }
     }
     
     fileprivate func pushNormalRoomVc(anchor: AnchorModel) {
         // 1.创建WebViewController
-        let webVC = WKWebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
+        let webVC = WKWebViewController(navigationTitle: anchor.roomName, urlStr: anchor.jumpUrl)
         webVC.navigationController?.setNavigationBarHidden(true, animated: true)
         
         // 2.以Push方式弹出

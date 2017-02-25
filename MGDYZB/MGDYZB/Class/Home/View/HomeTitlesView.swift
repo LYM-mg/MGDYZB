@@ -23,6 +23,8 @@ class HomeTitlesView: UIView {
     // MARK: - 属性
     var titles: [String]
     var titleLabels: [UILabel] = [UILabel]()
+    var normalTitleLabelTextColor: UIColor?
+    var selectedTitleLabelTextColor: UIColor?
     fileprivate var currentIndex : Int = 0
     weak var deledate: HomeTitlesViewDelegate?
     var HomeTitlesViewWhenTitleSelect : ((_ homeTitlesView: HomeTitlesView, _ selectedIndex: Int) -> ())?
@@ -34,9 +36,9 @@ class HomeTitlesView: UIView {
         scrollView.bounces = false
         return scrollView
         }()
-    fileprivate lazy var scrollLine : UIView = {
+    fileprivate lazy var scrollLine : UIView = { [unowned self] in
         let scrollLine = UIView()
-        scrollLine.backgroundColor = UIColor.orange
+        scrollLine.backgroundColor = (self.selectedTitleLabelTextColor != nil) ? self.selectedTitleLabelTextColor : UIColor.KSelectedColorForPageTitle()
         return scrollLine
     }()
     
@@ -109,7 +111,7 @@ extension HomeTitlesView {
         // 2.添加scrollLine
         // 2.1.获取第一个Label
         guard let firstLabel = titleLabels.first else { return }
-        firstLabel.textColor = UIColor.KNormalColorForPageTitle()
+        firstLabel.textColor = (normalTitleLabelTextColor != nil) ? normalTitleLabelTextColor : UIColor.KNormalColorForPageTitle()
         
         // 2.2.设置scrollLine的属性
         scrollView.addSubview(scrollLine)
@@ -131,8 +133,8 @@ extension HomeTitlesView {
         let oldLabel = titleLabels[currentIndex]
         
         // 3.切换文字的颜色
-        currentLabel.textColor = UIColor.KSelectedColorForPageTitle()
-        oldLabel.textColor = UIColor.KNormalColorForPageTitle()
+        currentLabel.textColor = (selectedTitleLabelTextColor != nil) ? selectedTitleLabelTextColor : UIColor.KSelectedColorForPageTitle()
+        oldLabel.textColor = (normalTitleLabelTextColor != nil) ? normalTitleLabelTextColor : UIColor.KNormalColorForPageTitle()
         
         // 4.保存最新Label的下标值
         currentIndex = currentLabel.tag
