@@ -103,6 +103,7 @@
 		C04DE8371E617251005FE676 /* ScienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8361E617251005FE676 /* ScienceViewController.swift */; };
 		C04DE8391E6172BF005FE676 /* ScienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */; };
 		C04DE83B1E6172CD005FE676 /* ScienceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE83A1E6172CD005FE676 /* ScienceModel.swift */; };
+		C04DE83D1E626E6E005FE676 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -230,6 +231,7 @@
 		C04DE8361E617251005FE676 /* ScienceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceViewController.swift; sourceTree = "<group>"; };
 		C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceViewModel.swift; sourceTree = "<group>"; };
 		C04DE83A1E6172CD005FE676 /* ScienceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceModel.swift; sourceTree = "<group>"; };
+		C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -771,6 +773,7 @@
 		3A9779ED1DBF857700C79CE6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */,
 				C04DE81C1E6128E8005FE676 /* UIBUtton+Extension.swift */,
 				3A9779EE1DBF85D300C79CE6 /* ColorExtesion.swift */,
 				3A122BC61DC0B90F00285A40 /* UIBarButtonItem-Extension.swift */,
@@ -992,6 +995,7 @@
 				3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */,
 				3A02094F1DC5DB040002DA90 /* SettingCell.swift in Sources */,
 				3A03679E1DC078E100F02FBA /* CollectionBaseCell.swift in Sources */,
+				C04DE83D1E626E6E005FE676 /* UIView+Extension.swift in Sources */,
 				C04DE8171E60737E005FE676 /* WebViewController.swift in Sources */,
 				3A0367961DC06DC100F02FBA /* AnchorModel.swift in Sources */,
 				3A0BAADB1DC057D000FF1C53 /* CollectionHeaderView.swift in Sources */,
