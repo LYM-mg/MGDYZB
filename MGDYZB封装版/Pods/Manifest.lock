@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.2.0)
+  - JHPullToRefreshKit (1.0.1)
+  - Kingfisher (3.2.1)
+  - pop (1.0.9)
+  - SnapKit (3.0.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.2.0)
+  - JHPullToRefreshKit (~> 1.0.1)
+  - Kingfisher (~> 3.2.1)
+  - pop (~> 1.0.9)
+  - SnapKit (~> 3.0.2)
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  JHPullToRefreshKit: ec51e32764eacf468eddf3d05a9f1b3b6d9a7d76
+  Kingfisher: 64ef28c6d3d6f344e3ae2d7f5c9da80439505d99
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+
+PODFILE CHECKSUM: 3268784da05924afc3fa2d202b13cb6fdd280198
+
+COCOAPODS: 1.2.0.beta.1

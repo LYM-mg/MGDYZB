@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="kNormalCellID" id="gTV-IL-0wX" customClass="CollectionNormalCell" customModule="MGDYZB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="173" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="173" height="130"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TbH-nv-YzQ">
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_default" translatesAutoresizingMaskIntoConstraints="NO" id="EVu-jV-JWR"/>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8M-O3-42R">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="22.2万" image="Image_online"/>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMk-xC-u3U">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <size key="titleShadowOffset" width="0.0" height="2"/>
+                                <state key="normal" title=" 明明就是你" image="home_live_cate_normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EVu-jV-JWR" firstAttribute="leading" secondItem="TbH-nv-YzQ" secondAttribute="leading" id="apk-h7-KHY"/>
+                            <constraint firstItem="e8M-O3-42R" firstAttribute="top" secondItem="TbH-nv-YzQ" secondAttribute="top" constant="2" id="bfN-fh-juY"/>
+                            <constraint firstItem="HMk-xC-u3U" firstAttribute="leading" secondItem="TbH-nv-YzQ" secondAttribute="leading" constant="3" id="cpn-zW-QDK"/>
+                            <constraint firstAttribute="trailing" secondItem="EVu-jV-JWR" secondAttribute="trailing" id="djv-KK-B8j"/>
+                            <constraint firstAttribute="bottom" secondItem="EVu-jV-JWR" secondAttribute="bottom" id="dpS-1v-352"/>
+                            <constraint firstItem="EVu-jV-JWR" firstAttribute="top" secondItem="TbH-nv-YzQ" secondAttribute="top" id="h01-Av-Tmp"/>
+                            <constraint firstAttribute="bottom" secondItem="HMk-xC-u3U" secondAttribute="bottom" constant="2" id="jic-Nk-zU7"/>
+                            <constraint firstAttribute="height" constant="110" id="jwQ-OO-gIC"/>
+                            <constraint firstAttribute="trailing" secondItem="e8M-O3-42R" secondAttribute="trailing" constant="5" id="xaH-GX-6Du"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活力充沛的一天" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdc-Ft-SIC">
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="sdc-Ft-SIC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1oJ-Bl-AB6"/>
+                <constraint firstAttribute="bottom" secondItem="sdc-Ft-SIC" secondAttribute="bottom" id="AnW-MO-nlf"/>
+                <constraint firstItem="TbH-nv-YzQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BCu-t9-zsv"/>
+                <constraint firstItem="TbH-nv-YzQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GoK-5V-EaK"/>
+                <constraint firstAttribute="trailing" secondItem="TbH-nv-YzQ" secondAttribute="trailing" id="IUH-IO-SQa"/>
+                <constraint firstAttribute="trailing" secondItem="sdc-Ft-SIC" secondAttribute="trailing" id="LBG-XA-ddZ"/>
+                <constraint firstItem="sdc-Ft-SIC" firstAttribute="top" secondItem="TbH-nv-YzQ" secondAttribute="bottom" id="RxN-u8-bax"/>
+            </constraints>
+            <size key="customSize" width="229" height="99"/>
+            <connections>
+                <outlet property="iconImageView" destination="EVu-jV-JWR" id="d7D-KU-iva"/>
+                <outlet property="nickNameBtn" destination="HMk-xC-u3U" id="ujt-Dy-3Ac"/>
+                <outlet property="onlineBtn" destination="e8M-O3-42R" id="NRe-WN-HO4"/>
+                <outlet property="roomNameLabel" destination="sdc-Ft-SIC" id="wXy-FV-dEZ"/>
+            </connections>
+            <point key="canvasLocation" x="295" y="262"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Image_online" width="16" height="16"/>
+        <image name="Img_default" width="172" height="103"/>
+        <image name="home_live_cate_normal" width="14" height="14"/>
+    </resources>
+</document>

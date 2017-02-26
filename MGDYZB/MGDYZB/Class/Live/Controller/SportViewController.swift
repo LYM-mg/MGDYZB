@@ -134,8 +134,10 @@ extension SportViewController: UICollectionViewDelegate {
     }
     
     fileprivate func pushNormalRoomVc(model: AnchorModel) {
-        let webViewVc = WebViewController(navigationTitle: model.room_name, urlStr: model.jumpUrl!)
-        show(webViewVc, sender: nil)
+        if let url = model.jumpUrl {
+            let webViewVc = WebViewController(navigationTitle: model.room_name, urlStr: url)
+            show(webViewVc, sender: nil)
+        }
     }
 }
 
