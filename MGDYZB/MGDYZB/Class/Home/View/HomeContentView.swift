@@ -49,7 +49,7 @@ class HomeContentView: UIView {
         self.parentViewController = parentViewController
         super.init(frame: frame)
         
-        setUpUI()
+        setUpMainView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -59,7 +59,7 @@ class HomeContentView: UIView {
 
 // MARK:- 初始化UI
 extension HomeContentView {
-    fileprivate func setUpUI() {
+    fileprivate func setUpMainView() {
         // 1.将所有的子控制器添加父控制器中
         for childVc in childVcs {
             parentViewController?.addChildViewController(childVc)

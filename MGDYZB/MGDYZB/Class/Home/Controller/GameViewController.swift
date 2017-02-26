@@ -57,7 +57,7 @@ class GameViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        setUpMainView()
         loadData()
     }
 
@@ -69,7 +69,7 @@ class GameViewController: BaseViewController {
 
 // MARK:- 设置UI界面
 extension GameViewController {
-    override func setUpUI() {
+    override func setUpMainView() {
         // 0.给ContentView进行赋值
         contentView = collectionView
         
@@ -85,7 +85,7 @@ extension GameViewController {
         // 4.设置collectionView的内边距
         collectionView.contentInset = UIEdgeInsets(top: kHeaderViewH + kGameViewH, left: 0, bottom: 0, right: 0)
 
-        super.setUpUI()
+        super.setUpMainView()
     }
 }
 

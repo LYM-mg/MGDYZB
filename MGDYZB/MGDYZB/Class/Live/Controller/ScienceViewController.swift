@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class ScienceViewController: UIViewController {
+class ScienceViewController: BaseViewController {
     fileprivate lazy var scienceVM = ScienceViewModel()
     fileprivate lazy var collectionView : UICollectionView = {[weak self] in
         // 1.创建layout
@@ -35,7 +35,6 @@ class ScienceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMainView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,9 +45,10 @@ class ScienceViewController: UIViewController {
 
 // MARK: - setUpUI
 extension ScienceViewController {
-    fileprivate func setUpMainView() {
+    internal override func setUpMainView() {
+        contentView = collectionView
         view.addSubview(collectionView)
-        
+        super.setUpMainView()
         setUpRefresh()
     }
 }
@@ -83,6 +83,7 @@ extension ScienceViewController {
             }else {
                 debugPrint(err)
             }
+            self.loadDataFinished()
         }
     }
 }

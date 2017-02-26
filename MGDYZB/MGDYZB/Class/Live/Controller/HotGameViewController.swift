@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class HotGameViewController: UIViewController {
+class HotGameViewController: BaseViewController {
     fileprivate lazy var hotgameVM = HotGameViewModel()
     fileprivate lazy var collectionView : UICollectionView = {[weak self] in
         // 1.创建layout
@@ -35,7 +35,7 @@ class HotGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMainView()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,9 +46,10 @@ class HotGameViewController: UIViewController {
 
 // MARK: - setUpUI
 extension HotGameViewController {
-    fileprivate func setUpMainView() {
+    internal override func setUpMainView() {
+        contentView = collectionView
         view.addSubview(collectionView)
-        
+        super.setUpMainView()
         setUpRefresh()
     }
 }
@@ -83,6 +84,7 @@ extension HotGameViewController {
             }else {
                 debugPrint(err)
             }
+            self.loadDataFinished()
         }
     }
 }

@@ -39,7 +39,7 @@ class AllListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        setUpMainView()
 //        loadData()
         setUpRefresh()
     }
@@ -53,13 +53,13 @@ class AllListViewController: BaseViewController {
 
 // MARK: - 初始化UI
 extension AllListViewController {
-    override func setUpUI()  {
+    override func setUpMainView()  {
         // 0.给ContentView进行赋值
         contentView = collectionView
         
         view.addSubview(collectionView)
         
-        super.setUpUI()
+        super.setUpMainView()
     }
 }
 

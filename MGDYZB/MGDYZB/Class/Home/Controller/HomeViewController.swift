@@ -25,7 +25,6 @@ class HomeViewController: UIViewController {
 
         // 1.创建UI
         setUpMainView()
-        
     }
     
     deinit {

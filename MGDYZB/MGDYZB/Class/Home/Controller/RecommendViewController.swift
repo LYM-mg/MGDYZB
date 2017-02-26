@@ -65,7 +65,7 @@ class RecommendViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
-//        setUpUI()
+//        setUpMainView()
         loadData()
     }
 
@@ -76,7 +76,7 @@ class RecommendViewController: BaseViewController {
 
 // MARK: - 初始化UI
 extension RecommendViewController {
-     override func setUpUI()  {
+     override func setUpMainView()  {
         // 0.给ContentView进行赋值
         contentView = collectionView
         
@@ -85,7 +85,7 @@ extension RecommendViewController {
         collectionView.addSubview(gameView)
         collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
         
-        super.setUpUI()
+        super.setUpMainView()
     }
 }
 

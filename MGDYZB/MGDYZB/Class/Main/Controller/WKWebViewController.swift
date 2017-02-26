@@ -53,13 +53,22 @@ class WKWebViewController: UIViewController {
         webView.addObserver(self, forKeyPath: "loading", options: .new, context: nil)
         webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "v2_refresh"), style: .plain, target: self, action: #selector(self.refreshClick))
+    }
+    
+    // MARK: - Action
+    @objc fileprivate func refreshClick() {
+        if webView.url != nil && webView.url!.absoluteString.characters.count > 1 {
+            webView.reload()
+        }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "loading" {
 //            print("loading")
         } else if keyPath == "title" {
-            title = self.webView.title
+//            title = self.webView.title
         } else if keyPath == "estimatedProgress" {
             print(webView.estimatedProgress)
             progressView.setProgress(Float(webView.estimatedProgress), animated: false)

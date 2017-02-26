@@ -52,7 +52,7 @@ class ProfileViewController: BaseViewController {
 
 // MARK: -
 extension ProfileViewController {
-    override func setUpUI() {
+    override func setUpMainView() {
         // 0.给ContentView进行赋值
         contentView = tableView
         tableView.frame = CGRect(x: 0, y: -20, width: kScreenW, height: self.view.height)
@@ -60,7 +60,7 @@ extension ProfileViewController {
         tableView.tableHeaderView = headerView
         loadData()
         
-        super.setUpUI()
+        super.setUpMainView()
     }
     
     func loadData() {
@@ -106,11 +106,7 @@ extension ProfileViewController: UITableViewDataSource {
         let model = dataArr[(indexPath as NSIndexPath).row]
         cell!.textLabel?.text = model.title
         cell!.imageView?.image = UIImage(named: model.icon)
-        if model.detailTitle == "" {
-            
-        }else {
-            cell!.detailTextLabel?.text = model.detailTitle
-        }
+        cell!.detailTextLabel?.text = model.detailTitle
         
         return cell!
     }

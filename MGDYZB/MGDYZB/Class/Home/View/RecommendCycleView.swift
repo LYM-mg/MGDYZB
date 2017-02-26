@@ -40,7 +40,7 @@ class RecommendCycleView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setUpUI()
+        setUpMainView()
     }
     
     override func layoutSubviews() {
@@ -56,7 +56,7 @@ class RecommendCycleView: UIView {
 
 // MARK: - 初始化UI
 extension RecommendCycleView {
-    fileprivate func setUpUI() {
+    fileprivate func setUpMainView() {
         addSubview(carouselView)
     }
 }

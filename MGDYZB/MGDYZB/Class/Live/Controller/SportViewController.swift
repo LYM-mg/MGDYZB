@@ -8,7 +8,7 @@
 import UIKit
 import SafariServices
 
-class SportViewController: UIViewController {
+class SportViewController: BaseViewController {
     fileprivate lazy var sportVM = SportViewModel()
     fileprivate lazy var collectionView : UICollectionView = {[weak self] in
         // 1.创建layout
@@ -34,7 +34,6 @@ class SportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMainView()
         
         if #available(iOS 9, *) {
             if traitCollection.forceTouchCapability == .available {
@@ -51,9 +50,10 @@ class SportViewController: UIViewController {
 
 // MARK: - setUpUI
 extension SportViewController{
-    fileprivate func setUpMainView() {
+    internal override func setUpMainView() {
+        contentView = collectionView
         view.addSubview(collectionView)
-        
+        super.setUpMainView()
         setUpRefresh()
     }
 }
@@ -88,6 +88,7 @@ extension SportViewController{
             }else {
                 debugPrint(err)
             }
+            self.loadDataFinished()
         }
     }
 }
@@ -138,7 +139,7 @@ extension SportViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - 
+// MARK: - UIViewControllerPreviewingDelegate
 extension SportViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }

@@ -18,7 +18,7 @@ class GuardScrollView: UIScrollView {
         self.isPagingEnabled = true
         self.contentSize = CGSize(width: kScreenW*3, height: kScreenH)
         
-        setUpUI()
+        setUpMainView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -27,7 +27,7 @@ class GuardScrollView: UIScrollView {
 }
 
 extension GuardScrollView {
-    fileprivate func setUpUI() {
+    fileprivate func setUpMainView() {
         for i in stride(from: 0, to: 3, by: 1) {
             let imageV = UIImageView(frame: CGRect(x: kScreenW*CGFloat(i), y: 0, width: kScreenW, height: kScreenH))
             var device = 0

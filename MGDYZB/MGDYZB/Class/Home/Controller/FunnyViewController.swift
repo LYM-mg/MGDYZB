@@ -43,10 +43,10 @@ class FunnyViewController: BaseViewController {
         super.viewDidLoad()
     }
     
-    override func setUpUI() {
+    override func setUpMainView() {
         contentView = collectionView
         view.addSubview(collectionView)
-        super.setUpUI()
+        super.setUpMainView()
         
         loadData()
     }

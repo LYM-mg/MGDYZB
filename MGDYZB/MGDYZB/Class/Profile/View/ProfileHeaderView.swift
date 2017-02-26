@@ -60,6 +60,4 @@ extension ProfileHeaderView {
     @IBAction func menuClick(_ tap: UITapGestureRecognizer) {
         delegate?.ProfileHeaderViewMenuDidClicked!(tap.view!)
     }
-
-    
 }

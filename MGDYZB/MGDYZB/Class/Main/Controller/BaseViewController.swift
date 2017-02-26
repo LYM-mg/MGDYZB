@@ -16,6 +16,7 @@ class BaseViewController: UIViewController {
     // MARK: 懒加载属性
     fileprivate lazy var animImageView : UIImageView = { [unowned self] in
         let imageView = UIImageView(image: UIImage(named: "img_loading_1"))
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.center = self.view.center
         imageView.animationImages = [UIImage(named : "img_loading_1")!, UIImage(named : "img_loading_2")!]
         imageView.animationDuration = 0.5
@@ -28,13 +29,13 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpUI()
+        setUpMainView()
     }
 }
 
 // MARK: - 设置UI
 extension BaseViewController {
-    func setUpUI() {
+    func setUpMainView() {
         // 1.隐藏内容的View
         contentView?.isHidden = true
         

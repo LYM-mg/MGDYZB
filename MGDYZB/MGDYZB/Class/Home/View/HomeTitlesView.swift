@@ -49,7 +49,7 @@ class HomeTitlesView: UIView {
         self.titles = titles
         super.init(frame: frame)
         self.backgroundColor = UIColor(r: 166, g: 166, b: 166, a: 0.2)
-        setUpUI()
+        setUpMainView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -59,7 +59,7 @@ class HomeTitlesView: UIView {
 
 // MARK: - 初始化UI
 extension HomeTitlesView {
-    fileprivate func setUpUI() {
+    fileprivate func setUpMainView() {
         // 1.添加UIScrollView
         addSubview(scrollView)
         scrollView.frame = bounds

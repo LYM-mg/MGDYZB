@@ -10,6 +10,8 @@ import UIKit
 
 class FaceModel: AnchorModel {
 
+    var room_src: String!
+    
     var avatar : String!
     var avatarMid : String!
     var avatarSmall : String!
@@ -26,7 +28,6 @@ class FaceModel: AnchorModel {
     var iconStartTime : Bool!
     var iconUrl : String!
     var ownerUid : String!
-    var roomSrc : String!
     var showStatus : String!
     var showTime : String!
     var specificCatalog : String!

@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class FaceScoreViewController: UIViewController {
+class FaceScoreViewController: BaseViewController {
     fileprivate lazy var faceVM = FaceViewModel()
     fileprivate lazy var collectionView : UICollectionView = {[weak self] in
         // 1.创建layout
@@ -35,7 +35,7 @@ class FaceScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMainView()
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,9 +46,11 @@ class FaceScoreViewController: UIViewController {
 
 // MARK: - setUpUI
 extension FaceScoreViewController{
-    fileprivate func setUpMainView() {
+    override func setUpMainView() {
+        // 0.给ContentView进行赋值
+        contentView = collectionView
         view.addSubview(collectionView)
-        
+        super.setUpMainView()
         setUpRefresh()
     }
 }
@@ -83,6 +85,7 @@ extension FaceScoreViewController{
             }else {
                 debugPrint(err)
             }
+            self.loadDataFinished()
         }
     }
 }

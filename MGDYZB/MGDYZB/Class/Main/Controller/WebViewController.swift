@@ -66,7 +66,7 @@ class WebViewController: UIViewController {
     }
     
     // MARK: - Action
-    func refreshClick() {
+    @objc fileprivate func refreshClick() {
         if webView.request?.url != nil && webView.request!.url!.absoluteString.characters.count > 1 {
             webView.loadRequest(URLRequest(url: (webView.request?.url!)!))
         }

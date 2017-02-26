@@ -41,7 +41,7 @@ class AmuseViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        setUpMainView()
         loadData()
     }
 
@@ -53,12 +53,12 @@ class AmuseViewController: BaseViewController {
 
 // MARK:- 设置UI界面
 extension AmuseViewController {
-    override func setUpUI() {
+    override func setUpMainView() {
         contentView = collectionView
         
         view.addSubview(collectionView)
         
-        super.setUpUI()
+        super.setUpMainView()
         
     }
 }

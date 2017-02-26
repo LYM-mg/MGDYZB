@@ -13,9 +13,9 @@ class AnchorModel: NSObject {
     var jumpUrl: String!
 
     /// 房间ID
-    var roomId: NSNumber = 0 {
+    var room_id: NSNumber = 0 {
         didSet {
-            jumpUrl = "http://www.douyu.com/\(roomId)"
+            jumpUrl = "http://www.douyu.com/\(room_id)"
         }
     }
     /// 房间图片对应的URLString
@@ -36,7 +36,7 @@ class AnchorModel: NSObject {
     init(dict : [String : Any]) {
         super.init()
         setValuesForKeys(dict)
-        jumpUrl = "http://www.douyu.com/\(roomId)"
+        jumpUrl = "http://www.douyu.com/\(room_id)"
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) { }
