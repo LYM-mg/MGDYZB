@@ -5,6 +5,8 @@
 //  Created by i-Techsys.com on 17/2/25.
 //  Copyright © 2017年 ming. All rights reserved.
 
+import UIKit
+import SafariServices
 
 class SportViewController: UIViewController {
     fileprivate lazy var sportVM = SportViewModel()
@@ -28,11 +30,17 @@ class SportViewController: UIViewController {
         // 3.注册
         collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
         return collectionView
-        }()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpMainView()
+        
+        if #available(iOS 9, *) {
+            if traitCollection.forceTouchCapability == .available {
+                registerForPreviewing(with: self, sourceView: self.view)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -108,8 +116,55 @@ extension SportViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension SportViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let anchor = sportVM.sportModels[indexPath.item]
+        
+        anchor.isVertical == 0 ? pushNormalRoomVc(model: anchor) : presentShowRoomVc(model: anchor)
+    }
     
+    fileprivate func presentShowRoomVc(model: AnchorModel) {
+        if #available(iOS 9, *) {
+            let webViewVc = SFSafariViewController(url: URL(string: model.jumpUrl)!, entersReaderIfAvailable: true)
+            present(webViewVc, animated: true, completion: nil)
+        } else {
+            let webViewVc = WKWebViewController(navigationTitle: model.room_name, urlStr: model.jumpUrl)
+            present(webViewVc, animated: true, completion: nil)
+        }
+    }
+    
+    fileprivate func pushNormalRoomVc(model: AnchorModel) {
+        let webViewVc = WKWebViewController(navigationTitle: model.room_name, urlStr: model.jumpUrl)
+        show(webViewVc, sender: nil)
+    }
 }
 
-
+// MARK: - 
+extension SportViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
+        
+        if #available(iOS 9.0, *) {
+            previewingContext.sourceRect = cell.frame
+        }
+        
+        var vc = UIViewController()
+        let anchor = sportVM.sportModels[indexPath.item]
+        if anchor.isVertical == 0 {
+            if #available(iOS 9, *) {
+                vc = SFSafariViewController(url: URL(string: anchor.jumpUrl)!, entersReaderIfAvailable: true)
+            } else {
+                vc = WKWebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
+            }
+        }else {
+           vc = WKWebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
+        }
+        
+        return vc
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: nil)
+    }
+}
 

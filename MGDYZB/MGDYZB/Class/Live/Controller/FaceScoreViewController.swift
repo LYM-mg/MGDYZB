@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class FaceScoreViewController: UIViewController {
     fileprivate lazy var faceVM = FaceViewModel()
@@ -109,6 +110,27 @@ extension FaceScoreViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension FaceScoreViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let anchor = faceVM.faceModels[indexPath.item]
+        
+        anchor.isVertical == 0 ? pushNormalRoomVc(model: anchor) : presentShowRoomVc(model: anchor)
+    }
     
+    fileprivate func pushNormalRoomVc(model: AnchorModel) {
+        let webViewVc = WKWebViewController(navigationTitle: model.room_name, urlStr: model.jumpUrl)
+        show(webViewVc, sender: nil)
+    }
+    
+    fileprivate func presentShowRoomVc(model: AnchorModel) {
+        if #available(iOS 9, *) {
+            if let url = URL(string: model.jumpUrl) {
+                let webViewVc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
+                present(webViewVc, animated: true, completion: nil)
+            }
+        } else {
+            let webViewVc = WKWebViewController(navigationTitle: model.room_name, urlStr: model.jumpUrl)
+            present(webViewVc, animated: true, completion: nil)
+        }
+    }
 }
 
