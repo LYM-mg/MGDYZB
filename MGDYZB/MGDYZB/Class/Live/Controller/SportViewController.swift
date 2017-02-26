@@ -128,13 +128,13 @@ extension SportViewController: UICollectionViewDelegate {
             let webViewVc = SFSafariViewController(url: URL(string: model.jumpUrl)!, entersReaderIfAvailable: true)
             present(webViewVc, animated: true, completion: nil)
         } else {
-            let webViewVc = WKWebViewController(navigationTitle: model.room_name, urlStr: model.jumpUrl)
+            let webViewVc = WKWebViewController(navigationTitle: model.room_name, urlStr: model.jumpUrl!)
             present(webViewVc, animated: true, completion: nil)
         }
     }
     
     fileprivate func pushNormalRoomVc(model: AnchorModel) {
-        let webViewVc = WKWebViewController(navigationTitle: model.room_name, urlStr: model.jumpUrl)
+        let webViewVc = WebViewController(navigationTitle: model.room_name, urlStr: model.jumpUrl!)
         show(webViewVc, sender: nil)
     }
 }

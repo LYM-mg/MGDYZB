@@ -54,7 +54,7 @@ class WKWebViewController: UIViewController {
         webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "v2_refresh"), style: .plain, target: self, action: #selector(self.refreshClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "v2_refresh"), style: .plain, target: self, action: #selector(self.refreshClick))
     }
     
     // MARK: - Action
