@@ -42,7 +42,7 @@ extension AllListViewModel {
             guard let resultDict = result as? [String: Any] else { return }
             guard let dataArray = resultDict["data"] as? [[String: Any]] else { return }
             
-            debugPrint(dataArray)
+//            debugPrint(dataArray)
             // 2.字典转模型
             for dict in dataArray {
                 self.rooms.append(RoomModel(dict: dict))

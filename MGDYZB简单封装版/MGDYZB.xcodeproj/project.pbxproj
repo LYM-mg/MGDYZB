@@ -105,6 +105,8 @@
 		C07C4B461E63ADB10043E1CE /* GameCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B451E63ADB10043E1CE /* GameCenterViewController.swift */; };
 		C07C4B481E63AE880043E1CE /* GameCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B471E63AE880043E1CE /* GameCenterModel.swift */; };
 		C07C4B4A1E63AEA00043E1CE /* TaskRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B491E63AEA00043E1CE /* TaskRuleModel.swift */; };
+		C07C4B4C1E63B53B0043E1CE /* GameCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B4B1E63B53B0043E1CE /* GameCenterCell.swift */; };
+		C07C4B4E1E63BCE70043E1CE /* GameCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B4D1E63BCE70043E1CE /* GameCenterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +236,8 @@
 		C07C4B451E63ADB10043E1CE /* GameCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterViewController.swift; sourceTree = "<group>"; };
 		C07C4B471E63AE880043E1CE /* GameCenterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterModel.swift; sourceTree = "<group>"; };
 		C07C4B491E63AEA00043E1CE /* TaskRuleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskRuleModel.swift; sourceTree = "<group>"; };
+		C07C4B4B1E63B53B0043E1CE /* GameCenterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterCell.swift; sourceTree = "<group>"; };
+		C07C4B4D1E63BCE70043E1CE /* GameCenterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameCenterViewModel.swift; path = MGDYZB/Class/Profile/View/GameCenterViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +454,7 @@
 			children = (
 				3A38EFA31DC5A2770009782C /* ProfileHeaderView.swift */,
 				3A38EFA51DC5A2890009782C /* ProfileHeaderView.xib */,
+				C07C4B4B1E63B53B0043E1CE /* GameCenterCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -457,6 +462,7 @@
 		3A38EFA01DC5A14E0009782C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C07C4B4D1E63BCE70043E1CE /* GameCenterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -982,6 +988,7 @@
 				3A0367981DC06E8E00F02FBA /* BaseGameModel.swift in Sources */,
 				C07C4B461E63ADB10043E1CE /* GameCenterViewController.swift in Sources */,
 				C04DE81D1E6128E8005FE676 /* UIBUtton+Extension.swift in Sources */,
+				C07C4B4C1E63B53B0043E1CE /* GameCenterCell.swift in Sources */,
 				C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */,
 				3A10C3E21DC6282D00880E66 /* MJRefreshFooter.m in Sources */,
 				3A10C3E11DC6282D00880E66 /* MJRefreshComponent.m in Sources */,
@@ -1018,6 +1025,7 @@
 				3A0367941DC06D8B00F02FBA /* AnchorGroup.swift in Sources */,
 				3A10C3E91DC6282D00880E66 /* MJRefreshBackStateFooter.m in Sources */,
 				3A9779F91DBFA35B00C79CE6 /* HomeContentView.swift in Sources */,
+				C07C4B4E1E63BCE70043E1CE /* GameCenterViewModel.swift in Sources */,
 				3A10C3DF1DC6282D00880E66 /* MJRefreshAutoFooter.m in Sources */,
 				C04DE81B1E611E7F005FE676 /* LiveViewController.swift in Sources */,
 				3A977A011DBFA48300C79CE6 /* FunnyViewController.swift in Sources */,

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SafariServices
+
 private let kTopMargin : CGFloat = 8
 
 class FunnyViewController: BaseViewController {
@@ -102,6 +104,36 @@ extension FunnyViewController: UICollectionViewDelegate {
         headerView.group = funnyVM.anchorGroups[(indexPath as NSIndexPath).section]
         
         return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 1.取出对应的主播信息
+        let anchor = funnyVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+        
+        
+        // 2.判断是秀场房间&普通房间
+        anchor.isVertical == 0 ? pushNormalRoomVc(anchor: anchor) : presentShowRoomVc(anchor: anchor)
+    }
+    
+    fileprivate func presentShowRoomVc(anchor: AnchorModel) {
+        if #available(iOS 9.0, *) {
+            // 1.创建SFSafariViewController
+            let safariVC = SFSafariViewController(url: URL(string: anchor.jumpUrl)!, entersReaderIfAvailable: true)
+            // 2.以Modal方式弹出
+            present(safariVC, animated: true, completion: nil)
+        } else {
+            let webVC = WKWebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
+            present(webVC, animated: true, completion: nil)
+        }
+    }
+    
+    fileprivate func pushNormalRoomVc(anchor: AnchorModel) {
+        // 1.创建WebViewController
+        let webVC = WKWebViewController(navigationTitle: anchor.room_name, urlStr: anchor.jumpUrl)
+        webVC.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        // 2.以Push方式弹出
+        navigationController?.pushViewController(webVC, animated: true)
     }
 }
 

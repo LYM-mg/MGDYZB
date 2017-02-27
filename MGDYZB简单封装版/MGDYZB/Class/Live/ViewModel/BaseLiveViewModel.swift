@@ -34,5 +34,4 @@ extension BaseLiveViewModel {
             finishedCallback(err)
         }
     }
-    
 }

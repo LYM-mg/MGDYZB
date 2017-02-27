@@ -4,6 +4,9 @@
 //
 //  Created by ming on 16/10/30.
 //  Copyright © 2016年 ming. All rights reserved.
+
+//  简书：http://www.jianshu.com/users/57b58a39b70e/latest_articles
+//  github:  https://github.com/LYM-mg
 //
 
 import UIKit
@@ -18,13 +21,13 @@ class ProfileViewController: BaseViewController {
         hdView.delegate = self
         return hdView
     }()
-
+    
     
     fileprivate lazy var tableView: UITableView = {
         let tbView = UITableView(frame: self.view.bounds, style: UITableViewStyle.grouped)
         tbView.dataSource = self
         tbView.delegate = self
-//        tbView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: KProfileViewCellID)
+        //        tbView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: KProfileViewCellID)
         return tbView
     }()
     
@@ -43,7 +46,7 @@ class ProfileViewController: BaseViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -64,7 +67,7 @@ extension ProfileViewController {
     }
     
     func loadData() {
-        DispatchQueue.global().async {  
+        DispatchQueue.global().async {
             let row1Data = ProfileModel(icon: "order_yellowMark", title: "开播提示")
             let row2Data = ProfileModel(icon: "order_yellowMark", title: "票务查询")
             let row3Data = ProfileModel(icon: "order_yellowMark", title: "设置选项")
@@ -73,7 +76,7 @@ extension ProfileViewController {
             self.dataArr.append(row2Data)
             self.dataArr.append(row3Data)
             self.dataArr.append(row4Data)
-
+            
             DispatchQueue.main.async(execute: { () -> Void in
                 self.tableView.reloadData()
                 self.loadDataFinished()
@@ -95,12 +98,12 @@ extension ProfileViewController: UITableViewDataSource {
             return 0
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: KProfileViewCellID)
         if cell == nil {
-             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: KProfileViewCellID)
-             cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: KProfileViewCellID)
+            cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         }
         
         let model = dataArr[(indexPath as NSIndexPath).row]
@@ -110,7 +113,7 @@ extension ProfileViewController: UITableViewDataSource {
         
         return cell!
     }
-    }
+}
 
 // MARK: - UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
@@ -119,6 +122,25 @@ extension ProfileViewController: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 5
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            switch indexPath.row {
+            case 0: // 开播提示
+                break
+            case 1: // 票务查询
+                let webviewVc = WKWebViewController(navigationTitle: "票务中心", urlStr: "http://www.douyu.com/h5mobile/eticket/dealLog")
+                show(webviewVc, sender: nil)
+            case 2: //
+                break
+            case 3: // 手游中心
+                let gameCenterVc = GameCenterViewController()
+                show(gameCenterVc, sender: nil)
+            default:
+                break
+            }
+        }
     }
 }
 
@@ -135,7 +157,7 @@ extension ProfileViewController: ProfileHeaderViewDelegate {
     
     func ProfileHeaderViewLoginBtnClicked() {
         self.show(UIViewController(), sender: nil)
-    
+        
     }
     
     func ProfileHeaderViewRegistBtnClicked() {
@@ -145,17 +167,16 @@ extension ProfileViewController: ProfileHeaderViewDelegate {
     func ProfileHeaderViewMenuDidClicked(_ view: UIView) {
         let tag = view.tag as Int
         switch (tag) {
-            case 101:
-                print("101")
-            case 102:
-                print("102")
-            case 103:
-                print("103")
-            case 104:
-                print("104")
+        case 101:
+            print("101")
+        case 102:
+            print("102")
+        case 103:
+            print("103")
+        case 104:
+            print("104")
         default:
-                print("default")
+            print("default")
         }
     }
-    
 }

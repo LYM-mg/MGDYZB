@@ -104,6 +104,11 @@
 		C04DE8391E6172BF005FE676 /* ScienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */; };
 		C04DE83B1E6172CD005FE676 /* ScienceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE83A1E6172CD005FE676 /* ScienceModel.swift */; };
 		C04DE83D1E626E6E005FE676 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */; };
+		C07C4B501E63D0BD0043E1CE /* GameCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B4F1E63D0BD0043E1CE /* GameCenterViewController.swift */; };
+		C07C4B531E63D0C80043E1CE /* GameCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B511E63D0C80043E1CE /* GameCenterModel.swift */; };
+		C07C4B541E63D0C80043E1CE /* TaskRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B521E63D0C80043E1CE /* TaskRuleModel.swift */; };
+		C07C4B561E63D0CE0043E1CE /* GameCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B551E63D0CE0043E1CE /* GameCenterCell.swift */; };
+		C07C4B581E63D0D40043E1CE /* GameCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B571E63D0D40043E1CE /* GameCenterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -232,6 +237,11 @@
 		C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceViewModel.swift; sourceTree = "<group>"; };
 		C04DE83A1E6172CD005FE676 /* ScienceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceModel.swift; sourceTree = "<group>"; };
 		C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C07C4B4F1E63D0BD0043E1CE /* GameCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterViewController.swift; sourceTree = "<group>"; };
+		C07C4B511E63D0C80043E1CE /* GameCenterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterModel.swift; sourceTree = "<group>"; };
+		C07C4B521E63D0C80043E1CE /* TaskRuleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskRuleModel.swift; sourceTree = "<group>"; };
+		C07C4B551E63D0CE0043E1CE /* GameCenterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterCell.swift; sourceTree = "<group>"; };
+		C07C4B571E63D0D40043E1CE /* GameCenterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				3A38EFA11DC5A1BA0009782C /* ProfileViewController.swift */,
+				C07C4B4F1E63D0BD0043E1CE /* GameCenterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -436,6 +447,8 @@
 			isa = PBXGroup;
 			children = (
 				3A978A621DC5BF3B00E5C64A /* ProfileModel.swift */,
+				C07C4B511E63D0C80043E1CE /* GameCenterModel.swift */,
+				C07C4B521E63D0C80043E1CE /* TaskRuleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -445,6 +458,7 @@
 			children = (
 				3A38EFA31DC5A2770009782C /* ProfileHeaderView.swift */,
 				3A38EFA51DC5A2890009782C /* ProfileHeaderView.xib */,
+				C07C4B551E63D0CE0043E1CE /* GameCenterCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -656,6 +670,7 @@
 		3A9779DB1DBF7EA200C79CE6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C07C4B571E63D0D40043E1CE /* GameCenterViewModel.swift */,
 				3A9779ED1DBF857700C79CE6 /* Category */,
 				3A9779F41DBF904B00C79CE6 /* Common.swift */,
 				3A0367911DC066FC00F02FBA /* NetworkTools.swift */,
@@ -946,6 +961,7 @@
 				C04DE8311E616C1A005FE676 /* HotGameViewController.swift in Sources */,
 				3A10C3E71DC6282D00880E66 /* MJRefreshBackGifFooter.m in Sources */,
 				3A122BC91DC0EAA100285A40 /* GameViewModel.swift in Sources */,
+				C07C4B501E63D0BD0043E1CE /* GameCenterViewController.swift in Sources */,
 				3A01C1BA1DC31948000C05DD /* UIView+LYMExtension.m in Sources */,
 				3A122BCD1DC0EF8A00285A40 /* BaseViewController.swift in Sources */,
 				3A294F151DC0A08F000EE406 /* CycleModel.swift in Sources */,
@@ -960,6 +976,7 @@
 				3A122BCB1DC0EB0400285A40 /* GameModel.swift in Sources */,
 				3A9779F51DBF904B00C79CE6 /* Common.swift in Sources */,
 				3A10C3EC1DC6282D00880E66 /* MJRefreshStateHeader.m in Sources */,
+				C07C4B531E63D0C80043E1CE /* GameCenterModel.swift in Sources */,
 				3A01C1BC1DC339CF000C05DD /* SaveTools.swift in Sources */,
 				3A36195B1DC5D72D000BE00A /* SwitchItem.swift in Sources */,
 				3AE6283D1DC5F7F300835B36 /* NSObject+FileManager.swift in Sources */,
@@ -980,7 +997,9 @@
 				C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */,
 				3A10C3E21DC6282D00880E66 /* MJRefreshFooter.m in Sources */,
 				3A10C3E11DC6282D00880E66 /* MJRefreshComponent.m in Sources */,
+				C07C4B581E63D0D40043E1CE /* GameCenterViewModel.swift in Sources */,
 				3A38EFA21DC5A1BA0009782C /* ProfileViewController.swift in Sources */,
+				C07C4B561E63D0CE0043E1CE /* GameCenterCell.swift in Sources */,
 				3A10C3EA1DC6282D00880E66 /* MJRefreshGifHeader.m in Sources */,
 				3A10C3E31DC6282D00880E66 /* MJRefreshHeader.m in Sources */,
 				3A36195D1DC5D89A000BE00A /* BaseSettingViewController.swift in Sources */,
@@ -988,6 +1007,7 @@
 				C04DE82D1E615E84005FE676 /* SportViewModel.swift in Sources */,
 				3A9779BA1DBF7C3F00C79CE6 /* AppDelegate.swift in Sources */,
 				3A03679A1DC072A100F02FBA /* RecommendViewModel.swift in Sources */,
+				C07C4B541E63D0C80043E1CE /* TaskRuleModel.swift in Sources */,
 				3A9779EF1DBF85D300C79CE6 /* ColorExtesion.swift in Sources */,
 				3A294F1A1DC0A751000EE406 /* CollectionGameCell.swift in Sources */,
 				3A10C3E51DC6282D00880E66 /* MJRefreshAutoNormalFooter.m in Sources */,
