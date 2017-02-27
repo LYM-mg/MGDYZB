@@ -123,6 +123,25 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 5
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section = 1 {
+            switch indexPath.row {
+            case 0: // 开播提示
+                break
+            case 1: // 票务查询
+                let webviewVc = WKWebViewController(navigationTitle: "票务中心", urlStr: "http://www.douyu.com/h5mobile/eticket/dealLog")
+                show(webviewVc, sender: nil)
+            case 2: //
+                break
+            case 3: // 手游中心
+                let gameCenterVc = GameCenterViewController()
+                show(gameCenterVc, sender: nil)
+            default:
+                break
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate

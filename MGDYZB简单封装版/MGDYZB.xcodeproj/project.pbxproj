@@ -102,6 +102,9 @@
 		C04DE83D1E626E6E005FE676 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */; };
 		C07C4B421E62D7E90043E1CE /* BaseLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B411E62D7E90043E1CE /* BaseLiveViewController.swift */; };
 		C07C4B441E62D9080043E1CE /* BaseLiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B431E62D9080043E1CE /* BaseLiveViewModel.swift */; };
+		C07C4B461E63ADB10043E1CE /* GameCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B451E63ADB10043E1CE /* GameCenterViewController.swift */; };
+		C07C4B481E63AE880043E1CE /* GameCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B471E63AE880043E1CE /* GameCenterModel.swift */; };
+		C07C4B4A1E63AEA00043E1CE /* TaskRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B491E63AEA00043E1CE /* TaskRuleModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -228,6 +231,9 @@
 		C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C07C4B411E62D7E90043E1CE /* BaseLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLiveViewController.swift; sourceTree = "<group>"; };
 		C07C4B431E62D9080043E1CE /* BaseLiveViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLiveViewModel.swift; sourceTree = "<group>"; };
+		C07C4B451E63ADB10043E1CE /* GameCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterViewController.swift; sourceTree = "<group>"; };
+		C07C4B471E63AE880043E1CE /* GameCenterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterModel.swift; sourceTree = "<group>"; };
+		C07C4B491E63AEA00043E1CE /* TaskRuleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskRuleModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				3A38EFA11DC5A1BA0009782C /* ProfileViewController.swift */,
+				C07C4B451E63ADB10043E1CE /* GameCenterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -432,6 +439,8 @@
 			isa = PBXGroup;
 			children = (
 				3A978A621DC5BF3B00E5C64A /* ProfileModel.swift */,
+				C07C4B471E63AE880043E1CE /* GameCenterModel.swift */,
+				C07C4B491E63AEA00043E1CE /* TaskRuleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -930,11 +939,13 @@
 				C04DE8271E615477005FE676 /* FaceViewModel.swift in Sources */,
 				3A10C3EE1DC6282D00880E66 /* MJRefreshConst.m in Sources */,
 				3A0367A11DC0792400F02FBA /* CollectionNormalCell.swift in Sources */,
+				C07C4B4A1E63AEA00043E1CE /* TaskRuleModel.swift in Sources */,
 				3A9779FD1DBFA46300C79CE6 /* GameViewController.swift in Sources */,
 				3A10C3E61DC6282D00880E66 /* MJRefreshAutoStateFooter.m in Sources */,
 				C04DE8331E616CC0005FE676 /* HotGameViewModel.swift in Sources */,
 				C07C4B421E62D7E90043E1CE /* BaseLiveViewController.swift in Sources */,
 				3A3619291DC5CFDE000BE00A /* SettingViewController.swift in Sources */,
+				C07C4B481E63AE880043E1CE /* GameCenterModel.swift in Sources */,
 				3A10C3F11DC6282D00880E66 /* UIView+MJExtension.m in Sources */,
 				3A10C3AB1DC619B300880E66 /* AllListViewController.swift in Sources */,
 				C04DE8311E616C1A005FE676 /* HotGameViewController.swift in Sources */,
@@ -969,6 +980,7 @@
 				3A9779FB1DBFA45200C79CE6 /* RecommendViewController.swift in Sources */,
 				3A294EFE1DC09964000EE406 /* RecommendCycleView.swift in Sources */,
 				3A0367981DC06E8E00F02FBA /* BaseGameModel.swift in Sources */,
+				C07C4B461E63ADB10043E1CE /* GameCenterViewController.swift in Sources */,
 				C04DE81D1E6128E8005FE676 /* UIBUtton+Extension.swift in Sources */,
 				C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */,
 				3A10C3E21DC6282D00880E66 /* MJRefreshFooter.m in Sources */,
