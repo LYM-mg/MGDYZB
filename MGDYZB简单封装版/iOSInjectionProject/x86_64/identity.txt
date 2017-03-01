@@ -1,0 +1,2 @@
+/Users/ZBKF001/Library/Developer/Xcode/DerivedData/MGDYZB-apekjvttpxnaacedtfethtdeuhof/Build/Products/Debug-iphonesimulator/MGDYZB.app
+iPhone Developer

@@ -123,9 +123,15 @@ extension MGNavController  {
 extension MGNavController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is LiveViewController {
-            navigationController.navigationBar.barTintColor = UIColor.yellow
+            navigationController.navigationBar.barTintColor = UIColor.magenta
         }else {
             navigationController.navigationBar.barTintColor = UIColor.orange
         }
+    }
+    
+    func injected() {
+        
+        print("I've been injected: (self)")
+        
     }
 }

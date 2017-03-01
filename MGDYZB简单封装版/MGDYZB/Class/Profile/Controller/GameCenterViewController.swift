@@ -15,9 +15,9 @@ class GameCenterViewController: BaseViewController {
     fileprivate lazy var collectionView: UICollectionView = { [weak self] in
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSize(width: MGScreenW, height: 95)
-        flowLayout.minimumLineSpacing = MGGloabalMargin*0.5
+        flowLayout.minimumLineSpacing = MGGloabalMargin*0.3
         flowLayout.minimumInteritemSpacing = MGGloabalMargin
-        flowLayout.sectionInset = UIEdgeInsets(top: MGGloabalMargin, left: MGGloabalMargin, bottom: 0, right: 0)
+        flowLayout.sectionInset = UIEdgeInsets(top: MGGloabalMargin, left: MGGloabalMargin*0.8, bottom: 0, right: 0)
         
         let cv = UICollectionView(frame: self!.view.bounds, collectionViewLayout: flowLayout)
         cv.backgroundColor = UIColor(white: 0.95, alpha: 1)

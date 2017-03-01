@@ -490,9 +490,7 @@
 			children = (
 				3A9779B91DBF7C3F00C79CE6 /* AppDelegate.swift */,
 				3A9779CB1DBF7EA200C79CE6 /* Class */,
-				3A9779C01DBF7C4000C79CE6 /* Assets.xcassets */,
-				3A9779C51DBF7C4000C79CE6 /* Info.plist */,
-				3A294EF51DC097A4000EE406 /* Bridge.h */,
+				C012F5801E65096F0073F1A8 /* Support Files */,
 			);
 			path = MGDYZB;
 			sourceTree = "<group>";
@@ -810,6 +808,16 @@
 			path = "MMMaterialDesignSpinner-master";
 			sourceTree = "<group>";
 		};
+		C012F5801E65096F0073F1A8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A9779C01DBF7C4000C79CE6 /* Assets.xcassets */,
+				3A9779C51DBF7C4000C79CE6 /* Info.plist */,
+				3A294EF51DC097A4000EE406 /* Bridge.h */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -898,7 +906,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGDYZB/Pods-MGDYZB-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGDYZB/Pods-MGDYZB-resources.sh\"\necho \"$CODESIGNING_FOLDER_PATH\" >/tmp/\"$USER.ident\" && echo \"$CODE_SIGN_IDENTITY\" >>/tmp/\"$USER.ident\" && exit;";
 			showEnvVarsInLog = 0;
 		};
 		D78CF17BCD9B214928C67049 /* [CP] Embed Pods Frameworks */ = {
