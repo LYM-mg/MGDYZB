@@ -145,7 +145,7 @@ extension HomeTitlesView {
             self.scrollLine.frame.origin.x = scrollLineX
         }) 
         
-        // 6.回调
+        // 6.回调或代理
 //        if (self.HomeTitlesViewWhenTitleSelect != nil) {
 //            self.HomeTitlesViewWhenTitleSelect!(HomeTitlesView: self, selectedIndex: currentIndex)
 //        }

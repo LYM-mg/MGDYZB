@@ -65,6 +65,9 @@ extension RecommendCycleView {
 // MARK: - XRCarouselViewDelegate
 extension RecommendCycleView: XRCarouselViewDelegate {
     func carouselView(_ carouselView: XRCarouselView!, didClickImage index: Int) {
+        if cycleModels?.count == 0 {
+            return
+        }
         let cycleModel = cycleModels![index]
         // 1.创建NormalRoomVc
         let webVC = WebViewController(navigationTitle: cycleModel.title, urlStr: cycleModel.anchor!.jumpUrl!)

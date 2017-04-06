@@ -106,7 +106,7 @@ extension SettingViewController{
         let item = ArrowItem(title: "赏个好评", icon: "MoreUpdate")
         // 保存跳转控制器类名字符串
         item.operationBlock = { (indexPath)-> () in
-            UIApplication.shared.openURL(URL(string: "https://github.com/LYM-/LoveFreshBeen")!)
+            UIApplication.shared.openURL(URL(string: "https://github.com/LYM-mg/MGDYZB")!)
         }
         
         let item1 = ArrowItem(title: "检查新版本", icon: "MoreUpdate")
