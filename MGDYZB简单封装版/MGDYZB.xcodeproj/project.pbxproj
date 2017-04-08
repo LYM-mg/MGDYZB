@@ -109,6 +109,7 @@
 		C07C4B4E1E63BCE70043E1CE /* GameCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B4D1E63BCE70043E1CE /* GameCenterViewModel.swift */; };
 		C0D156D01E98C5540095B8BA /* DetailGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156CF1E98C5540095B8BA /* DetailGameViewController.swift */; };
 		C0D156D21E98C6A90095B8BA /* DetailGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156D11E98C6A90095B8BA /* DetailGameViewModel.swift */; };
+		C0D156D41E98E67B0095B8BA /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156D31E98E67B0095B8BA /* QRCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,6 +243,7 @@
 		C07C4B4D1E63BCE70043E1CE /* GameCenterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameCenterViewModel.swift; path = MGDYZB/Class/Profile/View/GameCenterViewModel.swift; sourceTree = SOURCE_ROOT; };
 		C0D156CF1E98C5540095B8BA /* DetailGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailGameViewController.swift; sourceTree = "<group>"; };
 		C0D156D11E98C6A90095B8BA /* DetailGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailGameViewModel.swift; sourceTree = "<group>"; };
+		C0D156D31E98E67B0095B8BA /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +424,7 @@
 			children = (
 				3A36195C1DC5D89A000BE00A /* BaseSettingViewController.swift */,
 				3A3619281DC5CFDE000BE00A /* SettingViewController.swift */,
+				C0D156D31E98E67B0095B8BA /* QRCodeViewController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1004,6 +1007,7 @@
 				3A0367981DC06E8E00F02FBA /* BaseGameModel.swift in Sources */,
 				C07C4B461E63ADB10043E1CE /* GameCenterViewController.swift in Sources */,
 				C04DE81D1E6128E8005FE676 /* UIBUtton+Extension.swift in Sources */,
+				C0D156D41E98E67B0095B8BA /* QRCodeViewController.swift in Sources */,
 				C07C4B4C1E63B53B0043E1CE /* GameCenterCell.swift in Sources */,
 				C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */,
 				3A10C3E21DC6282D00880E66 /* MJRefreshFooter.m in Sources */,
