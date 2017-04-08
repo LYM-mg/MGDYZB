@@ -29,7 +29,6 @@
                             <constraint firstAttribute="trailing" secondItem="ChQ-kQ-8Pc" secondAttribute="trailing" constant="5" id="7FJ-WB-mpu"/>
                             <constraint firstItem="V9S-dS-UDU" firstAttribute="leading" secondItem="opb-7J-2Rx" secondAttribute="leading" id="90e-72-LDH"/>
                             <constraint firstItem="V9S-dS-UDU" firstAttribute="top" secondItem="opb-7J-2Rx" secondAttribute="top" id="SKn-BF-Fta"/>
-                            <constraint firstAttribute="height" constant="200" id="W68-hB-vgG"/>
                             <constraint firstAttribute="trailing" secondItem="V9S-dS-UDU" secondAttribute="trailing" id="d6U-UZ-2uT"/>
                             <constraint firstItem="ChQ-kQ-8Pc" firstAttribute="top" secondItem="opb-7J-2Rx" secondAttribute="top" constant="2" id="nAo-uL-XmD"/>
                             <constraint firstAttribute="bottom" secondItem="V9S-dS-UDU" secondAttribute="bottom" id="uaq-Xe-OQz"/>
@@ -42,6 +41,9 @@
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnC-zG-boO">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="ayc-ZJ-GUt"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <state key="normal" title="小心的抹茶" image="home_live_cate_normal">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
