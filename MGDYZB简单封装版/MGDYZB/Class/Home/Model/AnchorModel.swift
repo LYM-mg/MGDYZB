@@ -51,9 +51,9 @@ class AnchorModel: NSObject {
     var cate1Id : String!
     var cate2Id : String!
     var cate3Id : String!
-    var cateId : Int!
-    var childId : Int!
-    var cid1 : Int!
+    var cateId : NSNumber!
+    var childId : NSNumber!
+    var cid1 : NSNumber!
     var gameName : String!
     var gameUrl : String!
     var iconEndTime : Bool!
@@ -71,5 +71,4 @@ class AnchorModel: NSObject {
             self.vertical_src = room_src
         }
     }
-
 }
