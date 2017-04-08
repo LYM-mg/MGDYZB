@@ -68,12 +68,15 @@ class DetailGameViewController: BaseViewController {
 extension DetailGameViewController {
     fileprivate func loadData() {
         // 1.请求数据
-        detailGameVM.loadDetailGameData {
+        detailGameVM.loadDetailGameData { [weak self] in
             // 1.1.刷新表格
-            self.collectionView.reloadData()
+            self!.collectionView.reloadData()
+            
+            self!.collectionView.header.endRefreshing()
+            self!.collectionView.footer.endRefreshing()
             
             // 1.2.数据请求完成
-            self.loadDataFinished()
+            self!.loadDataFinished()
         }
     }
     
@@ -81,18 +84,14 @@ extension DetailGameViewController {
     fileprivate func setUpRefresh() {
         // MARK: - 下拉
         self.collectionView.header = MJRefreshGifHeader(refreshingBlock: { [weak self]() -> Void in
-            self!.detailGameVM.anchorGroups.first!.anchors.removeAll()
+            self!.detailGameVM.anchorGroups.removeAll()
             self!.detailGameVM.offset = 0
-            self?.loadData()
-            self!.collectionView.header.endRefreshing()
-            self?.collectionView.footer.endRefreshing()
-            })
+            self!.loadData()
+        })
         // MARK: - 上拉
         self.collectionView.footer = MJRefreshAutoGifFooter(refreshingBlock: {[weak self] () -> Void in
             self!.detailGameVM.offset += 20
-            self?.loadData()
-            self!.collectionView.header.endRefreshing()
-            self?.collectionView.footer.endRefreshing()
+            self!.loadData()
             })
         self.collectionView.header.isAutoChangeAlpha = true
         self.collectionView.header.beginRefreshing()
