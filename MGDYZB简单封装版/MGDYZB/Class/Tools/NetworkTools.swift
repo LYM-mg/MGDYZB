@@ -219,6 +219,7 @@ extension NetWorkTools {
             // 3.获取结果
             guard let resultArr = response.result.value else {
                 print(response.result.error)
+//                finishedCallback(nil)
                 return
             }
 

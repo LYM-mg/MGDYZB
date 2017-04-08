@@ -107,9 +107,11 @@ extension RecommendViewController {
             // 2.将数据传递给GameView
             var groups = self.recommendVM.anchorGroups
             
-            // 2.1.移除前两组数据
-            groups.removeFirst()
-            groups.removeFirst()
+            if groups.count > 2 {
+                // 2.1.移除前两组数据
+                groups.removeFirst()
+                groups.removeFirst()
+            }
             
             // 2.2.添加更多组
             let moreGroup = AnchorGroup()

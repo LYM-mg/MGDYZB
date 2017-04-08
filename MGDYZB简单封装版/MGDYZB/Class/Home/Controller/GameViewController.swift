@@ -14,10 +14,9 @@ import UIKit
 private let kEdgeMargin : CGFloat = 10
 private let kItemW : CGFloat = (kScreenW - 2 * kEdgeMargin) / 3
 private let kItemH : CGFloat = kItemW * 6 / 5
-//private let kHeaderViewH : CGFloat = 50
 
 private let kGameCellID = "kGameCellID"
-//private let kHeaderViewID = "kHeaderViewID"
+
 
 class GameViewController: BaseViewController {
 
@@ -39,7 +38,7 @@ class GameViewController: BaseViewController {
         collectionView.register(UINib(nibName: "CollectionGameCell", bundle: nil), forCellWithReuseIdentifier: kGameCellID)
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
         collectionView.dataSource = self
-        
+        collectionView.delegate = self
         return collectionView
     }()
 
@@ -110,7 +109,7 @@ extension GameViewController {
 
 
 // MARK:- 遵守UICollectionView的数据源&代理
-extension GameViewController : UICollectionViewDataSource {
+extension GameViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gameVM.games.count
     }
@@ -137,5 +136,12 @@ extension GameViewController : UICollectionViewDataSource {
     }
 }
 
+// MARK:- 遵守UICollectionView的代理
+extension GameViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = gameVM.games[indexPath.item]
+        show(DetailGameViewController(tag_id: model.tag_id), sender: self)
+    }
+}
 
 
