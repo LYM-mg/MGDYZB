@@ -148,7 +148,7 @@ extension ProfileViewController: UITableViewDelegate {
 extension ProfileViewController: ProfileHeaderViewDelegate {
     func ProfileHeaderViewSettingBtnClicked() {
         let settingVC = SettingViewController(style: UITableViewStyle.grouped)
-        self.show(settingVC, sender: nil)
+        self.navigationController?.pushViewController(settingVC, animated: true)
     }
     
     func ProfileHeaderViewLetterBtnClicked() {

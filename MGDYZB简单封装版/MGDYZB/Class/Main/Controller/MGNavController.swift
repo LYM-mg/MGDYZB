@@ -89,7 +89,11 @@ class MGNavController: UINavigationController {
     }
     
     @objc fileprivate func backClick() {
-        popViewController(animated: true)
+        if self.navigationController?.childViewControllers.count == 1 {
+            dismiss(animated: true, completion: nil)
+        }else {
+            popViewController(animated: true)
+        }
     }
 }
 
