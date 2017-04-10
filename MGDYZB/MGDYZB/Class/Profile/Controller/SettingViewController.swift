@@ -118,7 +118,7 @@ extension SettingViewController{
         }
         
         let item3 = ArrowItem(title: "关于斗鱼", icon: "MoreUpdate")
-        item3.descVcClass = UIViewController.classForCoder()
+        item3.descVcClass = QRCodeViewController.classForCoder()
         
         // 创建组模型数组
         let group = GroupItem()

@@ -43,7 +43,7 @@ class CollectionPrettyCell: UICollectionViewCell {
 
             // 4.设置封面图片
             guard let iconURL = URL(string: anchor.vertical_src) else { return }
-            iconImageView.kf.setImage(with: (with: iconURL), placeholder: #imageLiteral(resourceName: "placehoderImage"))
+            iconImageView.kf.setImage(with: iconURL, placeholder: #imageLiteral(resourceName: "placehoderImage"))
         }
     }
 

@@ -14,8 +14,8 @@ import UIKit
 class RecommendViewModel: BaseViewModel {
     // MARK:- 懒加载属性
     lazy var cycleModels : [CycleModel] = [CycleModel]()
-    fileprivate lazy var bigDataGroup : AnchorGroup = AnchorGroup()
-    fileprivate lazy var prettyGroup : AnchorGroup = AnchorGroup()
+    lazy var bigDataGroup : AnchorGroup = AnchorGroup()
+    lazy var prettyGroup : AnchorGroup = AnchorGroup()
 }
 
 // MARK:- 发送网络请求

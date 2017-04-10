@@ -3,64 +3,56 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionGameCell" customModule="MGDYZB" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="LnV-AL-R5C" customClass="CollectionGameCell" customModule="MGDYZB" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="英雄联盟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLe-Xh-XBI">
-                        <frame key="frameInset" minX="12" minY="64" width="56" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cse-AV-sY9" userLabel="lineView">
-                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1m-bs-rzl">
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="QRi-dY-bq7"/>
+                            <constraint firstAttribute="height" constant="1" id="b4e-uS-eX6"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_orange" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-Q5-Rty">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placehoderImage" translatesAutoresizingMaskIntoConstraints="NO" id="DpW-Hs-d8p">
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="YEn-Q5-Rty" secondAttribute="height" multiplier="1:1" id="fKq-eJ-prW"/>
-                            <constraint firstAttribute="width" constant="45" id="n6d-vr-uPW"/>
-                            <constraint firstAttribute="height" constant="70" id="v7b-e0-D1v"/>
+                            <constraint firstAttribute="height" constant="45" id="5Bu-Va-Zkf"/>
+                            <constraint firstAttribute="width" constant="45" id="rlw-ad-EaY"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="v7b-e0-D1v"/>
-                            </mask>
-                        </variation>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="英雄联盟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAX-R0-DNd">
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Cse-AV-sY9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5le-0v-S3t"/>
-                <constraint firstItem="HLe-Xh-XBI" firstAttribute="top" secondItem="YEn-Q5-Rty" secondAttribute="bottom" constant="8" id="74w-fi-BLZ"/>
-                <constraint firstItem="YEn-Q5-Rty" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-12" id="S6G-vO-IG8"/>
-                <constraint firstItem="YEn-Q5-Rty" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aOn-fe-vmb"/>
-                <constraint firstAttribute="trailing" secondItem="Cse-AV-sY9" secondAttribute="trailing" id="d8L-6G-UrB"/>
-                <constraint firstAttribute="bottom" secondItem="Cse-AV-sY9" secondAttribute="bottom" id="ngG-bw-skt"/>
-                <constraint firstItem="HLe-Xh-XBI" firstAttribute="centerX" secondItem="YEn-Q5-Rty" secondAttribute="centerX" id="yWV-le-2Vg"/>
+                <constraint firstItem="V1m-bs-rzl" firstAttribute="leading" secondItem="LnV-AL-R5C" secondAttribute="leading" id="0Or-se-tjA"/>
+                <constraint firstItem="nAX-R0-DNd" firstAttribute="top" secondItem="DpW-Hs-d8p" secondAttribute="bottom" constant="8" id="1G2-52-mwO"/>
+                <constraint firstItem="DpW-Hs-d8p" firstAttribute="centerY" secondItem="LnV-AL-R5C" secondAttribute="centerY" constant="-8" id="5Vf-v9-i1e"/>
+                <constraint firstItem="nAX-R0-DNd" firstAttribute="centerX" secondItem="DpW-Hs-d8p" secondAttribute="centerX" id="JDg-hV-Bqc"/>
+                <constraint firstAttribute="bottom" secondItem="V1m-bs-rzl" secondAttribute="bottom" constant="-1" id="RCg-pB-nRQ"/>
+                <constraint firstAttribute="trailing" secondItem="V1m-bs-rzl" secondAttribute="trailing" id="st7-77-bht"/>
+                <constraint firstItem="DpW-Hs-d8p" firstAttribute="centerX" secondItem="LnV-AL-R5C" secondAttribute="centerX" id="ukA-KV-Tq2"/>
             </constraints>
-            <size key="customSize" width="84" height="91"/>
+            <size key="customSize" width="89" height="110"/>
             <connections>
-                <outlet property="iconImageView" destination="YEn-Q5-Rty" id="Oj8-Qq-Zf7"/>
-                <outlet property="lineView" destination="Cse-AV-sY9" id="ydA-FW-wPf"/>
-                <outlet property="titleLabel" destination="HLe-Xh-XBI" id="BTn-sK-Qk7"/>
+                <outlet property="iconImageView" destination="DpW-Hs-d8p" id="Ivt-fP-xG1"/>
+                <outlet property="lineView" destination="V1m-bs-rzl" id="Dfs-6f-yfb"/>
+                <outlet property="titleLabel" destination="nAX-R0-DNd" id="elB-3e-ZW2"/>
             </connections>
-            <point key="canvasLocation" x="319" y="339"/>
+            <point key="canvasLocation" x="320" y="365"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Img_orange" width="3" height="15"/>
+        <image name="placehoderImage" width="130" height="180"/>
     </resources>
 </document>

@@ -111,6 +111,8 @@
 		C0D156D21E98C6A90095B8BA /* DetailGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156D11E98C6A90095B8BA /* DetailGameViewModel.swift */; };
 		C0D156D41E98E67B0095B8BA /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156D31E98E67B0095B8BA /* QRCodeViewController.swift */; };
 		C0D156D61E9B26220095B8BA /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156D51E9B26220095B8BA /* NSObject+Extension.swift */; };
+		C0D156E21E9BA0190095B8BA /* HeaderViewDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156E11E9BA0190095B8BA /* HeaderViewDetailController.swift */; };
+		C0D156E41E9BA0FE0095B8BA /* HearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156E31E9BA0FE0095B8BA /* HearViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +248,8 @@
 		C0D156D11E98C6A90095B8BA /* DetailGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailGameViewModel.swift; sourceTree = "<group>"; };
 		C0D156D31E98E67B0095B8BA /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		C0D156D51E9B26220095B8BA /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		C0D156E11E9BA0190095B8BA /* HeaderViewDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewDetailController.swift; sourceTree = "<group>"; };
+		C0D156E31E9BA0FE0095B8BA /* HearViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -539,6 +543,7 @@
 				3A9779FE1DBFA47300C79CE6 /* AmuseViewController.swift */,
 				3A977A001DBFA48300C79CE6 /* FunnyViewController.swift */,
 				C0D156CF1E98C5540095B8BA /* DetailGameViewController.swift */,
+				C0D156E11E9BA0190095B8BA /* HeaderViewDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 				3A122BCE1DC0F71F00285A40 /* FunnyViewModel.swift */,
 				3A122BD01DC0FA8A00285A40 /* AmuseViewModel.swift */,
 				C0D156D11E98C6A90095B8BA /* DetailGameViewModel.swift */,
+				C0D156E31E9BA0FE0095B8BA /* HearViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1002,6 +1008,7 @@
 				3A0367A51DC0793D00F02FBA /* CollectionPrettyCell.swift in Sources */,
 				3A3619551DC5D43E000BE00A /* SettingItem.swift in Sources */,
 				3A122BCF1DC0F71F00285A40 /* FunnyViewModel.swift in Sources */,
+				C0D156E21E9BA0190095B8BA /* HeaderViewDetailController.swift in Sources */,
 				3A294EFC1DC0986E000EE406 /* XRCarouselView.m in Sources */,
 				3A122BD11DC0FA8A00285A40 /* AmuseViewModel.swift in Sources */,
 				C0D156D01E98C5540095B8BA /* DetailGameViewController.swift in Sources */,
@@ -1034,6 +1041,7 @@
 				3A0367961DC06DC100F02FBA /* AnchorModel.swift in Sources */,
 				3A0BAADB1DC057D000FF1C53 /* CollectionHeaderView.swift in Sources */,
 				3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */,
+				C0D156E41E9BA0FE0095B8BA /* HearViewModel.swift in Sources */,
 				3A10C3AD1DC61A5600880E66 /* AllListViewModel.swift in Sources */,
 				3AA37C7F1DC341AA00F6DCAF /* MMMaterialDesignSpinner.m in Sources */,
 				C04DE8391E6172BF005FE676 /* ScienceViewModel.swift in Sources */,

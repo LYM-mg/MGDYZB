@@ -21,7 +21,7 @@ class AnchorGroup: BaseGameModel {
         }
     }
     /// 组显示的图标
-    var icon_name : String = "home_header_normal"
+    var icon_name: String = "home_header_normal"
     /// 定义主播的模型对象数组
-    lazy var anchors : [AnchorModel] = [AnchorModel]()
+    lazy var anchors: [AnchorModel] = [AnchorModel]()
 }

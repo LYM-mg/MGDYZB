@@ -1,18 +1,17 @@
 //
-//  DetailGameViewController.swift
+//  HeaderViewDetailController.swift
 //  MGDYZB
 //
-//  Created by i-Techsys.com on 17/4/8.
+//  Created by i-Techsys.com on 17/4/10.
 //  Copyright © 2017年 ming. All rights reserved.
 //
 
 import UIKit
 import SafariServices
 
-class DetailGameViewController: BaseViewController {
-
+class HeaderViewDetailController: UIViewController {
     // MARK: - 懒加载属性
-    fileprivate lazy var detailGameVM : DetailGameViewModel = DetailGameViewModel()
+    fileprivate lazy var headerVM: HearViewModel = HearViewModel()
     fileprivate lazy var collectionView : UICollectionView = {[unowned self] in
         // 1.创建布局
         let layout = UICollectionViewFlowLayout()
@@ -30,49 +29,48 @@ class DetailGameViewController: BaseViewController {
         collectionView.delegate = self
         return collectionView
     }()
-    
-    // MARK: - 系统方法
-    convenience init(tag_id: String) {
-        self.init(nibName: nil, bundle: nil)
-        detailGameVM.tag_id = tag_id   // 这个tag_id是用作url参数用的，具体你看ViewModel的两个url分析
-    }
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "具体游戏"
+        setUpMainView()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
         
-        setUpRefresh()
-        
+    }
+    
+    convenience init(model: AnchorGroup) {
+        self.init()
+        headerVM.tag_id = Int(model.tag_id)
+        self.title = model.icon_name
+    }
+}
+
+// MARK: - 设置UI
+extension HeaderViewDetailController {
+    func setUpMainView() {
         if #available(iOS 9, *) {
             if traitCollection.forceTouchCapability == .available {
                 registerForPreviewing(with: self, sourceView: self.view)
             }
         }
-    }
-
-    override func setUpMainView() {
-        contentView = collectionView
+        
         view.addSubview(collectionView)
-        super.setUpMainView()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        setUpRefresh()
     }
 }
 
 // MARK: - loadData
-extension DetailGameViewController {
+extension HeaderViewDetailController {
     fileprivate func loadData() {
         // 1.请求数据
-        detailGameVM.loadDetailGameData { [weak self] in
+        headerVM.loadHearderData { [weak self] in
             // 1.1.刷新表格
             self!.collectionView.header.endRefreshing()
             self!.collectionView.footer.endRefreshing()
             self?.collectionView.reloadData()
-            
-            // 1.2.数据请求完成
-            self?.loadDataFinished()
         }
     }
     
@@ -80,15 +78,15 @@ extension DetailGameViewController {
     fileprivate func setUpRefresh() {
         // MARK: - 下拉
         self.collectionView.header = MJRefreshGifHeader(refreshingBlock: { [weak self]() -> Void in
-            self!.detailGameVM.anchorGroups.removeAll()
-            self!.detailGameVM.offset = 0
-            self!.loadData()
-        })
-        // MARK: - 上拉
-        self.collectionView.footer = MJRefreshAutoGifFooter(refreshingBlock: {[weak self] () -> Void in
-            self!.detailGameVM.offset += 20
+            self!.headerVM.anchorGroups.removeAll()
+            self!.headerVM.offset = 0
             self!.loadData()
             })
+        // MARK: - 上拉
+        self.collectionView.footer = MJRefreshAutoGifFooter(refreshingBlock: {[weak self] () -> Void in
+            self!.headerVM.offset += 20
+            self!.loadData()
+        })
         self.collectionView.header.isAutoChangeAlpha = true
         self.collectionView.header.beginRefreshing()
         self.collectionView.footer.noticeNoMoreData()
@@ -96,20 +94,20 @@ extension DetailGameViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension DetailGameViewController: UICollectionViewDataSource {
+extension HeaderViewDetailController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return detailGameVM.anchorGroups.count
+        return headerVM.anchorGroups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return detailGameVM.anchorGroups[section].anchors.count
+        return headerVM.anchorGroups[section].anchors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // 1.获取cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath)  as! CollectionNormalCell
-        if detailGameVM.anchorGroups.count > 0 {
-            cell.anchor = detailGameVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+        if headerVM.anchorGroups.count > 0 {
+            cell.anchor = headerVM.anchorGroups[indexPath.section].anchors[indexPath.item]
         }
         
         return cell
@@ -117,19 +115,19 @@ extension DetailGameViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension DetailGameViewController: UICollectionViewDelegate {
+extension HeaderViewDetailController: UICollectionViewDelegate {
     @objc(collectionView:viewForSupplementaryElementOfKind:atIndexPath:) func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         // 1.取出HeaderView
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath) as! CollectionHeaderView
         
         // 2.给HeaderView设置数据
-        headerView.group = detailGameVM.anchorGroups[indexPath.section]
+        headerView.group = headerVM.anchorGroups[indexPath.section]
         
         return headerView
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 1.取出对应的主播信息
-        let anchor = detailGameVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+        let anchor = headerVM.anchorGroups[indexPath.section].anchors[indexPath.item]
         
         
         // 2.判断是秀场房间&普通房间
@@ -159,7 +157,7 @@ extension DetailGameViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UIViewControllerPreviewingDelegate
-extension DetailGameViewController: UIViewControllerPreviewingDelegate {
+extension HeaderViewDetailController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = collectionView.indexPathForItem(at: location) else { return nil }
         guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
@@ -169,7 +167,7 @@ extension DetailGameViewController: UIViewControllerPreviewingDelegate {
         }
         
         var vc = UIViewController()
-        let anchor = detailGameVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+        let anchor = headerVM.anchorGroups[indexPath.section].anchors[indexPath.item]
         if anchor.isVertical == 0 {
             if #available(iOS 9, *) {
                 vc = SFSafariViewController(url: URL(string: anchor.jumpUrl)!, entersReaderIfAvailable: true)
@@ -187,3 +185,5 @@ extension DetailGameViewController: UIViewControllerPreviewingDelegate {
         show(viewControllerToCommit, sender: nil)
     }
 }
+
+

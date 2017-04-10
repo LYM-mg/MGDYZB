@@ -93,6 +93,23 @@ extension RecommendViewController {
 
 // MARK: - 发送网络请求 loadData
 extension RecommendViewController {
+    fileprivate func setUpRefresh() {
+        weak var weakSelf = self
+        // 头部刷新
+        self.collectionView.header = MJRefreshGifHeader(refreshingBlock: {
+            let strongSelf = weakSelf
+            strongSelf?.recommendVM.anchorGroups.removeAll()
+            strongSelf?.recommendVM.bigDataGroup.anchors.removeAll()
+            strongSelf?.recommendVM.prettyGroup.anchors.removeAll()
+            strongSelf?.recommendVM.cycleModels.removeAll()
+            strongSelf?.loadData()
+        })
+        
+        // 设置自动切换透明度(在导航栏下面自动隐藏)
+        collectionView.header.isAutoChangeAlpha = true
+        self.collectionView.header.beginRefreshing()
+    }
+
     fileprivate func loadData() {
         // 1.请求轮播数据
         recommendVM.requestCycleData {_ in
@@ -117,6 +134,7 @@ extension RecommendViewController {
             let moreGroup = AnchorGroup()
             moreGroup.icon_url = "home_more_btn"
             moreGroup.tag_name = "更多"
+//            moreGroup.tag_id = 0
             groups.append(moreGroup)
             
             self.gameView.groups = groups
@@ -207,37 +225,18 @@ extension RecommendViewController: UICollectionViewDelegate {
     }
     
     @objc fileprivate func headerClick(_ tap: UITapGestureRecognizer) {
-        var url = ""
-        var title = ""
+
         switch headerIndexPath!.section {
-        case 0:
-            url = "http://www.douyu.com/directory/game/TVgame"
-            title = "主机游戏"
-        case 1:
-            url = "http://www.douyu.com/directory/game/yz"
-            title = "美颜"
-        case 2:
-            url = "http://www.douyu.com/directory/game/outdoor"
-            title = "户外"
-        case 3:
-            url = "http://www.douyu.com/directory/game/LOL"
-            title = "英雄联盟"
-        case 4:
-            url = "http://www.douyu.com/directory/game/mhxy"
-            title = "梦幻西游手游"
-        case 5:
-            url = "http://www.douyu.com/directory/game/How"
-            title = "炉石传说"
-        case 6:
-            url = "http://www.douyu.com/directory/game/wzry"
-            title = "王者荣耀"
-        default:
-            url = "http://www.douyu.com/directory/game/yz"
-            title = "美颜"
+            case 0:
+                let webVC = WebViewController(navigationTitle: "主机游戏", urlStr: "http://www.douyu.com/directory/game/TVgame")
+                navigationController?.pushViewController(webVC, animated: true)
+            case 1:
+                let webVC = WebViewController(navigationTitle: "美颜", urlStr: "http://www.douyu.com/directory/game/yz")
+                navigationController?.pushViewController(webVC, animated: true)
+            default:
+                let model = recommendVM.anchorGroups[headerIndexPath!.section]
+                self.show(HeaderViewDetailController(model: model), sender: self)
         }
-        
-        let webVC = WebViewController(navigationTitle: title, urlStr: url)
-        navigationController?.pushViewController(webVC, animated: true)
     }
 
     

@@ -109,6 +109,7 @@
 		C07C4B541E63D0C80043E1CE /* TaskRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B521E63D0C80043E1CE /* TaskRuleModel.swift */; };
 		C07C4B561E63D0CE0043E1CE /* GameCenterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B551E63D0CE0043E1CE /* GameCenterCell.swift */; };
 		C07C4B581E63D0D40043E1CE /* GameCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B571E63D0D40043E1CE /* GameCenterViewModel.swift */; };
+		C0D156DA1E9B711C0095B8BA /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156D91E9B711C0095B8BA /* QRCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,6 +243,7 @@
 		C07C4B521E63D0C80043E1CE /* TaskRuleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskRuleModel.swift; sourceTree = "<group>"; };
 		C07C4B551E63D0CE0043E1CE /* GameCenterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterCell.swift; sourceTree = "<group>"; };
 		C07C4B571E63D0D40043E1CE /* GameCenterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterViewModel.swift; sourceTree = "<group>"; };
+		C0D156D91E9B711C0095B8BA /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +424,7 @@
 			children = (
 				3A36195C1DC5D89A000BE00A /* BaseSettingViewController.swift */,
 				3A3619281DC5CFDE000BE00A /* SettingViewController.swift */,
+				C0D156D91E9B711C0095B8BA /* QRCodeViewController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -996,6 +999,7 @@
 				C04DE81D1E6128E8005FE676 /* UIBUtton+Extension.swift in Sources */,
 				C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */,
 				3A10C3E21DC6282D00880E66 /* MJRefreshFooter.m in Sources */,
+				C0D156DA1E9B711C0095B8BA /* QRCodeViewController.swift in Sources */,
 				3A10C3E11DC6282D00880E66 /* MJRefreshComponent.m in Sources */,
 				C07C4B581E63D0D40043E1CE /* GameCenterViewModel.swift in Sources */,
 				3A38EFA21DC5A1BA0009782C /* ProfileViewController.swift in Sources */,
