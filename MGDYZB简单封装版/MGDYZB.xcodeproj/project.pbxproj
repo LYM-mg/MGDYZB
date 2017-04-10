@@ -113,6 +113,8 @@
 		C0D156D61E9B26220095B8BA /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156D51E9B26220095B8BA /* NSObject+Extension.swift */; };
 		C0D156E21E9BA0190095B8BA /* HeaderViewDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156E11E9BA0190095B8BA /* HeaderViewDetailController.swift */; };
 		C0D156E41E9BA0FE0095B8BA /* HearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156E31E9BA0FE0095B8BA /* HearViewModel.swift */; };
+		C0D156E81E9BAC830095B8BA /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156E71E9BAC830095B8BA /* SearchResultViewController.swift */; };
+		C0D156EA1E9BB4810095B8BA /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156E91E9BB4810095B8BA /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -250,6 +252,8 @@
 		C0D156D51E9B26220095B8BA /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		C0D156E11E9BA0190095B8BA /* HeaderViewDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewDetailController.swift; sourceTree = "<group>"; };
 		C0D156E31E9BA0FE0095B8BA /* HearViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearViewModel.swift; sourceTree = "<group>"; };
+		C0D156E71E9BAC830095B8BA /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		C0D156E91E9BB4810095B8BA /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -544,6 +548,7 @@
 				3A977A001DBFA48300C79CE6 /* FunnyViewController.swift */,
 				C0D156CF1E98C5540095B8BA /* DetailGameViewController.swift */,
 				C0D156E11E9BA0190095B8BA /* HeaderViewDetailController.swift */,
+				C0D156E71E9BAC830095B8BA /* SearchResultViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 				3A122BD01DC0FA8A00285A40 /* AmuseViewModel.swift */,
 				C0D156D11E98C6A90095B8BA /* DetailGameViewModel.swift */,
 				C0D156E31E9BA0FE0095B8BA /* HearViewModel.swift */,
+				C0D156E91E9BB4810095B8BA /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -997,6 +1003,7 @@
 				3A9779F51DBF904B00C79CE6 /* Common.swift in Sources */,
 				3A10C3EC1DC6282D00880E66 /* MJRefreshStateHeader.m in Sources */,
 				3A01C1BC1DC339CF000C05DD /* SaveTools.swift in Sources */,
+				C0D156EA1E9BB4810095B8BA /* SearchViewModel.swift in Sources */,
 				3A36195B1DC5D72D000BE00A /* SwitchItem.swift in Sources */,
 				3AE6283D1DC5F7F300835B36 /* NSObject+FileManager.swift in Sources */,
 				C0D156D21E98C6A90095B8BA /* DetailGameViewModel.swift in Sources */,
@@ -1056,6 +1063,7 @@
 				3A0367941DC06D8B00F02FBA /* AnchorGroup.swift in Sources */,
 				3A10C3E91DC6282D00880E66 /* MJRefreshBackStateFooter.m in Sources */,
 				3A9779F91DBFA35B00C79CE6 /* HomeContentView.swift in Sources */,
+				C0D156E81E9BAC830095B8BA /* SearchResultViewController.swift in Sources */,
 				C0D156D61E9B26220095B8BA /* NSObject+Extension.swift in Sources */,
 				C07C4B4E1E63BCE70043E1CE /* GameCenterViewModel.swift in Sources */,
 				3A10C3DF1DC6282D00880E66 /* MJRefreshAutoFooter.m in Sources */,

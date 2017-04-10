@@ -47,9 +47,10 @@ class CollectionGameCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.layoutIfNeeded()
         iconImageView.layer.cornerRadius = self.iconImageView.frame.size.height*0.5
         iconImageView.clipsToBounds = true
-//        frame = CGRect(x: 0, y: 0, width: 80, height: 90)
+        frame = CGRect(x: 0, y: 0, width: 80, height: 90)
         lineView.isHidden = true
 //        backgroundColor = UIColor.orangeColor()
     }

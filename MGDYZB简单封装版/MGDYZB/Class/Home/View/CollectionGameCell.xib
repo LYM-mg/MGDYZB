@@ -15,12 +15,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1m-bs-rzl">
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="b4e-uS-eX6"/>
-                        </constraints>
-                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placehoderImage" translatesAutoresizingMaskIntoConstraints="NO" id="DpW-Hs-d8p">
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="5Bu-Va-Zkf"/>
@@ -32,12 +26,18 @@
                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1m-bs-rzl">
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="b4e-uS-eX6"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="V1m-bs-rzl" firstAttribute="leading" secondItem="LnV-AL-R5C" secondAttribute="leading" id="0Or-se-tjA"/>
-                <constraint firstItem="nAX-R0-DNd" firstAttribute="top" secondItem="DpW-Hs-d8p" secondAttribute="bottom" constant="8" id="1G2-52-mwO"/>
-                <constraint firstItem="DpW-Hs-d8p" firstAttribute="centerY" secondItem="LnV-AL-R5C" secondAttribute="centerY" constant="-8" id="5Vf-v9-i1e"/>
+                <constraint firstItem="nAX-R0-DNd" firstAttribute="top" secondItem="DpW-Hs-d8p" secondAttribute="bottom" constant="12" id="1G2-52-mwO"/>
+                <constraint firstItem="DpW-Hs-d8p" firstAttribute="centerY" secondItem="LnV-AL-R5C" secondAttribute="centerY" constant="-12" id="5Vf-v9-i1e"/>
                 <constraint firstItem="nAX-R0-DNd" firstAttribute="centerX" secondItem="DpW-Hs-d8p" secondAttribute="centerX" id="JDg-hV-Bqc"/>
                 <constraint firstAttribute="bottom" secondItem="V1m-bs-rzl" secondAttribute="bottom" constant="-1" id="RCg-pB-nRQ"/>
                 <constraint firstAttribute="trailing" secondItem="V1m-bs-rzl" secondAttribute="trailing" id="st7-77-bht"/>

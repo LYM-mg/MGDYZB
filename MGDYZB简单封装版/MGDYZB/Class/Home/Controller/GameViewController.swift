@@ -59,7 +59,7 @@ class GameViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMainView()
+//        setUpMainView()
         loadData()
     }
 

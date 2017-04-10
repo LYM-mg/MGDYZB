@@ -15,7 +15,7 @@ private let kTitlesViewH : CGFloat = 40
 
 class HomeViewController: UIViewController {
     
-    var isFirst: Bool = false
+    var isFirst: Bool = false // 第一次启动
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,17 +114,7 @@ extension HomeViewController {
         view.addSubview(homeTitlesView)
         view.addSubview(homeContentView)
     }
-    fileprivate func setUpNavgationBar() {
-        // 1.设置左侧的Item
-        navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "logo")
-        
-        // 2.设置右侧的Item
-        let size = CGSize(width: 40, height: 40)
-        let historyItem = UIBarButtonItem(imageName: "image_my_history", highImageName: "Image_my_history_click", size: size)
-        let searchItem = UIBarButtonItem(imageName: "btn_search", highImageName: "btn_search_clicked", size: size)
-        let qrcodeItem = UIBarButtonItem(imageName: "Image_scan", highImageName: "Image_scan_click", size: size)
-        navigationItem.rightBarButtonItems = [historyItem, searchItem, qrcodeItem]
-    }
+    
 }
 
 // MARK:- 遵守 HomeTitlesViewDelegate 协议
@@ -141,4 +131,33 @@ extension HomeViewController : HomeContentViewDelegate {
         homeTitlesView.setTitleWithProgress(progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }
+
+// MARK:- 导航栏相关
+extension HomeViewController {
+    fileprivate func setUpNavgationBar() {
+        // 1.设置左侧的Item
+        navigationItem.leftBarButtonItem = UIBarButtonItem.createItem("logo")
+        
+        // 2.设置右侧的Item
+        let size = CGSize(width: 40, height: 40)
+        let historyItem = UIBarButtonItem(imageName: "image_my_history", highImageName: "Image_my_history_click", size: size, target: self, action: #selector(self.seachClick(_:)))
+        let searchItem = UIBarButtonItem(imageName: "btn_search", highImageName: "btn_search_clicked", size: size, target: self, action: #selector(HomeViewController.seachClick(_:)))
+        let qrcodeItem = UIBarButtonItem(imageName: "Image_scan", highImageName: "Image_scan_click", size: size, target: self, action: Selector(("scanClick:")))
+        navigationItem.rightBarButtonItems = [historyItem, searchItem, qrcodeItem]
+    }
+    
+    // 搜索
+    @objc fileprivate func seachClick(_ btn: UIButton) {
+        self.show(SearchResultViewController(), sender: nil)
+    }
+    
+    // 扫一扫
+    @objc fileprivate func scanClick(btn: UIButton) {
+        
+    }
+}
+
+
+
+
 

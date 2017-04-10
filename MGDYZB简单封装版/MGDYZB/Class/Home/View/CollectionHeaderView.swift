@@ -29,7 +29,7 @@ class CollectionHeaderView: UICollectionReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        frame = CGRect(x: 0, y: 0, width: MGScreenW, height: 44)
     }
 }
 
