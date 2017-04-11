@@ -42,9 +42,9 @@ extension UIButton {
         // 1.设置按钮的属性
         setImage(image, for: .normal)
         if highlightedImage != nil {
-            setImage(highlightedImage, for: .highlighted)
+            setImage(highlightedImage, for: .selected)
         }
-        showsTouchWhenHighlighted = true
+//        showsTouchWhenHighlighted = true
         titleLabel?.font = UIFont.systemFont(ofSize: 17)
         sizeToFit()
         

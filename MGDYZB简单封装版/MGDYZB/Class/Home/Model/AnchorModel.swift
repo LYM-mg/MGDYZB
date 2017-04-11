@@ -55,17 +55,17 @@ class AnchorModel: NSObject {
     var childId : NSNumber!
     var cid1 : NSNumber!
     var gameName : String!
-    var gameUrl : String!
+    var game_url : String!
     var iconEndTime : Bool!
     var iconId : String!
     var iconStartTime : Bool!
     var showStatus : String!
     var showTime : String!
-    var specificCatalog : String!
-    var specificStatus : String!
+    var specific_catalog : String!
+    var specific_status : String!
     var url : String!
     var verticalSrc : String!
-    var vodQuality : String!
+    var vod_quality : String!
     var room_src: String! {
         didSet {
             self.vertical_src = room_src

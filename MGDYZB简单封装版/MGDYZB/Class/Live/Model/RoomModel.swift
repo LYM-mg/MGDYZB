@@ -17,7 +17,7 @@ class RoomModel: AnchorModel {
 //    var cate_id: String = ""
     var cate_id: NSNumber!
 //    var url: String = ""
-    var game_url: String = ""
+//    var game_url: String = ""
     /// 在线数
 //    var online: Int = 0
     /// 所属分类

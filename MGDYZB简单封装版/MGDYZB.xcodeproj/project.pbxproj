@@ -100,6 +100,15 @@
 		C04DE8371E617251005FE676 /* ScienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8361E617251005FE676 /* ScienceViewController.swift */; };
 		C04DE8391E6172BF005FE676 /* ScienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */; };
 		C04DE83D1E626E6E005FE676 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */; };
+		C07517541E9C5DE800C84B6A /* WatchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07517531E9C5DE800C84B6A /* WatchHistoryViewController.swift */; };
+		C07517561E9C5E7400C84B6A /* WatchHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07517551E9C5E7400C84B6A /* WatchHistoryViewModel.swift */; };
+		C07517581E9C73A500C84B6A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07517571E9C73A500C84B6A /* String+Extension.swift */; };
+		C075175A1E9C781400C84B6A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07517591E9C781400C84B6A /* ScanViewController.swift */; };
+		C075177C1E9C7DA800C84B6A /* MGCodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C075177B1E9C7DA800C84B6A /* MGCodeScan.bundle */; };
+		C075177E1E9C7DC600C84B6A /* ScanBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C075177D1E9C7DC600C84B6A /* ScanBottomView.swift */; };
+		C07517801E9C83FC00C84B6A /* MGScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C075177F1E9C83FC00C84B6A /* MGScanView.swift */; };
+		C07517821E9C845600C84B6A /* MGScanViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07517811E9C845600C84B6A /* MGScanViewStyle.swift */; };
+		C07517841E9CB22A00C84B6A /* ScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07517831E9CB22900C84B6A /* ScanButton.swift */; };
 		C07C4B421E62D7E90043E1CE /* BaseLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B411E62D7E90043E1CE /* BaseLiveViewController.swift */; };
 		C07C4B441E62D9080043E1CE /* BaseLiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B431E62D9080043E1CE /* BaseLiveViewModel.swift */; };
 		C07C4B461E63ADB10043E1CE /* GameCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B451E63ADB10043E1CE /* GameCenterViewController.swift */; };
@@ -239,6 +248,15 @@
 		C04DE8361E617251005FE676 /* ScienceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceViewController.swift; sourceTree = "<group>"; };
 		C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceViewModel.swift; sourceTree = "<group>"; };
 		C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C07517531E9C5DE800C84B6A /* WatchHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchHistoryViewController.swift; sourceTree = "<group>"; };
+		C07517551E9C5E7400C84B6A /* WatchHistoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchHistoryViewModel.swift; sourceTree = "<group>"; };
+		C07517571E9C73A500C84B6A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		C07517591E9C781400C84B6A /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		C075177B1E9C7DA800C84B6A /* MGCodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MGCodeScan.bundle; sourceTree = "<group>"; };
+		C075177D1E9C7DC600C84B6A /* ScanBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanBottomView.swift; sourceTree = "<group>"; };
+		C075177F1E9C83FC00C84B6A /* MGScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGScanView.swift; sourceTree = "<group>"; };
+		C07517811E9C845600C84B6A /* MGScanViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGScanViewStyle.swift; sourceTree = "<group>"; };
+		C07517831E9CB22900C84B6A /* ScanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanButton.swift; sourceTree = "<group>"; };
 		C07C4B411E62D7E90043E1CE /* BaseLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLiveViewController.swift; sourceTree = "<group>"; };
 		C07C4B431E62D9080043E1CE /* BaseLiveViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLiveViewModel.swift; sourceTree = "<group>"; };
 		C07C4B451E63ADB10043E1CE /* GameCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterViewController.swift; sourceTree = "<group>"; };
@@ -530,6 +548,7 @@
 		3A9779CC1DBF7EA200C79CE6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C075177B1E9C7DA800C84B6A /* MGCodeScan.bundle */,
 				3A9779CD1DBF7EA200C79CE6 /* Controller */,
 				3A9779CE1DBF7EA200C79CE6 /* Model */,
 				3A9779CF1DBF7EA200C79CE6 /* View */,
@@ -549,6 +568,8 @@
 				C0D156CF1E98C5540095B8BA /* DetailGameViewController.swift */,
 				C0D156E11E9BA0190095B8BA /* HeaderViewDetailController.swift */,
 				C0D156E71E9BAC830095B8BA /* SearchResultViewController.swift */,
+				C07517531E9C5DE800C84B6A /* WatchHistoryViewController.swift */,
+				C07517591E9C781400C84B6A /* ScanViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -581,6 +602,10 @@
 				3A0367A01DC0792400F02FBA /* CollectionNormalCell.xib */,
 				3A0367A31DC0793D00F02FBA /* CollectionPrettyCell.swift */,
 				3A0367A41DC0793D00F02FBA /* CollectionPrettyCell.xib */,
+				C075177D1E9C7DC600C84B6A /* ScanBottomView.swift */,
+				C075177F1E9C83FC00C84B6A /* MGScanView.swift */,
+				C07517811E9C845600C84B6A /* MGScanViewStyle.swift */,
+				C07517831E9CB22900C84B6A /* ScanButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -596,6 +621,7 @@
 				C0D156D11E98C6A90095B8BA /* DetailGameViewModel.swift */,
 				C0D156E31E9BA0FE0095B8BA /* HearViewModel.swift */,
 				C0D156E91E9BB4810095B8BA /* SearchViewModel.swift */,
+				C07517551E9C5E7400C84B6A /* WatchHistoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -803,6 +829,7 @@
 		3A9779ED1DBF857700C79CE6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C07517571E9C73A500C84B6A /* String+Extension.swift */,
 				C0D156D51E9B26220095B8BA /* NSObject+Extension.swift */,
 				C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */,
 				C04DE81C1E6128E8005FE676 /* UIBUtton+Extension.swift */,
@@ -876,7 +903,7 @@
 				TargetAttributes = {
 					3A9779B51DBF7C3F00C79CE6 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = H54L47S422;
+						DevelopmentTeam = F6GVS758WK;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -909,6 +936,7 @@
 				3A0367A61DC0793D00F02FBA /* CollectionPrettyCell.xib in Resources */,
 				3A0BAADC1DC057D000FF1C53 /* CollectionHeaderView.xib in Resources */,
 				3A294EFB1DC0986E000EE406 /* placeholder.png in Resources */,
+				C075177C1E9C7DA800C84B6A /* MGCodeScan.bundle in Resources */,
 				3A0367A21DC0792400F02FBA /* CollectionNormalCell.xib in Resources */,
 				3A10C3ED1DC6282D00880E66 /* MJRefresh.bundle in Resources */,
 				3A294F1B1DC0A751000EE406 /* CollectionGameCell.xib in Resources */,
@@ -1003,6 +1031,8 @@
 				3A9779F51DBF904B00C79CE6 /* Common.swift in Sources */,
 				3A10C3EC1DC6282D00880E66 /* MJRefreshStateHeader.m in Sources */,
 				3A01C1BC1DC339CF000C05DD /* SaveTools.swift in Sources */,
+				C07517561E9C5E7400C84B6A /* WatchHistoryViewModel.swift in Sources */,
+				C075175A1E9C781400C84B6A /* ScanViewController.swift in Sources */,
 				C0D156EA1E9BB4810095B8BA /* SearchViewModel.swift in Sources */,
 				3A36195B1DC5D72D000BE00A /* SwitchItem.swift in Sources */,
 				3AE6283D1DC5F7F300835B36 /* NSObject+FileManager.swift in Sources */,
@@ -1012,12 +1042,14 @@
 				3A978A631DC5BF3B00E5C64A /* ProfileModel.swift in Sources */,
 				3A122BC71DC0B90F00285A40 /* UIBarButtonItem-Extension.swift in Sources */,
 				3A10C3EF1DC6282D00880E66 /* UIScrollView+MJExtension.m in Sources */,
+				C07517541E9C5DE800C84B6A /* WatchHistoryViewController.swift in Sources */,
 				3A0367A51DC0793D00F02FBA /* CollectionPrettyCell.swift in Sources */,
 				3A3619551DC5D43E000BE00A /* SettingItem.swift in Sources */,
 				3A122BCF1DC0F71F00285A40 /* FunnyViewModel.swift in Sources */,
 				C0D156E21E9BA0190095B8BA /* HeaderViewDetailController.swift in Sources */,
 				3A294EFC1DC0986E000EE406 /* XRCarouselView.m in Sources */,
 				3A122BD11DC0FA8A00285A40 /* AmuseViewModel.swift in Sources */,
+				C07517821E9C845600C84B6A /* MGScanViewStyle.swift in Sources */,
 				C0D156D01E98C5540095B8BA /* DetailGameViewController.swift in Sources */,
 				3A9779FB1DBFA45200C79CE6 /* RecommendViewController.swift in Sources */,
 				3A294EFE1DC09964000EE406 /* RecommendCycleView.swift in Sources */,
@@ -1043,7 +1075,10 @@
 				3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */,
 				3A02094F1DC5DB040002DA90 /* SettingCell.swift in Sources */,
 				3A03679E1DC078E100F02FBA /* CollectionBaseCell.swift in Sources */,
+				C075177E1E9C7DC600C84B6A /* ScanBottomView.swift in Sources */,
 				C04DE83D1E626E6E005FE676 /* UIView+Extension.swift in Sources */,
+				C07517841E9CB22A00C84B6A /* ScanButton.swift in Sources */,
+				C07517581E9C73A500C84B6A /* String+Extension.swift in Sources */,
 				C04DE8171E60737E005FE676 /* WebViewController.swift in Sources */,
 				3A0367961DC06DC100F02FBA /* AnchorModel.swift in Sources */,
 				3A0BAADB1DC057D000FF1C53 /* CollectionHeaderView.swift in Sources */,
@@ -1053,6 +1088,7 @@
 				3AA37C7F1DC341AA00F6DCAF /* MMMaterialDesignSpinner.m in Sources */,
 				C04DE8391E6172BF005FE676 /* ScienceViewModel.swift in Sources */,
 				3A294F171DC0A580000EE406 /* RecommendGameView.swift in Sources */,
+				C07517801E9C83FC00C84B6A /* MGScanView.swift in Sources */,
 				3A3619591DC5D704000BE00A /* ArrowItem.swift in Sources */,
 				3A9779EC1DBF802E00C79CE6 /* HomeViewController.swift in Sources */,
 				3A10C3E41DC6282D00880E66 /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1169,13 +1205,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H54L47S422;
+				DEVELOPMENT_TEAM = F6GVS758WK;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;
@@ -1191,13 +1227,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H54L47S422;
+				DEVELOPMENT_TEAM = F6GVS758WK;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;

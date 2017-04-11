@@ -21,3 +21,8 @@
 //#import <POP.h>
 //#import "MGTopWindow.h"
 //#import "main.m"
+
+// MARK: - 加密
+#import <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonHMAC.h>
+#import <CommonCrypto/CommonCrypto.h>
