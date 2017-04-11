@@ -88,7 +88,7 @@ public struct MGScanViewStyle {
     
     public init()
     {
-        
+       animationImage = UIImage(named: "MGCodeScan.bundle/qrcode_scan_light_green")
     }
 }
 

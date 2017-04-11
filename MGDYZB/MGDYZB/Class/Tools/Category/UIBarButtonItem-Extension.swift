@@ -19,7 +19,7 @@ extension UIBarButtonItem {
     - returns: UIBarButtonItem
     */
     // 便利构造函数: 1> convenience开头 2> 在构造函数中必须明确调用一个设计的构造函数(self)
-    convenience init(imageName : String, highImageName : String = "", size : CGSize = CGSize.zero)  {
+    convenience init(imageName: String, highImageName: String = "", size: CGSize = CGSize.zero, target: Any,action: Selector)  {
         // 1.创建UIButton
         let btn = UIButton()
         
@@ -35,10 +35,12 @@ extension UIBarButtonItem {
         } else {
             btn.frame = CGRect(origin: CGPoint.zero, size: size)
         }
+        btn.addTarget(target, action: action, for: .touchUpInside)
         
         // 4.创建UIBarButtonItem
         self.init(customView : btn)
     }
+
     
     /**
       不推荐使用： 类方法创建UIBarButtonItem
@@ -49,13 +51,14 @@ extension UIBarButtonItem {
     
     - returns: UIBarButtonItem
     */
-    class func createItem(_ imageName : String, highImageName : String, size : CGSize) -> UIBarButtonItem {
+    class func createItem(_ imageName: String, highImageName: String = "", size: CGSize  = CGSize.zero) -> UIBarButtonItem {
         let btn = UIButton()
         
         btn.setImage(UIImage(named: imageName), for: UIControlState())
         btn.setImage(UIImage(named: highImageName), for: .highlighted)
         
         btn.frame = CGRect(origin: CGPoint.zero, size: size)
+        btn.sizeToFit()
         
         return UIBarButtonItem(customView: btn)
     }

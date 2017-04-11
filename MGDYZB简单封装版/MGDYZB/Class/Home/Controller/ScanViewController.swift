@@ -13,26 +13,26 @@ class ScanViewController: UIViewController {
     
     // MARK: - 自定义属性
     // MARK: - lazy
-    /// 会话
+    /// AVFoundation框架捕获类的中心枢纽，协调输入输出设备以获得数据
     fileprivate lazy var session: AVCaptureSession = AVCaptureSession()
     /// 图层
-    fileprivate lazy var preViewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer()
+    fileprivate lazy var preViewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
     /// 画形状的layer
     fileprivate lazy var shapeLayer: CAShapeLayer = CAShapeLayer()
     /// 是否是指定扫描区域
-    fileprivate lazy var isOpenInterestRect: Bool = false
+    fileprivate lazy var isOpenInterestRect: Bool = true
+    /// 捕获设备，默认后置摄像头
     fileprivate lazy var device: AVCaptureDevice? = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-    /// 会话输出
-    fileprivate lazy var output: AVCaptureMetadataOutput = AVCaptureMetadataOutput()
+    /// 输出设备，需要指定他的输出类型及扫描范围
+    fileprivate lazy var output: AVCaptureMetadataOutput? = AVCaptureMetadataOutput()
     fileprivate lazy var scanBottom: ScanBottomView = {
         let sb = ScanBottomView(frame: CGRect(x: 0, y: MGScreenH-100-MGNavHeight, width: MGScreenW, height: 100))
         return sb
     }()
-    //识别码的类型
-    var arrayCodeType:[String]?
-    open var qRScanView: MGScanView?
-    open var scanStyle: MGScanViewStyle? = MGScanViewStyle()
+    //输入设备
     var videoInput: AVCaptureDeviceInput?
+    var qRScanView: MGScanView?
+    open var scanStyle: MGScanViewStyle? = MGScanViewStyle()
     
     
     // MARK: - 生命周期方法
@@ -50,7 +50,6 @@ class ScanViewController: UIViewController {
                 }
                 //修改前必须先锁定
                 try? self.device?.lockForConfiguration()
-                
                 //必须判定是否有闪光灯，否则如果没有闪光灯会崩溃
                 if device.hasFlash {
                     if device.flashMode == .off {
@@ -61,6 +60,7 @@ class ScanViewController: UIViewController {
                         device.torchMode = AVCaptureTorchMode.off
                     }
                 }
+                device.unlockForConfiguration()
             case .photo:
                 self.takePhotoFromAlbun()
                 break
@@ -108,6 +108,7 @@ class ScanViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         qRScanView?.stopScanAnimation()
+        session.stopRunning()
     }
     
     //设置框内识别
@@ -123,10 +124,11 @@ class ScanViewController: UIViewController {
 // MARK: - 扫一扫
 extension ScanViewController {
     fileprivate func setUpMainView() {
-        self.view.backgroundColor = UIColor.black
+        view.addSubview(scanBottom)
+        self.view.backgroundColor = UIColor.clear
         self.edgesForExtendedLayout = UIRectEdge(rawValue: 0)
         drawScanView()
-        view.addSubview(scanBottom)
+        view.bringSubview(toFront: scanBottom)
     }
     
     open func drawScanView() {
@@ -135,74 +137,47 @@ extension ScanViewController {
             self.view.addSubview(qRScanView!)
         }
         qRScanView?.deviceStartReadying(readyStr: "相机启动中...")
-        
     }
     
     // 3.开始扫描
     open func startScanning() {
-        // 1.创建会话
+        // 1.创建会话 //高质量采集率
+        session.sessionPreset = AVCaptureSessionPresetHigh
+        
         // 2.设置会话输入
-        //        let input = try ? AVCaptureDeviceInput(device: device)
-        guard let input = try? AVCaptureDeviceInput(device: device) else {
-             qRScanView?.deviceStopReadying()
-            self.showInfo(info: "没有相机权限，请到设置->隐私中开启本程序相机权限")
-            return
+        if self.videoInput == nil {
+            guard let input = try? AVCaptureDeviceInput(device: device) else {
+                qRScanView?.deviceStopReadying()
+                self.showInfo(info: "没有相机权限，请到设置->隐私中开启本程序相机权限")
+                return
+            }
+            self.videoInput = input
+            session.addInput(self.videoInput!)
         }
-        self.videoInput = input
-        session.addInput(input)
         
         // 3.设置会话输出
-        //识别各种码，
-//        arrayCodeType = self.defaultMetaDataObjectTypes()
-        //指定识别几种码
-        if arrayCodeType == nil{
-            arrayCodeType = [AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code,AVMetadataObjectTypeCode128Code]
-        }
-        output.metadataObjectTypes = arrayCodeType
-        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        session.addOutput(output)
-        if isOpenInterestRect {
-            output.rectOfInterest = CGRect(x: (124)/MGScreenH, y: ((MGScreenW-220)/2)/MGScreenW, width: 220/MGScreenH, height: 220/MGScreenW)
+//        session.outputs.first
+//        output.metadataObjectTypes = [AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code,AVMetadataObjectTypeEAN8Code,AVMetadataObjectTypeCode128Code]
+        if output == nil {
+            session.addOutput(output)
+            output?.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            if isOpenInterestRect {
+                output?.rectOfInterest = CGRect(x: (124)/MGScreenH, y: ((MGScreenW-220)/2)/MGScreenW, width: 220/MGScreenH, height: 220/MGScreenW)
+            }
         }
         
         // 4.设置图层
-        preViewLayer.frame = view.frame
+        preViewLayer.frame = view.bounds
+        preViewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         view.layer.insertSublayer(preViewLayer, at: 0)
         
         // 5.开始扫描
         session.startRunning()
         //结束相机等待提示
         qRScanView?.deviceStopReadying()
+        
         //开始扫描动画
         qRScanView?.startScanAnimation()
-    }
-    
-    //MARK: ------获取系统默认支持的码的类型
-    func defaultMetaDataObjectTypes() ->[String] {
-        var types =
-            [AVMetadataObjectTypeQRCode,
-             AVMetadataObjectTypeUPCECode,
-             AVMetadataObjectTypeCode39Code,
-             AVMetadataObjectTypeCode39Mod43Code,
-             AVMetadataObjectTypeEAN13Code,
-             AVMetadataObjectTypeEAN8Code,
-             AVMetadataObjectTypeCode93Code,
-             AVMetadataObjectTypeCode128Code,
-             AVMetadataObjectTypePDF417Code,
-             AVMetadataObjectTypeAztecCode,
-             ];
-        if #available(iOS 8.0, *) {
-            types.append(AVMetadataObjectTypeInterleaved2of5Code)
-            types.append(AVMetadataObjectTypeITF14Code)
-            types.append(AVMetadataObjectTypeDataMatrixCode)
-            
-            types.append(AVMetadataObjectTypeInterleaved2of5Code)
-            types.append(AVMetadataObjectTypeITF14Code)
-            types.append(AVMetadataObjectTypeDataMatrixCode)
-        }
-        
-        
-        return types;
     }
 }
 
@@ -282,7 +257,7 @@ extension ScanViewController: UIImagePickerControllerDelegate,UINavigationContro
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in }
-        let photoAction = UIAlertAction(title: "从相册上传", style: .default) { (action) in
+        let photoAction = UIAlertAction(title: "相册", style: .default) { (action) in
             print(action)
             self.openCamera(.photoLibrary)
         }
@@ -304,14 +279,12 @@ extension ScanViewController: UIImagePickerControllerDelegate,UINavigationContro
         let ipc = UIImagePickerController()
         ipc.sourceType = type
         ipc.delegate = self
-        
         present(ipc, animated: true,  completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         getQRCodeInfo(image: image!)
-        
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -341,4 +314,34 @@ extension ScanViewController: UIImagePickerControllerDelegate,UINavigationContro
             }
         }
     }
+}
+
+
+
+
+//MARK: ------获取系统默认支持的码的类型
+func defaultMetaDataObjectTypes() ->[String] {
+    var types =
+        [AVMetadataObjectTypeQRCode,
+         AVMetadataObjectTypeUPCECode,
+         AVMetadataObjectTypeCode39Code,
+         AVMetadataObjectTypeCode39Mod43Code,
+         AVMetadataObjectTypeEAN13Code,
+         AVMetadataObjectTypeEAN8Code,
+         AVMetadataObjectTypeCode93Code,
+         AVMetadataObjectTypeCode128Code,
+         AVMetadataObjectTypePDF417Code,
+         AVMetadataObjectTypeAztecCode,
+         ];
+    if #available(iOS 8.0, *) {
+        types.append(AVMetadataObjectTypeInterleaved2of5Code)
+        types.append(AVMetadataObjectTypeITF14Code)
+        types.append(AVMetadataObjectTypeDataMatrixCode)
+        
+        types.append(AVMetadataObjectTypeInterleaved2of5Code)
+        types.append(AVMetadataObjectTypeITF14Code)
+        types.append(AVMetadataObjectTypeDataMatrixCode)
+    }
+    
+    return types;
 }

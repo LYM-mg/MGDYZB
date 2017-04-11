@@ -1,163 +1,196 @@
 //
-//  MGScanView.swift
-//  MGDYZB
+//  LBXScanView.swift
+//  swiftScan https://github.com/MxABC/swiftScan
 //
-//  Created by i-Techsys.com on 17/4/11.
-//  Copyright © 2017年 ming. All rights reserved.
+//  Created by xialibing on 15/12/8.
+//  Copyright © 2015年 xialibing. All rights reserved.
 //
 
 import UIKit
 
-class MGScanView: UIView {
+open class LBXScanView: UIView
+{
     //扫码区域各种参数
-    var viewStyle: MGScanViewStyle = MGScanViewStyle()
-
-    //扫码区域
-    var scanRetangleRect: CGRect = CGRect.zero
+    var viewStyle:LBXScanViewStyle = LBXScanViewStyle()
+    
+     //扫码区域
+    var scanRetangleRect:CGRect = CGRect.zero
     
     //线条扫码动画封装
-    var scanLineAnimation: MGScanLineAnimation?
+    var scanLineAnimation:LBXScanLineAnimation?
     
     //网格扫码动画封装
-    var scanNetAnimation: MGScanLineAnimation?
+    var scanNetAnimation:LBXScanNetAnimation?
     
     //线条在中间位置，不移动
-    var scanLineStill: UIImageView?
+    var scanLineStill:UIImageView?
     
     //启动相机时 菊花等待
-    var activityView: UIActivityIndicatorView?
+    var activityView:UIActivityIndicatorView?
     
     //启动相机中的提示文字
-    var labelReadying: UILabel?
+    var labelReadying:UILabel?
     
     //记录动画状态
-    var isAnimationing: Bool = false
+    var isAnimationing:Bool = false
     
     /**
-     初始化扫描界面
-     - parameter frame:  界面大小，一般为视频显示区域
-     - parameter vstyle: 界面效果参数
-     
-     - returns: instancetype
-     */
-    public init(frame:CGRect, vstyle:MGScanViewStyle) {
+    初始化扫描界面
+    - parameter frame:  界面大小，一般为视频显示区域
+    - parameter vstyle: 界面效果参数
+    
+    - returns: instancetype
+    */
+    public init(frame:CGRect, vstyle:LBXScanViewStyle )
+    {
         viewStyle = vstyle
         
-        switch (viewStyle.anmiationStyle) {
-            case MGScanViewAnimationStyle.LineMove:
-                scanLineAnimation = MGScanLineAnimation.instance()
-                break
-            case MGScanViewAnimationStyle.NetGrid:
-                scanNetAnimation = MGScanLineAnimation.instance()
-                break
-            case MGScanViewAnimationStyle.LineStill:
-                scanLineStill = UIImageView()
-                scanLineStill?.image = viewStyle.animationImage
-                break
-            default:
-                break
+        switch (viewStyle.anmiationStyle)
+        {
+        case LBXScanViewAnimationStyle.LineMove:
+            scanLineAnimation = LBXScanLineAnimation.instance()
+            break
+        case LBXScanViewAnimationStyle.NetGrid:
+            scanNetAnimation = LBXScanNetAnimation.instance()
+            break
+        case LBXScanViewAnimationStyle.LineStill:
+            scanLineStill = UIImageView()
+            scanLineStill?.image = viewStyle.animationImage
+            break
+            
+            
+        default:
+            break
         }
         
         var frameTmp = frame;
         frameTmp.origin = CGPoint.zero
+        
         super.init(frame: frameTmp)
+        
         backgroundColor = UIColor.clear
     }
     
     override init(frame: CGRect) {
+        
         var frameTmp = frame;
         frameTmp.origin = CGPoint.zero
+        
         super.init(frame: frameTmp)
+        
         backgroundColor = UIColor.clear
     }
-
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required public init?(coder aDecoder: NSCoder)
+    {
+        self.init()
+       
     }
     
-    deinit {
-        if (scanLineAnimation != nil){
+    deinit
+    {
+        if (scanLineAnimation != nil)
+        {
             scanLineAnimation!.stopStepAnimating()
         }
-        if (scanNetAnimation != nil) {
+        if (scanNetAnimation != nil)
+        {
             scanNetAnimation!.stopStepAnimating()
         }
         
-        print("MGScanView deinit")
-    }
-}
-
-extension MGScanView {
-    /**
-     *  开始扫描动画
-     */
-    func startScanAnimation() {
-        if isAnimationing { return }
-        isAnimationing = true
-        let cropRect:CGRect = getScanRectForAnimation()
         
-        switch viewStyle.anmiationStyle {
-            case MGScanViewAnimationStyle.LineMove:
-                
-                print(NSStringFromCGRect(cropRect))
-                
-                scanLineAnimation!.startAnimatingWithRect(animationRect: cropRect, parentView: self, image:viewStyle.animationImage )
-                break
-            case MGScanViewAnimationStyle.NetGrid:
-                
-                scanNetAnimation!.startAnimatingWithRect(animationRect: cropRect, parentView: self, image:viewStyle.animationImage )
-                break
-            case MGScanViewAnimationStyle.LineStill:
-                
-                let stillRect = CGRect(x: cropRect.origin.x+20,
-                                       y: cropRect.origin.y + cropRect.size.height/2,
-                                       width: cropRect.size.width-40,
-                                       height: 2);
-                self.scanLineStill?.frame = stillRect
-                
-                self.addSubview(scanLineStill!)
-                self.scanLineStill?.isHidden = false
-                break
-                
-            default: break
-        }
+        print("LBXScanView deinit")
     }
     
+    
     /**
-     *  结束扫描动画
-     */
-    func stopScanAnimation() {
-        isAnimationing = false
+    *  开始扫描动画
+    */
+    func startScanAnimation()
+    {
+        if isAnimationing
+        {
+            return
+        }
         
-        switch viewStyle.anmiationStyle {
-            case MGScanViewAnimationStyle.LineMove:
-                scanLineAnimation?.stopStepAnimating()
-                break
-            case MGScanViewAnimationStyle.NetGrid:
-                scanNetAnimation?.stopStepAnimating()
-                break
-            case MGScanViewAnimationStyle.LineStill:
-                self.scanLineStill?.isHidden = true
-                break
-            default: break
+        isAnimationing = true
+        
+        let cropRect:CGRect = getScanRectForAnimation()
+        
+        switch viewStyle.anmiationStyle
+        {
+        case LBXScanViewAnimationStyle.LineMove:
+            
+            print(NSStringFromCGRect(cropRect))
+            
+            scanLineAnimation!.startAnimatingWithRect(animationRect: cropRect, parentView: self, image:viewStyle.animationImage )
+            break
+        case LBXScanViewAnimationStyle.NetGrid:
+            
+            scanNetAnimation!.startAnimatingWithRect(animationRect: cropRect, parentView: self, image:viewStyle.animationImage )
+            break
+        case LBXScanViewAnimationStyle.LineStill:
+            
+            let stillRect = CGRect(x: cropRect.origin.x+20,
+                                   y: cropRect.origin.y + cropRect.size.height/2,
+                                   width: cropRect.size.width-40,
+                                   height: 2);
+            self.scanLineStill?.frame = stillRect
+            
+            self.addSubview(scanLineStill!)
+            self.scanLineStill?.isHidden = false
+            
+            break
+            
+        default: break
             
         }
     }
     
+    /**
+     *  开始扫描动画
+     */
+    func stopScanAnimation()
+    {
+        isAnimationing = false
+        
+        switch viewStyle.anmiationStyle
+        {
+        case LBXScanViewAnimationStyle.LineMove:
+            
+            scanLineAnimation?.stopStepAnimating()
+            break
+        case LBXScanViewAnimationStyle.NetGrid:
+            
+            scanNetAnimation?.stopStepAnimating()
+            break
+        case LBXScanViewAnimationStyle.LineStill:
+             self.scanLineStill?.isHidden = true
+            
+            break
+            
+        default: break
+            
+        }
+    }
+
+    
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override open func draw(_ rect: CGRect){
+    override open func draw(_ rect: CGRect)
+    {
         // Drawing code
         drawScanRect()
     }
     
     //MARK:----- 绘制扫码效果-----
-    func drawScanRect(){
+    func drawScanRect()
+    {
         let XRetangleLeft = viewStyle.xScanRetangleOffset
         var sizeRetangle = CGSize(width: self.frame.size.width - XRetangleLeft*2.0, height: self.frame.size.width - XRetangleLeft*2.0)
-        if viewStyle.whRatio != 1.0{
+        if viewStyle.whRatio != 1.0
+        {
             let w = sizeRetangle.width;
             var h:CGFloat = w / viewStyle.whRatio
             
@@ -172,11 +205,14 @@ extension MGScanView {
         let YMaxRetangle = YMinRetangle + sizeRetangle.height
         let XRetangleRight = self.frame.size.width - XRetangleLeft
         
+        
         print("frame:%@",NSStringFromCGRect(self.frame))
+        
         let context = UIGraphicsGetCurrentContext()!
         
         
-        if let components = viewStyle.color_NotRecoginitonArea.cgColor.components{
+        if let components = viewStyle.color_NotRecoginitonArea.cgColor.components
+        {
             let red_notRecoginitonArea:CGFloat    = components[0]
             let green_notRecoginitonArea:CGFloat  = components[1]
             let blue_notRecoginitonArea:CGFloat   = components[2]
@@ -190,26 +226,26 @@ extension MGScanView {
         }
         
         
-        
-        //填充矩形
-        //扫码区域上面填充
+      
+            //填充矩形
+            //扫码区域上面填充
         var rect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: YMinRetangle)
-        context.fill(rect)
-        
-        
-        //扫码区域左边填充
+            context.fill(rect)
+            
+            
+            //扫码区域左边填充
         rect = CGRect(x: 0, y: YMinRetangle, width: XRetangleLeft, height: sizeRetangle.height)
-        context.fill(rect)
-        
-        //扫码区域右边填充
+            context.fill(rect)
+            
+            //扫码区域右边填充
         rect = CGRect(x: XRetangleRight, y: YMinRetangle, width: XRetangleLeft,height: sizeRetangle.height)
-        context.fill(rect)
-        
-        //扫码区域下面填充
+            context.fill(rect)
+            
+            //扫码区域下面填充
         rect = CGRect(x: 0, y: YMaxRetangle, width: self.frame.size.width,height: self.frame.size.height - YMaxRetangle)
-        context.fill(rect)
-        //执行绘画
-        context.strokePath()
+            context.fill(rect)
+            //执行绘画
+            context.strokePath()
         
         
         if viewStyle.isNeedShowRetangle
@@ -246,14 +282,14 @@ extension MGScanView {
         
         switch viewStyle.photoframeAngleStyle
         {
-        case MGScanViewPhotoframeAngleStyle.Outer:
-            diffAngle = linewidthAngle/3//框外面4个角，与框紧密联系在一起
+        case LBXScanViewPhotoframeAngleStyle.Outer:
+                diffAngle = linewidthAngle/3//框外面4个角，与框紧密联系在一起
+           
+        case LBXScanViewPhotoframeAngleStyle.On:
+                diffAngle = 0
             
-        case MGScanViewPhotoframeAngleStyle.On:
-            diffAngle = 0
-            
-        case MGScanViewPhotoframeAngleStyle.Inner:
-            diffAngle = -viewStyle.photoframeLineW/2
+        case LBXScanViewPhotoframeAngleStyle.Inner:
+                diffAngle = -viewStyle.photoframeLineW/2
         }
         
         context.setStrokeColor(viewStyle.colorAngle.cgColor);
@@ -284,7 +320,7 @@ extension MGScanView {
         //左下角垂直线
         context.move(to: CGPoint(x: leftX, y: bottomY+linewidthAngle/2))
         context.addLine(to: CGPoint(x: leftX, y: bottomY - hAngle))
-        
+
         //右上角水平线
         context.move(to: CGPoint(x: rightX+linewidthAngle/2, y: topY))
         context.addLine(to: CGPoint(x: rightX - wAngle, y: topY))
@@ -292,8 +328,8 @@ extension MGScanView {
         //右上角垂直线
         context.move(to: CGPoint(x: rightX, y: topY-linewidthAngle/2))
         context.addLine(to: CGPoint(x: rightX, y: topY + hAngle))
-        
-        //        右下角水平线
+
+//        右下角水平线
         context.move(to: CGPoint(x: rightX+linewidthAngle/2, y: bottomY))
         context.addLine(to: CGPoint(x: rightX - wAngle, y: bottomY))
         
@@ -328,9 +364,10 @@ extension MGScanView {
         
         return cropRect;
     }
-    
+
     //根据矩形区域，获取识别区域
-    static func getScanRectWithPreView(preView:UIView, style:MGScanViewStyle) -> CGRect {
+    static func getScanRectWithPreView(preView:UIView, style:LBXScanViewStyle) -> CGRect
+    {
         let XRetangleLeft = style.xScanRetangleOffset;
         var sizeRetangle = CGSize(width: preView.frame.size.width - XRetangleLeft*2, height: preView.frame.size.width - XRetangleLeft*2)
         
@@ -397,7 +434,8 @@ extension MGScanView {
         return sizeRetangle
     }
     
-    func deviceStartReadying(readyStr:String) {
+    func deviceStartReadying(readyStr:String)
+    {
         let XRetangleLeft = viewStyle.xScanRetangleOffset
         
         let sizeRetangle = getRetangeSize()
@@ -406,7 +444,8 @@ extension MGScanView {
         let YMinRetangle = self.frame.size.height / 2.0 - sizeRetangle.height/2.0 - viewStyle.centerUpOffset
         
         //设备启动状态提示
-        if (activityView == nil) {
+        if (activityView == nil)
+        {
             self.activityView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             
             activityView?.center = CGPoint(x: XRetangleLeft +  sizeRetangle.width/2 - 50, y: YMinRetangle + sizeRetangle.height/2)
@@ -425,13 +464,15 @@ extension MGScanView {
             addSubview(labelReadying!)
         }
         
-        addSubview(labelReadying!)
-        activityView?.startAnimating()
+         addSubview(labelReadying!)
+         activityView?.startAnimating()
         
     }
     
-    func deviceStopReadying() {
-        if activityView != nil {
+    func deviceStopReadying()
+    {
+        if activityView != nil
+        {
             activityView?.stopAnimating()
             activityView?.removeFromSuperview()
             labelReadying?.removeFromSuperview()
@@ -441,69 +482,5 @@ extension MGScanView {
             
         }
     }
-}
 
-class MGScanLineAnimation: UIImageView {
-    
-    var isAnimationing = false
-    var animationRect: CGRect = CGRect.zero
-    
-    func startAnimatingWithRect(animationRect: CGRect, parentView: UIView, image: UIImage?){
-        self.image = image
-        self.animationRect = animationRect
-        parentView.addSubview(self)
-        
-        self.isHidden = false;
-        
-        isAnimationing = true;
-        
-        if image != nil {
-            stepAnimation()
-        }
-    }
-    
-    func stepAnimation(){
-        if (!isAnimationing) {
-            return;
-        }
-        
-        var frame:CGRect = animationRect;
-        let hImg = self.image!.size.height * animationRect.size.width / self.image!.size.width;
-        frame.origin.y -= hImg;
-        frame.size.height = hImg;
-        self.frame = frame;
-        self.alpha = 0.0;
-        
-        UIView.animate(withDuration: 1.4, animations: { () -> Void in
-            
-            self.alpha = 1.0;
-            
-            var frame = self.animationRect;
-            let hImg = self.image!.size.height * self.animationRect.size.width / self.image!.size.width;
-            
-            frame.origin.y += (frame.size.height -  hImg);
-            frame.size.height = hImg;
-            
-            self.frame = frame;
-            
-            }, completion:{ (value: Bool) -> Void in
-                
-                self.perform(#selector(MGScanLineAnimation.stepAnimation), with: nil, afterDelay: 0.3)
-        })
-        
-    }
-    
-    func stopStepAnimating(){
-        self.isHidden = true;
-        isAnimationing = false;
-    }
-    
-    static public func instance()->MGScanLineAnimation{
-        return MGScanLineAnimation()
-    }
-    
-    deinit{
-        print("MGScanLineAnimation deinit")
-        stopStepAnimating()
-    }
 }

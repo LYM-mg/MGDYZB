@@ -104,6 +104,16 @@
 		C04DE8391E6172BF005FE676 /* ScienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */; };
 		C04DE83B1E6172CD005FE676 /* ScienceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE83A1E6172CD005FE676 /* ScienceModel.swift */; };
 		C04DE83D1E626E6E005FE676 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */; };
+		C06134181E9CD2F800EB47B5 /* LBXPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06134101E9CD2F800EB47B5 /* LBXPermissions.swift */; };
+		C06134191E9CD2F800EB47B5 /* LBXScanLineAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06134111E9CD2F800EB47B5 /* LBXScanLineAnimation.swift */; };
+		C061341A1E9CD2F800EB47B5 /* LBXScanNetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06134121E9CD2F800EB47B5 /* LBXScanNetAnimation.swift */; };
+		C061341B1E9CD2F800EB47B5 /* LBXScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06134131E9CD2F800EB47B5 /* LBXScanView.swift */; };
+		C061341C1E9CD2F800EB47B5 /* LBXScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06134141E9CD2F800EB47B5 /* LBXScanViewController.swift */; };
+		C061341D1E9CD2F800EB47B5 /* LBXScanViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06134151E9CD2F800EB47B5 /* LBXScanViewStyle.swift */; };
+		C061341E1E9CD2F800EB47B5 /* LBXScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06134161E9CD2F800EB47B5 /* LBXScanWrapper.swift */; };
+		C06134221E9CD31400EB47B5 /* QQScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06134211E9CD31400EB47B5 /* QQScanViewController.swift */; };
+		C06134241E9CD35800EB47B5 /* ScanBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06134231E9CD35800EB47B5 /* ScanBottomView.swift */; };
+		C06134261E9CD37200EB47B5 /* MGCodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C06134251E9CD37200EB47B5 /* MGCodeScan.bundle */; };
 		C07C4B501E63D0BD0043E1CE /* GameCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B4F1E63D0BD0043E1CE /* GameCenterViewController.swift */; };
 		C07C4B531E63D0C80043E1CE /* GameCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B511E63D0C80043E1CE /* GameCenterModel.swift */; };
 		C07C4B541E63D0C80043E1CE /* TaskRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C4B521E63D0C80043E1CE /* TaskRuleModel.swift */; };
@@ -239,6 +249,16 @@
 		C04DE8381E6172BF005FE676 /* ScienceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceViewModel.swift; sourceTree = "<group>"; };
 		C04DE83A1E6172CD005FE676 /* ScienceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScienceModel.swift; sourceTree = "<group>"; };
 		C04DE83C1E626E6E005FE676 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C06134101E9CD2F800EB47B5 /* LBXPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXPermissions.swift; sourceTree = "<group>"; };
+		C06134111E9CD2F800EB47B5 /* LBXScanLineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanLineAnimation.swift; sourceTree = "<group>"; };
+		C06134121E9CD2F800EB47B5 /* LBXScanNetAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanNetAnimation.swift; sourceTree = "<group>"; };
+		C06134131E9CD2F800EB47B5 /* LBXScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanView.swift; sourceTree = "<group>"; };
+		C06134141E9CD2F800EB47B5 /* LBXScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanViewController.swift; sourceTree = "<group>"; };
+		C06134151E9CD2F800EB47B5 /* LBXScanViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanViewStyle.swift; sourceTree = "<group>"; };
+		C06134161E9CD2F800EB47B5 /* LBXScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBXScanWrapper.swift; sourceTree = "<group>"; };
+		C06134211E9CD31400EB47B5 /* QQScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQScanViewController.swift; sourceTree = "<group>"; };
+		C06134231E9CD35800EB47B5 /* ScanBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanBottomView.swift; sourceTree = "<group>"; };
+		C06134251E9CD37200EB47B5 /* MGCodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MGCodeScan.bundle; sourceTree = "<group>"; };
 		C07C4B4F1E63D0BD0043E1CE /* GameCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterViewController.swift; sourceTree = "<group>"; };
 		C07C4B511E63D0C80043E1CE /* GameCenterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterModel.swift; sourceTree = "<group>"; };
 		C07C4B521E63D0C80043E1CE /* TaskRuleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskRuleModel.swift; sourceTree = "<group>"; };
@@ -523,6 +543,7 @@
 		3A9779CC1DBF7EA200C79CE6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C061340D1E9CD2F800EB47B5 /* 扫一扫 */,
 				3A9779CD1DBF7EA200C79CE6 /* Controller */,
 				3A9779CE1DBF7EA200C79CE6 /* Model */,
 				3A9779CF1DBF7EA200C79CE6 /* View */,
@@ -822,6 +843,47 @@
 			path = "MMMaterialDesignSpinner-master";
 			sourceTree = "<group>";
 		};
+		C061340D1E9CD2F800EB47B5 /* 扫一扫 */ = {
+			isa = PBXGroup;
+			children = (
+				C06134251E9CD37200EB47B5 /* MGCodeScan.bundle */,
+				C061340E1E9CD2F800EB47B5 /* Controller */,
+				C061340F1E9CD2F800EB47B5 /* Source */,
+				C06134171E9CD2F800EB47B5 /* View */,
+			);
+			path = "扫一扫";
+			sourceTree = "<group>";
+		};
+		C061340E1E9CD2F800EB47B5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C06134211E9CD31400EB47B5 /* QQScanViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C061340F1E9CD2F800EB47B5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C06134101E9CD2F800EB47B5 /* LBXPermissions.swift */,
+				C06134111E9CD2F800EB47B5 /* LBXScanLineAnimation.swift */,
+				C06134121E9CD2F800EB47B5 /* LBXScanNetAnimation.swift */,
+				C06134131E9CD2F800EB47B5 /* LBXScanView.swift */,
+				C06134141E9CD2F800EB47B5 /* LBXScanViewController.swift */,
+				C06134151E9CD2F800EB47B5 /* LBXScanViewStyle.swift */,
+				C06134161E9CD2F800EB47B5 /* LBXScanWrapper.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		C06134171E9CD2F800EB47B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C06134231E9CD35800EB47B5 /* ScanBottomView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -856,7 +918,7 @@
 				TargetAttributes = {
 					3A9779B51DBF7C3F00C79CE6 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = H54L47S422;
+						DevelopmentTeam = F6GVS758WK;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -889,6 +951,7 @@
 				3A0367A61DC0793D00F02FBA /* CollectionPrettyCell.xib in Resources */,
 				3A0BAADC1DC057D000FF1C53 /* CollectionHeaderView.xib in Resources */,
 				3A294EFB1DC0986E000EE406 /* placeholder.png in Resources */,
+				C06134261E9CD37200EB47B5 /* MGCodeScan.bundle in Resources */,
 				3A0367A21DC0792400F02FBA /* CollectionNormalCell.xib in Resources */,
 				3A10C3ED1DC6282D00880E66 /* MJRefresh.bundle in Resources */,
 				3A294F1B1DC0A751000EE406 /* CollectionGameCell.xib in Resources */,
@@ -990,6 +1053,7 @@
 				3A10C3B11DC6203A00880E66 /* RoomModel.swift in Sources */,
 				3A978A631DC5BF3B00E5C64A /* ProfileModel.swift in Sources */,
 				3A122BC71DC0B90F00285A40 /* UIBarButtonItem-Extension.swift in Sources */,
+				C061341B1E9CD2F800EB47B5 /* LBXScanView.swift in Sources */,
 				3A10C3EF1DC6282D00880E66 /* UIScrollView+MJExtension.m in Sources */,
 				3A0367A51DC0793D00F02FBA /* CollectionPrettyCell.swift in Sources */,
 				3A3619551DC5D43E000BE00A /* SettingItem.swift in Sources */,
@@ -999,6 +1063,7 @@
 				3A9779FB1DBFA45200C79CE6 /* RecommendViewController.swift in Sources */,
 				3A294EFE1DC09964000EE406 /* RecommendCycleView.swift in Sources */,
 				3A0367981DC06E8E00F02FBA /* BaseGameModel.swift in Sources */,
+				C06134181E9CD2F800EB47B5 /* LBXPermissions.swift in Sources */,
 				C04DE81D1E6128E8005FE676 /* UIBUtton+Extension.swift in Sources */,
 				C04DE8191E610B79005FE676 /* WKWebViewController.swift in Sources */,
 				3A10C3E21DC6282D00880E66 /* MJRefreshFooter.m in Sources */,
@@ -1017,22 +1082,28 @@
 				C07C4B541E63D0C80043E1CE /* TaskRuleModel.swift in Sources */,
 				3A9779EF1DBF85D300C79CE6 /* ColorExtesion.swift in Sources */,
 				3A294F1A1DC0A751000EE406 /* CollectionGameCell.swift in Sources */,
+				C06134191E9CD2F800EB47B5 /* LBXScanLineAnimation.swift in Sources */,
 				3A10C3E51DC6282D00880E66 /* MJRefreshAutoNormalFooter.m in Sources */,
 				C04DE81F1E612DE7005FE676 /* FaceScoreViewController.swift in Sources */,
 				3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */,
+				C061341E1E9CD2F800EB47B5 /* LBXScanWrapper.swift in Sources */,
 				3A02094F1DC5DB040002DA90 /* SettingCell.swift in Sources */,
 				3A03679E1DC078E100F02FBA /* CollectionBaseCell.swift in Sources */,
+				C06134241E9CD35800EB47B5 /* ScanBottomView.swift in Sources */,
 				C04DE83D1E626E6E005FE676 /* UIView+Extension.swift in Sources */,
 				C04DE8171E60737E005FE676 /* WebViewController.swift in Sources */,
 				3A0367961DC06DC100F02FBA /* AnchorModel.swift in Sources */,
 				3A0BAADB1DC057D000FF1C53 /* CollectionHeaderView.swift in Sources */,
 				3A9779DD1DBF7ED100C79CE6 /* MGTabBarController.swift in Sources */,
+				C061341C1E9CD2F800EB47B5 /* LBXScanViewController.swift in Sources */,
 				3A10C3AD1DC61A5600880E66 /* AllListViewModel.swift in Sources */,
 				3AA37C7F1DC341AA00F6DCAF /* MMMaterialDesignSpinner.m in Sources */,
 				C04DE8391E6172BF005FE676 /* ScienceViewModel.swift in Sources */,
 				3A294F171DC0A580000EE406 /* RecommendGameView.swift in Sources */,
+				C06134221E9CD31400EB47B5 /* QQScanViewController.swift in Sources */,
 				3A3619591DC5D704000BE00A /* ArrowItem.swift in Sources */,
 				3A9779EC1DBF802E00C79CE6 /* HomeViewController.swift in Sources */,
+				C061341D1E9CD2F800EB47B5 /* LBXScanViewStyle.swift in Sources */,
 				3A10C3E41DC6282D00880E66 /* MJRefreshAutoGifFooter.m in Sources */,
 				3A03679C1DC0739800F02FBA /* BaseViewModel.swift in Sources */,
 				3A9779FF1DBFA47300C79CE6 /* AmuseViewController.swift in Sources */,
@@ -1044,6 +1115,7 @@
 				3A9779F91DBFA35B00C79CE6 /* HomeContentView.swift in Sources */,
 				3A10C3DF1DC6282D00880E66 /* MJRefreshAutoFooter.m in Sources */,
 				C04DE81B1E611E7F005FE676 /* LiveViewController.swift in Sources */,
+				C061341A1E9CD2F800EB47B5 /* LBXScanNetAnimation.swift in Sources */,
 				3A977A011DBFA48300C79CE6 /* FunnyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1145,12 +1217,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F6GVS758WK;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;
@@ -1166,12 +1239,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F6GVS758WK;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;
