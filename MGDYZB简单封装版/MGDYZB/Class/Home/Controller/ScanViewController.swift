@@ -18,30 +18,16 @@ class ScanViewController: UIViewController {
     /// 图层
     fileprivate lazy var preViewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
     /// 画形状的layer
-    fileprivate lazy var shapeLayer: CAShapeLayer = CAShapeLayer()
+    fileprivate var shapeLayer: CAShapeLayer?
     /// 是否是指定扫描区域
     fileprivate lazy var isOpenInterestRect: Bool = true
     /// 捕获设备，默认后置摄像头
     fileprivate lazy var device: AVCaptureDevice? = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-    /// 输出设备，需要指定他的输出类型及扫描范围
-    fileprivate lazy var output: AVCaptureMetadataOutput? = AVCaptureMetadataOutput()
-    fileprivate lazy var scanBottom: ScanBottomView = {
+    /// 扫描界面底部工具栏
+    fileprivate lazy var scanBottomToolBar: ScanBottomView = {
         let sb = ScanBottomView(frame: CGRect(x: 0, y: MGScreenH-100-MGNavHeight, width: MGScreenW, height: 100))
-        return sb
-    }()
-    //输入设备
-    var videoInput: AVCaptureDeviceInput?
-    var qRScanView: MGScanView?
-    open var scanStyle: MGScanViewStyle? = MGScanViewStyle()
-    
-    
-    // MARK: - 生命周期方法
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.title = "扫一扫"
-        setUpMainView()
         
-        scanBottom.btnClickBlcok = { [unowned self](view, type) in
+        sb.btnClickBlcok = { [unowned self](view, type) in
             switch type {
             case .flash:
                 guard let device = self.device else {
@@ -69,10 +55,60 @@ class ScanViewController: UIViewController {
                 break
             }
         }
+        return sb
+    }()
+    //输入设备
+    var videoInput: AVCaptureDeviceInput?
+    /// 输出设备，需要指定他的输出类型及扫描范围
+    fileprivate var output: AVCaptureMetadataOutput?
+    var qRScanView: MGScanView?
+    open var scanStyle: MGScanViewStyle? = MGScanViewStyle()
+    
+    
+    // MARK: - 生命周期方法
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.title = "扫一扫"
+        setUpMainView()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        perform(#selector(ScanViewController.startScanning), with: nil, afterDelay: 0.3)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        qRScanView?.stopScanAnimation()
+        session.stopRunning()
+    }
+    
+    //设置框内识别
+    open func setOpenInterestRect(isOpen:Bool){
+        isOpenInterestRect = isOpen
+    }
+    
+    deinit {
+        print("MGScanViewController deinit")
+    }
+}
+
+// MARK: - 扫一扫
+extension ScanViewController {
+    fileprivate func setUpMainView() {
+        view.addSubview(scanBottomToolBar)
+        self.view.backgroundColor = UIColor.clear
+        self.edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        drawScanView()
+        view.bringSubview(toFront: scanBottomToolBar)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(self.changeCamera))
     }
     
+    /// 切换摄像头
     @objc fileprivate func changeCamera() {
         // 0.执行动画
         let rotaionAnim = CATransition()
@@ -97,39 +133,6 @@ class ScanViewController: UIViewController {
         self.videoInput = newVideoInput
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        perform(#selector(ScanViewController.startScanning), with: nil, afterDelay: 0.3)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        qRScanView?.stopScanAnimation()
-        session.stopRunning()
-    }
-    
-    //设置框内识别
-    open func setOpenInterestRect(isOpen:Bool){
-        isOpenInterestRect = isOpen
-    }
-    
-    deinit {
-        print("MGScanViewController deinit")
-    }
-}
-
-// MARK: - 扫一扫
-extension ScanViewController {
-    fileprivate func setUpMainView() {
-        view.addSubview(scanBottom)
-        self.view.backgroundColor = UIColor.clear
-        self.edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        drawScanView()
-        view.bringSubview(toFront: scanBottom)
-    }
     
     open func drawScanView() {
         if qRScanView == nil {
@@ -144,26 +147,42 @@ extension ScanViewController {
         // 1.创建会话 //高质量采集率
         session.sessionPreset = AVCaptureSessionPresetHigh
         
-        // 2.设置会话输入
+        
+        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        if(authStatus == .restricted || authStatus == .denied) {
+            self.showInfo(info: "请在iPhone的“设置”-“隐私”-“相机”功能中，找到“XXXX”打开相机访问权限")
+            return
+        }
+        
+        // 2.判断输入能否添加到会话中
         if self.videoInput == nil {
             guard let input = try? AVCaptureDeviceInput(device: device) else {
                 qRScanView?.deviceStopReadying()
-                self.showInfo(info: "没有相机权限，请到设置->隐私中开启本程序相机权限")
+                self.showInfo(info: "没有相输入设备")
                 return
             }
             self.videoInput = input
-            session.addInput(self.videoInput!)
+            if session.canAddInput(self.videoInput) {
+                session.addInput(self.videoInput!)
+            }
         }
         
-        // 3.设置会话输出
-//        session.outputs.first
-//        output.metadataObjectTypes = [AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code,AVMetadataObjectTypeEAN8Code,AVMetadataObjectTypeCode128Code]
-        if output == nil {
-            session.addOutput(output)
-            output?.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+        // 3.判断输出能够添加到会话中
+        if self.output == nil {
+            self.output = AVCaptureMetadataOutput()
+            if session.canAddOutput(output) {
+                session.addOutput(output)
+            }
             if isOpenInterestRect {
                 output?.rectOfInterest = CGRect(x: (124)/MGScreenH, y: ((MGScreenW-220)/2)/MGScreenW, width: 220/MGScreenH, height: 220/MGScreenW)
             }
+            // 设置监听监听输出解析到的数据
+            output?.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            // 3.1.设置输出能够解析的数据类型
+            // 注意点: 设置数据类型一定要在输出对象添加到会话之后才能设置
+            //设置availableMetadataObjectTypes为二维码、条形码等均可扫描，如果想只扫描二维码可设置为
+            output?.metadataObjectTypes = self.defaultMetaDataObjectTypes()
+//                Array(arrayLiteral: AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code,AVMetadataObjectTypeEAN8Code,AVMetadataObjectTypeCode128Code)
         }
         
         // 4.设置图层
@@ -179,6 +198,34 @@ extension ScanViewController {
         //开始扫描动画
         qRScanView?.startScanAnimation()
     }
+    
+    //MARK: ------获取系统默认支持的码的类型
+    func defaultMetaDataObjectTypes() ->[String] {
+        var types =
+            [AVMetadataObjectTypeQRCode,
+             AVMetadataObjectTypeUPCECode,
+             AVMetadataObjectTypeCode39Code,
+             AVMetadataObjectTypeCode39Mod43Code,
+             AVMetadataObjectTypeEAN13Code,
+             AVMetadataObjectTypeEAN8Code,
+             AVMetadataObjectTypeCode93Code,
+             AVMetadataObjectTypeCode128Code,
+             AVMetadataObjectTypePDF417Code,
+             AVMetadataObjectTypeAztecCode,
+             ];
+        if #available(iOS 8.0, *) {
+            types.append(AVMetadataObjectTypeInterleaved2of5Code)
+            types.append(AVMetadataObjectTypeITF14Code)
+            types.append(AVMetadataObjectTypeDataMatrixCode)
+            
+            types.append(AVMetadataObjectTypeInterleaved2of5Code)
+            types.append(AVMetadataObjectTypeITF14Code)
+            types.append(AVMetadataObjectTypeDataMatrixCode)
+        }
+        
+        return types;
+    }
+
 }
 
 // MARK:- <AVCaptureMetadataOutputObjectsDelegate>的代理方法
@@ -189,18 +236,41 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             return
         }
         
-        // 2.获取扫描结果并且显示出来
-//        self.resultLabel.text = object.stringValue
-        
-        
-        // 3.使用预览图层,将corners的点转成坐标系中的点
+        // 2.使用预览图层,将corners的点转成坐标系中的点
         guard let newObject = preViewLayer.transformedMetadataObject(for: object) as? AVMetadataMachineReadableCodeObject else{
             print("没有将corners的点转成坐标系中的点成功")
             return
         }
         
-        // 4.画边框
+        // 3.画边框
         drawBorder(object: newObject)
+    
+        // 4.获取扫描结果并且显示出来
+        if object.stringValue != nil && !object.stringValue.isEmpty {
+            qRScanView?.stopScanAnimation()
+            session.stopRunning()
+            UIView.animate(withDuration: 0.3, animations: { 
+                // 0.移除之前的图形
+                self.shapeLayer?.removeFromSuperlayer()
+            })
+            
+            // 如果是网址就跳转
+            if object.stringValue.contains("http://") || object.stringValue.contains("https://") {
+                let url = URL(string: object.stringValue)
+                if  UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.openURL(url!)
+                }
+            } else {  // 其他信息 弹框显示
+                if self.isKind(of: UIViewController.self) || self.isKind(of: UIView.self) {
+                    let alertVc = UIAlertController(title: object.stringValue, message: nil, preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "好的", style: .cancel, handler: { (action) in
+                        self.startScanning()
+                    })
+                    alertVc.addAction(cancelAction)
+                    UIApplication.shared.keyWindow?.rootViewController?.present(alertVc, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     /*
@@ -208,7 +278,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
      */
     private func drawBorder(object: AVMetadataMachineReadableCodeObject) {
         // 0.移除之前的图形
-        self.shapeLayer.removeFromSuperlayer()
+        self.shapeLayer?.removeFromSuperlayer()
         
         // 1.创建CAShapeLayer(形状类型:专门用于画图)
         let shapeLayer = CAShapeLayer()
@@ -228,7 +298,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             let point = CGPoint(dictionaryRepresentation: dict)
             
             // 4.2如果是第一个点,移动到第一个点
-            if i == 1 {
+            if i == 0 {
                 path.move(to: point!)
                 continue
             }
@@ -318,30 +388,14 @@ extension ScanViewController: UIImagePickerControllerDelegate,UINavigationContro
 
 
 
-
-//MARK: ------获取系统默认支持的码的类型
-func defaultMetaDataObjectTypes() ->[String] {
-    var types =
-        [AVMetadataObjectTypeQRCode,
-         AVMetadataObjectTypeUPCECode,
-         AVMetadataObjectTypeCode39Code,
-         AVMetadataObjectTypeCode39Mod43Code,
-         AVMetadataObjectTypeEAN13Code,
-         AVMetadataObjectTypeEAN8Code,
-         AVMetadataObjectTypeCode93Code,
-         AVMetadataObjectTypeCode128Code,
-         AVMetadataObjectTypePDF417Code,
-         AVMetadataObjectTypeAztecCode,
-         ];
-    if #available(iOS 8.0, *) {
-        types.append(AVMetadataObjectTypeInterleaved2of5Code)
-        types.append(AVMetadataObjectTypeITF14Code)
-        types.append(AVMetadataObjectTypeDataMatrixCode)
-        
-        types.append(AVMetadataObjectTypeInterleaved2of5Code)
-        types.append(AVMetadataObjectTypeITF14Code)
-        types.append(AVMetadataObjectTypeDataMatrixCode)
-    }
-    
-    return types;
-}
+///// 定位扫描框在哪个位置 定位扫描框在屏幕正中央，并且宽高为200的正方形
+//fileprivate lazy var scanView: UIView = {
+//    let v = UIView(frame: CGRect(x: (MGScreenW-200)/2, y: (self.view.frame.size.height-200)/2, width: 200, height: 200))
+//    return v
+//}()
+///// 设置扫描界面（包括扫描界面之外的部分置灰，扫描边框等的设置）,后面设置
+//fileprivate lazy var clearView: UIView = { [unowned self] in
+//    //定位扫描框在屏幕正中央，并且宽高为200的正方形
+//    let v = UIView(frame: self.view.frame)
+//    return v
+//}()

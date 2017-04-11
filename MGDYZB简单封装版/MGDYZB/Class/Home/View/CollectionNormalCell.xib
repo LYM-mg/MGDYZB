@@ -33,18 +33,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="EVu-jV-JWR" secondAttribute="bottom" id="4wV-ZK-6TY"/>
                             <constraint firstItem="EVu-jV-JWR" firstAttribute="leading" secondItem="TbH-nv-YzQ" secondAttribute="leading" id="apk-h7-KHY"/>
                             <constraint firstItem="e8M-O3-42R" firstAttribute="top" secondItem="TbH-nv-YzQ" secondAttribute="top" constant="2" id="bfN-fh-juY"/>
                             <constraint firstItem="HMk-xC-u3U" firstAttribute="leading" secondItem="TbH-nv-YzQ" secondAttribute="leading" constant="3" id="cpn-zW-QDK"/>
                             <constraint firstAttribute="trailing" secondItem="EVu-jV-JWR" secondAttribute="trailing" id="djv-KK-B8j"/>
-                            <constraint firstAttribute="bottom" secondItem="EVu-jV-JWR" secondAttribute="bottom" id="dpS-1v-352"/>
                             <constraint firstItem="EVu-jV-JWR" firstAttribute="top" secondItem="TbH-nv-YzQ" secondAttribute="top" id="h01-Av-Tmp"/>
                             <constraint firstAttribute="bottom" secondItem="HMk-xC-u3U" secondAttribute="bottom" constant="2" id="jic-Nk-zU7"/>
-                            <constraint firstAttribute="height" constant="110" id="jwQ-OO-gIC"/>
                             <constraint firstAttribute="trailing" secondItem="e8M-O3-42R" secondAttribute="trailing" constant="5" id="xaH-GX-6Du"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活力充沛的一天" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdc-Ft-SIC">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="WpR-wc-vgm"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -59,6 +61,7 @@
                 <constraint firstAttribute="trailing" secondItem="TbH-nv-YzQ" secondAttribute="trailing" id="IUH-IO-SQa"/>
                 <constraint firstAttribute="trailing" secondItem="sdc-Ft-SIC" secondAttribute="trailing" id="LBG-XA-ddZ"/>
                 <constraint firstItem="sdc-Ft-SIC" firstAttribute="top" secondItem="TbH-nv-YzQ" secondAttribute="bottom" id="RxN-u8-bax"/>
+                <constraint firstItem="sdc-Ft-SIC" firstAttribute="top" secondItem="TbH-nv-YzQ" secondAttribute="bottom" id="Xl2-1Z-6OO"/>
             </constraints>
             <size key="customSize" width="229" height="99"/>
             <connections>

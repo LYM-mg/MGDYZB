@@ -24,13 +24,13 @@ class QRCodeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.orange
         setUpMainView()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let label = UILabel(frame: CGRect(x: 20, y: 100, width: 300, height: 100))
-        label.text = "我说：不知道为什么,水平菜,~~~~(>_<)~~~~"
+        let label = UILabel(frame: CGRect(x: 20, y: 80, width: 300, height: 100))
+        label.text = "我说：不知道为什么,水平菜"
         label.sizeToFit()
         label.frame.size.width += CGFloat(30)
         label.frame.size.height += CGFloat(30)
@@ -171,6 +171,9 @@ extension QRCodeViewController {
             
             // 创建一个二维码滤镜
             guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
+            // 恢复滤镜的默认属性
+            filter.setDefaults()
+            
             filter.setValue(stringData, forKey: "inputMessage")
             filter.setValue("H", forKey: "inputCorrectionLevel")
             let qrCIImage = filter.outputImage
@@ -187,11 +190,12 @@ extension QRCodeViewController {
             colorFilter.setValue(CIColor(red: b, green: g, blue: r), forKey: "inputColor1")
             
             let codeImage = UIImage(ciImage: (colorFilter.outputImage!
-                .applying(CGAffineTransform(scaleX: 5, y: 5))))
+                .applying(CGAffineTransform(scaleX: 15, y: 15))))
             
             // 通常,二维码都是定制的,中间都会放想要表达意思的图片
             if let QRCImage = UIImage(named: QRCImage!) {
                 let rect = CGRect(x: 0, y: 0, width: codeImage.size.width, height: codeImage.size.height)
+                
                 // 开启上下文
                 UIGraphicsBeginImageContextWithOptions(rect.size, false, 1.0)
                 codeImage.draw(in: rect)
@@ -216,7 +220,7 @@ extension QRCodeViewController {
         showAlertVc(ges: tap)
     }
     fileprivate func showAlertVc(ges: UIGestureRecognizer) {
-        let alertVc = UIAlertController(title: "长按", message: nil, preferredStyle: .actionSheet)
+        let alertVc = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let qrcAction = UIAlertAction(title: "保存图片", style: .default) { (action) in
             self.saveImage()
         }
@@ -289,4 +293,55 @@ extension QRCodeViewController {
         let alertView = UIAlertView(title: nil, message: info, delegate: nil, cancelButtonTitle: "好的")
         alertView.show()
     }
+}
+
+// MARK: - 生成条形码
+extension QRCodeViewController {
+    /// 生成一张条形码方法
+    /**
+     - parameter QRCStr：网址URL
+     - parameter QRCImage：图片名称
+     */
+    fileprivate func barCodeImageWithInfo(info: String?) -> UIImage? {
+        // 创建条形码
+        // 创建一个二维码滤镜
+        guard let filter = CIFilter(name: "CICode128BarcodeGenerator") else { return nil }
+        
+        // 恢复滤镜的默认属性
+        filter.setDefaults()
+        // 将字符串转换成NSData
+        let data = info?.data(using: .utf8)
+        // 通过KVO设置滤镜inputMessage数据
+        filter.setValue(data, forKey: "inputMessage")
+
+        // 获得滤镜输出的图像
+        let outputImage =  filter.outputImage
+        // 将CIImage 转换为UIImage
+        let image = UIImage(cgImage: outputImage as! CGImage)
+        
+        // 如果需要将image转NSData保存，则得用下面的方式先转换为CGImage,否则NSData 会为nil
+        //    CIContext *context = [CIContext contextWithOptions:nil];
+        //    CGImageRef imageRef = [context createCGImage:outputImage fromRect:outputImage.extent];
+        //
+        //    UIImage *image = [UIImage imageWithCGImage:imageRef];
+        
+        return image
+    }
+}
+
+
+func resizeQRCodeImage(_ image: CIImage, withSize size: CGFloat) -> UIImage {
+    let extent = image.extent.integral
+    let scale = min(size / extent.width, size / extent.height)
+    let width = extent.width*scale
+    let height = extent.height*scale
+    let colorSpaceRef: CGColorSpace? = CGColorSpaceCreateDeviceGray()
+    let contextRef = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpaceRef!, bitmapInfo: CGBitmapInfo.init(rawValue: 0).rawValue)
+    let context = CIContext(options: nil)
+    let imageRef: CGImage = context.createCGImage(image, from: extent)!
+    contextRef!.interpolationQuality = CGInterpolationQuality.init(rawValue: 0)!
+    contextRef?.scaleBy(x: scale, y: scale)
+    contextRef?.draw(imageRef, in: extent)
+    let imageRefResized: CGImage = contextRef!.makeImage()!
+    return UIImage(cgImage: imageRefResized)
 }
