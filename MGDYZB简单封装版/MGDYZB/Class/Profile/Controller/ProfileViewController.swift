@@ -168,12 +168,13 @@ extension ProfileViewController: ProfileHeaderViewDelegate {
         let tag = view.tag as Int
         switch (tag) {
             case 101:
-                print("101")
+                show(WKWebViewController(navigationTitle: "排行榜", urlStr: "https://www.douyu.com/directory/rank_list/game"), sender: self)
             case 102:
-                print("102")
+                show(WKWebViewController(navigationTitle: "我的关注", urlStr: "https://www.douyu.com/room/my_follow"), sender: self)
             case 103:
                 print("103")
             case 104:
+                show(WKWebViewController(navigationTitle: "鱼翅充值", urlStr: "https://cz.douyu.com/"), sender: self)
                 print("104")
         default:
                 print("default")

@@ -101,7 +101,6 @@ extension SettingViewController{
     
     // 添加第3组
     fileprivate func setUpGroup3() {
-    
         // 创建行模型
         let item = ArrowItem(title: "赏个好评", icon: "MoreUpdate")
         // 保存跳转控制器类名字符串
@@ -114,18 +113,20 @@ extension SettingViewController{
             print("没有最新的版本")
         }
         
-        
         let item2 = ArrowItem(title: "拨打电话联系客服", icon: "MoreUpdate")
         item2.operationBlock = { [unowned self] (indexPath)-> () in
             self.takePhone()
         }
         
-        let item3 = ArrowItem(title: "关于斗鱼", icon: "MoreUpdate")
-        item3.descVcClass = QRCodeViewController.classForCoder()
+        let item3 = ArrowItem(title: "在线联系客服", icon: "MoreUpdate")
+        item3.descVcClass = WKWebViewController.classForCoder()
+        
+        let item4 = ArrowItem(title: "关于斗鱼", icon: "MoreUpdate")
+        item4.descVcClass = QRCodeViewController.classForCoder()
         
         // 创建组模型数组
         let group = GroupItem()
-        group.items = [item,item1,item2,item3]
+        group.items = [item,item1,item2,item3,item4]
         group.headerTitle = "明明带你"
         self.groups.append(group)
     }
