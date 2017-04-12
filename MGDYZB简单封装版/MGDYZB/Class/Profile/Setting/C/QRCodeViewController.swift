@@ -173,10 +173,10 @@ extension QRCodeViewController {
             guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
             // 恢复滤镜的默认属性
             filter.setDefaults()
-            
             filter.setValue(stringData, forKey: "inputMessage")
             filter.setValue("H", forKey: "inputCorrectionLevel")
             let qrCIImage = filter.outputImage
+            
             // 创建一个颜色滤镜,黑白色
             guard let colorFilter = CIFilter(name: "CIFalseColor")  else { return nil }
             colorFilter.setDefaults()
@@ -190,14 +190,14 @@ extension QRCodeViewController {
             colorFilter.setValue(CIColor(red: b, green: g, blue: r), forKey: "inputColor1")
             
             let codeImage = UIImage(ciImage: (colorFilter.outputImage!
-                .applying(CGAffineTransform(scaleX: 15, y: 15))))
+                .applying(CGAffineTransform(scaleX: 5, y: 5))))
             
             // 通常,二维码都是定制的,中间都会放想要表达意思的图片
             if let QRCImage = UIImage(named: QRCImage!) {
                 let rect = CGRect(x: 0, y: 0, width: codeImage.size.width, height: codeImage.size.height)
                 
                 // 开启上下文
-                UIGraphicsBeginImageContextWithOptions(rect.size, false, 1.0)
+                UIGraphicsBeginImageContextWithOptions(rect.size, true, 1.0)
                 codeImage.draw(in: rect)
                 let iconSize = CGSize(width: codeImage.size.width*0.25, height: codeImage.size.height*0.25)
                 let iconOrigin = CGPoint(x: (codeImage.size.width-iconSize.width)/2, y: (codeImage.size.height-iconSize.height)/2)

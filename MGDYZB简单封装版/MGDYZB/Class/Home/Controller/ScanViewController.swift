@@ -75,8 +75,8 @@ class ScanViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         perform(#selector(ScanViewController.startScanning), with: nil, afterDelay: 0.3)
     }
     
