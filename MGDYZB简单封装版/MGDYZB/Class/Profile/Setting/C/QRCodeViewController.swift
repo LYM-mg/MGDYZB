@@ -197,12 +197,16 @@ extension QRCodeViewController {
                 let rect = CGRect(x: 0, y: 0, width: codeImage.size.width, height: codeImage.size.height)
                 
                 // 开启上下文
+                let context = UIGraphicsGetCurrentContext()
                 UIGraphicsBeginImageContextWithOptions(rect.size, true, 1.0)
                 codeImage.draw(in: rect)
                 let iconSize = CGSize(width: codeImage.size.width*0.25, height: codeImage.size.height*0.25)
                 let iconOrigin = CGPoint(x: (codeImage.size.width-iconSize.width)/2, y: (codeImage.size.height-iconSize.height)/2)
                 QRCImage.draw(in: CGRect(origin: iconOrigin, size: iconSize))
                 guard let resultImage =  UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+                context?.setFillColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+                context?.addEllipse(in: rect)
+                context?.drawPath(using: CGPathDrawingMode.fill)
                 
                 // 结束上下文
                 UIGraphicsEndImageContext()
