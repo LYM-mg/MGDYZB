@@ -62,6 +62,7 @@
                 <constraint firstItem="DnC-zG-boO" firstAttribute="top" secondItem="opb-7J-2Rx" secondAttribute="bottom" id="Zt9-Hl-kZk"/>
                 <constraint firstItem="POY-La-HOS" firstAttribute="top" secondItem="opb-7J-2Rx" secondAttribute="bottom" id="cLY-BK-Rjm"/>
                 <constraint firstItem="DnC-zG-boO" firstAttribute="leading" secondItem="ukX-jk-9PH" secondAttribute="leading" id="eND-sU-8G5"/>
+                <constraint firstItem="POY-La-HOS" firstAttribute="height" secondItem="DnC-zG-boO" secondAttribute="height" id="nsc-4T-YIZ"/>
                 <constraint firstAttribute="bottom" secondItem="DnC-zG-boO" secondAttribute="bottom" id="nua-pY-ufL"/>
             </constraints>
             <size key="customSize" width="229" height="99"/>
