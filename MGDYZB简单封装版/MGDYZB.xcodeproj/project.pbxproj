@@ -903,8 +903,9 @@
 				TargetAttributes = {
 					3A9779B51DBF7C3F00C79CE6 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = F6GVS758WK;
+						DevelopmentTeam = 6Q4SPHM5Z9;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1205,15 +1206,16 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F6GVS758WK;
+				DEVELOPMENT_TEAM = 6Q4SPHM5Z9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mingge.MGDYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "08314f14-28fa-497a-b7d9-c1c1cde41343";
+				PROVISIONING_PROFILE_SPECIFIER = DYDevelopment;
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1227,13 +1229,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = F6GVS758WK;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ming.MGDYZB2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mingge.MGDYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;

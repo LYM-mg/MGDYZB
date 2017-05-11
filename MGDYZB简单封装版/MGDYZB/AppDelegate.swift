@@ -38,16 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
         
         // 点击状态栏滚动到顶部
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { 
-            MGScrollTopWindow.shareInstance.show()
-        }
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        //  MGScrollTopWindow.shareInstance.show()
+        //}
         
         let isfirst = SaveTools.mg_getLocalData(key: "isFirstOpen") as? String
         if (isfirst?.isEmpty == nil) {
             UIApplication.shared.isStatusBarHidden = true
             showAppGurdView()
+            NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.EnterHomeView(_:)), name: NSNotification.Name(rawValue: KEnterHomeViewNotification), object: nil)
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.EnterHomeView(_:)), name: NSNotification.Name(rawValue: KEnterHomeViewNotification), object: nil)
         return true
     }
     

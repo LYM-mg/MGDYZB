@@ -17,8 +17,8 @@ class DetailGameViewController: BaseViewController {
         // 1.创建布局
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: kNormalItemW, height: kNormalItemH)
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = kItemMargin/2
+        layout.minimumLineSpacing = kItemMargin/2
+        layout.minimumInteritemSpacing = kItemMargin
         layout.sectionInset = UIEdgeInsets(top: 5, left: kItemMargin/2, bottom: 0, right: kItemMargin/2)
         
         // 2.创建UICollectionView
@@ -32,14 +32,14 @@ class DetailGameViewController: BaseViewController {
     }()
     
     // MARK: - 系统方法
-    convenience init(tag_id: String) {
+    convenience init(model: BaseGameModel) {
         self.init(nibName: nil, bundle: nil)
-        detailGameVM.tag_id = tag_id   // 这个tag_id是用作url参数用的，具体你看ViewModel的两个url分析
+        self.title = model.tag_name
+        detailGameVM.tag_id = String(describing: model.tag_id)   // 这个tag_id是用作url参数用的，具体你看ViewModel的两个url分析
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "具体游戏"
         
         setUpRefresh()
         

@@ -15,7 +15,7 @@ class QQScanViewController: LBXScanViewController {
      */
     var isOpenedFlash:Bool = false
     
-// MARK: - 底部几个功能：开启闪光灯、相册、我的二维码
+    // MARK: - 底部几个功能：开启闪光灯、相册、我的二维码
     fileprivate lazy var scanBottom: ScanBottomView = {
         let sb = ScanBottomView(frame: CGRect(x: 0, y: MGScreenH-100-MGNavHeight, width: MGScreenW, height: 100))
         return sb

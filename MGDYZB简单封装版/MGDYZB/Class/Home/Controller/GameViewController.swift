@@ -140,7 +140,7 @@ extension GameViewController: UICollectionViewDataSource {
 extension GameViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = gameVM.games[indexPath.item]
-        show(DetailGameViewController(tag_id: String(describing: model.tag_id)), sender: self)
+        show(DetailGameViewController(model: model), sender: self)
     }
 }
 

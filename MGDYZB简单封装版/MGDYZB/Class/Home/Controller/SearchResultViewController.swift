@@ -37,7 +37,6 @@ class SearchResultViewController: UIViewController {
         searchBar.barTintColor = UIColor.white
         searchBar.keyboardType = UIKeyboardType.default
         searchBar.delegate = self
-//        searchBar.setBackgroundImage(#imageLiteral(resourceName: "navigationBarBackgroundImage"), for: .any, barMetrics: .default)
         return searchBar
     }()
     
@@ -47,9 +46,13 @@ class SearchResultViewController: UIViewController {
         setUpMainView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchBar.removeFromSuperview()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
 }
 
@@ -234,7 +237,6 @@ extension SearchResultViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        searchBar.removeFromSuperview()
         let _ = self.navigationController?.popViewController(animated: true)
     }
     

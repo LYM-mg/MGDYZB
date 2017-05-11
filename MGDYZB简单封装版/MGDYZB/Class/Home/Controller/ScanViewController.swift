@@ -37,7 +37,7 @@ class ScanViewController: UIViewController {
                 //修改前必须先锁定
                 try? self.device?.lockForConfiguration()
                 //必须判定是否有闪光灯，否则如果没有闪光灯会崩溃
-                if device.hasFlash {
+                if device.hasFlash && device.hasTorch {
                     if device.flashMode == .off {
                         device.flashMode = .on
                         device.torchMode = .on
@@ -86,7 +86,7 @@ class ScanViewController: UIViewController {
         session.stopRunning()
     }
     
-    //设置框内识别
+    // 设置框内识别
     open func setOpenInterestRect(isOpen:Bool){
         isOpenInterestRect = isOpen
     }
@@ -197,6 +197,18 @@ extension ScanViewController {
         
         //开始扫描动画
         qRScanView?.startScanAnimation()
+        
+        // 6.拉近镜头，改善条形码读取效果
+        //修改前必须先锁定
+        do {
+            try self.device?.lockForConfiguration()
+        } catch _ {
+            NSLog("Error: lockForConfiguration.");
+        }
+        // 拉近镜头 放大
+        self.device?.videoZoomFactor = 1.5
+        self.device?.unlockForConfiguration()
+
     }
     
     //MARK: ------获取系统默认支持的码的类型

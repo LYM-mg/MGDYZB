@@ -67,8 +67,7 @@ class RecommendViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
-//        setUpMainView()
-        loadData()
+        setUpRefresh()
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,6 +105,7 @@ extension RecommendViewController {
         })
         
         // 设置自动切换透明度(在导航栏下面自动隐藏)
+        collectionView.header.ignoredScrollViewContentInsetTop = kCycleViewH + kGameViewH
         collectionView.header.isAutoChangeAlpha = true
         self.collectionView.header.beginRefreshing()
     }
@@ -114,6 +114,7 @@ extension RecommendViewController {
         // 1.请求轮播数据
         recommendVM.requestCycleData {_ in
             self.cycleView.cycleModels = self.recommendVM.cycleModels
+            self.collectionView.header.endRefreshing()
         }
         
         // 2.请求推荐数据
@@ -141,6 +142,7 @@ extension RecommendViewController {
             
             // 3.数据请求完成
             self.loadDataFinished()
+            self.collectionView.header.endRefreshing()
         }
     }
 }

@@ -12,7 +12,7 @@ import SafariServices
 private let kCycleViewH = kScreenW * 3 / 8          /** 轮播器的高度 */
 let kGameViewH : CGFloat = 90               /** 游戏View的高度 */
 let kItemMargin : CGFloat = 10              /** item之间的间距 */
-let kHeaderViewH : CGFloat = 50             /** item之间的间距 */
+let kHeaderViewH : CGFloat = 30             /** item之间的间距 */
 let kNormalItemW = (kScreenW - 3 * kItemMargin) / 2 /** item的宽度 */
 let kNormalItemH = kNormalItemW * 3 / 4             /** 普通item的高度 */
 let kPrettyItemH = kNormalItemW * 4 / 3             /** 颜值的item的高度 */

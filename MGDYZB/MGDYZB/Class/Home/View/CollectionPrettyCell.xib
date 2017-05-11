@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -29,7 +29,6 @@
                             <constraint firstAttribute="trailing" secondItem="ChQ-kQ-8Pc" secondAttribute="trailing" constant="5" id="7FJ-WB-mpu"/>
                             <constraint firstItem="V9S-dS-UDU" firstAttribute="leading" secondItem="opb-7J-2Rx" secondAttribute="leading" id="90e-72-LDH"/>
                             <constraint firstItem="V9S-dS-UDU" firstAttribute="top" secondItem="opb-7J-2Rx" secondAttribute="top" id="SKn-BF-Fta"/>
-                            <constraint firstAttribute="height" constant="200" id="W68-hB-vgG"/>
                             <constraint firstAttribute="trailing" secondItem="V9S-dS-UDU" secondAttribute="trailing" id="d6U-UZ-2uT"/>
                             <constraint firstItem="ChQ-kQ-8Pc" firstAttribute="top" secondItem="opb-7J-2Rx" secondAttribute="top" constant="2" id="nAo-uL-XmD"/>
                             <constraint firstAttribute="bottom" secondItem="V9S-dS-UDU" secondAttribute="bottom" id="uaq-Xe-OQz"/>
@@ -42,6 +41,9 @@
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnC-zG-boO">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="dey-fS-IjS"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <state key="normal" title="小心的抹茶" image="home_live_cate_normal">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
