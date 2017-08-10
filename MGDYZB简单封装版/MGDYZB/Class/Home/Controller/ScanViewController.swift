@@ -29,30 +29,30 @@ class ScanViewController: UIViewController {
         
         sb.btnClickBlcok = { [unowned self](view, type) in
             switch type {
-            case .flash:
-                guard let device = self.device else {
-                    self.showInfo(info: "没有输入设备")
-                    return
-                }
-                //修改前必须先锁定
-                try? self.device?.lockForConfiguration()
-                //必须判定是否有闪光灯，否则如果没有闪光灯会崩溃
-                if device.hasFlash && device.hasTorch {
-                    if device.flashMode == .off {
-                        device.flashMode = .on
-                        device.torchMode = .on
-                    }else {
-                        device.flashMode = AVCaptureFlashMode.off
-                        device.torchMode = AVCaptureTorchMode.off
+                case .flash:
+                    guard let device = self.device else {
+                        self.showInfo(info: "没有输入设备")
+                        return
                     }
-                }
-                device.unlockForConfiguration()
-            case .photo:
-                self.takePhotoFromAlbun()
-                break
-            case .myqrcode:
-                self.show(QRCodeViewController(), sender: nil)
-                break
+                    //修改前必须先锁定
+                    try? self.device?.lockForConfiguration()
+                    //必须判定是否有闪光灯，否则如果没有闪光灯会崩溃
+                    if device.hasFlash && device.hasTorch {
+                        if device.flashMode == .off {
+                            device.flashMode = .on
+                            device.torchMode = .on
+                        }else {
+                            device.flashMode = AVCaptureFlashMode.off
+                            device.torchMode = AVCaptureTorchMode.off
+                        }
+                    }
+                    device.unlockForConfiguration()
+                case .photo:
+                    self.takePhotoFromAlbun()
+                    break
+                case .myqrcode:
+                    self.show(QRCodeViewController(), sender: nil)
+                    break
             }
         }
         return sb
