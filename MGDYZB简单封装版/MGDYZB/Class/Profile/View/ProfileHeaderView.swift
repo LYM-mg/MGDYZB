@@ -22,6 +22,7 @@ protocol ProfileHeaderViewDelegate: NSObjectProtocol {
 
 
 class ProfileHeaderView: UIView {
+    @IBOutlet weak var topCon: NSLayoutConstraint!
     var delegate: ProfileHeaderViewDelegate?
     
     @IBOutlet weak var registBtn: UIButton!
@@ -33,6 +34,7 @@ class ProfileHeaderView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        topCon.constant = (kScreenH==812.0) ? 35 : 20
         loginBtn.layer.borderWidth = 1
         loginBtn.layer.borderColor = UIColor.white.cgColor
         registBtn.layer.borderWidth = 1

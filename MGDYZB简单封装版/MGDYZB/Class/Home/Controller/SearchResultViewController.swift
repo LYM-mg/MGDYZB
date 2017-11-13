@@ -62,7 +62,7 @@ extension SearchResultViewController {
         
         view.addSubview(collectionView)
         UIView.animate(withDuration: 0.8) {
-            self.searchBar.frame = CGRect(x: 10, y: 22, width: MGScreenW-20, height: 30)
+            self.searchBar.frame = CGRect(x: 10, y: 22, width: MGScreenW, height: 40)
             self.navigationController?.view.addSubview(self.searchBar)
         }
         for view in searchBar.subviews {
@@ -110,12 +110,12 @@ extension SearchResultViewController {
             self!.searchVM.anchorGroups.removeAll()
             self!.searchVM.offset = 0
             self!.loadData()
-            })
+        })
         // MARK: - 上拉
         self.collectionView.footer = MJRefreshAutoGifFooter(refreshingBlock: {[weak self] () -> Void in
             self!.searchVM.offset += 20
             self!.loadData()
-            })
+        })
         self.collectionView.header.isAutoChangeAlpha = true
         self.collectionView.footer.noticeNoMoreData()
     }

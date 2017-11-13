@@ -58,7 +58,7 @@ extension ProfileViewController {
     override func setUpMainView() {
         // 0.给ContentView进行赋值
         contentView = tableView
-        tableView.frame = CGRect(x: 0, y: -20, width: kScreenW, height: self.view.height)
+        tableView.frame = CGRect(x: 0, y: -MGStatusHeight, width: kScreenW, height: self.view.height)
         view.addSubview(tableView)
         tableView.tableHeaderView = headerView
         loadData()

@@ -13,11 +13,11 @@ let kNavigationBarH : CGFloat = 44
 let kTabbarH : CGFloat = 44
 
 /// 状态栏高度20
-let MGStatusHeight: CGFloat = 20
+let MGStatusHeight: CGFloat = (kScreenH==812.0) ? 44 : 20
 /// 导航栏高度64
-let MGNavHeight: CGFloat = 64
+let MGNavHeight: CGFloat = (kScreenH==812.0) ? 88 : 64
 /// tabBar的高度 50
-let MGTabBarHeight: CGFloat = 50
+let MGTabBarHeight: CGFloat = kScreenH == 812.0 ? 83 : 50
 /// 全局的间距 10
 let MGGloabalMargin: CGFloat = 10
 /** 导航栏颜色 */

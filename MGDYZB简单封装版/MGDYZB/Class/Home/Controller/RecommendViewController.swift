@@ -164,7 +164,9 @@ extension RecommendViewController: UICollectionViewDataSource {
             let prettyCell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
             
             // 2.设置数据
-            prettyCell.anchor = recommendVM.anchorGroups[(indexPath as NSIndexPath).section].anchors[(indexPath as NSIndexPath).item]
+            if (recommendVM.anchorGroups.count>0) {
+                prettyCell.anchor = recommendVM.anchorGroups[(indexPath as NSIndexPath).section].anchors[(indexPath as NSIndexPath).item]
+            }
             
             return prettyCell
         } else {                    /// 其他组数据
@@ -172,7 +174,10 @@ extension RecommendViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
             
             // 2.给cell设置数据
-            cell.anchor = recommendVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+            if (recommendVM.anchorGroups.count>0) {
+                cell.anchor = recommendVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+            }
+            
             
             return cell
         }

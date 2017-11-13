@@ -49,8 +49,8 @@ class LiveViewController: UIViewController {
     }()
     fileprivate lazy var liveContentView: HomeContentView = { [weak self] in
         // 1.确定内容的frame
-        let contentH = kScreenH - kStatusBarH - kNavigationBarH
-        let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH, width: kScreenW, height: contentH)
+        let contentH = kScreenH - MGNavHeight
+        let contentFrame = CGRect(x: 0, y: MGNavHeight, width: kScreenW, height: contentH)
         
         // 2.确定所有的子控制器
         var childVcs = [UIViewController]()

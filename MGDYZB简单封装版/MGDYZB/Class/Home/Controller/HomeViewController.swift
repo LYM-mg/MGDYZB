@@ -84,7 +84,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - lazy
     fileprivate lazy var homeTitlesView: HomeTitlesView = { [weak self] in
-        let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH, width: kScreenW, height: kTitlesViewH)
+        let titleFrame = CGRect(x: 0, y: MGNavHeight, width: kScreenW, height: kTitlesViewH)
         let titles = ["推荐", "游戏", "娱乐", "趣玩"]
         let tsView = HomeTitlesView(frame: titleFrame, titles: titles)
         tsView.deledate = self
@@ -92,8 +92,8 @@ class HomeViewController: UIViewController {
     }()
     fileprivate lazy var homeContentView: HomeContentView = { [weak self] in
         // 1.确定内容的frame
-        let contentH = kScreenH - kStatusBarH - kNavigationBarH - kTitlesViewH - kTabbarH
-        let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH+kTitlesViewH, width: kScreenW, height: contentH)
+        let contentH = kScreenH - MGNavHeight - kTitlesViewH - kTabbarH
+        let contentFrame = CGRect(x: 0, y: MGNavHeight+kTitlesViewH, width: kScreenW, height: contentH)
         
         // 2.确定所有的子控制器
         var childVcs = [UIViewController]()
