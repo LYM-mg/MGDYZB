@@ -79,7 +79,7 @@ class MGNavController: UINavigationController {
             // 设置按钮内容左对齐
             backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left;
             // 内边距
-            backBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+            backBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -8, 0, 0);
             
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backBtn)
             // 隐藏要push的控制器的tabbar

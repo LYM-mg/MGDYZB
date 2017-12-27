@@ -81,11 +81,12 @@ class GameCenterCell: UICollectionViewCell {
 //            "icon": "68777219db88e8c132e7f51cf554184f.jpg",
 //            "icon_small": "843759872552df94a533e65b29a7bc63.png",
             
-            
-//            imageView.kf.setImage(with: <#T##Resource?#>, placeholder: #imageLiteral(resourceName: "placehoderImage"))
+            if let url = URL(string: model?.icon ?? "") {
+                imageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "placehoderImage"))
+            }
             titleLable.text = model?.title ?? "MG明明"
             subTitleLable.text = model?.depict ?? "欢迎关注我，黑恶嘿嘿"
-            downloadLable.text = "下载：\(model!.show_count!)万"
+            downloadLable.text = "下载：\(model!.show_count)万"
         }
     }
     

@@ -112,8 +112,11 @@ extension WKWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let hostname = (navigationAction.request as NSURLRequest).url?.host?.lowercased()
         
-        print(hostname)
-        print(navigationAction.navigationType)
+        debugPrint(hostname ?? "http://baidu.com")
+        debugPrint(navigationAction.navigationType)
+//        if hostname != nil ,hostname!.hasPrefix("http") {
+//            hostname = "http:" +  hostname!
+//        }
         // 处理跨域问题
         if navigationAction.navigationType == .linkActivated && hostname!.contains(".baidu.com") {
             // 手动跳转

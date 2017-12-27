@@ -41,7 +41,7 @@ class MGTabBarController: UITabBarController {
         let circleVC = LiveViewController()
         setUpNavRootViewCOntrollers(vc: circleVC, title: "直播", imageName: normalImages[1], selImage: selectedImages[1])
         
-        let garageVC = UIViewController()
+        let garageVC = RoomTableViewController()
         setUpNavRootViewCOntrollers(vc: garageVC, title: "关注", imageName: normalImages[2], selImage: selectedImages[2])
         
         let profileVC = ProfileViewController()

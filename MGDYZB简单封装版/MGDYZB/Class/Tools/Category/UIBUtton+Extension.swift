@@ -38,7 +38,7 @@ extension UIButton {
     }
     
     convenience init(image:UIImage?,highlightedImage: UIImage?,title: String?, target:AnyObject, action:Selector) {
-        self.init()
+        self.init(title: title ?? "", target: target, action: action)
         // 1.设置按钮的属性
         setImage(image, for: .normal)
         if highlightedImage != nil {

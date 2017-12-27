@@ -56,6 +56,7 @@ extension GuardScrollView {
                 deformationBtn.forDisplayButton.setBackgroundImage(bgImage, for: UIControlState())
                 deformationBtn.addTarget(self, action: #selector(GuardScrollView.EnterApp(_:)), for: .touchUpInside)
                 self.addSubview(deformationBtn)
+                self.bringSubview(toFront: deformationBtn)
             }
         }
     }

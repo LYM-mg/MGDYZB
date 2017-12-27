@@ -4,6 +4,9 @@
 //
 //  Created by ming on 16/10/25.
 //  Copyright © 2016年 ming. All rights reserved.
+
+//  简书：http://www.jianshu.com/users/57b58a39b70e/latest_articles
+//  github:  https://github.com/LYM-mg
 //
 
 import UIKit
@@ -11,10 +14,9 @@ import UIKit
 private let kEdgeMargin : CGFloat = 10
 private let kItemW : CGFloat = (kScreenW - 2 * kEdgeMargin) / 3
 private let kItemH : CGFloat = kItemW * 6 / 5
-//private let kHeaderViewH : CGFloat = 50
 
 private let kGameCellID = "kGameCellID"
-//private let kHeaderViewID = "kHeaderViewID"
+
 
 class GameViewController: BaseViewController {
 
@@ -36,7 +38,7 @@ class GameViewController: BaseViewController {
         collectionView.register(UINib(nibName: "CollectionGameCell", bundle: nil), forCellWithReuseIdentifier: kGameCellID)
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
         collectionView.dataSource = self
-        
+        collectionView.delegate = self
         return collectionView
     }()
 
@@ -57,7 +59,7 @@ class GameViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMainView()
+//        setUpMainView()
         loadData()
     }
 
@@ -97,7 +99,7 @@ extension GameViewController {
             self.collectionView.reloadData()
             
             // 2.展示常用游戏
-            self.gameView.groups = Array(self.gameVM.games[0..<10])
+            self.gameView.groups = Array(self.gameVM.games[0..<self.gameVM.games.count])
             
             // 3.数据请求完成
             self.loadDataFinished()
@@ -107,7 +109,7 @@ extension GameViewController {
 
 
 // MARK:- 遵守UICollectionView的数据源&代理
-extension GameViewController : UICollectionViewDataSource {
+extension GameViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gameVM.games.count
     }
@@ -116,7 +118,7 @@ extension GameViewController : UICollectionViewDataSource {
         // 1.获取cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kGameCellID, for: indexPath) as! CollectionGameCell
         cell.lineView.isHidden = false
-        cell.baseGame = gameVM.games[(indexPath as NSIndexPath).item]
+        cell.baseGame = gameVM.games[indexPath.item]
         
         return cell
     }
@@ -134,5 +136,12 @@ extension GameViewController : UICollectionViewDataSource {
     }
 }
 
+// MARK:- 遵守UICollectionView的代理
+extension GameViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = gameVM.games[indexPath.item]
+        show(DetailGameViewController(model: model), sender: self)
+    }
+}
 
 

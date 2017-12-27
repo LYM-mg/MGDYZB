@@ -19,7 +19,7 @@ class DetailGameViewController: BaseViewController {
         layout.itemSize = CGSize(width: kNormalItemW, height: kNormalItemH)
         layout.minimumLineSpacing = kItemMargin/2
         layout.minimumInteritemSpacing = kItemMargin
-        layout.sectionInset = UIEdgeInsets(top: 5, left: kItemMargin/2, bottom: 0, right: kItemMargin/2)
+        layout.sectionInset = UIEdgeInsets(top: kItemMargin, left: kItemMargin/2, bottom: 0, right: kItemMargin/2)
         
         // 2.创建UICollectionView
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)

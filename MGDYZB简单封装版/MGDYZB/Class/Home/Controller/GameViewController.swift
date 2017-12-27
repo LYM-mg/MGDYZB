@@ -99,7 +99,7 @@ extension GameViewController {
             self.collectionView.reloadData()
             
             // 2.展示常用游戏
-            self.gameView.groups = Array(self.gameVM.games[0..<10])
+            self.gameView.groups = Array(self.gameVM.games[0..<self.gameVM.games.count])
             
             // 3.数据请求完成
             self.loadDataFinished()

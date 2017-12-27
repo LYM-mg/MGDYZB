@@ -9,43 +9,43 @@
 import UIKit
 
 class GameCenterModel: NSObject {
-    var allowIp : String!
-    var callBackUrl : String!
-    var clickType : String!
-    var ctime : String!
+//    var allowIp : String!
+//    var call_back_url : String!
+//    var show_type : Int!
+//    var click_type : Int!
+//    var ctime = 0
     var depict : String!
     var down_ios_url : String!
-    var endTime : String!
-    var getDepict : String!
+    var start_time : String!
+    var end_time : String!
+//    var getDepict : String!
     var giftIcon : String!
     var gold : String!
     var icon : String!
     var iconSmall : String!
-    var id : String!
+    var id : Int!
     var iosId : String!
     var ruleType : String!
-    var show_count : NSNumber! {
-        didSet {
-            show_count = Int(Int(show_count)/10000) as NSNumber!
-        }
-    }
-    var silver : String!
-    var sort : String!
-    var startTime : String!
-    var status : String!
-    var taskDesc : String!
-    var taskRuleModels : [TaskRuleModel]!
-    var taskRule: [[String : NSObject]]? {
-        didSet {
-            guard let taskRule = taskRule else { return }
-            for dict in taskRule {
-                taskRuleModels.append(TaskRuleModel(dict: dict))
-            }
-        }
-    }
+    var show_count : Int64!
+    var showCount : Int64!
+//    var silver : String!
+//    var sort : Int!
 
+//    var status : Int!
+//    var taskDesc : String!
+//    var taskRuleModels : [TaskRuleModel]!
+//    var taskRule: [[String : NSObject]]? {
+//        didSet {
+//            guard let taskRule = taskRule else { return }
+//            for dict in taskRule {
+//                taskRuleModels.append(TaskRuleModel(dict: dict))
+//            }
+//        }
+//    }
+
+    var banner : String!
     var title : String!
-    var data : [Data]!
+//    var data : [Data]!
     var downList : [AnyObject]! // 这个是下载列表
     
     init(dict : [String : Any]) {
@@ -53,6 +53,14 @@ class GameCenterModel: NSObject {
         setValuesForKeys(dict)
     }
     
+//    override func setValue(_ value: Any?, forKey key: String) {
+//        if key == "show_count" {
+//            let count = Int(value)
+//            show_count = Int64(count/10000)
+//        }else {
+//           super.setValue(value, forKey: key)
+//        }
+//    }
     override func setValue(_ value: Any?, forUndefinedKey key: String) { }
 }
     

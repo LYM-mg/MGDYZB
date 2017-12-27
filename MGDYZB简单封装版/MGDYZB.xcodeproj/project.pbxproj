@@ -124,6 +124,8 @@
 		C0D156E41E9BA0FE0095B8BA /* HearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156E31E9BA0FE0095B8BA /* HearViewModel.swift */; };
 		C0D156E81E9BAC830095B8BA /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156E71E9BAC830095B8BA /* SearchResultViewController.swift */; };
 		C0D156EA1E9BB4810095B8BA /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D156E91E9BB4810095B8BA /* SearchViewModel.swift */; };
+		F40CB2FA1FF24DAD000058A4 /* UINavigationBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40CB2F91FF24DAD000058A4 /* UINavigationBar+Extension.swift */; };
+		F40CB2FC1FF24F13000058A4 /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40CB2FB1FF24F13000058A4 /* RoomTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -272,6 +274,8 @@
 		C0D156E31E9BA0FE0095B8BA /* HearViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearViewModel.swift; sourceTree = "<group>"; };
 		C0D156E71E9BAC830095B8BA /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		C0D156E91E9BB4810095B8BA /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		F40CB2F91FF24DAD000058A4 /* UINavigationBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extension.swift"; sourceTree = "<group>"; };
+		F40CB2FB1FF24F13000058A4 /* RoomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomTableViewController.swift; path = MGDYZB/Class/Tools/Category/RoomTableViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -686,6 +690,7 @@
 		3A9779D71DBF7EA200C79CE6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F40CB2FB1FF24F13000058A4 /* RoomTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -836,6 +841,7 @@
 				3A9779EE1DBF85D300C79CE6 /* ColorExtesion.swift */,
 				3A122BC61DC0B90F00285A40 /* UIBarButtonItem-Extension.swift */,
 				3AE6283C1DC5F7F300835B36 /* NSObject+FileManager.swift */,
+				F40CB2F91FF24DAD000058A4 /* UINavigationBar+Extension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1055,6 +1061,7 @@
 				3A9779FB1DBFA45200C79CE6 /* RecommendViewController.swift in Sources */,
 				3A294EFE1DC09964000EE406 /* RecommendCycleView.swift in Sources */,
 				3A0367981DC06E8E00F02FBA /* BaseGameModel.swift in Sources */,
+				F40CB2FC1FF24F13000058A4 /* RoomTableViewController.swift in Sources */,
 				C07C4B461E63ADB10043E1CE /* GameCenterViewController.swift in Sources */,
 				C04DE81D1E6128E8005FE676 /* UIBUtton+Extension.swift in Sources */,
 				C0D156D41E98E67B0095B8BA /* QRCodeViewController.swift in Sources */,
@@ -1076,6 +1083,7 @@
 				3A9779DF1DBF7EF100C79CE6 /* MGNavController.swift in Sources */,
 				3A02094F1DC5DB040002DA90 /* SettingCell.swift in Sources */,
 				3A03679E1DC078E100F02FBA /* CollectionBaseCell.swift in Sources */,
+				F40CB2FA1FF24DAD000058A4 /* UINavigationBar+Extension.swift in Sources */,
 				C075177E1E9C7DC600C84B6A /* ScanBottomView.swift in Sources */,
 				C04DE83D1E626E6E005FE676 /* UIView+Extension.swift in Sources */,
 				C07517841E9CB22A00C84B6A /* ScanButton.swift in Sources */,
@@ -1209,7 +1217,7 @@
 				DEVELOPMENT_TEAM = 6Q4SPHM5Z9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mingge.MGDYZB;
@@ -1232,7 +1240,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mingge.MGDYZB;
