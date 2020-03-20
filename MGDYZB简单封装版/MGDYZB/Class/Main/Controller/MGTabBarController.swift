@@ -17,7 +17,7 @@ class MGTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let tabBarAppear = UITabBarItem.appearance()
-        tabBarAppear.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.orange], for: UIControlState.selected)
+        tabBarAppear.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:UIColor.orange], for: UIControl.State.selected)
         
         setUpAllChildViewControllers()
     }
@@ -53,9 +53,9 @@ class MGTabBarController: UITabBarController {
         vc.title = title
 //        vc.view.backgroundColor = UIColor.randomColor()
         vc.tabBarItem.image = UIImage(named: imageName)
-        vc.tabBarItem.selectedImage = UIImage(named: selImage)?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        vc.tabBarItem.selectedImage = UIImage(named: selImage)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         
-        self.addChildViewController(MGNavController(rootViewController: vc))
+        self.addChild(MGNavController(rootViewController: vc))
     }
 
 }

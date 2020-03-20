@@ -151,13 +151,13 @@ extension UIColor {
         var hHex = (hex.trimmingCharacters(in: whitespace)).uppercased()
         
         /** 如果处理过后的字符串少于6位 */
-        if hHex.characters.count < 6 {
+        if hHex.count < 6 {
             return UIColor.clear
         }
         
         /** 开头是用0x开始的  或者  开头是以＃＃开始的 */
         if hHex.hasPrefix("0X") || hHex.hasPrefix("##") {
-            hHex =  String(hHex.characters.dropFirst(2))
+            hHex =  String(hHex.dropFirst(2))
         }
         
         /** 开头是以＃开头的 */
@@ -166,7 +166,7 @@ extension UIColor {
         }
         
         /** 截取出来的有效长度是6位， 所以不是6位的直接返回 */
-        if hHex.characters.count != 6 {
+        if hHex.count != 6 {
             return UIColor.clear
         }
         
@@ -196,16 +196,16 @@ extension UIColor {
     
     
     convenience init(hex string: String) {
-        var hex = string.hasPrefix("#") ? String(string.characters.dropFirst()) : string
+        var hex = string.hasPrefix("#") ? String(string.dropFirst()) : string
 
-        guard hex.characters.count == 3 || hex.characters.count == 6
+        guard hex.count == 3 || hex.count == 6
             else {
                 self.init(white: 1.0, alpha: 0.0)
                 return
         }
 
-        if hex.characters.count == 3 {
-            for (index, char) in hex.characters.enumerated() {
+        if hex.count == 3 {
+            for (index, char) in hex.enumerated() {
                 hex.insert(char, at: hex.index(hex.startIndex, offsetBy: index * 2))
             }
         }

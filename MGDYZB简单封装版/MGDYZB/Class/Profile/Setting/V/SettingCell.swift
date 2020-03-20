@@ -33,7 +33,7 @@ class SettingCell: UITableViewCell {
     }()
     
     
-    class func cellWithTbaleView(_ tableView: UITableView , style: UITableViewCellStyle) -> SettingCell{
+    class func cellWithTbaleView(_ tableView: UITableView , style: UITableViewCell.CellStyle) -> SettingCell{
         var cell = tableView.dequeueReusableCell(withIdentifier: KSettingCellID) as? SettingCell
         if (cell == nil) {
             cell = SettingCell(style: style, reuseIdentifier: KSettingCellID)

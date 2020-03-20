@@ -52,7 +52,7 @@ class RecommendGameView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // 让控件不随着父控件的拉伸而拉伸
-        autoresizingMask = UIViewAutoresizing()
+        autoresizingMask = UIView.AutoresizingMask()
         addSubview(collectionView)
     }
     

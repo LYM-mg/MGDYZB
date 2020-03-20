@@ -14,7 +14,7 @@ import SafariServices
 
 class BaseLiveViewController: BaseViewController {
     // MARK:- ViewModel
-    lazy var baseLiveVM : BaseLiveViewModel = BaseLiveViewModel()
+    lazy var  baseLiveVM : BaseLiveViewModel = BaseLiveViewModel()
     
     lazy var collectionView : UICollectionView = {[weak self] in
         // 1.创建layout
@@ -91,7 +91,7 @@ extension BaseLiveViewController {
     }
     
     // 加载数据
-    func loadData() {
+    @objc func loadData() {
 
     }
 }

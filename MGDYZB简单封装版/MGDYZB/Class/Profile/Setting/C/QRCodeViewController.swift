@@ -38,9 +38,9 @@ class QRCodeViewController: UIViewController {
         label.layer.masksToBounds = true
         label.backgroundColor = UIColor(red: 0, green:  0, blue: 0, alpha: 0.5)
         let attrStr = NSMutableAttributedString(string: label.text!)
-        attrStr.setAttributes([NSBackgroundColorAttributeName:  UIColor.red], range: NSMakeRange(0, attrStr.length))
-        attrStr.setAttributes([NSForegroundColorAttributeName: UIColor.orange], range: NSMakeRange(0, 3))
-        attrStr.setAttributes([NSForegroundColorAttributeName: UIColor.blue], range: NSMakeRange(3, 10))
+        attrStr.setAttributes([NSAttributedString.Key.backgroundColor:  UIColor.red], range: NSMakeRange(0, attrStr.length))
+        attrStr.setAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], range: NSMakeRange(0, 3))
+        attrStr.setAttributes([NSAttributedString.Key.foregroundColor: UIColor.blue], range: NSMakeRange(3, 10))
         // UIColor(red: 32, green:  43, blue: 120, alpha: 0.5)
        
         label.textAlignment = .center
@@ -106,7 +106,7 @@ extension QRCodeViewController: UIImagePickerControllerDelegate,UINavigationCont
     /**
      *  打开照相机/打开相册
      */
-    func openCamera(_ type: UIImagePickerControllerSourceType,title: String? = "") {
+    func openCamera(_ type: UIImagePickerController.SourceType,title: String? = "") {
         if !UIImagePickerController.isSourceTypeAvailable(type) {
             self.showInfo(info: "Camera不可用")
             return
@@ -128,12 +128,12 @@ extension QRCodeViewController: UIImagePickerControllerDelegate,UINavigationCont
         present(ipc, animated: true,  completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let mediaType = info[UIImagePickerControllerMediaType] as! String
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! String
         
         //判读是否是视频还是图片
         if mediaType == kUTTypeMovie as String {
-            let moviePath = info[UIImagePickerControllerMediaURL] as? URL
+            let moviePath = info[UIImagePickerController.InfoKey.mediaURL] as? URL
             //获取路径
             let moviePathString = moviePath!.relativePath
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(moviePathString){
@@ -142,14 +142,14 @@ extension QRCodeViewController: UIImagePickerControllerDelegate,UINavigationCont
             print("视频")
         } else {
             print("图片")
-            let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
             imageView.image = image
             getQRCodeInfo(image: image!)
         }
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func video(_ videoPath: String, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer) {
+    @objc func video(_ videoPath: String, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer) {
         guard error == nil else{
             self.showMessage(info: "保存视频失败")
             return
@@ -190,7 +190,7 @@ extension QRCodeViewController {
             colorFilter.setValue(CIColor(red: b, green: g, blue: r), forKey: "inputColor1")
             
             let codeImage = UIImage(ciImage: (colorFilter.outputImage!
-                .applying(CGAffineTransform(scaleX: 5, y: 5))))
+                .transformed(by: CGAffineTransform(scaleX: 5, y: 5))))
             
             // 通常,二维码都是定制的,中间都会放想要表达意思的图片
             if let QRCImage = UIImage(named: QRCImage!) {
@@ -284,7 +284,7 @@ extension QRCodeViewController {
     }
     
     // MARK:- 保存图片的方法
-    func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer) {
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeMutableRawPointer) {
         guard error == nil else{
             self.showMessage(info: "保存图片失败")
             return

@@ -36,7 +36,7 @@ class GameViewController: BaseViewController {
         collectionView.backgroundColor = UIColor.white
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.register(UINib(nibName: "CollectionGameCell", bundle: nil), forCellWithReuseIdentifier: kGameCellID)
-        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
+        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
         collectionView.dataSource = self
         collectionView.delegate = self
         return collectionView

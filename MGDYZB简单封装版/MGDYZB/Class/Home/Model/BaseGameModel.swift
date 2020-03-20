@@ -17,6 +17,7 @@ class BaseGameModel: NSObject {
     var icon_url: String = ""
     var tag_id: NSNumber = 0
     
+    
     // MARK:- 自定义构造函数
     override init() {
         
@@ -26,6 +27,8 @@ class BaseGameModel: NSObject {
         super.init()
         
         setValuesForKeys(dict)
+        
+        
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) { }

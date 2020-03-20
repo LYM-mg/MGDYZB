@@ -24,7 +24,7 @@ class ProfileViewController: BaseViewController {
 
     
     fileprivate lazy var tableView: UITableView = {
-        let tbView = UITableView(frame: self.view.bounds, style: UITableViewStyle.grouped)
+        let tbView = UITableView(frame: self.view.bounds, style: UITableView.Style.grouped)
         tbView.dataSource = self
         tbView.delegate = self
 //        tbView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: KProfileViewCellID)
@@ -102,8 +102,8 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: KProfileViewCellID)
         if cell == nil {
-             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: KProfileViewCellID)
-             cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+             cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: KProfileViewCellID)
+            cell!.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         }
         
         let model = dataArr[(indexPath as NSIndexPath).row]
@@ -147,7 +147,7 @@ extension ProfileViewController: UITableViewDelegate {
 // MARK: - UITableViewDelegate
 extension ProfileViewController: ProfileHeaderViewDelegate {
     func ProfileHeaderViewSettingBtnClicked() {
-        let settingVC = SettingViewController(style: UITableViewStyle.grouped)
+        let settingVC = SettingViewController(style: UITableView.Style.grouped)
         self.navigationController?.pushViewController(settingVC, animated: true)
     }
     

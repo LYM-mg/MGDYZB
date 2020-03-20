@@ -59,15 +59,15 @@ class WebViewController: UIViewController {
     // MARK: - 导航栏
     fileprivate func buildRightItemBarButton() {
         let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 44))
-        rightButton.setImage(UIImage(named: "v2_refresh"), for: UIControlState.normal)
+        rightButton.setImage(UIImage(named: "v2_refresh"), for: UIControl.State.normal)
         rightButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -53)
-        rightButton.addTarget(self, action: #selector(WebViewController.refreshClick), for: UIControlEvents.touchUpInside)
+        rightButton.addTarget(self, action: #selector(WebViewController.refreshClick), for: UIControl.Event.touchUpInside)
        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
     }
     
     // MARK: - Action
     @objc fileprivate func refreshClick() {
-        if webView.request?.url != nil && webView.request!.url!.absoluteString.characters.count > 1 {
+        if webView.request?.url != nil && webView.request!.url!.absoluteString.count > 1 {
             webView.loadRequest(URLRequest(url: (webView.request?.url!)!))
         }
     }
@@ -87,7 +87,7 @@ extension WebViewController: UIWebViewDelegate {
         loadProgressAnimationView.endLoadProgressAnimation()
     }
     
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         let str = request.url?.absoluteString
         if (str?.hasPrefix("tel:"))! {
             let url = URL(string: str!)

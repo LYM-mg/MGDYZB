@@ -887,7 +887,6 @@
 				3A9779B31DBF7C3F00C79CE6 /* Frameworks */,
 				3A9779B41DBF7C3F00C79CE6 /* Resources */,
 				D78CF17BCD9B214928C67049 /* [CP] Embed Pods Frameworks */,
-				49AFC621A0BB2B0D156768E7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -909,9 +908,9 @@
 				TargetAttributes = {
 					3A9779B51DBF7C3F00C79CE6 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 6Q4SPHM5Z9;
+						DevelopmentTeam = H54L47S422;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -920,6 +919,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -953,34 +953,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49AFC621A0BB2B0D156768E7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGDYZB/Pods-MGDYZB-resources.sh\"\necho \"$CODESIGNING_FOLDER_PATH\" >/tmp/\"$USER.ident\" && echo \"$CODE_SIGN_IDENTITY\" >>/tmp/\"$USER.ident\" && exit;";
-			showEnvVarsInLog = 0;
-		};
 		D78CF17BCD9B214928C67049 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MGDYZB/Pods-MGDYZB-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/JHPullToRefreshKit/JHPullToRefreshKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JHPullToRefreshKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MGDYZB/Pods-MGDYZB-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MGDYZB/Pods-MGDYZB-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E958ED205172E17FB0238E86 /* [CP] Check Pods Manifest.lock */ = {
@@ -989,13 +985,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MGDYZB-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1214,18 +1213,18 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6Q4SPHM5Z9;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H54L47S422;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mingge.MGDYZB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mingge.MGDYZB1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "08314f14-28fa-497a-b7d9-c1c1cde41343";
-				PROVISIONING_PROFILE_SPECIFIER = DYDevelopment;
-				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;
-				SWIFT_VERSION = 3.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/MGDYZB/Bridge.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1237,17 +1236,19 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAssets;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H54L47S422;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MGDYZB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mingge.MGDYZB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mingge.MGDYZB1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = $SRCROOT/MGDYZB/Bridge.h;
-				SWIFT_VERSION = 3.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/MGDYZB/Bridge.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

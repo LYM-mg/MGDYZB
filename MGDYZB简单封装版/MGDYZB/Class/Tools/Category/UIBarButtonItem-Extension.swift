@@ -27,7 +27,7 @@ extension UIBarButtonItem {
         let btn = UIButton()
         
         // 2.设置btn的图片
-        btn.setImage(UIImage(named: imageName), for: UIControlState())
+        btn.setImage(UIImage(named: imageName), for: UIControl.State())
         if highImageName != "" {
             btn.setImage(UIImage(named: highImageName), for: .highlighted)
         }
@@ -56,7 +56,7 @@ extension UIBarButtonItem {
     class func createItem(_ imageName: String, highImageName: String = "", size: CGSize  = CGSize.zero) -> UIBarButtonItem {
         let btn = UIButton()
         
-        btn.setImage(UIImage(named: imageName), for: UIControlState())
+        btn.setImage(UIImage(named: imageName), for: UIControl.State())
         btn.setImage(UIImage(named: highImageName), for: .highlighted)
         
         btn.frame = CGRect(origin: CGPoint.zero, size: size)

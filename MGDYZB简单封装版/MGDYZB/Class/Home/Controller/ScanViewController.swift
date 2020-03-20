@@ -22,7 +22,7 @@ class ScanViewController: UIViewController {
     /// 是否是指定扫描区域
     fileprivate lazy var isOpenInterestRect: Bool = true
     /// 捕获设备，默认后置摄像头
-    fileprivate lazy var device: AVCaptureDevice? = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+    fileprivate lazy var device: AVCaptureDevice? = AVCaptureDevice.default(for: AVMediaType.video)
     /// 扫描界面底部工具栏
     fileprivate lazy var scanBottomToolBar: ScanBottomView = {
         let sb = ScanBottomView(frame: CGRect(x: 0, y: MGScreenH-100-MGNavHeight, width: MGScreenW, height: 100))
@@ -42,8 +42,8 @@ class ScanViewController: UIViewController {
                             device.flashMode = .on
                             device.torchMode = .on
                         }else {
-                            device.flashMode = AVCaptureFlashMode.off
-                            device.torchMode = AVCaptureTorchMode.off
+                            device.flashMode = AVCaptureDevice.FlashMode.off
+                            device.torchMode = AVCaptureDevice.TorchMode.off
                         }
                     }
                     device.unlockForConfiguration()
@@ -103,7 +103,7 @@ extension ScanViewController {
         self.view.backgroundColor = UIColor.clear
         self.edgesForExtendedLayout = UIRectEdge(rawValue: 0)
         drawScanView()
-        view.bringSubview(toFront: scanBottomToolBar)
+        view.bringSubviewToFront(scanBottomToolBar)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(self.changeCamera))
     }
@@ -112,16 +112,16 @@ extension ScanViewController {
     @objc fileprivate func changeCamera() {
         // 0.执行动画
         let rotaionAnim = CATransition()
-        rotaionAnim.type = "oglFlip"
-        rotaionAnim.subtype = "fromLeft"
+        rotaionAnim.type = CATransitionType(rawValue: "oglFlip")
+        rotaionAnim.subtype = CATransitionSubtype(rawValue: "fromLeft")
         rotaionAnim.duration = 0.5
         view.layer.add(rotaionAnim, forKey: nil)
         // 1.校验videoInput是否有值
         guard let videoInput = videoInput else { return }
         // 2.获取当前镜头
-        let position : AVCaptureDevicePosition = videoInput.device.position == .front ? .back : .front
+        let position : AVCaptureDevice.Position = videoInput.device.position == .front ? .back : .front
         // 3.创建新的input
-        guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) as? [AVCaptureDevice] else { return }
+        guard let devices = AVCaptureDevice.devices(for: AVMediaType.video) as? [AVCaptureDevice] else { return }
         guard let newDevice = devices.filter({$0.position == position}).first else { return }
         guard let newVideoInput = try? AVCaptureDeviceInput(device: newDevice) else { return }
         // 4.移除旧输入，添加新输入
@@ -143,12 +143,12 @@ extension ScanViewController {
     }
     
     // 3.开始扫描
-    open func startScanning() {
+    @objc open func startScanning() {
         // 1.创建会话 //高质量采集率
-        session.sessionPreset = AVCaptureSessionPresetHigh
+        session.sessionPreset = AVCaptureSession.Preset.high
         
         
-        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         if(authStatus == .restricted || authStatus == .denied) {
             self.showInfo(info: "请在iPhone的“设置”-“隐私”-“相机”功能中，找到“XXXX”打开相机访问权限")
             return
@@ -156,13 +156,13 @@ extension ScanViewController {
         
         // 2.判断输入能否添加到会话中
         if self.videoInput == nil {
-            guard let input = try? AVCaptureDeviceInput(device: device) else {
+            guard let input = try? AVCaptureDeviceInput(device: device!) else {
                 qRScanView?.deviceStopReadying()
                 self.showInfo(info: "没有相输入设备")
                 return
             }
             self.videoInput = input
-            if session.canAddInput(self.videoInput) {
+            if session.canAddInput(self.videoInput!) {
                 session.addInput(self.videoInput!)
             }
         }
@@ -170,8 +170,8 @@ extension ScanViewController {
         // 3.判断输出能够添加到会话中
         if self.output == nil {
             self.output = AVCaptureMetadataOutput()
-            if session.canAddOutput(output) {
-                session.addOutput(output)
+            if session.canAddOutput(output!) {
+                session.addOutput(output!)
             }
             if isOpenInterestRect {
                 output?.rectOfInterest = CGRect(x: (124)/MGScreenH, y: ((MGScreenW-220)/2)/MGScreenW, width: 220/MGScreenH, height: 220/MGScreenW)
@@ -187,7 +187,7 @@ extension ScanViewController {
         
         // 4.设置图层
         preViewLayer.frame = view.bounds
-        preViewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        preViewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         view.layer.insertSublayer(preViewLayer, at: 0)
         
         // 5.开始扫描
@@ -212,27 +212,27 @@ extension ScanViewController {
     }
     
     //MARK: ------获取系统默认支持的码的类型
-    func defaultMetaDataObjectTypes() ->[String] {
+    func defaultMetaDataObjectTypes() ->[AVMetadataObject.ObjectType] {
         var types =
-            [AVMetadataObjectTypeQRCode,
-             AVMetadataObjectTypeUPCECode,
-             AVMetadataObjectTypeCode39Code,
-             AVMetadataObjectTypeCode39Mod43Code,
-             AVMetadataObjectTypeEAN13Code,
-             AVMetadataObjectTypeEAN8Code,
-             AVMetadataObjectTypeCode93Code,
-             AVMetadataObjectTypeCode128Code,
-             AVMetadataObjectTypePDF417Code,
-             AVMetadataObjectTypeAztecCode,
+            [AVMetadataObject.ObjectType.qr,
+             AVMetadataObject.ObjectType.upce,
+             AVMetadataObject.ObjectType.code39,
+             AVMetadataObject.ObjectType.code39Mod43,
+             AVMetadataObject.ObjectType.ean13,
+             AVMetadataObject.ObjectType.ean8,
+             AVMetadataObject.ObjectType.code93,
+             AVMetadataObject.ObjectType.code128,
+             AVMetadataObject.ObjectType.pdf417,
+             AVMetadataObject.ObjectType.aztec,
              ];
         if #available(iOS 8.0, *) {
-            types.append(AVMetadataObjectTypeInterleaved2of5Code)
-            types.append(AVMetadataObjectTypeITF14Code)
-            types.append(AVMetadataObjectTypeDataMatrixCode)
+            types.append(AVMetadataObject.ObjectType.interleaved2of5)
+            types.append(AVMetadataObject.ObjectType.itf14)
+            types.append(AVMetadataObject.ObjectType.dataMatrix)
             
-            types.append(AVMetadataObjectTypeInterleaved2of5Code)
-            types.append(AVMetadataObjectTypeITF14Code)
-            types.append(AVMetadataObjectTypeDataMatrixCode)
+            types.append(AVMetadataObject.ObjectType.interleaved2of5)
+            types.append(AVMetadataObject.ObjectType.itf14)
+            types.append(AVMetadataObject.ObjectType.dataMatrix)
         }
         
         return types;
@@ -258,7 +258,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
         drawBorder(object: newObject)
     
         // 4.获取扫描结果并且显示出来
-        if object.stringValue != nil && !object.stringValue.isEmpty {
+        if object.stringValue != nil && !object.stringValue!.isEmpty {
             qRScanView?.stopScanAnimation()
             session.stopRunning()
             UIView.animate(withDuration: 0.3, animations: { 
@@ -267,8 +267,8 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
             })
             
             // 如果是网址就跳转
-            if object.stringValue.contains("http://") || object.stringValue.contains("https://") {
-                let url = URL(string: object.stringValue)
+            if object.stringValue!.contains("http://") || object.stringValue!.contains("https://") {
+                let url = URL(string: object.stringValue!)
                 if  UIApplication.shared.canOpenURL(url!) {
                     UIApplication.shared.openURL(url!)
                 }
@@ -353,7 +353,7 @@ extension ScanViewController: UIImagePickerControllerDelegate,UINavigationContro
     /**
      *  打开照相机/打开相册
      */
-    func openCamera(_ type: UIImagePickerControllerSourceType,title: String? = "") {
+    func openCamera(_ type: UIImagePickerController.SourceType,title: String? = "") {
         if !UIImagePickerController.isSourceTypeAvailable(type) {
             self.showInfo(info: "Camera不可用")
             return
@@ -364,8 +364,8 @@ extension ScanViewController: UIImagePickerControllerDelegate,UINavigationContro
         present(ipc, animated: true,  completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         getQRCodeInfo(image: image!)
         picker.dismiss(animated: true, completion: nil)
     }
@@ -392,7 +392,7 @@ extension ScanViewController: UIImagePickerControllerDelegate,UINavigationContro
                     UIApplication.shared.openURL(url!)
                 }
             } else {  // 其他信息 弹框显示
-                debugPrint(feature.messageString)
+                debugPrint(feature.messageString ?? "")
             }
         }
     }

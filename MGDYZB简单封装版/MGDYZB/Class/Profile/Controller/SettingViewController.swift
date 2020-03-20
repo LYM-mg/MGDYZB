@@ -136,8 +136,8 @@ extension SettingViewController{
 extension SettingViewController {
     fileprivate func takePhone() {
         
-       let alertVC = UIAlertController(title: "确定要拨打电话", message: "1292043630", preferredStyle: UIAlertControllerStyle.actionSheet)
-       let phoneAction = UIAlertAction(title: "拨打", style: UIAlertActionStyle.destructive) { (action) -> Void in
+        let alertVC = UIAlertController(title: "确定要拨打电话", message: "1292043630", preferredStyle: UIAlertController.Style.actionSheet)
+        let phoneAction = UIAlertAction(title: "拨打", style: UIAlertAction.Style.destructive) { (action) -> Void in
             /// 1.第一种打电话(拨打完电话回不到原来的应用，会停留在通讯录里，而且是直接拨打，不弹出提示)
 //            UIApplication.sharedApplication().openURL(NSURL(string: String("tel:13750525922"))!)
 
@@ -152,7 +152,7 @@ extension SettingViewController {
             UIApplication.shared.openURL(URL(string: str)!)
         }
 
-        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.default, handler: nil)
+        let cancelAction = UIAlertAction(title: "取消", style: UIAlertAction.Style.default, handler: nil)
         alertVC.addAction(phoneAction)
         alertVC.addAction(cancelAction)
         self.navigationController?.present(alertVC, animated: true, completion: nil)

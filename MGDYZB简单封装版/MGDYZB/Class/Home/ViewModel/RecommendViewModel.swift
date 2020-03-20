@@ -34,10 +34,10 @@ extension RecommendViewModel {
         
         NetWorkTools.requestData(type: .get, urlString: "http://capi.douyucdn.cn/api/v1/getbigDataRoom", succeed: { (result, err) in
             // 1.将result转成字典类型
-            guard let resultDict = result as? [String : NSObject] else { return }
+            guard let resultDict = result as? [String : Any] else { return }
             
             // 2.根据data该key,获取数组
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
+            guard let dataArray = resultDict["data"] as? [[String : Any]] else { return }
             
             // 3.遍历字典,并且转成模型对象
             // 3.1.设置组的属性
@@ -90,7 +90,7 @@ extension RecommendViewModel {
         // 5.请求2-12部分游戏数据
         dGroup.enter()
         // http://capi.douyucdn.cn/api/v1/getHotCate?limit=4&offset=0&time=1474252024
-        loadAnchorData(isGroup: true, urlString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) { _ in
+        loadAnchorData(isGroup: true, urlString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) { 
             dGroup.leave()
         }
         

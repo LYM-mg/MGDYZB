@@ -56,20 +56,18 @@ class AllListViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-}
-
-
-// MARK: - 初始化UI
-extension AllListViewController {
-    override func setUpMainView()  {
+    
+    // MARK: - 初始化UI
+    override func setUpMainView() {
         // 0.给ContentView进行赋值
         contentView = collectionView
-        
+
         view.addSubview(collectionView)
-        
+
         super.setUpMainView()
     }
 }
+
 
 extension AllListViewController{
     fileprivate func loadData() {

@@ -251,7 +251,7 @@ extension SearchResultViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.characters.count == 0 {
+        if searchText.count == 0 {
             
         }
     }

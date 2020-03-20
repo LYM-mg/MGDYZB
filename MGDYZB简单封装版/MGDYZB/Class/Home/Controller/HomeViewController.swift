@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
             let welcomeImage = UIImageView(frame: window!.bounds)
             welcomeImage.image = getWelcomeImage()
             window!.addSubview(welcomeImage)
-            window!.bringSubview(toFront: welcomeImage) // 把背景图放在最上层
+            window!.bringSubviewToFront(welcomeImage) // 把背景图放在最上层
             welcomeImage.alpha = 0.99 //这里alpha的值和下面alpha的值不能设置为相同的，否则动画相当于瞬间执行完，启动页之后动画瞬间消失。这里alpha设为0.99，动画就不会有一闪而过的效果，而是一种类似于静态背景的效果。设为0，动画就相当于是淡入的效果了。
             
             // UIViewAnimationOptionCurveEaseOut
@@ -74,7 +74,7 @@ class HomeViewController: UIViewController {
         let info = Bundle.main.infoDictionary
         let imagesDict = info!["UILaunchImages"] as! [[String: AnyObject]]
         for dict in imagesDict {
-            let imageSize = CGSizeFromString(dict["UILaunchImageSize"] as! String)
+            let imageSize = NSCoder.cgSize(for: dict["UILaunchImageSize"] as! String)
             if imageSize.equalTo(viewSize) && viewOrientation == dict["UILaunchImageOrientation"] as! String {
                 launchImageName = dict["UILaunchImageName"] as! String
             }

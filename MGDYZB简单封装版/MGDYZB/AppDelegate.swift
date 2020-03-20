@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     fileprivate lazy var tabBarVC:MGTabBarController = MGTabBarController()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
 //        NSThread.sleepForTimeInterval(1.0) //延迟启动程序
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -87,7 +87,7 @@ extension AppDelegate {
         bgView.addSubview(scrollView)
     }
     
-    func EnterHomeView(_ noti: Notification) {
+    @objc func EnterHomeView(_ noti: Notification) {
         // 获取通知传过来的按钮
         let dict = (noti as NSNotification).userInfo as! [String: AnyObject]
         let btn = dict["sender"]

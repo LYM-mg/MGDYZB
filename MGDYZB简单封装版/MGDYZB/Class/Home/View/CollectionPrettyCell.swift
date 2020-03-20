@@ -27,19 +27,23 @@ class CollectionPrettyCell: UICollectionViewCell {
             
             // 1.取出在线人数显示的文字
             var onlineStr : String = ""
-            if Int(anchor.online) >= 10000 {
-                onlineStr = "\(Int(anchor.online)/10000)万人在线"
-            } else {
-                onlineStr = "\(anchor.online)人在线"
+            if let online = anchor.online {
+                if online >= 10000.0 {
+                    onlineStr = "\(String(describing: online/10000))万人在线"
+                } else {
+                    onlineStr = "\(String(describing: online))人在线"
+                }
+            }else {
+                onlineStr = "无人在线"
             }
-            onlineBtn.setTitle(onlineStr, for: UIControlState())
+            onlineBtn.setTitle(onlineStr, for: UIControl.State())
             onlineBtn.sizeToFit()
             
             // 2.昵称的显示
-            nickNameBtn.setTitle(anchor.nickname, for: UIControlState())
+            nickNameBtn.setTitle(anchor.nickname, for: UIControl.State())
             
             // 3.设置位置(所在的城市)
-            cityBtn.setTitle(anchor.anchor_city, for: UIControlState())
+            cityBtn.setTitle(anchor.anchor_city, for: UIControl.State())
 
             // 4.设置封面图片
             guard let iconURL = URL(string: anchor.vertical_src) else { return }

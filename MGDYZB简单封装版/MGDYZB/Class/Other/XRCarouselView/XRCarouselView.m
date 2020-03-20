@@ -391,7 +391,9 @@ typedef enum{
     self.scrollView.contentOffset = CGPointMake(self.width * 2, 0);
     self.currIndex = self.nextIndex;
     self.pageControl.currentPage = self.currIndex;
-    self.describeLabel.text = self.describeArray[self.currIndex];
+    if (self.currIndex  < self.describeArray.count) {
+        self.describeLabel.text = self.describeArray[self.currIndex];
+    }
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {

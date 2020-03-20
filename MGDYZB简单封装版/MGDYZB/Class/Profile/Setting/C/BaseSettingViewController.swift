@@ -17,8 +17,8 @@ class BaseSettingViewController: UITableViewController {
     /** 缓存大小 */
     var total: UInt64 = 0
 
-    override init(style: UITableViewStyle) {
-        super.init(style: UITableViewStyle.grouped)
+    override init(style: UITableView.Style) {
+        super.init(style: UITableView.Style.grouped)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,7 +53,7 @@ class BaseSettingViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 1.创建cell
-       let cell = SettingCell.cellWithTbaleView(tableView, style: UITableViewCellStyle.value1)
+       let cell = SettingCell.cellWithTbaleView(tableView, style: UITableViewCell.CellStyle.value1)
         
         // 获取对应的组模型
         let group = self.groups[(indexPath as NSIndexPath).section];

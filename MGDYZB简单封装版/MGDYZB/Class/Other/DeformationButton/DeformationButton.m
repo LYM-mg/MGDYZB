@@ -43,9 +43,9 @@
     bgView = [[UIImageView alloc]initWithFrame:self.bounds];
     //bgView.backgroundColor = [UIColor blueColor];
     bgView.userInteractionEnabled = NO;
-    bgView.hidden = YES;
-    bgView.image=[UIImage imageNamed:@"按后"];
-    bgView.contentMode=UIViewContentModeCenter;
+    bgView.hidden = NO;
+    bgView.image = [UIImage imageNamed:@"按后"];
+    bgView.contentMode =UIViewContentModeCenter;
     [self addSubview:bgView];
     
     defaultW = bgView.frame.size.width;

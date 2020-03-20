@@ -21,7 +21,7 @@ class MGScrollTopWindow: NSObject{
     }()
 //    private lazy var btn: UIButton = { [weak self] in
 //           let btn = UIButton(frame: UIApplication.sharedApplication().statusBarFrame)
-//        btn.addTarget(self, action: Selector("scrollTopWindowclick"), forControlEvents: UIControlEvents.TouchUpInside)
+//        btn.addTarget(self, action: Selector("scrollTopWindowclick"), forControlEvents: UIControl.Event.TouchUpInside)
 //        btn.backgroundColor = UIColor.redColor()
 //        self!.statusBarView().addSubview(btn)
 //        btn.hidden = true;
@@ -38,7 +38,7 @@ class MGScrollTopWindow: NSObject{
     override init() {
         super.init()
         statusBarView().insertSubview(MGScrollTopWindow.scrollToWindow, at: 200)
-        MGScrollTopWindow.scrollToWindow.addTarget(self, action: #selector(MGScrollTopWindow.scrollTopWindowclick(_:)), for: UIControlEvents.touchUpInside)
+        MGScrollTopWindow.scrollToWindow.addTarget(self, action: #selector(MGScrollTopWindow.scrollTopWindowclick(_:)), for: UIControl.Event.touchUpInside)
     }
     
     deinit {

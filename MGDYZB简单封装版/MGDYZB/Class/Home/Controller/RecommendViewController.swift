@@ -60,7 +60,7 @@ class RecommendViewController: BaseViewController {
         // 3.注册
         collectionView.register(UINib(nibName: "CollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID)
         collectionView.register(UINib(nibName: "CollectionPrettyCell", bundle: nil), forCellWithReuseIdentifier: kPrettyCellID)
-        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
+        collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
         return collectionView
     }()
     
@@ -175,9 +175,11 @@ extension RecommendViewController: UICollectionViewDataSource {
             
             // 2.给cell设置数据
             if (recommendVM.anchorGroups.count>0) {
-                cell.anchor = recommendVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+                if indexPath.row < recommendVM.anchorGroups[indexPath.section].anchors.count {
+                    
+                    cell.anchor = recommendVM.anchorGroups[indexPath.section].anchors[indexPath.item]
+                }
             }
-            
             
             return cell
         }

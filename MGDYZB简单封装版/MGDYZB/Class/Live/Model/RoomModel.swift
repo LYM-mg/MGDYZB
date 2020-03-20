@@ -21,7 +21,6 @@ class RoomModel: AnchorModel {
     /// 在线数
 //    var online: Int = 0
     /// 所属分类
-    var game_name: String = ""
     var game_icon_url: String = ""
     /// 头像
     var owner_avatar: String = ""

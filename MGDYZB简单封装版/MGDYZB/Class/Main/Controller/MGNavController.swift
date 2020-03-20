@@ -73,13 +73,13 @@ class MGNavController: UINavigationController {
     // MARK: - 拦截Push操作
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         // 这里判断是否进入push视图
-        if (self.childViewControllers.count > 0) {
+        if (self.children.count > 0) {
             let backBtn = UIButton(image: #imageLiteral(resourceName: "back"), highlightedImage: #imageLiteral(resourceName: "backBarButtonItem"), title: "返回",target: self, action: #selector(MGNavController.backClick))
 
             // 设置按钮内容左对齐
-            backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left;
+            backBtn.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left;
             // 内边距
-            backBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -8, 0, 0);
+            backBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0);
             
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backBtn)
             // 隐藏要push的控制器的tabbar
@@ -89,7 +89,7 @@ class MGNavController: UINavigationController {
     }
     
     @objc fileprivate func backClick() {
-        if self.navigationController?.childViewControllers.count == 1 {
+        if self.navigationController?.children.count == 1 {
             dismiss(animated: true, completion: nil)
         }else {
             popViewController(animated: true)
@@ -101,7 +101,7 @@ class MGNavController: UINavigationController {
 extension MGNavController : UIGestureRecognizerDelegate{
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         ///判断是否是根控制器
-        if self.childViewControllers.count == 1
+        if self.children.count == 1
         {
             return false
         }  
@@ -120,7 +120,7 @@ extension MGNavController  {
         }
         
         navBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.00)
-        navBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,NSFontAttributeName:UIFont.boldSystemFont(ofSize: 18)]
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white,NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 18)]
     }
 }
 

@@ -31,7 +31,7 @@ extension UINavigationBar {
             self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             overlay = UIView.init(frame: CGRect.init(x: 0, y: 0, width: bounds.width, height: bounds.height+20))
             overlay?.isUserInteractionEnabled = false
-            overlay?.autoresizingMask = UIViewAutoresizing.flexibleWidth
+            overlay?.autoresizingMask = UIView.AutoresizingMask.flexibleWidth
         }
         overlay?.backgroundColor = backgroundColor
         subviews.first?.insertSubview(overlay!, at: 0)

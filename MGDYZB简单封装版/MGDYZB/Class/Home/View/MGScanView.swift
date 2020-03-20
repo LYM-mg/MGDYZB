@@ -100,7 +100,7 @@ extension MGScanView {
         switch viewStyle.anmiationStyle {
             case MGScanViewAnimationStyle.LineMove:
                 
-                print(NSStringFromCGRect(cropRect))
+                print(NSCoder.string(for: cropRect))
                 
                 scanLineAnimation!.startAnimatingWithRect(animationRect: cropRect, parentView: self, image:viewStyle.animationImage )
                 break
@@ -172,7 +172,7 @@ extension MGScanView {
         let YMaxRetangle = YMinRetangle + sizeRetangle.height
         let XRetangleRight = self.frame.size.width - XRetangleLeft
         
-        print("frame:%@",NSStringFromCGRect(self.frame))
+        print("frame:%@",NSCoder.string(for: self.frame))
         let context = UIGraphicsGetCurrentContext()!
         
         
@@ -410,7 +410,7 @@ extension MGScanView {
             self.activityView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             
             activityView?.center = CGPoint(x: XRetangleLeft +  sizeRetangle.width/2 - 50, y: YMinRetangle + sizeRetangle.height/2)
-            activityView?.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+            activityView?.style = UIActivityIndicatorView.Style.whiteLarge
             
             addSubview(activityView!)
             
@@ -462,7 +462,7 @@ class MGScanLineAnimation: UIImageView {
         }
     }
     
-    func stepAnimation(){
+    @objc func stepAnimation(){
         if (!isAnimationing) {
             return;
         }
